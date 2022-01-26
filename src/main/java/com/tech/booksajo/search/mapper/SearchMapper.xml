@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- //임현주 담당 마이페이지 전용 xml -->
+<!-- 멥퍼 경로 잘못설정되면 . jsp뷰 부분에서도 에러남. -->
+<mapper namespace="com.tech.booksajo.search.mapper.SearchMapper">
+	<select id="getList" resultType="map">
+	 select * from book
+	</select>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout" template="/WEB-INF/views/common/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+	</definition>
+	
+	
+	
+		<!--헤더푸터를 제외한 중앙화면구현 부분 -->
+	<definition name="main" extends="baseLayout">
+		<put-attribute name="title" value="메인페이지" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/index.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+	</definition>
+	
+<!-- 
+해더 푸터 안넣어줘서 404에러났
+요청된 리소스 [/booksajo/]은(는) 가용하지 않습니다. -->
+</tiles-definitions>

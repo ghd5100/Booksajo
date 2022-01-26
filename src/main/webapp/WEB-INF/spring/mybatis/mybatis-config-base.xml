@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
+<configuration>
+ 
+    <settings> 
+
+        <setting name="cacheEnabled" value="true"/>				<!-- 모든 매퍼의 모든 캐시를 전역으로 사용 여부 설정(default: true) -->
+	  	<setting name="lazyLoadingEnabled" value="false"/>		<!-- 늦은 로딩을 전역으로 가능하게 할지 여부 설정 -->
+	  	<setting name="multipleResultSetsEnabled" value="true"/>
+	  	<setting name="useColumnLabel" value="true"/>			<!-- 컬럼네임 대신 컬럼라벨 사용 (드라이버 마다 다름) -->
+	  	<setting name="useGeneratedKeys" value="false"/>		<!-- JDBC 생성키 지원 -->
+	  	<setting name="autoMappingBehavior" value="PARTIAL"/>	<!-- 자동 컬럼 매핑 (NONE, PARTIAL, FULL)  -->
+	  	<setting name="defaultExecutorType" value="SIMPLE"/>	<!-- 기본 executor 설정 -->
+	  	<setting name="defaultStatementTimeout" value="25000"/>	<!-- db timeout -->
+	  	<setting name="safeRowBoundsEnabled" value="false"/>	<!-- 중첩된 statement rowbounds -->
+	  	<setting name="mapUnderscoreToCamelCase" value="false"/>
+	  	<setting name="localCacheScope" value="SESSION"/>
+	  	<setting name="jdbcTypeForNull" value="NULL"/>			<!-- (NULL, VARCHAR and OTHER) -->
+	  	<setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+    </settings>
+    
+    <typeAliases >
+    	<typeAlias type="java.util.Map" alias="map"/>
+    	<typeAlias type="java.lang.String" alias="String"/>
+    	<typeAlias type="java.lang.Integer" alias="Integer"/>
+    	<typeAlias type="java.lang.Boolean" alias="Boolean"/>
+    </typeAliases>
+ 
+    <typeHandlers>
+        <!--  java.sql.Timestamp 를 java.util.Date 형으로 반환 -->
+        <typeHandler javaType="java.sql.Timestamp" handler="org.apache.ibatis.type.DateTypeHandler"/>
+        <typeHandler javaType="java.sql.Time"      handler="org.apache.ibatis.type.DateTypeHandler"/>
+        <typeHandler javaType="java.sql.Date"      handler="org.apache.ibatis.type.DateTypeHandler"/>
+    </typeHandlers>
+
+</configuration>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- //변경섭씨 담당 메인전용 xml -->
+<mapper namespace="com.tech.booksajo.main.mapper.mainMapper">
+	<select id="getList" resultType="map">
+	 select * from book
+	</select>
+</mapper>
