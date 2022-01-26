@@ -45,6 +45,4 @@ public class HomeController {
 	
 }
 
-//push확인
-//push확인2
-//push확인
+//푸시확인 김동빈
