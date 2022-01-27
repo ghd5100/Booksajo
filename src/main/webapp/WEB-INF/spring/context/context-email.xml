@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+    xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+ 
+
+<!-- 	<context:component-scan base-package="com.tech.springwebt_mail" />
+
+ 	Mybatis Mapper Interface 와 xml 을 검색하여 매핑시켜주는 역활
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.tech.booksajo" />
+        <property name="sqlSessionFactoryBeanName" value="msSqlSessionFactory" />
+    </bean>
+    
+      <bean id="sqlSessionFactory" name="msSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="/WEB-INF/spring/mybatis/mybatis-config-base.xml" />
+        <property name="mapperLocations">
+            <list>
+                <value>classpath*:com/tech/booksajo/**/*Mapper.xml</value>
+            </list>
+        </property>
+    </bean>
+ -->
+
+
+</beans>   
+   

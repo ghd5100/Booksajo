@@ -7,6 +7,6 @@
     					
     <beans:import resource="context/context-datasource.xml"/>
     <beans:import resource="context/context-mapper.xml" />
-
+	<!-- <beans:import resource="context/context-email.xml" /> -->
     
 </beans:beans>
