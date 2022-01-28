@@ -28,5 +28,10 @@ public class SearchController {
 	}
 	
 
+	@RequestMapping("/search")
+	public String search() {
+		
+		return "search";
+	}
 
 }

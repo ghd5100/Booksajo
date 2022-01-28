@@ -43,6 +43,17 @@ public class HomeController {
 		main.jsp가 아니라*/
 	}
 	
+	
+	@RequestMapping("/index")
+	public String index() {
+
+		
+
+		return "main";
+		
+	}
+	
+	
 }
 
 //푸시확인 김동빈
