@@ -21,6 +21,31 @@
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
 	
+	<!-- 각 페이지 마다 레이아웃이 다 다를때: 여기서는 레이아웃2에는 사이드가 없도록 구현하고자 함 -->
+	<!-- layout2 정의를 하나더 선언해줌 -->
+	<!-- 타이틀 헤더 사이드 바디 풋터 레이아웃 다 쓸경우 선언문 -->
+	<definition name="secondLayout" template="/WEB-INF/views/common/search/search_layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/search/search_side.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+	</definition>
+	
+	
+	<!-- 상속받는거 해당하는거 연결되도록 -->
+	<!-- 임현주 search전용 중앙화면부분 -->
+	<!-- 레이아웃에서 안바뀔부분은 안써두 되고 바뀔부분만 선언 -->
+	
+		<definition name="search" extends="secondLayout">
+		<put-attribute name="title" value="SEARCH PAGE" />
+		<put-attribute name="side" value="/WEB-INF/views/common/search/search_side.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/search/search_center.jsp" />
+	</definition>
+	
+	
+	
+	
 <!-- 
 해더 푸터 안넣어줘서 404에러났
 요청된 리소스 [/booksajo/]은(는) 가용하지 않습니다. -->
