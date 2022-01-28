@@ -43,6 +43,7 @@ float: right;
 position: relative;
 left: 50px;
 bottom: 37px;
+background-color: #fff;
 
 }
 
