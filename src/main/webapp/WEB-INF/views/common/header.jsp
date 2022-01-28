@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head>
-<!--    <script src="resources/lib/jquery/jquery-3.6.0.min.js"></script>
+<!-- 	<script src="resources/lib/jquery/jquery-3.6.0.min.js"></script>
     <script src="resources/lib/bootstrap/js/bootstrap.js"></script>
 <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.min.css">
 부트스트랩은 제이쿼리랑 자바스크립트 기반으로함으로 라이브러리 추가해줘야 동작함
@@ -20,10 +20,10 @@
 <style>
 
 .top1 {
-   border-collapse: collapse;
-   width: auto;
-   font-size: 11px;
-   padding-left: 3%;
+	border-collapse: collapse;
+	width: auto;
+	font-size: 11px;
+	padding-left: 3%;
 }
 
 #g{
@@ -32,27 +32,35 @@ left: 780px;
 }
 
 .d-flex{
-width: 300px;
- position: relative; left: 10%;
+/* border: 1px solid; */
+padding:55px 65px;
+width: 500px;
+position: relative; left: 10%;
+}
+
+.btn{
+float: right;
+position: relative;
+left: 50px;
+bottom: 37px;
+
 }
 
 #c {
-   border: none;
-   margin-left: 850px;
-   padding-right: 10px;
+	border: none;
+	margin-left: 850px;
+	padding-right: 10px;
 }
 
 .top2 {
-   border: 1px solid;
-   border-collapse: collapse;
-   background-color: #eee;
-   height: 150px;
-   padding-left: 5%;
-   padding-top: 3%;
+	border: 1px solid;
+	border-collapse: collapse;
+	background-color: #eee;
+	height: 150px;
+	padding-left: 5%;
+	padding-top: 3%;
 }
-#img{
 
-}
 #a{
 margin-left:5%;
 padding: 2%;
@@ -63,13 +71,15 @@ float: left;
 }
 
 #b{
-margin: 0% 15%;
-padding: 3%;
+margin: 0% 10%;
+padding-left:5%;
 width:500px;
 border: none;
 float: left;
 /* 서치부분 */
 }
+
+
 
 a{
 font:bold;
@@ -79,6 +89,7 @@ color: white;
 
 #c{
 border: none;
+color: white;
 }
 
 .list-inline{
@@ -93,30 +104,30 @@ background-color: #6662a1;
 
 
 <header class="header">
-   <nav class="navbar navbar-default">
-      <div class="top1">
-         <ul class="nav navbar-nav">
-            <li><a href="#">매장안내</a></li>
-            <li><a href="#">회원해택</a></li>
-            <li><a href="#">Prestige Lounge</a></li>
+	<nav class="navbar navbar-default">
+		<div class="top1">
+			<ul class="nav navbar-nav">
+				<li><a href="#">매장안내</a></li>
+				<li><a href="#">회원해택</a></li>
+				<li><a href="#">Prestige Lounge</a></li>
 
-            <li id="g"><a href="#">로그인</a></li>
-            <li id="g"><a href="#">회원가입</a></li>
-            <li id="g"><a href="#">출석체크</a></li>
-            <li id="g"><a href="#">고객센터</a></li>
-            <li id="g"><a href="#">주문배송</a></li>
-            <li id="g"><a href="#">장바구니</a></li>
-         </ul>
-      </div>
-   </nav>
+				<li id="g"><a href="#">로그인</a></li>
+				<li id="g"><a href="#">회원가입</a></li>
+				<li id="g"><a href="#">출석체크</a></li>
+				<li id="g"><a href="#">고객센터</a></li>
+				<li id="g"><a href="#">주문배송</a></li>
+				<li id="g"><a href="#">장바구니</a></li>
+			</ul>
+		</div>
+	</nav>
 
 <div id="a">
-<a href="#"><img src="resources/img/logo.png" width="205px" height="97px" alt="" width="30" height="24" id="img"></a>
+<a href="index"><img src="resources/img/logo.png" width="205px" height="97px" alt="" width="30" height="24" id="img"></a>
 </div>
 <div id="b">
 <form class="d-flex">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit" style="height: 40px;"  >
+      <button class="btn btn-outline-success" type="submit" style="height: 40px; float: right;"  >
       <span class="glyphicon glyphicon-search"></span>
       </button>
     </form>
