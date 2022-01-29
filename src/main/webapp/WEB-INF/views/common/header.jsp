@@ -100,6 +100,29 @@ background-color: #6662a1;
 
  
 }
+
+footer{
+padding-top:50px;
+height:200px;
+background-color: #f5f5f5;
+}
+p{
+padding-bottom: 5px;
+padding-right: 10%;
+}
+
+.footer {
+margin-bottom:0px;
+border: none;
+padding: 10px;
+background-color: #a7a69d;
+
+}
+.footer a{
+color: #dbd7d2;
+text-decoration: none;
+}
+
 </style>
 
 
@@ -128,8 +151,8 @@ background-color: #6662a1;
 <div id="b">
 <form class="d-flex">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit" style="height: 40px; float: right;"  >
-      <span class="glyphicon glyphicon-search"></span>
+      <button class="btn btn-outline-success" type="submit" style="height: 40px; float: right; "  >
+      <img src="resources/img/search_icon3.png" width="23px;"  height="23px;" />
       </button>
     </form>
 </div>
