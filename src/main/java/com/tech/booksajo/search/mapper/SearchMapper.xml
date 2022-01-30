@@ -8,23 +8,28 @@
 
 <mapper namespace="com.tech.booksajo.search.mapper.SearchMapper">
 
+	<select id="getList" resultType="map">
+	 select * from book
+	</select>
+
+<!-- 
   <sql id="includeList"> 
 	   <choose>
-	   <!-- 파람4값이 1일때 -->
+	   파람4값이 1일때
 	      <when test="param4==1"> 
 	         WHERE BTITLE LIKE '%'||#{param3}||'%'
 	      </when>
-	      <!-- 파람4값이 2일때 -->
+	      파람4값이 2일때
 	      <when test="param4==2">
 	         WHERE BCONTENT LIKE '%'||#{param3}||'%'
 	      </when>
-	      <!-- 파람4값이 3일때 -->
+	      파람4값이 3일때
 	      <when test="param4==3">
 	         WHERE BTITLE LIKE '%'||#{param3}||'%' or BCONTENT LIKE '%'||#{param3}||'%'
 	      </when>
 	      <otherwise>
 	      
-	      <!-- 3이상의 경우는 없어서 빈란임 -->
+	      3이상의 경우는 없어서 빈란임
 	      
 	      </otherwise>
 	   </choose>
@@ -54,8 +59,8 @@
 		SELECT COUNT(*) FROM REPLYBOARD
 	</select>	
 		
-		<!-- id는 함수이름명과 같아야함 -->
-	<!-- 인서트 쿼리 id만들때 파라미터타입 넣어줘야함. 왜냐면 타입을 지정한다음에 인서트해줘야함. -->
+		id는 함수이름명과 같아야함
+	인서트 쿼리 id만들때 파라미터타입 넣어줘야함. 왜냐면 타입을 지정한다음에 인서트해줘야함.
 	<insert id="write">
 		INSERT INTO REPLYBOARD
 			VALUES(REPLYBOARD_SEQ.NEXTVAL,#{param1},#{param2},#{param3},
@@ -63,8 +68,8 @@
 	</insert>
 	
 	
-		<!-- 받아오려는 애들이 Dto에있는 겟터세터 타입 형식이라고 해줘야지 받는데 문제가 없음. 리져트타입 안멩글어주면
-	무슨 타입인지 몰라서 문제생김 -->
+		받아오려는 애들이 Dto에있는 겟터세터 타입 형식이라고 해줘야지 받는데 문제가 없음. 리져트타입 안멩글어주면
+	무슨 타입인지 몰라서 문제생김
 	<select id="contentView" resultType="map">
 		SELECT BID,BNAME,BTITLE,BCONTENT,BDATE,
 		BHIT,BGROUP,BSTEP,BINDENT
@@ -76,6 +81,6 @@
 		SET BHIT = BHIT + 1 
 		WHERE BID = #{param1}
 	</update>
-	
+	 -->
 	
 </mapper>

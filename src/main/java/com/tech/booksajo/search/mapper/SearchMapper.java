@@ -12,7 +12,11 @@ import com.tech.booksajo.search.vo.SearchDto;
 @MapperScan
 public interface SearchMapper {
 	
-	public List<Map<String,Object>>  List(int start,int end,String searcKeyword,String selNum);
+	
+	List<Map<String,Object>> getList();
+	
+	
+/*	public List<Map<String,Object>>  List(int start,int end,String searcKeyword,String selNum);
 	public void write(String bName,String bTitle, String bContent);
 	public Map<String,Object> contentView(String sbid);
 	public void upHit(String sbid);
@@ -33,5 +37,5 @@ public interface SearchMapper {
 	public int selectBoardTotCount3(String searchKeyword);
 	public int selectBoardTotCount0(String searchKeyword);
 	
-	
+	*/
 }

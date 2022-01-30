@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tech.booksajo.main.service.mainService;
 import com.tech.booksajo.search.service.SearchService;
-import com.tech.booksajo.search.service.bookService;
+/*import com.tech.booksajo.search.service.bookService;*/
 
 import lombok.RequiredArgsConstructor;
 
@@ -26,14 +26,32 @@ public class SearchController {
 	@Autowired
 	SearchService searchService;
 	
-	@Autowired
-	bookService bookservice;
+//	@Autowired
+//	bookService bookservice;
+
 	
+	@RequestMapping(value = "/search/api/getList", method = RequestMethod.GET  )
+	@ResponseBody
+	public List<Map<String,Object>> getList(){
+		return searchService.getList();
+	}	
+	
+	
+	
+	@RequestMapping("/search")
+	public String search() {
+		
+		return "search";
+	}
+	
+	
+/*	
 	@RequestMapping(value = "/List")
 	public List<Map<String,Object>> List(@RequestBody Map<String,Object> requestDto){
 		return searchService.List(requestDto);
 	}
-	
+
+
 	@RequestMapping("/write")
 	public void write(@RequestBody Map<String,Object> requestDto) {
 		String bName= (String) requestDto.get("bName");
@@ -46,18 +64,7 @@ public class SearchController {
 	public Map<String,Object> content_view(@PathVariable String bid) {
 			return searchService.content_view(bid);
 	}
-
-	@GetMapping("/app/book/api/getList")
-	public List<Map<String,Object>> getList(){
-		return bookservice.findAll();
-	}
-	
-	@RequestMapping("/search")
-	public String search() {
-		
-		return "search";
-	}
-	
+*/
 	
 	
 	
