@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="resources/css/search_center.css">
 
-<h1><b>SEARCH CENTER</b></h1>
+
 <!-- 여기다가 검색테이블 구현하면 되겠다요 -->
 
 
@@ -30,6 +30,17 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+</div>
+
+
+<div id="today">
+
+
+</div>
+
+<div id="best">
+
+
 </div>
 
 

@@ -9,59 +9,46 @@
 <style>
 
 
-.top1 {
-	border-collapse: collapse;
-	width: auto;
-	font-size: 11px;
-	padding-left: 3%;
-}
-#g{
-position: relative;
-left: 780px;
-}
-
-
 #container{
 	width: 100%;
-	margin: 0px 0px;
+	margin: 260px 0px;
 	text-align: center;
 	border: 0px solid #bcbcbc;
-
+	background-color:white;
 }
 
 
 #sidebar-left{
 	width: 11%;
 	height: 500px;
-	margin-left: 7%;
-	margin-bottom: 5px;
+	margin-left: 20%;
+	margin-top:5px;
+	padding-top:0px;
 	float: left;
 	background-color: #fff;
 	border: 1.5px solid #a8afe5;
 	border-collapse:collapse;
 	font-size: 10px;
+	z-index: -1;
 }
 
 #content{
-	margin-top:0px;
-	width: 100%;
-
-	margin-right: 5px;
+	margin-top:5px;
+	width:50%;
+	margin-left:5px;
 	float: left;
-	border: 0px solid #bcbcbc;
-	height: 100%;
+/* 	border: 2px solid #bcbcbc; */
+	height: 1500px;
+	z-index: -1;
 	
 	/* 사이드바 높이 없어지면서 메인부분이 높이가 너무 짧아짐 내용부분에 높이 추가하면댐 */ 
 	
 }
 
-
 #footer{
-	clear: both;
-	height: 50px;
-	border: none;
-	background-color: #eee;
+z-index: -2;
 }
+
 
 </style>
 

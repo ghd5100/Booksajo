@@ -9,6 +9,7 @@
 
 <footer class="a3">
 <!-- 샘플 footer... -->	
+
 <ul class="nav justify-content-center footer">
   <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="#">팀원소개</a>
@@ -27,7 +28,6 @@
   </li>
 </ul>
   <!-- Copyright -->
-  
   <div>
 <img src="resources/img/logo.png" width="110px" height="50px" style="float: left; margin-left: 5%;">
 	</div>
