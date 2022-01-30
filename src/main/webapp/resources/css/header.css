@@ -44,8 +44,9 @@ float: left;
 .d-flex{
 /* 서치박스부분 */
 padding:55px 65px;
-width: 500px;
+width: 600px;
 position: relative; left: 10%;
+border: 1px solid;
 }
 
 ul li{
