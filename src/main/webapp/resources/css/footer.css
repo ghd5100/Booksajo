@@ -1,0 +1,33 @@
+
+footer{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    bottom: 0%;
+	background-color: #eee;
+}
+
+footer div{
+	margin-top: 30px;
+}
+
+p{
+padding-bottom: 5px;
+padding-right: 10%;
+}
+
+.footer {
+	/* 푸터바  */
+margin-bottom:0px;
+border: none;
+padding: 10px;
+background-color: #a7a69d;
+
+}
+
+
+.footer a{
+	/* 푸터바 폰트 색상 */
+color: #dbd7d2;
+text-decoration: none;
+}
