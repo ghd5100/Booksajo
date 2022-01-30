@@ -21,14 +21,24 @@ padding-right: 10%;
 	/* 푸터바  */
 margin-bottom:0px;
 border: none;
-padding: 10px;
+padding: 5px;
 background-color: #a7a69d;
 
 }
 
 
-.footer a{
+.a3{
 	/* 푸터바 폰트 색상 */
-color: #dbd7d2;
+color: #aaa;
 text-decoration: none;
+font-size: small;
+}
+
+footer li a{
+	font-size: 13px;
+	color: #ddd;
+}
+
+#copy{
+	margin-left: 200px;
 }

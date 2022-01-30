@@ -34,7 +34,7 @@
 
   <p><span class="glyphicon glyphicon-envelope">&nbsp;E-mail&nbsp;booksajo@gmail.com</span></p>
   <p><span class="glyphicon glyphicon-earphone">&nbsp;고객센터&nbsp;070-123-4567</span></p>
-  <p><span class="glyphicon glyphicon-exclamation-sign">&nbsp;COPYRIGHT(C) BOOKSAJO ALL RIGHTS RESERVED&nbsp;</span></p>
+  <p id="copy"><span class="glyphicon glyphicon-exclamation-sign">COPYRIGHT(C) BOOKSAJO ALL RIGHTS RESERVED&nbsp;</span></p>
 
 
  	

@@ -46,7 +46,7 @@ float: left;
 padding:55px 65px;
 width: 600px;
 position: relative; left: 10%;
-border: 1px solid;
+/* border: 1px solid; */
 }
 
 ul li{

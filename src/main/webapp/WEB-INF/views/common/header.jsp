@@ -28,7 +28,7 @@
 				<li id="f"><a href="#">회원해택</a></li>
 				<li id="f"><a href="#">Prestige Lounge</a></li>
 
-				<li id="g"><a href="#">로그인</a></li>
+				<li id="g"><a href="#">로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
 				<li id="g"><a href="#">회원가입</a></li>
 				<li id="g"><a href="#">출석체크</a></li>
 				<li id="g"><a href="#">고객센터</a></li>
