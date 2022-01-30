@@ -6,41 +6,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style>
+
 #container{
 	width: 100%;
-	margin: 0px auto;
+	margin: 260px 0px;
 	text-align: center;
 	border: 0px solid #bcbcbc;
-
+	background-color:white;
 }
 
-/* 
-#header{
-	padding: 5px;
-	margin-bottom: 5px;
-	border: 0px solid #bcbcbc;
-	background-color: lightgreen;
 
-}
-#sidebar-left{
-	width: 15%;
-	height: 700px;
-	padding: 5px;
-	margin-right: 5px;
-	margin-bottom: 5px;
-	float: left;
-	background-color: yellow;
-	border: 0px solid #bcbcbc;
-	font-size: 10px;
-}
 #content{
-	width: 75%;
-	padding: 5px;
-	margin-right: 5px;
+	margin-top:5px;
+	width:50%;
+	margin-left:5px;
 	float: left;
-	border: 0px solid #bcbcbc;
+/* 	border: 2px solid #bcbcbc; */
+	height: 1500px;
+	z-index: -1;
+	/* 사이드바 높이 없어지면서 메인부분이 높이가 너무 짧아짐 내용부분에 높이 추가하면댐 */ 
+	
 }
- */
+
+#footer{
+z-index: -2;
+}
+
 </style>
 
 <title>

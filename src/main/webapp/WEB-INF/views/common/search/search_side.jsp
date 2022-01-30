@@ -17,7 +17,7 @@
     <a class="nav-link active" aria-current="page" href="#">국내도서</a>
   </li> -->
   <li class="nav-item" style="background-color:#a8afe5;">
-    <a class="nav-link disabled" style="font:bold; font-size: large;" >국내도서</a>
+    <a class="nav-link disabled" style="font:bold; font-size: large; text-align: center;" >국내도서</a>
   </li>
   
   <li class="nav-item">

@@ -1,13 +1,10 @@
-/* a{
-font: bold;
-color: white;
-}
 
 li a.nav-link{ 
 
-부트스트랩 적용된거 스타일매길떄 띄어쓰기된부분은 클래스 명에 포함하지 않아야 적용됨 class="nav-link disabled" 이면  nav-link 까지가 클래스명
+/* 부트스트랩 적용된거 스타일매길떄 띄어쓰기된부분은 클래스 명에 포함하지 않아야 적용됨 class="nav-link disabled" 이면  nav-link 까지가 클래스명 */
 font:bold;
 color: black;
+padding-right: 30px;
+padding-left: 0;
 
-
-} */
+} 

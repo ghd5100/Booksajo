@@ -37,13 +37,29 @@
 	<!-- 임현주 search전용 중앙화면부분 -->
 	<!-- 레이아웃에서 안바뀔부분은 안써두 되고 바뀔부분만 선언 -->
 	
-		<definition name="search" extends="secondLayout">
+	<definition name="search" extends="secondLayout">
 		<put-attribute name="title" value="SEARCH PAGE" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="side" value="/WEB-INF/views/common/search/search_side.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/common/search/search_center.jsp" />
 	</definition>
 	
+<!-- 	
+		<definition name="secondLayout" template="/WEB-INF/views/common/search/search_layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/search/search_side.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+	</definition>
+	 -->
 	
+	<definition name="search_table" extends="baseLayout">
+		<put-attribute name="title" value="SEARCH TABLE PAGE" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/search/search_table.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+	</definition>
 	
 	
 <!-- 

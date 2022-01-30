@@ -45,6 +45,13 @@ public class SearchController {
 	}
 	
 	
+	@RequestMapping("/search_table")
+	public String search_table() {
+		
+		return "search_table";
+	}
+	
+	
 /*	
 	@RequestMapping(value = "/List")
 	public List<Map<String,Object>> List(@RequestBody Map<String,Object> requestDto){

@@ -30,6 +30,7 @@
 	border-collapse:collapse;
 	font-size: 10px;
 	z-index: -1;
+
 }
 
 #content{

@@ -1,0 +1,63 @@
+
+#container{
+	width: 100%;
+	margin: 260px 0px;
+	text-align: center;
+	border: 0px solid #bcbcbc;
+	background-color:white;
+}
+
+
+#content{
+	margin-top:5px;
+	width:70%;
+	margin-left:250px;
+	float: left;
+/* 	border: 2px solid #bcbcbc; */
+	height: 1500px;
+	z-index: -1;
+	
+	/* 사이드바 높이 없어지면서 메인부분이 높이가 너무 짧아짐 내용부분에 높이 추가하면댐 */ 
+	
+}
+
+#footer{
+z-index: -2;
+}
+
+
+#d1{
+text-align:left;
+width: 100%;
+height: 5%;
+margin-bottom: 25px;
+margin-top: 15px;
+/* position: fixed; */
+}
+
+#d2{
+float:left;
+height: 10px;
+margin-bottom: 70px;
+}
+
+#d3{
+	
+float:left;
+width:100%;
+height:250px;
+border:1px solid;
+border-collapse: collapse;
+margin-bottom: 30px;
+
+
+}
+
+#d4{
+float:left;
+/* position:relative;
+top:500px; */
+border:1px solid;
+width: 100%;
+height: 40%;
+}
