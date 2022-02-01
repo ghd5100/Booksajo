@@ -14,15 +14,15 @@
   <li class="nav-item">
     <a class="nav-link active" aria-current="page" href="#">팀원소개</a>
   </li>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
   <li class="nav-item">
     <a class="nav-link" href="#">고객센터</a>
   </li>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
   <li class="nav-item">
     <a class="nav-link" href="#">이용정보</a>
   </li>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
   <li class="nav-item">
     <a class="nav-link disabled">회사위치</a>
   </li>

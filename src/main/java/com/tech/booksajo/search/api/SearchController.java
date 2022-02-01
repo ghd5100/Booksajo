@@ -3,8 +3,11 @@ package com.tech.booksajo.search.api;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,22 +43,21 @@ public class SearchController {
 	}	
 	
 	
-/*	
+
 	@RequestMapping("/search")
 	public String search() {
 		
 		return "search";
-	}*/
-	
-	@RequestMapping(value="/search")
-	public String moveBoard(){
-		return "common/search/board/board";
 	}
 	
 
+
 	
-	@RequestMapping("/search_table")
-	public String search_table() {
+	@RequestMapping(value="/search_table")
+	public String search_table(ServletRequest request,Model model) {
+		System.out.println("서치테이블 맵핑 들어옴");
+		String search=request.getParameter("search");
+		model.addAttribute("search", search);
 		
 		return "search_table";
 	}

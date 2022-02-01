@@ -11,14 +11,15 @@
 <!--     <script src="resources/lib/bootstrap/js/bootstrap.js"></script>
  <script src="resources/lib/jquery/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.min.css">
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
  -->
 
 <!-- 제이쿼리 -->
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- 부가적인 테마 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
@@ -46,11 +47,11 @@
 	</nav>
 
 <div id="a">
-<a href="index"><img src="resources/img/logo.png" width="195px" height="80px" alt="" width="30" height="24" id="img"></a>
+<a href="index"><img src="resources/img/logo.png" width="195px" height="84px" alt="" width="30" height="24" id="img"></a>
 </div>
 <div id="b">
-<form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="height: 40px; border-radius: 25px;">
+<form class="d-flex" action="search_table" method="post">
+      <input class="form-control me-2" type="search" name="search" aria-label="Search" style="height: 40px; border-radius: 25px;">
       <button class="btn btn-outline-success" type="submit" style="height: 40px; float: right; border: none;"  >
       <img src="resources/img/search_icon3.png" width="23px;"  height="23px;" />
       </button>
@@ -62,22 +63,23 @@
 
   <ul class="nav justify-content-center a2">
   <!-- 부트스트랩의 1.형태요소이면서 2.클래스 이름이기도함 -->
-    <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="search"><b>국내도서</b>
-    <span class="caret"></span></a>
+    <li class="nav-item dropdown">
+    <a class=""nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="search" aria-expanded="false"><b>국내도서</b>
+    </a>
     <ul class="dropdown-menu">
       <li><a href="search">카테고리1</a></li>
       <li><a href="search">카테고리2</a></li>
       <li><hr class="dropdown-divider"></li>
       <li><a class="dropdown-item" href="search">카테고리3</a></li>
     </ul>
-       <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><b>외국도서</b>
-    <span class="caret"></span></a>
+       <li class="nav-item dropdown">
+    <a class=""nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#" aria-expanded="false"><b>외국도서</b>
+    </a>
     <ul class="dropdown-menu">
       <li><a href="#">카테고리1</a></li>
       <li><a href="#">카테고리2</a></li>
-      <li><a href="#">카테고리3</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="#">카테고리3</a></li>
     </ul>
     <li><a href="#">굿즈</a></li>
     <li><a href="#">중고장터</a></li>

@@ -48,10 +48,11 @@ position: relative; left: 10%;
 /* border: 1px solid; */
 }
 
-ul li{
+/* ul li{
 	margin-left: 30px;
 	font-size: 11px;
-}
+	css가 전체가 다 적용된다..... 헤더 푸터.. 
+} */
 
  ul li a{
 	/* li안에 a요소 */
@@ -87,6 +88,7 @@ color: white;
 }
 
 .a1{
+
 padding:10px;
 background-color: white;
 color: black;
