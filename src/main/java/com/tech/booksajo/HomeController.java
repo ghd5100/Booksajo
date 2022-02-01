@@ -55,6 +55,3 @@ public class HomeController {
 	
 	
 }
-
-//푸시확인 김동빈
-//push확인 이현빈

@@ -34,7 +34,7 @@
 		<div class="top1">
 			<ul class="nav justify-content-center">
 				<li id="f"><a href="#">매장안내</a></li>
-				<li id="f"><a href="#">회원해택</a></li>
+				<li id="f"><a href="#">회원혜택</a></li>
 				<li id="f"><a href="#">Prestige Lounge</a></li>
 				<li id="g"><a href="#">로그인</a></li>
 				<li id="g"><a href="#">회원가입</a></li>
@@ -83,6 +83,7 @@
     </ul>
     <li><a href="#">굿즈</a></li>
     <li><a href="#">중고장터</a></li>
+    <li><a href="notice">공지사항</a></li>
   </ul>
 
 </header>
