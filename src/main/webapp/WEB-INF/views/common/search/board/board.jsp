@@ -1,5 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!-- <link rel="stylesheet" type="text/css" href="/css/board/board.css"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" type="text/css" href="resources/css/board.css">
 	<div id="board">
 		<table border="1" class="table">
 		   <thead>
@@ -41,4 +46,4 @@
 		</div>
 	</div>
 <!-- 페이지 고유 js include -->
-<script src='resources/js/board.js'></script>
+<script src="resources/js/board.js"></script>

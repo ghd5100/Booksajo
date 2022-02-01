@@ -16,7 +16,7 @@ public interface SearchMapper {
 	List<Map<String,Object>> getList();
 	
 	
-/*	public List<Map<String,Object>>  List(int start,int end,String searcKeyword,String selNum);
+	public List<Map<String,Object>>  list(int start,int end,String searcKeyword,String selNum);
 	public void write(String bName,String bTitle, String bContent);
 	public Map<String,Object> contentView(String sbid);
 	public void upHit(String sbid);
@@ -37,5 +37,5 @@ public interface SearchMapper {
 	public int selectBoardTotCount3(String searchKeyword);
 	public int selectBoardTotCount0(String searchKeyword);
 	
-	*/
+
 }

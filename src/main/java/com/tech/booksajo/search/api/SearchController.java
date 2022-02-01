@@ -16,6 +16,7 @@ import com.tech.booksajo.main.service.mainService;
 import com.tech.booksajo.search.service.SearchService;
 /*import com.tech.booksajo.search.service.bookService;*/
 
+
 import lombok.RequiredArgsConstructor;
 
 
@@ -26,8 +27,10 @@ public class SearchController {
 	@Autowired
 	SearchService searchService;
 	
-//	@Autowired
-//	bookService bookservice;
+	
+/*	어토 와이어 두개서비스연결은 안되나보네 빈에러남
+ * @Autowired
+	boardService boardservice;*/
 
 	
 	@RequestMapping(value = "/search/api/getList", method = RequestMethod.GET  )
@@ -37,13 +40,19 @@ public class SearchController {
 	}	
 	
 	
-	
+/*	
 	@RequestMapping("/search")
 	public String search() {
 		
 		return "search";
+	}*/
+	
+	@RequestMapping(value="/search")
+	public String moveBoard(){
+		return "common/search/board/board";
 	}
 	
+
 	
 	@RequestMapping("/search_table")
 	public String search_table() {
@@ -52,12 +61,12 @@ public class SearchController {
 	}
 	
 	
-/*	
-	@RequestMapping(value = "/List")
+	@RequestMapping(value = "/list")
 	public List<Map<String,Object>> List(@RequestBody Map<String,Object> requestDto){
-		return searchService.List(requestDto);
+		return searchService.list(requestDto);
 	}
 
+	
 
 	@RequestMapping("/write")
 	public void write(@RequestBody Map<String,Object> requestDto) {
@@ -71,7 +80,7 @@ public class SearchController {
 	public Map<String,Object> content_view(@PathVariable String bid) {
 			return searchService.content_view(bid);
 	}
-*/
+
 	
 	
 	

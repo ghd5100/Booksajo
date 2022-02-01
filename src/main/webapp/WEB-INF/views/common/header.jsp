@@ -8,15 +8,24 @@
 
 <head>
 
-<script src="resources/lib/jquery/jquery-3.6.0.min.js"></script>
-    <script src="resources/lib/bootstrap/js/bootstrap.js"></script>
+<!--     <script src="resources/lib/bootstrap/js/bootstrap.js"></script>
+ <script src="resources/lib/jquery/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.min.css">
+ -->
+
+<!-- 제이쿼리 최신버젼 -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+
 <link rel="stylesheet" type="text/css" href="resources/css/header.css">
 
 
-<!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
 
 
 
@@ -56,7 +65,7 @@
   <ul class="nav justify-content-center a2">
   <!-- 부트스트랩의 1.형태요소이면서 2.클래스 이름이기도함 -->
     <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="search" ><b>국내도서</b>
+    <a class="dropdown-toggle" data-toggle="dropdown" href="search"><b>국내도서</b>
     <span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><a href="search">카테고리1</a></li>
