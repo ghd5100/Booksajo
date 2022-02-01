@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.min.css">
  -->
 
-<!-- 제이쿼리 최신버젼 -->
+<!-- 제이쿼리 -->
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -21,7 +21,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <!-- 부가적인 테마 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
 
 <link rel="stylesheet" type="text/css" href="resources/css/header.css">
 
@@ -36,8 +35,7 @@
 				<li id="f"><a href="#">매장안내</a></li>
 				<li id="f"><a href="#">회원해택</a></li>
 				<li id="f"><a href="#">Prestige Lounge</a></li>
-
-				<li id="g"><a href="#">로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</li>
+				<li id="g"><a href="#">로그인</a></li>
 				<li id="g"><a href="#">회원가입</a></li>
 				<li id="g"><a href="#">출석체크</a></li>
 				<li id="g"><a href="#">고객센터</a></li>
@@ -48,12 +46,12 @@
 	</nav>
 
 <div id="a">
-<a href="index"><img src="resources/img/logo.png" width="205px" height="97px" alt="" width="30" height="24" id="img"></a>
+<a href="index"><img src="resources/img/logo.png" width="195px" height="80px" alt="" width="30" height="24" id="img"></a>
 </div>
 <div id="b">
 <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit" style="height: 40px; float: right; "  >
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="height: 40px; border-radius: 25px;">
+      <button class="btn btn-outline-success" type="submit" style="height: 40px; float: right; border: none;"  >
       <img src="resources/img/search_icon3.png" width="23px;"  height="23px;" />
       </button>
     </form>

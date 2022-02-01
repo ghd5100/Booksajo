@@ -36,7 +36,6 @@ float: left;
 margin: 0% 10%;
 padding-left:5%;
 width:500px;
-border: none;
 float: left;
 /* 서치내부부분 */
 }
@@ -97,9 +96,10 @@ color: black;
 
 .a2{
 border: 1px solid;
-padding: 10px;
+padding: 5px;
 background-color: #6662a1;
 color: white;
+margin-left: 0px;
  
 }
 
