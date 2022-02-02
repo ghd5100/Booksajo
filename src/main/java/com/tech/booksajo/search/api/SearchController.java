@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tech.booksajo.main.service.mainService;
+import com.tech.booksajo.search.mapper.SearchMapper;
 import com.tech.booksajo.search.service.SearchService;
 /*import com.tech.booksajo.search.service.bookService;*/
 
@@ -30,6 +33,8 @@ public class SearchController {
 	@Autowired
 	SearchService searchService;
 	
+
+	SqlSession sqlsession;
 	
 /*	어토 와이어 두개서비스연결은 안되나보네 빈에러남
  * @Autowired
@@ -54,10 +59,18 @@ public class SearchController {
 
 	
 	@RequestMapping(value="/search_table")
-	public String search_table(ServletRequest request,Model model) {
+	public String search_table(HttpServletRequest request,Model model) {
 		System.out.println("서치테이블 맵핑 들어옴");
 		String search=request.getParameter("search");
 		model.addAttribute("search", search);
+		
+		
+		
+		//isbn이라는 기준고유값을 이용해서 제이슨 자료를 얻고 그걸 담아서 그 결과를 쿼리에 인서트로 넣어줘야함.
+//		SearchMapper dao=sqlsession.getMapper(SearchMapper.class);
+		//dao.test();
+		
+		
 		
 		return "search_table";
 	}

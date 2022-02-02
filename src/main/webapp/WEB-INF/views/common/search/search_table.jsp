@@ -22,6 +22,50 @@
 	href="resources/css/search_table.css">
 
 
+ 
+
+<script>
+$( document ).ready(function() {
+	var keyword = '${search}';
+	searchData(keyword);  //searchData의 함수의 매개변수로 keyword를 넣어줌
+	
+	function searchData(keyword){
+		$.ajax({
+	        type: 'POST',
+	        url : 'https://dapi.kakao.com/v3/search/book?target=title&query=' + keyword + '&size=50',
+	           headers: {
+	     		 Authorization : 'KakaoAK 2ecf5febe1e05d5d376370e2b4d6c779'
+	            },
+	        dataType: 'json',
+	        contentType: 'application/json; charset=utf-8',
+	    }).done(function (data) {
+	      
+	    	for(k in data.documents){
+	    		console.log(data.documents[k].authors);
+	    		console.log(data.documents[k].contents);
+	    		var titlefind = data.documents[k].title;
+	    }
+	    	
+	    	
+	    	console.log(titlefind); //출력됨
+	    	console.log(data.meta.pageable_count);
+	      
+	    }).fail(function (error) {
+	    });
+		
+	}
+	
+},
+
+$(document).on("click", "#searchbutton", function() {
+	   $('#searchbutton').load('/common/search/search_table',function(){
+		   board.init();
+	   });
+}));
+
+
+);
+</script> 
 
 <div id="d1">
 	<!-- 총검색결과  -->
@@ -71,7 +115,7 @@
 				<th scope="col" width="15%">수량 및 장바구니</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody id="getList">
 			<tr height="150px">
 				<td>2</td>
 				<td rowspan="4">
@@ -85,19 +129,9 @@
 				<td>수량 및 장바구니</td>
 			</tr>
 		</tbody>
-		<tr height="150px">
-			<td>3</td>
-			<td rowspan="4">
-				<p>제목</p>
-				<p>저자</p>
-				<p>출판사</p>
-				<p>키워드</p>
-			</td>
-			<td>평점</td>
-			<td>가격</td>
-			<td>수량 및 장바구니</td>
-		</tr>
 
 	</table>
 
 </div>
+
+<script src="resources/js/search_table.js"></script>

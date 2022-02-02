@@ -36,6 +36,9 @@ public interface SearchMapper {
 	public int selectBoardTotCount2(String searchKeyword);
 	public int selectBoardTotCount3(String searchKeyword);
 	public int selectBoardTotCount0(String searchKeyword);
+
+
+	//public List<Map<String,Object>> test();
 	
 
 }

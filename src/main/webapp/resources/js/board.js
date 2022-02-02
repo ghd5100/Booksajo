@@ -39,6 +39,8 @@ var board = {
 
      },
      
+     
+     
      getList : function(value){
 		var datas = {
 			searchKeyword : $('#searchKeyword').val()
@@ -66,7 +68,7 @@ var board = {
 	},
 	
 
-    makeRow : function (data){
+    makeRow : function (data){  //위에 getList에서 데이타 없어서 그 얻은 데이타 가지고 자료 테이블 행 맹그ㅡㄴ것임
     	var html = '';
     	for(var k=0;k<data.length-1;k++){ 
     		html += '<tr>' ;  
