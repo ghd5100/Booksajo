@@ -16,7 +16,7 @@
 					<th scope="col">히트</th>
 				</tr>
 		  </thead>
-		  <tbody id="tableRows">
+		  <tbody id="loadContent">
 		
 		  </tbody>
 		</table>
