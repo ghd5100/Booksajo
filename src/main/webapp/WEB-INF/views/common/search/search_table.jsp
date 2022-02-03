@@ -43,7 +43,7 @@ $( document ).ready(function() {
 	    	for(k in data.documents){
 	    		console.log(data.documents[k].authors);
 	    		console.log(data.documents[k].contents);
-	    		var titlefind = data.documents[k].title;
+	    		
 	    }
 	    	
 	    	
@@ -55,16 +55,8 @@ $( document ).ready(function() {
 		
 	}
 	
-},
+});
 
-$(document).on("click", "#searchbutton", function() {
-	   $('#searchbutton').load('/common/search/search_table',function(){
-		   board.init();
-	   });
-}));
-
-
-);
 </script> 
 
 <div id="d1">
@@ -98,12 +90,11 @@ $(document).on("click", "#searchbutton", function() {
 	</div>
 
 
-
-
-
 </div>
 
 <div id="d4">
+
+<a href=""></a>
 	<!-- 도서결과 뿌려줄곳 -->
 	<table class="table">
 		<thead>
@@ -116,7 +107,7 @@ $(document).on("click", "#searchbutton", function() {
 			</tr>
 		</thead>
 		<tbody id="getList">
-			<tr height="150px">
+<!-- 			<tr height="150px">
 				<td>2</td>
 				<td rowspan="4">
 					<p>제목</p>
@@ -127,7 +118,7 @@ $(document).on("click", "#searchbutton", function() {
 				<td>평점</td>
 				<td>가격</td>
 				<td>수량 및 장바구니</td>
-			</tr>
+			</tr> -->
 		</tbody>
 
 	</table>

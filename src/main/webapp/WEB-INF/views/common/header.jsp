@@ -51,7 +51,7 @@
 </div>
 <div id="b">
 <form class="d-flex" action="search_table" method="post">
-      <input class="form-control me-2" type="search" name="search" aria-label="Search" style="height: 40px; border-radius: 25px;" onclick="board.init()">
+      <input class="form-control me-2" type="search" value="search"  aria-label="Search" style="height: 40px; border-radius: 25px;" onclick="board.init()">
       <button class="btn btn-outline-success" id="searchbutton" type="submit" style="height: 40px; float: right; border: none;"  >
       <img src="resources/img/search_icon3.png" width="23px;"  height="23px;" />
       </button>
