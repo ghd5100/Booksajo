@@ -1,15 +1,12 @@
 /*스트립트 연동되는거 jsext.html예제보긔*/
 
 
-var board = {
+var search = {
     init : function (keyword) {
-	   //초기 
-	  //board.getList();
-    	
-    	//키워드를 못갖고 들어오냄여
-    	console.log("보드 자바스크립트 들어옴");
-    	var keyword2=keyword;
-    	board.makeRow(keyword2);
+
+    	var keyword = '${search}';
+    	console.log(keyword);	
+
      },
  
 
@@ -82,4 +79,4 @@ var board = {
  
 }
 
-board.init();
+search.init();

@@ -5,19 +5,6 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<!-- 부가적인 테마 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-<!-- 제이쿼리 -->
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
 <link rel="stylesheet" type="text/css"
 	href="resources/css/search_table.css">
 
@@ -27,8 +14,11 @@
 <script>
 $( document ).ready(function() {
 	var keyword = '${search}';
+	console.log(keyword);
 	searchData(keyword);  //searchData의 함수의 매개변수로 keyword를 넣어줌
 	
+	
+	//검색 함수
 	function searchData(keyword){
 		$.ajax({
 	        type: 'POST',
@@ -39,17 +29,23 @@ $( document ).ready(function() {
 	        dataType: 'json',
 	        contentType: 'application/json; charset=utf-8',
 	    }).done(function (data) {
-	      
-	    	for(k in data.documents){
-	    		console.log(data.documents[k].authors);
-	    		console.log(data.documents[k].contents);
-	    		
-	    }
-	    	
-	    	
-	    	console.log(titlefind); //출력됨
-	    	console.log(data.meta.pageable_count);
-	      
+		    	var html = '';
+		    	for(k in data.documents){
+		    		html += '<tr height="150px">';
+		    		html += '<td><a href=' + data.documents[k].thumbnail + '></a></td>';
+		    		html += '<td rowspan="4">';
+		    		html += '<p>' + data.documents[k].title + '</p>';
+		    		html += '<p>' + data.documents[k].authors + '</p>';
+		    		html += '<p>' + data.documents[k].publisher + '</p>';
+		    		html += '<p>' + data.documents[k].title + '</p>';
+		    		html += '</td>';
+		    		html += '<td>평점</td>';
+		    		html += '<td>'+ data.documents[k].price + '</td>';
+		    		html += '<td>수량/장바구니</td>';
+		    		html += '</tr>';
+		    		
+		    }
+	    	$('#getList').html(html);      
 	    }).fail(function (error) {
 	    });
 		
@@ -125,4 +121,3 @@ $( document ).ready(function() {
 
 </div>
 
-<script src="resources/js/search_table.js"></script>

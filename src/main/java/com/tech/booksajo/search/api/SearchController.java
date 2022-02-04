@@ -61,7 +61,7 @@ public class SearchController {
 	@RequestMapping(value="/search_table")
 	public String search_table(HttpServletRequest request,Model model) {
 		System.out.println("서치테이블 맵핑 들어옴");
-		String search=request.getParameter("search");
+		String search=request.getParameter("searchInput");
 		model.addAttribute("search", search);
 		
 		

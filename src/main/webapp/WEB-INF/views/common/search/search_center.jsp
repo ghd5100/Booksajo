@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<script src="resources/lib/jquery/jquery-3.6.0.min.js"></script>
-    <script src="resources/lib/bootstrap/js/bootstrap.js"></script>
-<link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="resources/css/search_center.css">
+
 
 
 <!-- 여기다가 검색테이블 구현하면 되겠다요 -->
