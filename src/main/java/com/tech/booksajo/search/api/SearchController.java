@@ -56,6 +56,16 @@ public class SearchController {
 	}
 	
 
+	
+	
+	@RequestMapping("/searchDetail")
+	public String searchDetail() {
+	
+		//타일즈 맵핑
+		
+		return "search_detail";
+	}
+	
 
 	
 	@RequestMapping(value="/search_table")

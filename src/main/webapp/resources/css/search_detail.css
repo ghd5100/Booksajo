@@ -1,0 +1,22 @@
+div{
+z-index: -2;	
+}
+
+
+
+#today{
+	
+	margin-top:20px;
+	width:100%;
+	height:200px;
+	border: 1px solid;
+}
+
+#best{
+	
+	margin-top:20px;
+	width:100%;
+	height:200px;
+		border: 1px solid;
+	
+}

@@ -44,21 +44,22 @@
 		<put-attribute name="body" value="/WEB-INF/views/common/search/search_center.jsp" />
 	</definition>
 	
-<!-- 	
-		<definition name="secondLayout" template="/WEB-INF/views/common/search/search_layout.jsp">
-		<put-attribute name="title" value="" />
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
-		<put-attribute name="side" value="/WEB-INF/views/common/search/search_side.jsp" />
-		<put-attribute name="body" value="" />
-		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
-	</definition>
-	 -->
+
 	
+	<!-- 임현주 서치 테이블페이지 레이아웃 -->
 	<definition name="search_table" extends="baseLayout">
 		<put-attribute name="title" value="SEARCH TABLE PAGE" />
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/common/search/search_table.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+	</definition>
+	
+	<!-- 임현주 서치 디테일 페이지 레이아웃 -->
+		<definition name="search_detail" extends="secondLayout">
+		<put-attribute name="title" value="SEARCH DETAIL PAGE" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/search/search_detail_side.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/search/search_detail.jsp" />
 	</definition>
 	
 	
