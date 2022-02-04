@@ -31,9 +31,9 @@ $( document ).ready(function() {
 	    }).done(function (data) {
 		    	var html = '';
 		    	for(k in data.documents){
-		    		html += '<tr height="150px">';
-		    		html += '<td><a href=' + data.documents[k].thumbnail + '></a></td>';
-		    		html += '<td rowspan="4">';
+		    		html += '<tr height="180px">';
+		    		html += '<td><img src=' + data.documents[k].thumbnail + '/></td>';
+		    		html += '<td>';
 		    		html += '<p>' + data.documents[k].title + '</p>';
 		    		html += '<p>' + data.documents[k].authors + '</p>';
 		    		html += '<p>' + data.documents[k].publisher + '</p>';
@@ -53,7 +53,17 @@ $( document ).ready(function() {
 	
 });
 
+
+
+
+
 </script> 
+
+
+
+<div id="body-wrapper">
+
+<div id="body-content">
 
 <div id="d1">
 	<!-- 총검색결과  -->
@@ -68,13 +78,13 @@ $( document ).ready(function() {
 </div>
 
 
-<div id="d3">
+<div id="d3" style="height:30px">
 	<!-- 카테고리 검색 고정되있어야함 부트스트랩 쓰긔 -->
 
 	<div class="container-fluid">
 		<div>
 			<!-- Javascript가 필요없이 data-toggle에 collapse href에 대상 id을 설정합니다. -->
-			<button data-toggle="collapse" href="#collapseExample"
+			<button data-toggle="collapse" href="#collapseExample" name="d3" onclick="divheight();"
 				aria-expanded="false" aria-controls="collapseExample" style="float: left; width:150px;">카테고리</button>
 		</div>
 		<!-- collapse 대상 태그는 class를 collapse로 설정합니다. -->
@@ -121,3 +131,9 @@ $( document ).ready(function() {
 
 </div>
 
+</div>
+
+</div>
+
+<script src="resources/js/search_table.js"></script>
+<!-- 아래 이 이링크 안넣어주면 js 작동안함 이 경로에있는 파일 실행시켜주려면 -->

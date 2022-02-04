@@ -1,5 +1,22 @@
 /*스트립트 연동되는거 jsext.html예제보긔*/
 
+//div크기 펼쳐지는 함수
+var flag=true;
+function divheight() {
+
+
+if (flag) {
+	var y=document.getElementById("d3");
+	y.style.height="70px";
+	flag=false;
+}else {
+	var y=document.getElementById("d3");
+	y.style.height="30px";
+	flag=true;
+}
+
+}
+
 
 var search = {
     init : function (keyword) {

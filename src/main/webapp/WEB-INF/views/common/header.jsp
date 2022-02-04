@@ -64,7 +64,7 @@
   <ul class="nav justify-content-center a2">
   <!-- 부트스트랩의 1.형태요소이면서 2.클래스 이름이기도함 -->
     <li class="nav-item dropdown">
-    <a class=""nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="search" aria-expanded="false"><b>국내도서</b>
+    <a class=""nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="search" aria-expanded="false" onmouseover="drop(1);"><b>국내도서</b>
     </a>
     <ul class="dropdown-menu">
       <li><a href="search">카테고리1</a></li>
@@ -73,7 +73,7 @@
       <li><a class="dropdown-item" href="search">카테고리3</a></li>
     </ul>
        <li class="nav-item dropdown">
-    <a class=""nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#" aria-expanded="false"><b>외국도서</b>
+    <a class=""nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#" aria-expanded="false" onmouseover="drop(2);"><b>외국도서</b>
     </a>
     <ul class="dropdown-menu">
       <li><a href="#">카테고리1</a></li>
@@ -90,3 +90,4 @@
 </head>
 
 <body>
+<script src="resources/js/header.js"></script>

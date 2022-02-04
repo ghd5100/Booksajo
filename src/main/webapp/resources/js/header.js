@@ -1,7 +1,17 @@
-/*	  $(document).on("click", "#searchbutton", function() {
-		  //해당버튼의 id의 벨류 가져오기 
-		   $('#searchbutton').load('/common/search/search_table',function(){
-			   var keyword=document.getElementById('search').val
-			   board.init(keyword);
-		   });
-	  });*/
+	function drop(num){
+        
+		if (num==1) {
+			
+		//국내도서 마우스 호버이벤트
+			$(document).ready(function(){
+				$("nav").mouseover(function(){
+					
+				});
+			});
+			
+		}else if (num==2) {
+			
+			//외국도서 마우스 호버이벤트
+		}
+	
+}

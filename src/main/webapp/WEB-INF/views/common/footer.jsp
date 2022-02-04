@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
          
-<script src="resources/lib/jquery/jquery-3.6.0.min.js"></script>
-<script src="resources/lib/bootstrap/js/bootstrap.js"></script>
-<link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.min.css">
+
 <link rel="stylesheet" type="text/css" href="resources/css/footer.css">
          
+
 
 <footer class="a3">
 <!-- 샘플 footer... -->	
@@ -42,7 +41,9 @@
 </footer>
 
 <!-- JQuery -->
-<script type="text/javascript" src="resources/lib/jquery/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="resources/lib/bootstrap/js/bootstrap.min.js"></script>
+<!-- 이 아래 코드 없애고 싶은데 문제가 되네. 헤더에다가 넣었으면 안넣어도 되징않나 -->
+<link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.min.css">
 </body>
+
+
 </html>
