@@ -19,17 +19,12 @@ if (flag) {
 
 
 var search = {
-    init : function (keyword) {
-
-    	var keyword = '${search}';
+    init : function () {//이 함수는 도큐먼트 레디 같은거라 보면됨. 매개변수 넣을수없음.
+    	var keywords = '${search}';
     	console.log(keyword);	
-
      },
- 
-
      makeRow : function(keyword2){
-    	
-    	 
+
     	 console.log("makeRow함수 들어옴");
     	 console.log("keyword:" + keyword);
     	 
@@ -75,8 +70,7 @@ var search = {
 	            document.write('</tr>');
 	        }*/
 			
-			
-			$('#getList').done();
+		
 			
 /*	    	for(k in data.documents.length-1; k++){
 	    		console.log(data.documents[k].authors);

@@ -12,11 +12,28 @@
  
 
 <script>
+
+
 $( document ).ready(function() {
 	var keyword = '${search}';
 	console.log(keyword);
 	searchData(keyword);  //searchData의 함수의 매개변수로 keyword를 넣어줌
 	
+	 $(document).on("click", "[name='searchDetail']", function () {
+		  
+		 console.log(this.value);
+		 console.log(JSON.parse(data));
+		 
+ 	 });
+	
+
+ $(document).on("click", "#hj", function () {
+	 
+	 var dataval=document.getElementById("#hj").value;
+	console.log(dataval);
+	 console.log(JSON.parse(dataval));
+		 
+	 });
 	
 	//검색 함수
 	function searchData(keyword){
@@ -30,29 +47,42 @@ $( document ).ready(function() {
 	        contentType: 'application/json; charset=utf-8',
 	    }).done(function (data) {
 		    	var html = '';
+	
 		    	for(k in data.documents){
-		    		html += '<tr height="180px">';
-		    		html += '<td><img src=' + data.documents[k].thumbnail + '/></td>';
-		    		html += '<td>';
-		    		html += '<p>' + data.documents[k].title + '</p>';
-		    		html += '<p>' + data.documents[k].authors + '</p>';
-		    		html += '<p>' + data.documents[k].publisher + '</p>';
-		    		html += '<p>' + data.documents[k].title + '</p>';
-		    		html += '</td>';
-		    		html += '<td>평점</td>';
-		    		html += '<td>'+ data.documents[k].price + '</td>';
-		    		html += '<td><form action="shoplistpage">' + '수량 : ' + '<input type="number" max="9" min="1" maxlength="7px" /></br></br>'
-		    		+'<input type="button" value="장바구니담기" name="shoplist" /></form></td>';
-		    		html += '</tr>';
+			    		html += '<tr height="180px">';
+			    		html += '<td><input type="image" value="' + JSON.stringify(data.documents[k]) + '" name="searchDetail" src=' + data.documents[k].thumbnail + 'onclick="" id="hj" /></td>';
+			    		//html += '<td> <img src=' + data.documents[k].thumbnail +' name="searchDetail"  value="' + JSON.stringify(data.documents[k]) + '"/></td>';
+ 			    		//html += "<input type='hidden' name='inputDetail' value='" + JSON.stringify(data.documents[k]) + "' ]>";
+			    		html += '<td>';
+			    		html += '<p>' + data.documents[k].title + '</p>';
+			    		html += '<p>' + data.documents[k].authors + '</p>';
+			    		html += '<p>' + data.documents[k].publisher + '</p>';
+			    		html += '<p>' + data.documents[k].title + '</p>';
+			    		html += '</td>';
+			    		html += '<td>평점</td>';
+			    		html += '<td>'+ data.documents[k].price + '</td>';
+			    		html += '<td><form action="shoplistpage">' + '수량 : ' + '<input type="number" max="9" min="1" maxlength="7px" /></br></br>'
+			    		+'<input type="button" value="장바구니담기" name="shoplist" /></form></td>';
+			    		html += '</tr>';
 		    		
 		    }
+		    	
+		    	
+		    	//.html을 동적구조를 동적 html을 만들수있게해줌. 
+		    	//변수는 아무거나 선언해서 저렇게 
+		    	//동적과 적적의차이... 포문 돌려서 만들어주는것 동적이라고 볼수있다.
 	    	$('#getList').html(html);      
 	    }).fail(function (error) {
 	    });
 		
 	}
 	
+
+	
 });
+
+
+
 
 
 //총 검색 건수 가져오기.meta 에서 얻을수있었음.
@@ -116,7 +146,9 @@ function cnt() {
 		</thead>
 		<tbody id="getList">
 - 			<tr height="150px">
-				<td>2</td>
+				<td>
+			<!-- <input type="image" value="" name=""  id="" onclick="" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F1606323%3Ftimestamp%3D20220204175403id=%22hj%22"/> -->
+				</td>
 				<td rowspan="4">
 					<p>제목</p>
 					<p>저자</p>
@@ -139,5 +171,5 @@ function cnt() {
 </div>
 
 
-<script src="resources/js/search_table.js"></script>
-<!-- 아래 이 이링크 안넣어주면 js 작동안함 이 경로에있는 파일 실행시켜주려면 -->
+<!-- <script src="resources/js/search_table.js"></script>
+ --><!-- 아래 이 이링크 안넣어주면 js 작동안함 이 경로에있는 파일 실행시켜주려면 -->

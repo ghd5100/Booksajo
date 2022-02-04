@@ -47,7 +47,9 @@ public class SearchController {
 		return searchService.getList();
 	}	
 	
-	
+	//자바딴에서 왔따갔다할때 써줘야함.
+	//@ResponseBody는 ajax롤 보낼때 써주고
+	//ajax 받을때 @RequestParam 을 쓴다 그런데 매개변수에대가 써줘야함
 
 	@RequestMapping("/search")
 	public String search() {
@@ -69,7 +71,7 @@ public class SearchController {
 
 	
 	@RequestMapping(value="/search_table")
-	public String search_table(HttpServletRequest request,Model model) {
+	public String search_table(HttpServletRequest request,Model model) {//HttpServletRequest는 스트링 밖에 못받고 제이슨 못받아와 한계가있음.
 		System.out.println("서치테이블 맵핑 들어옴");
 		String search=request.getParameter("searchInput");
 		model.addAttribute("search", search);
