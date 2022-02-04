@@ -41,7 +41,8 @@ $( document ).ready(function() {
 		    		html += '</td>';
 		    		html += '<td>평점</td>';
 		    		html += '<td>'+ data.documents[k].price + '</td>';
-		    		html += '<td>수량/장바구니</td>';
+		    		html += '<td><form action="shoplistpage">' + '수량 : ' + '<input type="number" max="9" min="1" maxlength="7px" /></br></br>'
+		    		+'<input type="button" value="장바구니담기" name="shoplist" /></form></td>';
 		    		html += '</tr>';
 		    		
 		    }
@@ -54,16 +55,17 @@ $( document ).ready(function() {
 });
 
 
+//총 검색 건수 가져오기.meta 에서 얻을수있었음.
+/* 가져와서 코드블럭으로 넣어주기.  */
 
+function cnt() {
+	
+}
 
 
 </script> 
 
 
-
-<div id="body-wrapper">
-
-<div id="body-content">
 
 <div id="d1">
 	<!-- 총검색결과  -->
@@ -113,7 +115,7 @@ $( document ).ready(function() {
 			</tr>
 		</thead>
 		<tbody id="getList">
-<!-- 			<tr height="150px">
+- 			<tr height="150px">
 				<td>2</td>
 				<td rowspan="4">
 					<p>제목</p>
@@ -124,16 +126,18 @@ $( document ).ready(function() {
 				<td>평점</td>
 				<td>가격</td>
 				<td>수량 및 장바구니</td>
-			</tr> -->
+			</tr> 
 		</tbody>
 
 	</table>
 
 </div>
 
-</div>
+<div id="d5">
+<!-- 페이지 넘김 구현부분 -->
 
 </div>
+
 
 <script src="resources/js/search_table.js"></script>
 <!-- 아래 이 이링크 안넣어주면 js 작동안함 이 경로에있는 파일 실행시켜주려면 -->

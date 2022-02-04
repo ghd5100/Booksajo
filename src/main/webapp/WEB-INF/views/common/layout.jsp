@@ -30,16 +30,18 @@
 
 #footer{
 
-/* 
-    /* 기존 설정 */
+/*  
+기존설정  
 	float:left;
     width: 100%;
     z-index: 0;
 	background-color: #eee;
- */
-	
+*/
+
+
 	/* 새로운설정 */
    /* 	포지션을 스타틱으로 해줘야함 위네 블럭 영역다음에 배치됨 */
+   	float:left;
     width: 100%;
     height: 200px;
     position: static;  
