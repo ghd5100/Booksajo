@@ -1,16 +1,17 @@
-.h2_notice {
-  height: 33px;
+.h1_notice {
+  height: 50px;
   text-align: left;
   margin-bottom: 15px;
-  padding: 2px 0 10px;
+  padding: 10px 0 10px;
   border-bottom: 2px solid #565656;
-  font-size: 17px;
+  font-size: 25px;
   overflow: hidden;
   color: #333333;
   font-weight: bold;
 }
 
 .table_style02, .th_line {
+	font-size: 12px;
 	width: 100%;
     padding: 8px 0 7px 0;
     border: none;
@@ -18,4 +19,8 @@
     background: url(http://image.kyobobook.co.kr/ink/images/common/line_th.gif) no-repeat right top;
     color: #1770b5;
     vertical-align: middle;
+}
+
+.margin_top20 {
+	font-size: 12px;
 }
