@@ -32,7 +32,7 @@ public class SearchController {
 	
 	@Autowired
 	SearchService searchService;
-	
+	//임현주
 //ㅇㄹㅇㄹㅇㄹㅇㄹ
 	
 	SqlSession sqlsession;
