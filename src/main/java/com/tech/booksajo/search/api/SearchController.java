@@ -33,7 +33,8 @@ public class SearchController {
 	@Autowired
 	SearchService searchService;
 	
-
+//ㅇㄹㅇㄹㅇㄹㅇㄹ
+	
 	SqlSession sqlsession;
 	
 /*	어토 와이어 두개서비스연결은 안되나보네 빈에러남
