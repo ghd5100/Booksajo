@@ -32,6 +32,8 @@ public class SearchController {
 	
 	@Autowired
 	SearchService searchService;
+	
+	//임현주2
 	//임현주
 //ㅇㄹㅇㄹㅇㄹㅇㄹ
 	
