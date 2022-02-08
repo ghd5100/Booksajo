@@ -17,14 +17,14 @@ public class SearchServiceImpl implements SearchService {
 	@Autowired
 	SearchMapper searchmapper;
 
-	@Override
+/*	@Override
 	public List<Map<String, Object>> getList() {
 		return searchmapper.getList();
 	}
-	
+	*/
 	
 @Override
-public List<Map<String,Object>> list(Map<String,Object> requestDto) {
+public List<Map<String,Object>> slist(Map<String,Object> requestDto) {
 	
 	List<Map<String,Object>>  result = null;
 
@@ -122,5 +122,19 @@ public List<Map<String,Object>> list(Map<String,Object> requestDto) {
 		result = searchmapper.contentView(bid);
 		return result;
 	}
+
+
+	@Override
+	public List<Map<String, Object>> sList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+/*	@Override
+	public List<Map<String, Object>> slist(Map<String, Object> requestDto) {
+		// TODO Auto-generated method stub
+		return null;
+	}*/
 
 }

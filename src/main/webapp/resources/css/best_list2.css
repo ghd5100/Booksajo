@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+* {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: "맑은 고딕", sans-serif;
+	font-weight: normal;
+	border: 0;
+}
+.contents {
+	width: 100%;
+	height: 500px;
+	background-color: #ddd;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+
+.category_area {
+	width: 200px;
+	border: 1px solid black;
+	float: left;
+	background-color: #bbb;
+}
+
+.content_top {
+	float: left;
+	width: 800px;
+	background-color: #999;
+}
+
+.content td {
+	border: solid 1px #000;
+}
+
+td.list_thumbnail {
+	width: 100px;
+	height: 125px;
+}
+
+td.list_detail {
+	width: 700px;
+	height: 125px;
+	
+}
+
+td.list_detail > div {
+	width: 700px;
+	text-align: left;
+	padding-left: 20px;
+	padding-right: 50px;
+	margin-top: 5px;
+}
+div.book_title {
+	height: 30px;
+}
+div.author {
+	height: 20px;
+}
+div.book_preview {
+	width: 700px;
+	height: 75px;
+	margin-bottom: 5px;
+	overflow: hidden;
+}

@@ -5,7 +5,28 @@
 
 <!-- //변경섭씨 담당 메인전용 xml -->
 <mapper namespace="com.tech.booksajo.main.mapper.mainMapper">
-	<select id="getList" resultType="map">
+<!-- 	<select id="getList" resultType="map">
 	 select * from book
+	</select> -->
+ 	<!-- 
+ 	<select id="getList" resultType="HashMap">
+	 SELECT * FROM (SELECT a.* FROM bsjbook a, sales b WHERE a.isbn = b.isbn ORDER BY b.tot_sales DESC) <![CDATA[WHERE ROWNUM <= 10]]>
+	</select>
+	 -->
+	<!-- <select id="getList" resultType="map">
+		SELECT * FROM (SELECT a.* FROM bsjbook a, sales b WHERE a.isbn = b.isbn ORDER BY b.tot_sales DESC) <![CDATA[WHERE ROWNUM <= 10]]>
+	</select> -->
+	<select id="getData2" resultType="map">
+		SELECT * FROM (SELECT A.* FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN ORDER BY B.TOT_SALES DESC) <![CDATA[WHERE ROWNUM <= 8]]>
+	</select>
+	<select id="getData" resultType="com.tech.booksajo.main.vo.MainDto">
+		SELECT * FROM (SELECT A.* FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN ORDER BY B.TOT_SALES DESC) <![CDATA[WHERE ROWNUM <= 8]]>
+	</select>
+	<select id="getAllData" resultType="com.tech.booksajo.main.vo.MainDto">
+<!-- 		SELECT * FROM (SELECT A.*, b.TOT_SALES tot_sales FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN ORDER BY B.TOT_SALES DESC) WHERE ROWNUM BETWEEN #{param1} AND #{param2} -->
+		SELECT * FROM (SELECT A.*, ROW_NUMBER() OVER(ORDER BY TOT_SALES DESC) SAL FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN) WHERE SAL BETWEEN #{param1} AND #{param2}
+	</select>
+	<select id="selectTotCount" resultType="Integer">
+		SELECT COUNT(*) FROM BSJBOOK
 	</select>
 </mapper>

@@ -34,7 +34,7 @@
 	   </choose>
    </sql>
 
-	<select id="list" resultType="map">
+<!-- 	<select id="list" resultType="map">
 		SELECT BID,BNAME,BTITLE,BCONTENT,BDATE,BGROUP,BSTEP,BINDENT 
 		FROM
 		(SELECT BID,BNAME,BTITLE,BCONTENT,BDATE,BHIT,BGROUP,BSTEP,BINDENT,
@@ -44,7 +44,7 @@
 		WHERE B_SEQ BETWEEN #{param1} AND #{param2}	
 
 	</select>	
-	
+	 -->
 	<select id="selectBoardTotCount1" resultType="Integer">
 	SELECT COUNT(*) FROM REPLYBOARD WHERE BTITLE LIKE '%'||#{param1}||'%'
 	</select>	
