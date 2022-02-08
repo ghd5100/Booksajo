@@ -6,7 +6,7 @@ import java.util.Date;
 
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+/*@RequiredArgsConstructor*/
 
 public class NoticeDto {
 
