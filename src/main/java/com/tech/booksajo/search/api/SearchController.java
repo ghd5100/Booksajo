@@ -32,10 +32,7 @@ public class SearchController {
 	
 	@Autowired
 	SearchService searchService;
-	
-	//임현주2
-	//임현주
-//ㅇㄹㅇㄹㅇㄹㅇㄹ
+
 	
 	SqlSession sqlsession;
 	
@@ -67,6 +64,10 @@ public class SearchController {
 	public String searchDetail() {
 	
 		//타일즈 맵핑
+		//SearchMapper dao=sqlsession.getMapper(SearchMapper.class);
+		//dao.
+		
+		
 		
 		return "search_detail";
 	}

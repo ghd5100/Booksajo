@@ -8,6 +8,10 @@
 
 <mapper namespace="com.tech.booksajo.search.mapper.SearchMapper">
 
+<!-- <select name="" id="">
+	select * from book;
+</select> -->
+
   <sql id="includelist"> 
 	   <choose>
 	   <!-- 파람4값이 1일때 -->
