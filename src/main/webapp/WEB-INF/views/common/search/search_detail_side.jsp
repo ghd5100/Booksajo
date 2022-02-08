@@ -8,14 +8,17 @@
 <script src="resources/lib/jquery/jquery-3.6.0.min.js"></script>
     <script src="resources/lib/bootstrap/js/bootstrap.js"></script>
 <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="resources/css/search_side.css">
+<link rel="stylesheet" type="text/css" href="resources/css/search_detail_side.css">
 
 
 
 <!-- 이미지 클릭하면 새로운창에서 더 큰 이미지 윈도우창에서 띄우도록 스크립트랑 제이쿼리 이용 함수이용 -->
 
-<div id="img">
-<img src="resources/img/search_icon3.png" class="img-fluid" alt="...">
+<div id="img2">
+<img src="resources/img/search_icon3.png" class="img-fluid" alt="..."/>
+<br />
+<br />
+<br />
 크게보기 | 미리보기
 
 <input type="button" value="매장재고 .위치"/>

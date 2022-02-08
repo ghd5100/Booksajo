@@ -54,7 +54,7 @@ $( document ).ready(function() {
 			    		//html += '<td> <img src=' + data.documents[k].thumbnail +' name="searchDetail"  value="' + JSON.stringify(data.documents[k]) + '"/></td>';
  			    		//html += "<input type='hidden' name='inputDetail' value='" + JSON.stringify(data.documents[k]) + "' ]>";
 			    		html += '<td>';
-			    		html += '<p>' + data.documents[k].title + '</p>';
+			    		html += '<p><a href="search_detail">' + data.documents[k].title + '</a></p>';
 			    		html += '<p>' + data.documents[k].authors + '</p>';
 			    		html += '<p>' + data.documents[k].publisher + '</p>';
 			    		html += '<p>' + data.documents[k].title + '</p>';
@@ -66,7 +66,6 @@ $( document ).ready(function() {
 			    		html += '</tr>';
 		    		
 		    }
-		    	
 		    	
 		    	//.html을 동적구조를 동적 html을 만들수있게해줌. 
 		    	//변수는 아무거나 선언해서 저렇게 

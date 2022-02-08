@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,8 +37,10 @@ public class NoticeController {
 		return "notice";
 	}
 	
+	
+	//ServletRequest -> Http붙게 해줘야함
 	@RequestMapping("/notice_detail")
-	public String notice_detail(ServletRequest request, Model model) {
+	public String notice_detail(HttpServletRequest request, Model model) {
 		System.out.println("'공지사항 상세' 확인");
 		String notice=request.getParameter("notice");
 		model.addAttribute("notice",notice);

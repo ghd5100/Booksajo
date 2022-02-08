@@ -60,8 +60,8 @@ public class SearchController {
 
 	
 	
-	@RequestMapping("/searchDetail")
-	public String searchDetail() {
+	@RequestMapping("/search_detail")
+	public String search_detail() {
 	
 		//타일즈 맵핑
 		//SearchMapper dao=sqlsession.getMapper(SearchMapper.class);
