@@ -43,8 +43,8 @@ public class SearchController {
 	
 	@RequestMapping(value = "/search/api/getList", method = RequestMethod.GET  )
 	@ResponseBody
-	public List<Map<String,Object>> getList(){
-		return searchService.getList();
+	public List<Map<String,Object>> sList(){
+		return searchService.sList();
 	}	
 	
 	//자바딴에서 왔따갔다할때 써줘야함.
@@ -91,12 +91,12 @@ public class SearchController {
 		return "search_table";
 	}
 	
-	
+/*	
 	@RequestMapping(value = "/list")
 	public List<Map<String,Object>> List(@RequestBody Map<String,Object> requestDto){
-		return searchService.list(requestDto);
+		return searchService.slist(requestDto);
 	}
-
+*/
 	
 
 	@RequestMapping("/write")
