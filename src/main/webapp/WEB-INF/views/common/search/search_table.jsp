@@ -19,7 +19,7 @@ $( document ).ready(function() {
 	console.log(keyword);
 	searchData(keyword);  //searchData의 함수의 매개변수로 keyword를 넣어줌
 	
-	 $(document).on("click", "[name='searchDetail']", function () {
+	/*  $(document).on("click", "[name='searchDetail']", function () {
 		  
 		 console.log(this.value);
 		 console.log(JSON.parse(data));
@@ -33,7 +33,7 @@ $( document ).ready(function() {
 	console.log(dataval);
 	 console.log(JSON.parse(dataval));
 		 
-	 });
+	 }); */
 	
 	//검색 함수
 	function searchData(keyword){
@@ -46,14 +46,16 @@ $( document ).ready(function() {
 	        dataType: 'json',
 	        contentType: 'application/json; charset=utf-8',
 	    }).done(function (data) {
-		    	var html = '';
-	
+		    	var html ='';
+		    	
+				
 		    	for(k in data.documents){
 			    		html += '<tr height="180px">';
-			    		html += '<td><input type="image" value="' + JSON.stringify(data.documents[k]) + '" name="searchDetail" src=' + data.documents[k].thumbnail + 'onclick="" id="hj" /></td>';
+			    		//html += '<td><input type="image" value="' + JSON.stringify(data.documents[k]) + '" name="searchDetail" src=' + data.documents[k].thumbnail + 'onclick="" id="hj" /></td>';
 			    		//html += '<td> <img src=' + data.documents[k].thumbnail +' name="searchDetail"  value="' + JSON.stringify(data.documents[k]) + '"/></td>';
  			    		//html += "<input type='hidden' name='inputDetail' value='" + JSON.stringify(data.documents[k]) + "' ]>";
-			    		html += '<td>';
+			    		html += '<td> <img src=' + data.documents[k].thumbnail +'/></td>';
+ 			    		html += '<td>';
 			    		html += '<p><a href="search_detail">' + data.documents[k].title + '</a></p>';
 			    		html += '<p>' + data.documents[k].authors + '</p>';
 			    		html += '<p>' + data.documents[k].publisher + '</p>';
@@ -65,7 +67,8 @@ $( document ).ready(function() {
 			    		+'<input type="button" value="장바구니담기" name="shoplist" /></form></td>';
 			    		html += '</tr>';
 		    		
-		    }
+		    	console.log(data.documents);
+		    } 
 		    	
 		    	//.html을 동적구조를 동적 html을 만들수있게해줌. 
 		    	//변수는 아무거나 선언해서 저렇게 
@@ -141,6 +144,7 @@ function cnt() {
 				<th scope="col" width="15%">평점</th>
 				<th scope="col" width="15%">가격</th>
 				<th scope="col" width="15%">수량 및 장바구니</th>
+				
 			</tr>
 		</thead>
 		<tbody id="getList">
