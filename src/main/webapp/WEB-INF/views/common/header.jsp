@@ -83,7 +83,7 @@
     </ul>
     <li><a href="#">굿즈</a></li>
     <li><a href="#">중고장터</a></li>
-    <li><a href="notice">공지사항</a></li>
+    <li><a href="noticeList">공지사항</a></li>
   </ul>
 
 </header>

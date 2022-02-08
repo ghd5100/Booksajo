@@ -5,7 +5,19 @@
 
 
 <mapper namespace="com.tech.booksajo.notice.mapper.NoticeMapper">
-	<select id="getList" resultType="map">
-
+	<select id="getList" resultType="com.tech.booksajo.notice.vo.NoticeDto">
+		SELECT NSEQ,NTITLE,NCONTENT,NDATE,NHIT
+		FROM BSJNOTICE
 	</select>
+	
+	<select id="contentView" resultType="com.tech.booksajo.notice.vo.NoticeDto">
+		SELECT NSEQ,NTITLE,NCONTENT,NDATE,NHIT
+		FROM BSJNOTICE WHERE NSEQ=#{param1}
+	</select>
+	
+	<update id="upHit">
+		UPDATE BSJNOTICE
+		SET NHIT=NHIT+1 WHERE NSEQ=#{param1}
+	</update>
+		
 </mapper>

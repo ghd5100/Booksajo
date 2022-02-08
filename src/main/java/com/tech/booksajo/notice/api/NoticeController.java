@@ -1,19 +1,19 @@
 package com.tech.booksajo.notice.api;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tech.booksajo.notice.mapper.NoticeMapper;
 import com.tech.booksajo.notice.service.NoticeService;
+import com.tech.booksajo.notice.vo.NoticeDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -21,31 +21,35 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequiredArgsConstructor
 public class NoticeController {
+	NoticeService noticeService;
 	
 	@Autowired
-	NoticeService nservice;
+	private SqlSession sqlSession;
 	
-	@RequestMapping(value = "/notice/api/getList", method = RequestMethod.POST  )
-	@ResponseBody
-	public List<Map<String,Object>> getList(){
-		return nservice.getList();
-	}
-	
-	@RequestMapping("/notice")
-	public String notice() {
+	@RequestMapping("/noticeList")
+	public String noticelist(Model model) {
+		System.out.println("pass by notice");
 		
-		return "notice";
+		NoticeMapper noticemapper=sqlSession.getMapper(NoticeMapper.class);
+		List<NoticeDto> noticelist=noticemapper.getList();
+		System.out.println("noticelist : "+noticelist);
+		model.addAttribute("noticeList",noticelist);
+		
+		return "noticeList";
 	}
 	
-	
-	//ServletRequest -> Http붙게 해줘야함
-	@RequestMapping("/notice_detail")
-	public String notice_detail(HttpServletRequest request, Model model) {
+	@RequestMapping("/noticeView")
+	public String contentView(HttpServletRequest request, Model model) {
 		System.out.println("'공지사항 상세' 확인");
-		String notice=request.getParameter("notice");
-		model.addAttribute("notice",notice);
+		int nseq=(Integer.parseInt(request.getParameter("nseq")));
 		
-		return "notice_detail";
+		NoticeMapper noticemapper=sqlSession.getMapper(NoticeMapper.class);
+		noticemapper.upHit(nseq);
+		
+		NoticeDto noticedto=noticemapper.contentView(nseq);
+		model.addAttribute("noticeView",noticedto);
+		
+		return "noticeView";
 	}
-
+	
 }

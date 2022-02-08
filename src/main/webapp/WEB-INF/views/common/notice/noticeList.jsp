@@ -10,8 +10,8 @@
 	<h1 class="h1_notice">공지사항</h1>
 	<!-- // 페이지 타이틀 -->
 	<!-- 공지사항 리스트 -->
-	<table class="table_style02" cellspacing="0" cellpadding="0" border="0"
-		summary="공지사항 목록 테이블로 번호,제목,날짜 목록으로 구성">
+	<table class="table_style02" cellspacing="0" cellpadding="0" border="0">
+		<!-- summary="공지사항 목록 테이블로 번호,제목,날짜 목록으로 구성"> -->
 
 		<colgroup>
 			<col width="86px">
@@ -20,12 +20,22 @@
 		</colgroup>
 
 		<tbody>
-			<tr>
+			<tr> 
 				<th scope="col" class="title"><p class="th_line">번호</p></th>
 				<th scope="col" class="title"><p class="th_line">제목</p></th>
 				<th scope="col" class="th_line_none">날 짜</th>
 			</tr>
 		</tbody>
+			
+	<c:forEach items="${noticeList }" var="noticedto">
+      <tr>
+         <td>${noticedto.nseq }</td>
+         <td>  
+            <a href="contentView?ntitle=${noticedto.ntitle }">${noticedto.ntitle }</a> 
+         </td>
+         <td>${noticedto.ndate }</td>
+      </tr>
+   </c:forEach>
 		</table>
 
 
