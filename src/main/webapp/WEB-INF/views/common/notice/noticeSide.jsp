@@ -8,28 +8,26 @@
 <script src="resources/lib/jquery/jquery-3.6.0.min.js"></script>
     <script src="resources/lib/bootstrap/js/bootstrap.js"></script>
 <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="resources/css/notice_board.css">
+<link rel="stylesheet" type="text/css" href="resources/css/notice/notice_board.css">
 
 
 	<!-- ★필요시 내용변경가능 有 ★ -->
 	
 	<ul class="nav flex-column">
   <li class="nav-item" style="background-color:#a8afe5;">
-    <a class="nav-link disabled" style="font:bold; font-size: large; text-align: center;" >국내도서</a>
+    <a class="nav-link disabled" style="font:bold; font-size: large; text-align: center;" >고객센터</a>
   </li>
   
   <li class="nav-item">
-    <a class="nav-link" href="#">카테고리1</a>
+    <a class="nav-link" style="font-size: small; text-align: left;" href="#">·회원</a>
   </li>
 
   <li class="nav-item">
-    <a class="nav-link" href="#">카테고리2</a>
+    <a class="nav-link" style="font-size: small;  text-align: left;" href="#">·중고장터</a>
   </li>
   
-  <hr />
-  
   <li class="nav-item">
-    <a class="nav-link" href="#">카테고리3</a>
+    <a class="nav-link" style="font-size: small;  text-align: left;" href="#">·도서/상품정보/교과서</a>
   </li>
  
 </ul>
