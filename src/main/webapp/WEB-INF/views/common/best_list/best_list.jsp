@@ -22,20 +22,20 @@
 		</div>
 		<div class="book_list_area">
 			<ul class="book_list">
-				<c:forEach items="${list }" var="list">
+				<c:forEach items="${dataList }" var="list">
 					<li>
 	                    <div class="book_thumbnail">
 	                            <a href="#">
-	                                <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
+	                                <img src=${list.get("bookImage") } alt="">
 	                            </a>
 	                    </div>
 	                    <div class="title">
 	                        <a href="#">
-	                            <strong>${list.title }</strong>
+	                            <strong>${list.get("bookName") }</strong>
 							</a>
-							<span>글쓴이 : ${list.authors }</span>
-	                        <span>출판사 : ${list.publisher }</span>
-	                        <span>가격 : ${list.price }</span>
+							<span>글쓴이 : ${list.get("authors") }</span>
+	                        <span>출판사 : ${list.get("publisher") }</span>
+<%-- 	                        <span>가격 : ${list.price }</span> --%>
 <!-- 							가격, 출판일 뭐넣을지 못정함 -->
 						</div>
 					</li>
