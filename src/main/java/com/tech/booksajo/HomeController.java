@@ -35,22 +35,12 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		*/
-		return "main";
+		return "redirect:index";
 		
 		
 		/*메인 페이지가 아니라.
 		 *  tiles.xml파일에서 name이 main인것을 찾는거임!
 		main.jsp가 아니라*/
-	}
-	
-	
-	@RequestMapping("/index")
-	public String index() {
-
-		
-
-		return "main";
-		
 	}
 	
 	
