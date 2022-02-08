@@ -9,5 +9,5 @@ import org.springframework.stereotype.Service;
 public interface mainService  {
 	
 	List<Map<String,Object>> getList();
-
+	
 }
