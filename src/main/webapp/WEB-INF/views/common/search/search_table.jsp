@@ -107,30 +107,39 @@ function cnt() {
 
 <div id="d2">
 	<!-- 연관검색어 -->
-	<b>연관검색어</b> 웹퍼블리셔 css html 자바스크립트
+	<b>연관검색어</b> <span>웹퍼블리셔 css html 자바스크립트</span>
 
 </div>
 
 
-<div id="d3" style="height:30px">
+<div id="d3" style="border: 1px solid; width: 95%;"  >
 	<!-- 카테고리 검색 고정되있어야함 부트스트랩 쓰긔 -->
 
-	<div class="container-fluid">
 		<div>
 			<!-- Javascript가 필요없이 data-toggle에 collapse href에 대상 id을 설정합니다. -->
-			<button data-toggle="collapse" href="#collapseExample" name="d3" onclick="divheight();"
-				aria-expanded="false" aria-controls="collapseExample" style="float: left; width:150px;">카테고리</button>
+			<button onclick="divheight();" style="float: left; width:150px;">카테고리</button>
+
 		</div>
 		<!-- collapse 대상 태그는 class를 collapse로 설정합니다. -->
-		<div class="collapse" id="collapseExample">
-			<div class="well">소분류</div>
-			
-		</div>
 
-	</div>
-
+소분류/ 대분류
 
 </div>
+
+<div id="d6" style="border: 1px solid; width: 95%; height: 30px;" >
+
+		<div>
+			<!-- Javascript가 필요없이 data-toggle에 collapse href에 대상 id을 설정합니다. -->
+			<button onclick="divheight2();" style="float: left; width:150px;">조건</button>
+		
+		</div>
+		<!-- collapse 대상 태그는 class를 collapse로 설정합니다. -->
+
+| 인기순 | 판매량 | 신상품  | 상품명  | 할인율  | 낮은가격  | 높은 리뷰  |
+
+</div>
+
+
 
 <div id="d4">
 
@@ -174,5 +183,5 @@ function cnt() {
 </div>
 
 
-<!-- <script src="resources/js/search_table.js"></script>
- --><!-- 아래 이 이링크 안넣어주면 js 작동안함 이 경로에있는 파일 실행시켜주려면 -->
+<script src="resources/js/search_table.js"></script>
+

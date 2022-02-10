@@ -40,6 +40,19 @@
 	</definition>
 	
 	
+	<!-- 타이틀을 사용하는 레이아웃임 -->
+	<definition name="ThirdLayout" template="/WEB-INF/views/common/mypage/mypage_layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/mypage/mypage_side.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+	</definition>
+	
+	
+	
+	
+	
 	<!-- 상속받는거 해당하는거 연결되도록 -->
 	<!-- 임현주 search전용 중앙화면부분 -->
 	<!-- 레이아웃에서 안바뀔부분은 안써두 되고 바뀔부분만 선언 -->
@@ -52,8 +65,7 @@
 	</definition>
 	
 
-	
-	<!-- 임현주 서치 테이블페이지 레이아웃 -->
+	<!-- 임현주 search_table 테이블페이지 레이아웃 -->
 	<definition name="search_table" extends="baseLayout">
 		<put-attribute name="title" value="SEARCH TABLE PAGE" />
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
@@ -61,13 +73,38 @@
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
 	
-	<!-- 임현주 서치 디테일 페이지 레이아웃 -->
+	<!-- 임현주 search_detail 페이지 레이아웃 -->
 		<definition name="search_detail" extends="secondLayout">
 		<put-attribute name="title" value="SEARCH DETAIL PAGE" />
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="side" value="/WEB-INF/views/common/search/search_detail_side.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/common/search/search_detail.jsp" />
 	</definition>
+	
+	<!-- 임현주 mypage 레이아웃 -->
+	<definition name="mypage" extends="ThirdLayout">
+		<put-attribute name="title" value="/WEB-INF/views/common/title.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/mypage/mypage_side.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/mypage/mypage_center.jsp" />
+	</definition>
+	
+<!-- 
+		<definition name="mypage_center1" extends="ThirdLayout">
+		<put-attribute name="title" value="/WEB-INF/views/common/title.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/mypage/mypage_side.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/mypage/mypage_center1.jsp" />
+	</definition> 
+	 -->
+	<!-- 주문 배송조회 메뉴-->
+		<definition name="mypage_center2" extends="ThirdLayout">
+		<put-attribute name="title" value="/WEB-INF/views/common/title.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/mypage/mypage_side.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/mypage/mypage_center2.jsp" />
+	</definition>
+	
 	
 	
 	<!--이선아 '공지사항게시판'page-->
@@ -86,7 +123,5 @@
 	</definition>
 	
 	
-<!-- 
-해더 푸터 안넣어줘서 404에러났
-요청된 리소스 [/booksajo/]은(는) 가용하지 않습니다. -->
+<!-- 해더 푸터 안 넣어주면 : 404에러남 요청된 리소스 [/booksajo/]은(는) 가용하지 않습니다.-->
 </tiles-definitions>
