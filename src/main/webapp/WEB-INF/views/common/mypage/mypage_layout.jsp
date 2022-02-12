@@ -17,7 +17,7 @@ margin-left: 20%;
 
 #container{
 	width: 100%;
-	margin: 260px 0px;
+	margin-top: 260px;
 	text-align: center;
 	border: 0px solid #bcbcbc;
 	background-color:white;

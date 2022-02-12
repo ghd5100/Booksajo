@@ -61,12 +61,18 @@ public class SearchController {
 	
 	
 	@RequestMapping("/search_detail")
-	public String search_detail() {
+	public String search_detail(HttpServletRequest request, Model model) {
 	
+		String isbn13=request.getParameter("isbn");
+		System.out.println("isbn13:"+isbn13);
+		
+		
+		model.addAttribute("isbn", isbn13);
 		//타일즈 맵핑
 		//SearchMapper dao=sqlsession.getMapper(SearchMapper.class);
 		//dao.
 		
+		//여기 자바안에서 도서나루 정보 끌어올수있도록 하자...
 		
 		
 		return "search_detail";

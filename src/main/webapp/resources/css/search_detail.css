@@ -1,31 +1,119 @@
-div{
-z-index: -2;	
+#inlineside{
+	/* div로 다 넣고 인라인 플럭스해주면 inline flex 옆으로 놔짐 inline은 세로로 놔짐 */
+	display: inline;
+}
+
+#img2{
+	border: 1px solid #aaa;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+	padding-bottom: 0px;
+	padding-top:0px;
+	width: 250px;
+	margin-left: 30%; 
+
+}
+
+#storelo{
+	border: 2px solid;
+	border-collapse: collapse;
+	width: 250px;
+	height: 80px;
+	margin-left: 30%;
 }
 
 
-
-
-#title{
-	
-	
+#keywordpick{
+	margin-top:30px;
+	height: 200px;
+	border: 2px solid;
+	border-collapse: collapse;
+	width: 250px;
+	margin-left: 30%;
 }
 
 
-#priceinfo{
-	/* 높이 조정가능 임시 설정 */
-	height: 500px; 
+#title2{
+	margin-left: 100px;
+}
+
+#detail{
+
+	width: 920px;
+
+}
+
+#booksen{
+
+	
+}
+
+#bookimg{
+	position: relative;
+	left:30px;
+	margin-bottom: 50px;
+	margin-top: 80px;
+	
+}
+
+p1{
+	font-size: medium;
 }
 
 
 #infotab{
-	float: left;
+	
 	/* 높이 조정가능 임시 설정 */
 	height: 300px;
 	width: 100%;
 }
 
 table{
-	border: 1px solid;
+	border: 1px solid #eee;
 	border-collapse: collapse;
 	width: 100%;
+	text-align: left;
+}
+tr,td{
+	/* border: 1px solid #eee; */
+}
+
+#z{
+	font-size: x-large;
+	font-weight: bold;
+	color: blue;
+	padding-left: 20px;
+}
+
+#x{
+	font-size: 15px;
+	font-weight: bold;
+	color: black;
+	padding-left: 20px;
+}
+
+#au{
+	padding-left: 20px;
+	font-size: medium;
+	color: #bbb;
+}
+
+#n{
+padding-left: 20px;
+font-size: medium;
+padding-top: 15px;
+
+border-bottom: 2px solid #aaa;
+}
+
+#m{
+	padding-left: 20px;
+	font-size: medium;
+}
+
+#sale{
+	padding-left: 20px;
+/* 	font-size: x-large;
+	color: red; */
+	border-bottom: 2px solid #aaa;
 }

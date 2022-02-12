@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+#trid{
+
+	padding-left: 0px;
+	border: 1px solid;
+}
+
+
+#conte {
+	clear: both;
+	display: inline;
+	width: 100%;
+	height: auto;
+	margin-right: 2%;
+
+}
+#custominfo{
+
+}
+
+
+#addrinfo{
+	height: 50px;
+}
+
+#creditinfo{
+ border: 1px solid;	
+ width: 100%;
+ height: 200px;
+ margin-bottom: 50px;
+}
+
+
+#div2{
+	display: inline-flex;
+	/* border: 1px solid;	 */
+}
+
+#totalpayment{
+	border: 1px solid;
+
+		margin-right: 5%;
+}

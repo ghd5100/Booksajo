@@ -6,11 +6,11 @@ function divheight() {
 
 	if (flag) {
 		var y = document.getElementById("d3");
-		y.style.height = "30px";
+		y.style.height = "35px";
 		flag = false;
 	} else {
 		var y = document.getElementById("d3");
-		y.style.height = "80px";
+		y.style.height = "70px";
 		flag = true;
 	}
 
@@ -21,11 +21,11 @@ function divheight2() {
 
 	if (flag2) {
 		var x = document.getElementById("d6");
-		x.style.height = "30px";
+		x.style.height = "35px";
 		flag2 = false;
 	} else {
 		var x = document.getElementById("d6");
-		x.style.height = "80px";
+		x.style.height = "70px";
 		flag2 = true;
 	}
 

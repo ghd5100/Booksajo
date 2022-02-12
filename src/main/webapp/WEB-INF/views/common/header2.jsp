@@ -23,7 +23,7 @@
 <!-- 부가적인 테마 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
-<link rel="stylesheet" type="text/css" href="resources/css/header.css">
+<link rel="stylesheet" type="text/css" href="resources/css/header2.css">
 
 
 
@@ -47,7 +47,7 @@
 	</nav>
 
 <div id="a">
-<a href="index"><img src="resources/img/logo.png" width="195px" height="84px" alt="" width="30" height="24" id="img"></a>
+<a href="index"><img src="resources/img/logo.png" width="110px" height="45px" alt="" id="img"></a>
 </div>
 <div id="b">
 <form class="d-flex" action="search_table" method="post">
@@ -59,32 +59,6 @@
 </div>
 <span id="c">여백</span>
 
-
-
-  <ul class="nav justify-content-center a2">
-  <!-- 부트스트랩의 1.형태요소이면서 2.클래스 이름이기도함 -->
-    <li class="nav-item dropdown">
-    <a class=""nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="search" aria-expanded="false" onmouseover="drop(1);"><b>국내도서</b>
-    </a>
-    <ul class="dropdown-menu">
-      <li><a href="search">카테고리1</a></li>
-      <li><a href="search">카테고리2</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="search">카테고리3</a></li>
-    </ul>
-       <li class="nav-item dropdown">
-    <a class=""nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#" aria-expanded="false" onmouseover="drop(2);"><b>외국도서</b>
-    </a>
-    <ul class="dropdown-menu">
-      <li><a href="#">카테고리1</a></li>
-      <li><a href="#">카테고리2</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">카테고리3</a></li>
-    </ul>
-    <li><a href="#">굿즈</a></li>
-    <li><a href="#">중고장터</a></li>
-    <li><a href="noticeList">공지사항</a></li>
-  </ul>
 
 </header>
 </head>

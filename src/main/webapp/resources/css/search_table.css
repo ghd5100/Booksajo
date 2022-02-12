@@ -43,11 +43,16 @@ margin-bottom: 70px;
 
 #d3{
 	float: left;
+	font-size: medium;
+
 }
 
 #d6{
 	float:left;
 	border:1px solid;
+	margin-bottom: 50px;
+	font-size: medium;
+
 }
 
 #d4{
@@ -57,11 +62,21 @@ top:500px; */
 border:1px solid;
 width: 95%;
 height: auto;
+font-size: medium;
+
 }
+
+#d4 td{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
 
 div button{
 	height:30px;
 	margin-left: 0px;
+	background-color: white;
+	border: none;
 }
 
 
