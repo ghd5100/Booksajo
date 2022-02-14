@@ -11,10 +11,12 @@
 	border: 0;
 }
 .contents {
-	width: 100%;
+	width: 1400px;
 	margin: 0 auto;
 	margin-top: 20px;
 }
+
+
 
 .contents_top {
 	width: 100%;
@@ -26,8 +28,42 @@
 	margin-left: 20px;
 }
 
+
+/* category */
+.category {
+	width: 150px;
+	position: absolute;
+
+}
+
+.category > table {
+	position: absolute;
+	border: 1px solid black;
+	width: 150px;
+	height: 200px;
+	left: 30px;
+	top: 100px;
+}
+.category td {
+	border: solid 1px black;
+}
+
+.category > table span {
+	font-size: 15px;
+	font-weight: bold;
+}
+.category a {
+	color: black;
+	font-size: 12px;
+}
+
 /* book_list */
 
+
+.book_list_area {
+	width: 1000px;
+	margin: 0 auto;
+}
 .book_list {
 	width: 1000px;
 	margin: 0 auto;
@@ -52,16 +88,20 @@
 }
 
 .book_list li:hover > .book_thumbnail {
-	bottom: 91px;
+	bottom: 81px;
 }
 .book_list li:hover > .title {
-	top: 166px;
+	top: 171px;
+}
+.book_list li:hover > .rank > span {
+	top: 4px;
+	left: 6px;
 }
 
 .book_thumbnail {
     position: absolute;
     width: 100%;
-    bottom: 95px;
+    bottom: 85px;
     left: 0;
 }
 
@@ -76,17 +116,39 @@
     position: relative;
     text-align: left;
     padding-left: 20px;
-    top: 170px;
+    top: 175px;
     width: 190px;
     margin: 0 auto;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 .title strong {
-	
+	text-align: center;
+	display: block;
+	width: 150px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 12px;
+	margin-bottom: 3px;
 }
+
 .title span {
 	display: block;
+	width: 150px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.rank span {
+	display: block;
+	position: absolute;
+	top: 8px;
+	left: 10px;
+	font-size: 14px;
+	font-weight: bold;
 }
 
 /* page */

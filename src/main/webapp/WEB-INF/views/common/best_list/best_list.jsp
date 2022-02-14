@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="resources/css/best_list.css" />
+<link rel="stylesheet" href="resources/css/main_page/best_list.css" />
 <title>Insert title here</title>
 <style>
 #content {
-	width: 1000px;
+	width: 100%;
 	margin: 0 auto;
 	float: none;
 }
@@ -17,26 +17,42 @@
 </head>
 <body>
 	<div class="contents">
+		<div class="category">
+			<table>
+				<tr>
+					<td><span>베스트 셀러</span></td>
+				</tr>
+				<tr>
+					<td><a href="best_list?page=1&category=m">월간 베스트</a></td>
+				</tr>
+				<tr>
+					<td><a href="best_list?page=1&category=y">연간 베스트</a></td>
+				</tr>
+			</table>
+		</div>
 		<div class="contents_top">
 			<h1>베스트 셀러</h1>
 		</div>
 		<div class="book_list_area">
 			<ul class="book_list">
-				<c:forEach items="${dataList }" var="list">
+				<c:forEach items="${list }" var="list">
 					<li>
+<!-- 						<div class="rank"> -->
+<%-- 							<span>${list.rank }</span> --%>
+<!-- 						</div> -->
 	                    <div class="book_thumbnail">
 	                            <a href="#">
-	                                <img src=${list.get("bookImage") } alt="">
+	                                <img src=${list.thumbnail } alt="">
 	                            </a>
 	                    </div>
 	                    <div class="title">
 	                        <a href="#">
-	                            <strong>${list.get("bookName") }</strong>
+	                            <strong>${list.title }</strong>
 							</a>
-							<span>글쓴이 : ${list.get("authors") }</span>
-	                        <span>출판사 : ${list.get("publisher") }</span>
-<%-- 	                        <span>가격 : ${list.price }</span> --%>
-<!-- 							가격, 출판일 뭐넣을지 못정함 -->
+							<span>저자: ${list.authors }</span>
+	                        <span>출판사: ${list.publisher }</span>
+ 	                        <span>출판연도: ${list.pub_year }</span>
+
 						</div>
 					</li>
 				</c:forEach>
