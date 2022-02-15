@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.min.css">
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
- -->
+
 
 <!-- 제이쿼리 -->
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -40,6 +40,7 @@
 				<li id="g"><a href="#">회원가입</a></li>
 				<li id="g"><a href="#">출석체크</a></li>
 				<li id="g"><a href="mypage">MYPAGE</a></li>
+				<li id="g"><a href="#">고객센터</a></li>
 				<li id="g"><a href="#">주문배송</a></li>
 				<li id="g"><a href="shoplist">장바구니</a></li>
 			</ul>

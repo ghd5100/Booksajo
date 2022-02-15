@@ -1,6 +1,5 @@
 package com.tech.booksajo.notice.api;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.tech.booksajo.notice.mapper.NoticeMapper;
 import com.tech.booksajo.notice.service.NoticeService;
@@ -28,10 +28,10 @@ public class NoticeController {
 	
 	@RequestMapping("/noticeList")
 	public String noticelist(Model model) {
-		System.out.println("pass by notice");
+		System.out.println("pass by noticeList");
 		
 		NoticeMapper noticemapper=sqlSession.getMapper(NoticeMapper.class);
-		List<NoticeDto> noticelist=noticemapper.getList();
+		List<NoticeDto> noticelist=noticemapper.noticeList();
 		System.out.println("noticelist : "+noticelist);
 		model.addAttribute("noticeList",noticelist);
 		
@@ -39,17 +39,65 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("/noticeView")
-	public String contentView(HttpServletRequest request, Model model) {
-		System.out.println("'공지사항 상세' 확인");
-		int nseq=(Integer.parseInt(request.getParameter("nseq")));
+	public String noticeView(HttpServletRequest request, Model model) {
+		System.out.println("pass by noticeView");
+//		int nseq=(Integer.parseInt(request.getParameter("nseq")));
+		String nseq=request.getParameter("nseq");
 		
 		NoticeMapper noticemapper=sqlSession.getMapper(NoticeMapper.class);
 		noticemapper.upHit(nseq);
 		
-		NoticeDto noticedto=noticemapper.contentView(nseq);
+		NoticeDto noticedto=noticemapper.noticeView(nseq);
 		model.addAttribute("noticeView",noticedto);
 		
 		return "noticeView";
+	}
+	
+	@RequestMapping("/noticeWriteView") //write_view
+	public String noticeWriteView() {
+		System.out.println("pass by noticeWriteView");
+				
+		return "noticeWriteView";
+	}
+		
+	@RequestMapping("noticeWrite")  //write
+	public String noticeWrite(HttpServletRequest request, Model model) {
+		System.out.println("pass by noticeWrite");
+		
+		String ntitle=request.getParameter("ntitle");
+		String ncontent=request.getParameter("ncontent");
+	
+		NoticeMapper noticemapper=sqlSession.getMapper(NoticeMapper.class);
+		noticemapper.noticeWrite(ntitle,ncontent);
+	
+		return "noticeList";
+	}
+
+	@RequestMapping(method=RequestMethod.GET,value="/noticeModify")  
+	public String noticeModify(HttpServletRequest request, Model model) {
+		System.out.println("pass by noticeModify");
+		
+//		int nseq=(Integer.parseInt(request.getParameter("nseq")));
+		String nseq=request.getParameter("nseq");
+		String ntitle=request.getParameter("ntitle");
+		String ncontent=request.getParameter("ncontent");
+		
+		NoticeMapper noticemapper=sqlSession.getMapper(NoticeMapper.class);
+		noticemapper.noticeModify(nseq,ntitle,ncontent);
+		
+		return "noticeModify";
+		
+	}
+	
+	@RequestMapping("/noticeDelete")
+	public String noticeDelete(HttpServletRequest request, Model model) {
+		System.out.println("pass by noticeDelete");
+		
+		String nseq=request.getParameter("nseq");
+		NoticeMapper noticemapper=sqlSession.getMapper(NoticeMapper.class);
+		noticemapper.noticeDelete(nseq);
+		
+		return "noticeList";
 	}
 	
 }

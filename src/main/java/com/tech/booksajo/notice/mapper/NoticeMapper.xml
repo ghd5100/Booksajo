@@ -5,19 +5,33 @@
 
 
 <mapper namespace="com.tech.booksajo.notice.mapper.NoticeMapper">
-	<select id="getList" resultType="com.tech.booksajo.notice.vo.NoticeDto">
+	<select id="noticeList" resultType="com.tech.booksajo.notice.vo.NoticeDto">
 		SELECT NSEQ,NTITLE,NCONTENT,NDATE,NHIT
-		FROM BSJNOTICE
+		FROM BSJNOTICE ORDER BY NSEQ DESC
 	</select>
 	
-	<select id="contentView" resultType="com.tech.booksajo.notice.vo.NoticeDto">
+	<select id="noticeView" resultType="com.tech.booksajo.notice.vo.NoticeDto">
 		SELECT NSEQ,NTITLE,NCONTENT,NDATE,NHIT
 		FROM BSJNOTICE WHERE NSEQ=#{param1}
 	</select>
+
+	<insert id="noticeWriteView">
+		INSERT INTO BSJNOTICE
+		VALUES(BSJNOTICE_SEQ.NEXTVAL,#{param1},#{param2},SYSDATE,0)
+	</insert>
 	
 	<update id="upHit">
 		UPDATE BSJNOTICE
 		SET NHIT=NHIT+1 WHERE NSEQ=#{param1}
 	</update>
-		
+	
+	<delete id="noticeDelete">
+		DELETE FROM BSJNOTICE WHERE NSEQ=#{param1}
+	</delete>
+	
+	<update id="noticeModify">
+		UPDATE BSJNOTICE
+		SET NTITLE=#{param1},NCONTENT=#{param2}
+		WHERE NSEQ=#{param3}
+	</update>	
 </mapper>

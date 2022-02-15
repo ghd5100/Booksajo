@@ -1,6 +1,6 @@
 package com.tech.booksajo.notice.mapper;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import org.mybatis.spring.annotation.MapperScan;
 
@@ -9,9 +9,18 @@ import com.tech.booksajo.notice.vo.NoticeDto;
 @MapperScan
 public interface NoticeMapper {
 	
-	public List<NoticeDto> getList();
-//	public ArrayList<NoticeDto> noticelist(int nseq,String ntitle,String ncontent);
-	public NoticeDto contentView(int nseq);
-	public void upHit(int nseq);
+	public ArrayList<NoticeDto> noticeList();
+
+	public NoticeDto noticeView(String nseq);
+
+	public void noticeWriteView(String ntitle, String ncontent);
+
+	public void noticeWrite(String ntitle, String ncontent);
+
+	public void upHit(String nseq);
+
+	public void noticeDelete(String nseq);
+
+	public void noticeModify(String nseq, String ntitle, String ncontent);
 
 }

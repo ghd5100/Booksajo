@@ -28,26 +28,15 @@
 		</thead>
 		  </tbody>
 		</table>
-	
-		
-		<!-- 페이징 및 목록 영역  --> 
-		<br />
-		<div id="pagingPanel">
-			<a href="#">
-				<input type="submit" id="prebtn_noticelist" value="이전" /></a>
-			<a href="noticeList">
-				<input type="submit" id="listbtn_noticelist" value="목록" /></a>
-			<a href="#">
-			<input type="submit" id="nextbtn_noticelist" value="다음" /></a>
-		</div>
+
 			
 		<!-- 관리자 영역 BTN -->
 			<br /><br />
 		<div id="mngPanel">
-			<a href="noticeDelete?nseq=${noticeView.nseq }">			
-				<input type="submit" id="deletebtn_noticelist" value="삭제" /></a>&nbsp;&nbsp;
 			<a href="noticeModify">			
-				<input type="submit" id="modifybtn_noticelist" value="수정" /></a>&nbsp;&nbsp;
+				<input type="submit" id="modifybtn_noticelist" value="확인" /></a>&nbsp;&nbsp;
+			<a href="noticeView">			
+				<input type="submit" id="cmodifybtn_noticelist" value="취소 " /></a>&nbsp;&nbsp;
 		</div>
 	</div>
 	

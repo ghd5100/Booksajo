@@ -1,0 +1,25 @@
+/* 게시판  */
+.h1_notice {
+  height: 50px;
+  text-align: left;
+  margin-bottom: 15px;
+  padding: 10px 0 10px;
+  border-bottom: 2px solid #565656;
+  font-size: 25px;
+  overflow: hidden;
+  color: #333333;
+  font-weight: bold;
+}
+
+
+/* 페이징 */
+.page_area {
+	clear: both;
+	margin-bottom: 30px;
+}
+
+.page_area > a {
+	position: relative;
+	margin: 3px 5px 1px 5px;
+	border: solid 1px #000;
+}
