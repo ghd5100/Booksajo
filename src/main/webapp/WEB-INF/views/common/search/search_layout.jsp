@@ -30,6 +30,7 @@
 	border-collapse:collapse;
 	font-size: 10px;
 	z-index: -1;
+	
 
 }
 
@@ -56,15 +57,17 @@
 
 </style>
 
-<title>
-	<tiles:insertAttribute name="title" />
-</title>
+
 </head>
 <body style="height: 100%;">
 
 	<!-- 영역없는거 안없애면 에러남. 타일설정 에러 ->서블렛 에러 -->
 	
 <div id="container">
+ 	
+ 	 <div id="title">
+ 		<tiles:insertAttribute name="title" />
+ 	</div>
  	
  	<div id="header">
 		<tiles:insertAttribute name="header" />

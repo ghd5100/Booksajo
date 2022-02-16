@@ -3,6 +3,12 @@
 <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+       
+       
+<!-- ============================================================================================================================================================ -->       
+<!-- 선언부 -->  
+  
+       
 <tiles-definitions>
 	<definition name="baseLayout" template="/WEB-INF/views/common/layout.jsp">
 		<put-attribute name="title" value="" />
@@ -11,23 +17,21 @@
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
 	
-	
-	
-		<!--헤더푸터를 제외한 중앙화면구현 부분 -->
-	<definition name="main" extends="baseLayout">
-		<put-attribute name="title" value="메인페이지" />
+		<definition name="baseLayout2" template="/WEB-INF/views/common/search/search_detail_layout.jsp">
+		<put-attribute name="title" value="/WEB-INF/views/common/search/search_detail_title.jsp" />
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/index.jsp" />
+		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
 	
-	<definition name="bestList" extends="baseLayout">
-		<put-attribute name="title" value="베스트셀러" />
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/common/best_list/best_list.jsp" />
+	<!-- 페이먼트에서만씀 -->
+	<definition name="baseLayout3" template="/WEB-INF/views/common/payment/payment_layout.jsp">
+		<put-attribute name="title" value="/WEB-INF/views/common/payment/payment_title.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header2.jsp" />
+		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
-	
+
 	<!-- 각 페이지 마다 레이아웃이 다 다를때: 여기서는 레이아웃2에는 사이드가 없도록 구현하고자 함 -->
 	<!-- layout2 정의를 하나더 선언해줌 -->
 	<!-- 타이틀 헤더 사이드 바디 풋터 레이아웃 다 쓸경우 선언문 -->
@@ -38,6 +42,43 @@
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
+	
+	
+	<!-- 타이틀을 사용하는 레이아웃임 -->
+	<definition name="ThirdLayout" template="/WEB-INF/views/common/mypage/mypage_layout.jsp">
+		<put-attribute name="title" value="/WEB-INF/views/common/title.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+	</definition>
+	
+
+<!-- ============================================================================================================================================================ -->
+
+	
+		<!--헤더푸터를 제외한 중앙화면구현 부분 -->
+	<definition name="main" extends="baseLayout">
+		<put-attribute name="title" value="메인페이지" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/index.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+	</definition>
+
+
+
+	
+	<definition name="bestList" extends="baseLayout">
+		<put-attribute name="title" value="베스트셀러" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/best_list/best_list.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+	</definition>
+	
+	
+	
+<!-- ============================================================================================================================================================ -->	
+	
 	
 	
 	<!-- 상속받는거 해당하는거 연결되도록 -->
@@ -52,8 +93,7 @@
 	</definition>
 	
 
-	
-	<!-- 임현주 서치 테이블페이지 레이아웃 -->
+	<!-- 임현주 search_table 테이블페이지 레이아웃 -->
 	<definition name="search_table" extends="baseLayout">
 		<put-attribute name="title" value="SEARCH TABLE PAGE" />
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
@@ -61,13 +101,45 @@
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
 	
-	<!-- 임현주 서치 디테일 페이지 레이아웃 -->
-		<definition name="search_detail" extends="secondLayout">
-		<put-attribute name="title" value="SEARCH DETAIL PAGE" />
+	<!-- 임현주 search_detail 페이지 레이아웃 -->
+		<definition name="search_detail" extends="baseLayout2">
+		<put-attribute name="title" value="/WEB-INF/views/common/search/search_detail_title.jsp" />
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
-		<put-attribute name="side" value="/WEB-INF/views/common/search/search_detail_side.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/common/search/search_detail.jsp" />
 	</definition>
+	
+	
+	<!-- 임현주 mypage 레이아웃 -->
+	<definition name="mypage" extends="ThirdLayout">
+		<put-attribute name="title" value="/WEB-INF/views/common/title.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/mypage/mypage_side.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/mypage/mypage_center.jsp" />
+	</definition>
+	
+
+	<!-- 주문 배송조회 메뉴-->
+		<definition name="mypage_center2" extends="ThirdLayout">
+		<put-attribute name="title" value="/WEB-INF/views/common/title.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/mypage/mypage_side.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/mypage/mypage_center2.jsp" />
+	</definition>
+	
+	
+	<!-- 임현주 payment 페이지  -->
+		<definition name="payment" extends="baseLayout3">
+		<put-attribute name="title" value="/WEB-INF/views/common/payment/payment_title.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header2.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/payment/payment.jsp" />
+	</definition>
+	
+	
+	
+	
+<!-- ============================================================================================================================================================ -->	
+	
+	
 	
 	
 	<!--이선아 '공지사항게시판'page-->
@@ -86,7 +158,11 @@
 	</definition>
 	
 	
-<!-- 
-해더 푸터 안넣어줘서 404에러났
-요청된 리소스 [/booksajo/]은(는) 가용하지 않습니다. -->
+
+<!-- ============================================================================================================================================================ -->
+
+
+
+	
+<!-- 해더 푸터 안 넣어주면 : 404에러남 요청된 리소스 [/booksajo/]은(는) 가용하지 않습니다.-->
 </tiles-definitions>

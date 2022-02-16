@@ -27,6 +27,21 @@ public class MypageController {
 		return service.getList();
 	}
 	
+	@RequestMapping("/mypage")
+	public String search() {
+		
+		return "mypage";
+	}
+	
 
-
+	
+	
+	@RequestMapping("/mypage_center2")
+	public String mypage_center2() {
+		
+		return "mypage_center2";
+	}
+	
+	
+	
 }

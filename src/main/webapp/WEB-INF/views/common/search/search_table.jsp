@@ -9,31 +9,15 @@
 	href="resources/css/search_table.css">
 
 
- 
 
-<script>
+
+<script>	
 
 
 $( document ).ready(function() {
 	var keyword = '${search}';
-	console.log(keyword);
 	searchData(keyword);  //searchData의 함수의 매개변수로 keyword를 넣어줌
-	
-	/*  $(document).on("click", "[name='searchDetail']", function () {
-		  
-		 console.log(this.value);
-		 console.log(JSON.parse(data));
-		 
- 	 });
-	
 
- $(document).on("click", "#hj", function () {
-	 
-	 var dataval=document.getElementById("#hj").value;
-	console.log(dataval);
-	 console.log(JSON.parse(dataval));
-		 
-	 }); */
 	
 	//검색 함수
 	function searchData(keyword){
@@ -47,37 +31,42 @@ $( document ).ready(function() {
 	        contentType: 'application/json; charset=utf-8',
 	    }).done(function (data) {
 		    	var html ='';
-		    	
 				
 		    	for(k in data.documents){
+		    		var isbn = data.documents[k].isbn; 
+		    		var cnt='';
 			    		html += '<tr height="180px">';
 			    		//html += '<td><input type="image" value="' + JSON.stringify(data.documents[k]) + '" name="searchDetail" src=' + data.documents[k].thumbnail + 'onclick="" id="hj" /></td>';
 			    		//html += '<td> <img src=' + data.documents[k].thumbnail +' name="searchDetail"  value="' + JSON.stringify(data.documents[k]) + '"/></td>';
  			    		//html += "<input type='hidden' name='inputDetail' value='" + JSON.stringify(data.documents[k]) + "' ]>";
-			    		html += '<td> <img src=' + data.documents[k].thumbnail +'/></td>';
+			    		html += '<td><a href="search_detail?isbn='+isbn.substr(11,23)+'"><img src=' + data.documents[k].thumbnail +'/></a></td>';
  			    		html += '<td>';
-			    		html += '<p><a href="search_detail">' + data.documents[k].title + '</a></p>';
-			    		html += '<p>' + data.documents[k].authors + '</p>';
+			    		html += '<b><a href="search_detail?isbn='+isbn.substr(11,23)+'">' + data.documents[k].title + '</a></b></br></br>';
+			    		html += '<p>' + data.documents[k].authors + '&nbsp;&nbsp;지음</p>';
 			    		html += '<p>' + data.documents[k].publisher + '</p>';
-			    		html += '<p>' + data.documents[k].title + '</p>';
+			    		html += '<p>' + data.documents[k].datetime + '</p>';
 			    		html += '</td>';
-			    		html += '<td>평점</td>';
-			    		html += '<td>'+ data.documents[k].price + '</td>';
-			    		html += '<td><form action="shoplistpage">' + '수량 : ' + '<input type="number" max="9" min="1" maxlength="7px" /></br></br>'
-			    		+'<input type="button" value="장바구니담기" name="shoplist" /></form></td>';
+			    		html += '<td></br></br>평점</td>';
+			    		html += '<td></br></br></br>'+ data.documents[k].price + '원</br>'+ data.documents[k].sale_price +'원[10%↓]</td>';
+			    		html += '<td><form action="payment" method="get">' + '수량 : ' + '<input type="number" max="9" min="1" maxlength="7px" /></br></br>'
+			    		+'<input type="button" value="장바구니담기" name="shoplist" /></br></br><input type="submit" value="바로구매" name="payment"  /></form></td>';
+			    		/* 써브밋을 안하고 버튼을 했네 와따시 바보 */
 			    		html += '</tr>';
-		    		
+		    			cnt += data.meta.total_count +'건';
 		    	console.log(data.documents);
+		    	/* console.log(data.meta.total_count); */
 		    } 
 		    	
 		    	//.html을 동적구조를 동적 html을 만들수있게해줌. 
 		    	//변수는 아무거나 선언해서 저렇게 
 		    	//동적과 적적의차이... 포문 돌려서 만들어주는것 동적이라고 볼수있다.
+		    $('#cnt').html(cnt);
 	    	$('#getList').html(html);      
 	    }).fail(function (error) {
 	    });
 		
 	}
+	
 	
 
 	
@@ -90,47 +79,55 @@ $( document ).ready(function() {
 //총 검색 건수 가져오기.meta 에서 얻을수있었음.
 /* 가져와서 코드블럭으로 넣어주기.  */
 
-function cnt() {
-	
-}
+
 
 
 </script> 
 
 
 
+
 <div id="d1">
 	<!-- 총검색결과  -->
-	${search } 검색결과 총 1789건
+	${search } 검색결과 총 <h3 id="cnt" style="display: inline;"></h3>
 	<hr />
 </div>
 
 <div id="d2">
 	<!-- 연관검색어 -->
-	<b>연관검색어</b> 웹퍼블리셔 css html 자바스크립트
+	<b>연관검색어</b> <span>웹퍼블리셔 css html 자바스크립트</span>
 
 </div>
 
 
-<div id="d3" style="height:30px">
+<div id="d3" style="border: 1px solid; width: 95%; height: 35px;"  >
 	<!-- 카테고리 검색 고정되있어야함 부트스트랩 쓰긔 -->
 
-	<div class="container-fluid">
 		<div>
 			<!-- Javascript가 필요없이 data-toggle에 collapse href에 대상 id을 설정합니다. -->
-			<button data-toggle="collapse" href="#collapseExample" name="d3" onclick="divheight();"
-				aria-expanded="false" aria-controls="collapseExample" style="float: left; width:150px;">카테고리</button>
+			<button onclick="divheight();" style="float: left; width:150px; height: 30px">카테고리&nbsp;&nbsp;∨</button>
+
 		</div>
 		<!-- collapse 대상 태그는 class를 collapse로 설정합니다. -->
-		<div class="collapse" id="collapseExample">
-			<div class="well">소분류</div>
-			
-		</div>
 
-	</div>
-
+소분류/ 대분류
 
 </div>
+
+<div id="d6" style="border: 1px solid; width: 95%; height: 35px;" >
+
+		<div>
+			<!-- Javascript가 필요없이 data-toggle에 collapse href에 대상 id을 설정합니다. -->
+			<button onclick="divheight2();" style="float: left; width:150px; height: 30px">조건&nbsp;&nbsp;∨</button>
+		
+		</div>
+		<!-- collapse 대상 태그는 class를 collapse로 설정합니다. -->
+
+| 인기순 | 판매량 | 신상품  | 상품명  | 할인율  | 낮은가격  | 높은 리뷰  |
+
+</div>
+
+
 
 <div id="d4">
 
@@ -148,7 +145,7 @@ function cnt() {
 			</tr>
 		</thead>
 		<tbody id="getList">
-- 			<tr height="150px">
+ 			<tr height="150px">
 				<td>
 			<!-- <input type="image" value="" name=""  id="" onclick="" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F1606323%3Ftimestamp%3D20220204175403id=%22hj%22"/> -->
 				</td>
@@ -174,5 +171,5 @@ function cnt() {
 </div>
 
 
-<!-- <script src="resources/js/search_table.js"></script>
- --><!-- 아래 이 이링크 안넣어주면 js 작동안함 이 경로에있는 파일 실행시켜주려면 -->
+<script src="resources/js/search_table.js"></script>
+

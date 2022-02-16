@@ -13,6 +13,7 @@
 	text-align: center;
 	border: 0px solid #bcbcbc;
 	background-color:white;
+	
 }
 
 
@@ -24,6 +25,7 @@
 /* 	border: 2px solid #bcbcbc; */
 	height: 100%;
 	z-index: -1;
+
 	/* 사이드바 높이 없어지면서 메인부분이 높이가 너무 짧아짐 내용부분에 높이 추가하면댐 */ 
 	
 }

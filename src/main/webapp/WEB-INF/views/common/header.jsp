@@ -39,9 +39,9 @@
 				<li id="g"><a href="#">로그인</a></li>
 				<li id="g"><a href="#">회원가입</a></li>
 				<li id="g"><a href="#">출석체크</a></li>
-				<li id="g"><a href="#">고객센터</a></li>
+				<li id="g"><a href="mypage">MYPAGE</a></li>
 				<li id="g"><a href="#">주문배송</a></li>
-				<li id="g"><a href="#">장바구니</a></li>
+				<li id="g"><a href="shoplist">장바구니</a></li>
 			</ul>
 		</div>
 	</nav>

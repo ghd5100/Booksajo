@@ -1,0 +1,9 @@
+#paymenttitle{
+
+}
+tr,td{
+	border: 1px solid #eee;
+	background-color: #dde5ff;
+	border-top-color: #004fac;
+	border-bottom-color: #004fac;
+}

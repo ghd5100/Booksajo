@@ -27,5 +27,8 @@ public class chrisController {
 	public List<Map<String,Object>> getList(){
 		return chrisservice.getList();
 	}
+
+	
+
 	
 }

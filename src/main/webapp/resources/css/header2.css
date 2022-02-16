@@ -1,0 +1,91 @@
+
+header{
+	position: fixed;
+    width: 100%;
+    z-index: 1;
+    top: 0%;
+    background-color: white;
+}
+
+
+.btn{
+float: right;
+position: relative;
+left: 10px;
+bottom: 1px;
+background-color: #ff8080;
+
+}
+
+#c {
+	border: none;
+	margin-left: 850px;
+	padding-right: 10px;
+}
+
+  
+#a{
+/* 로고부분 */
+margin-left:8%;
+padding: 1% 2%;
+border: none;
+float: left;
+} 
+ 
+#b{
+margin: 0% 10%;
+padding-left:5%;
+width:500px;
+float: left;
+/* 서치내부부분 */
+}
+
+.d-flex{
+/* 서치박스부분 */
+padding:10px 20px;
+width: 600px;
+position: relative; left: 10%;
+/*  border: 1px solid;  */
+}
+
+
+ ul li a{
+	/* li안에 a요소 */
+	color: black;
+}
+
+#f{
+	position:relative;
+	left: 20%;
+	padding-left: 15px;
+
+
+}
+
+#g{
+	position: relative;
+	left: 800px;
+	margin-left: 30px;
+}
+
+
+a{
+/* 상단이랑 아래 버튼이 둘다 동시에 적용됨 */
+font:bold;
+}
+
+
+#c{
+border: none;
+color: white;
+margin-bottom: 0px;
+}
+
+.a1{
+
+padding:10px;
+background-color: white;
+color: black;
+}
+
+
