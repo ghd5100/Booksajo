@@ -1,0 +1,311 @@
+@charset "UTF-8";
+
+* {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: "맑은 고딕", sans-serif;
+	font-weight: normal;
+	border: 0;
+}
+
+
+#content a,
+#content a:active,
+#content a:visited {
+	text-decoration: none;
+	color: #000;
+}
+
+#content a:hover {
+	text-decoration: none;
+	color: rgba(0, 0, 0, 0.7);
+	
+}
+
+
+/* adv slide */
+#adv_area {
+	background-color: #f8d6f7;
+	width: 100%;
+	height: 300px;
+	margin: 0 auto;
+}
+
+.adv_slide {
+	width: 1000px;
+	height: 300px;
+	background-color: #111;
+    position: relative;
+    margin: 0 auto;
+	overflow: hidden;
+	
+}
+
+.adv_list li img{
+
+    width: 1000px;
+
+}
+
+.adv_list {
+    position: absolute;
+    left: 0;
+    width: 3000px;
+    top: 0px;
+    /* transition: 0.5s ease-out; */
+    
+}
+
+.adv_list > li {
+    float: left;
+    margin: 0;
+}
+
+
+.adv_controller {
+	display: none;
+}
+
+.adv_controller span {
+    position: absolute;
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    border-radius: 50%;
+    padding: 10px 25px;
+    top: 125px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.adv_controller span:hover {
+    background-color: rgba(128, 128, 128, 0.11);
+}
+
+.prev {
+    left: 10px;
+}
+
+.prev:hover {
+    /* transform: translateX(-10px); */
+}
+
+.next {
+    right: 10px;
+}
+
+.next:hover {
+    /* transform: translateX(10px); */
+}
+
+.input_none input {
+    display: none;
+}
+
+input[id="adv_btn1"]:checked ~ .adv_list li {
+    left: 0;
+}
+
+.adv_btns {
+    text-align: center;
+    width: 100%;
+    top: 270px;
+    position: absolute;
+    display: none;
+
+}
+
+label {
+    font-size: 0;
+    padding: 10px;
+    border-radius: 50%;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+
+.btns {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* 베스트셀러 컨트롤러 */
+
+.best_controller {
+	display: none;
+}
+.best_controller span {
+	position: absolute;
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    border-radius: 50%;
+    padding: 10px 25px;
+    top: 100px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.best_controller span:hover {
+    background-color: rgba(128, 128, 128, 0.11);
+}
+
+.best_prev {
+    left: 10px;
+}
+
+.best_next {
+	right: 10px;
+}
+
+/* 오늘의 책 컨트롤러 */
+
+.today_controller {
+	display: none;
+}
+.today_controller span {
+	position: absolute;
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    border-radius: 50%;
+    padding: 10px 25px;
+    top: 100px;
+    font-size: 30px;
+    cursor: pointer;
+}
+.today_controller span:hover {
+    background-color: rgba(128, 128, 128, 0.11);
+}
+
+.today_prev {
+    left: 10px;
+}
+
+.today_next {
+	right: 10px;
+}
+
+/* 베스트셀러, 오늘의 책 */
+#today_area,
+#best_area {
+	margin: 0 auto;
+	width: 100%;
+	height: 335px;
+    
+}
+#best_area {
+	border-bottom: 1px solid #888;
+}
+
+.content_top {
+    height: 35px;
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.best_content,
+.today_content {
+	width: 1000px;
+	height: 300px;
+	position: absolute;
+}
+
+.content_top a:first-child {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+    float: left;
+    
+}
+
+.content_top a:nth-child(2) {
+    float: right;
+    margin-right: 10px;
+    
+}
+
+.best_content_list,
+.today_content_list {
+	margin: 0 auto;
+	position: absolute;
+}
+
+.best_content_list li,
+.today_content_list li {
+    border: solid 1px #888;
+    display: inline-block;
+    height: 250px;
+    width: 200px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    float: left;
+    margin-left: 40px;
+}
+
+.best_content_list li:nth-child(-n+5),
+.today_content_list li:nth-child(-n+5) {
+	display: block;
+}
+.best_content_list li:nth-child(n+5),
+.today_content_list li:nth-child(n+5) {
+	display: none;
+}
+
+.best_content_list li:hover,
+.today_content_list li:hover {
+	border: solid 5px #888;
+}
+
+.best_content_list li:hover > .book_thumbnail,
+.today_content_list li:hover > .book_thumbnail {
+	bottom: 81px;
+}
+.best_content_list li:hover > .title,
+.today_content_list li:hover > .title {
+	top: 171px;
+}
+
+.book_thumbnail {
+    position: absolute;
+    width: 100%;
+    bottom: 85px;
+    left: 0;
+}
+
+.book_thumbnail img {
+    width: 120px;
+    min-width: 120px;
+    max-height: 150px;
+    vertical-align: top;
+}
+
+.title {
+    position: relative;
+    text-align: left;
+    padding-left: 20px;
+    top: 175px;
+    width: 190px;
+    margin: 0 auto;
+}
+
+.title strong {
+	display: block;
+	width: 150px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.title span {
+	display: block;
+	width: 150px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

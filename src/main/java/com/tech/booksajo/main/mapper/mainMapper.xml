@@ -20,13 +20,11 @@
 		SELECT * FROM (SELECT A.* FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN ORDER BY B.TOT_SALES DESC) <![CDATA[WHERE ROWNUM <= 8]]>
 	</select>
 	<select id="getData" resultType="com.tech.booksajo.main.vo.MainDto">
-		SELECT * FROM (SELECT A.* FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN ORDER BY B.TOT_SALES DESC) <![CDATA[WHERE ROWNUM <= 8]]>
+		SELECT * FROM (SELECT A.* FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN ORDER BY B.TOT_SALES DESC) <![CDATA[WHERE ROWNUM <= 20]]>
 	</select>
 	<select id="getAllData" resultType="com.tech.booksajo.main.vo.MainDto">
 <!-- 		SELECT * FROM (SELECT A.*, b.TOT_SALES tot_sales FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN ORDER BY B.TOT_SALES DESC) WHERE ROWNUM BETWEEN #{param1} AND #{param2} -->
 		SELECT * FROM (SELECT A.*, ROW_NUMBER() OVER(ORDER BY TOT_SALES DESC) SAL FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN) WHERE SAL BETWEEN #{param1} AND #{param2}
 	</select>
-<!-- 	<select id="selectTotCount" resultType="Integer">
-		SELECT COUNT(*) FROM BSJBOOK
-	</select> -->
+
 </mapper>

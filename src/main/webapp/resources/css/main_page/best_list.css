@@ -1,0 +1,165 @@
+@charset "UTF-8";
+
+* {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: "맑은 고딕", sans-serif;
+	font-weight: normal;
+	border: 0;
+}
+.contents {
+	width: 1400px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+
+
+.contents_top {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.content_top > h1 {
+	margin-left: 20px;
+}
+
+
+/* category */
+.category {
+	width: 150px;
+	position: absolute;
+
+}
+
+.category > table {
+	position: absolute;
+	border: 1px solid black;
+	width: 150px;
+	height: 200px;
+	left: 30px;
+	top: 100px;
+}
+.category td {
+	border: solid 1px black;
+}
+
+.category > table span {
+	font-size: 15px;
+	font-weight: bold;
+}
+.category a {
+	color: black;
+	font-size: 12px;
+}
+
+/* book_list */
+
+
+.book_list_area {
+	width: 1000px;
+	margin: 0 auto;
+}
+.book_list {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.book_list li {
+    border: solid 1px #888;
+    display: inline-block;
+    height: 250px;
+    width: 200px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    float: left;
+    margin-left: 40px;
+    margin-bottom: 30px;
+}
+
+
+.book_list li:hover {
+	border: solid 5px #888;
+}
+
+.book_list li:hover > .book_thumbnail {
+	bottom: 81px;
+}
+.book_list li:hover > .title {
+	top: 171px;
+}
+.book_list li:hover > .rank > span {
+	top: 4px;
+	left: 6px;
+}
+
+.book_thumbnail {
+    position: absolute;
+    width: 100%;
+    bottom: 85px;
+    left: 0;
+}
+
+.book_thumbnail img {
+    width: 120px;
+    min-width: 120px;
+    max-height: 150px;
+    vertical-align: top;
+}
+
+.title {
+    position: relative;
+    text-align: left;
+    padding-left: 20px;
+    top: 175px;
+    width: 190px;
+    margin: 0 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title strong {
+	text-align: center;
+	display: block;
+	width: 150px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 12px;
+	margin-bottom: 3px;
+}
+
+.title span {
+	display: block;
+	width: 150px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.rank span {
+	display: block;
+	position: absolute;
+	top: 8px;
+	left: 10px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/* page */
+
+.page_area {
+	clear: both;
+	margin-bottom: 30px;
+}
+
+.page_area > a {
+	position: relative;
+	margin: 3px 5px 1px 5px;
+	border: solid 1px #000;
+}

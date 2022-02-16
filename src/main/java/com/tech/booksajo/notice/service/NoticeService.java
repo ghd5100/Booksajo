@@ -12,8 +12,8 @@ public interface NoticeService  {
 	
 	List<Map<String,Object>> getList();
 
-	List<Map<String, Object>> noticelist(Map<String, Object> requestDto);
+	List<Map<String, Object>> noticeList(Map<String, Object> requestDto);
 
-	Map<String, Object> contentView(int nseq);
+	Map<String, Object> noticeView(String nseq);
 
 }

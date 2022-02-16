@@ -1,6 +1,6 @@
-package com.tech.booksajo.notice.service;
+/*package com.tech.booksajo.notice.service;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,31 +15,76 @@ public class NoticeServiceImpl implements NoticeMapper {
 	@Autowired
 	NoticeMapper noticemapper;
 
-	@Override
-	public List<NoticeDto> getList() {
-		return noticemapper.getList();
+	public ArrayList<NoticeDto> noticeList() {
+		return noticemapper.noticeList();
 	}
-	
-/*	@Override
-	public ArrayList<NoticeDto> noticelist(int nseq, String ntitle, String ncontent) {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
 
 	@Override
-	public NoticeDto contentView(int nseq) {
+	public NoticeDto noticeView(String nseq) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void upHit(int nseq) {
+	public void upHit(String nseq) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	@Override
+	public void noticeWrite(String ntitle, String ncontent) {
+		// TODO Auto-generated method stub
+		
+	}
 
+	@Override
+	public void noticeWriteView(String ntitle, String ncontent) {
+		// TODO Auto-generated method stub
+		
+	}
 
+	@Override
+	public void noticeDelete(String nseq) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void noticeModify(String nseq, String ntitle, String ncontent) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ArrayList<NoticeDto> noticeList(int start, int end, String searchKeyword, String selNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int selectBoardTotCount1(String searchKeyword) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int selectBoardTotCount2(String searchKeyword) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int selectBoardTotCount3(String searchKeyword) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int selectBoardTotCount0(String searchKeyword) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 
 }
+*/

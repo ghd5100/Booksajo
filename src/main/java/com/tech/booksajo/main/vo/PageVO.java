@@ -7,7 +7,7 @@ import lombok.Setter;
 public class PageVO {
 	
 
-	private Integer displayRowCount = 8;           // 출력할 데이터 개수
+	private Integer displayRowCount = 20;           // 출력할 데이터 개수
     private Integer grpPageCnt=3;                   //// 페이지그룹에서 페이지갯수 수정*
     private Integer rowStart;                       // 시작행번호
     private Integer rowEnd;                         // 종료행 번호

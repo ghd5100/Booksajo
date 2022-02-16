@@ -9,9 +9,9 @@
 	href="resources/css/search_table.css">
 
 
+ 
 
-
-<script>	
+<script>
 
 
 $( document ).ready(function() {

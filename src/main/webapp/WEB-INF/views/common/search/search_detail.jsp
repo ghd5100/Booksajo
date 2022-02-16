@@ -8,10 +8,10 @@
 <!-- 여기다가 검색테이블 구현하면 되겠다요 -->
 
 
-<% 
+<%-- <%
 	String isbn13 = request.getParameter("${isbn}");
 	System.out.println("isbn13:" + isbn13); //여까진 들어옴
-%> 
+%> --%>
 
 <script>
 	$(document)
@@ -20,7 +20,7 @@
 						var isbn = '${isbn}';
 						console.log(isbn);
 						DetailData(isbn);
-						testData(isbn);
+
 						function DetailData(isbn) {
 							$
 									.ajax(
@@ -78,7 +78,7 @@
 
 												console.log(data.documents[0]);
 
-												thumbnail += '<img src='+data.documents[0].thumbnail+'class="img-fluid" alt="..." style="width: 248px; height: 330px;" / >';
+												thumbnail +='<img src='+data.documents[0].thumbnail+'class="img-fluid" alt="..." style="width: 248px; height: 330px;" / >';
 												$('#img2').html(thumbnail);
 												$('#detail').html(html);
 											}).fail(function(error) {
@@ -87,56 +87,30 @@
 
 						}
 					});
-					
-					 
-						function testData(isbn) {
-						
-							var word = "";
-							console.log("키워드뽑아주는 함수들어왔음" + isbn);
-							$.ajax({ 
-								type : "POST",
-								url : "/test/search_keyword",
-								data :JSON.stringify({ 
-									isbn : isbn
-								}),
-								datatype : 'json',
-								contentType : 'application/json; charset=utf-8',
-								success : function(result) {
-
-									//word += console.log("왔쪄");
-
-										word += '키워드 Pick </br>';
-									for ( var ele in result) {
-										word += '<h4 id="pf">'+result[ele].item.word+'</h4>' ;
-										word += '&nbsp;';
-									}
-
-									console.log(word);
-									$("#keywordpick").html(word);
-								}
-							});
-						} 
-
-			
 </script>
 
 
 <div id="inlineside">
 
-	<div id="img2">
-		<!-- <img src="" alt=""  style="width: 100px; height: 170px;"/> -->
-		<br />
+<div id="img2">
+<!-- <img src="" alt=""  style="width: 100px; height: 170px;"/> -->
+<br />
 
-	</div>
+ </div>
+ 
+ <div id="storelo">
+ 
+<p1>크게보기 | 미리보기</p1>
+<br />
+<br />
 
-	<div id="storelo">
-
-		<p1>크게보기 | 미리보기</p1>
-		<br /> <br /> <input type="button" value="매장재고 .위치" />
-
-	</div>
-
-	<div id="keywordpick">키워드 Pick</div>
+<input type="button" value="매장재고 .위치"/>
+ 
+ </div>
+ 
+<div id="keywordpick">
+키워드 Pick
+</div>
 
 </div>
 
@@ -145,17 +119,19 @@
 
 
 
-	<div id="detail" style="height: 350px;"></div>
+	<div id="detail" style="height: 350px;">
+	
+	</div>
 
 	<div id="booksen">
 		<form action="#" method="get">
-			주문수량 : <input type="number" max="10" min="1" value="num" /><br /> <br />
-			<input type="button" value="장바구니" /> <input type="button"
-				value="바로구매" />
+		주문수량 : <input type="number" max="10" min="1" value="num" /><br /><br />
+		<input type="button" value="장바구니"/>
+		<input type="button" value="바로구매"/>
 		</form>
 	</div>
 
-
+	
 	<div id="bookinfo">
 		<img src="resources/img/doit.jpeg" id="bookimg" style="width: 910px;" />
 	</div>

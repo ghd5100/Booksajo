@@ -16,9 +16,18 @@ public class MainDto {
 	private Date mod_dt;
 	private String mod_id;
 	private String use_yn;
+	private String pub_year;
 	
 	public MainDto() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getPub_year() {
+		return pub_year;
+	}
+
+	public void setPub_year(String pub_year) {
+		this.pub_year = pub_year;
 	}
 
 	public String getThumbnail() {

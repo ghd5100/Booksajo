@@ -1,6 +1,5 @@
 package com.tech.booksajo.search.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +14,4 @@ public interface SearchService  {
 	
 	void write(String bName, String bTitle, String bContent);
 	Map<String,Object> content_view(String bid);
-	
-
-	ArrayList<Object> keywordget(String isbn13) throws Exception;
 }

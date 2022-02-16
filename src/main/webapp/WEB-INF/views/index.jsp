@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="resources/css/main_page.css" />
+<link rel="stylesheet" href="resources/css/main_page/main_page.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="resources/js/main.js"></script>
 <title>Insert title here</title>
@@ -66,7 +66,7 @@
 					<li>
 						<div class="book_thumbnail">
 							<a href="#">
-								<img src="${list.isbn }" alt="${list.isbn }" />
+								<img src="${list.thumbnail }" alt="${list.thumbnail }" />
 							</a>
 						</div>
 						<div class="title">
