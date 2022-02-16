@@ -1,4 +1,4 @@
-package com.tech.booksajo.notice.service;
+/*package com.tech.booksajo.notice.service;
 
 import java.util.ArrayList;
 
@@ -15,7 +15,6 @@ public class NoticeServiceImpl implements NoticeMapper {
 	@Autowired
 	NoticeMapper noticemapper;
 
-	@Override
 	public ArrayList<NoticeDto> noticeList() {
 		return noticemapper.noticeList();
 	}
@@ -56,5 +55,36 @@ public class NoticeServiceImpl implements NoticeMapper {
 		
 	}
 
+	@Override
+	public ArrayList<NoticeDto> noticeList(int start, int end, String searchKeyword, String selNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int selectBoardTotCount1(String searchKeyword) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int selectBoardTotCount2(String searchKeyword) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int selectBoardTotCount3(String searchKeyword) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int selectBoardTotCount0(String searchKeyword) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 
 }
+*/

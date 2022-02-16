@@ -6,15 +6,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="resources/css/notice_page/notice_board.css">
 
-<div id="notice_board">
 	<!-- 페이지 타이틀 -->
 	<h1 class="h1_notice">공지사항</h1>
 
 	<!-- 공지사항 게시판 리스트 -->
-	<form action="noticeSearch" method="post">
-		<table class="table_style02" cellspacing="0" cellpadding="0"
-			border="0">
-
+		<table class="noticeListTable" border="1" style="border-color: #a8afe5">
 			<colgroup>
 				<col width="86px">
 				<col width="*">
@@ -23,13 +19,13 @@
 
 			<tbody>
 				<tr>
-					<th scope="col" class="nseq"><p class="th_line">번호</p></th>
-					<th scope="col" class="ntitle"><p class="th_line">제목</p></th>
-					<th scope="col" class="th_line_none">날 짜</th>
+					<th scope="col" class="th_line_none"><p class="th_line">번호</p></th>
+					<th scope="col" class="th_line_none"><p class="th_line">제목</p></th>
+					<th scope="col" class="th_line_none"><p class="th_line">날 짜</p></th>
 				</tr>
 			</tbody>
-
-			<c:forEach items="${noticeList }" var="noticedto">
+			
+		<c:forEach items="${noticeList }" var="noticedto">
 				<tr>
 					<td>${noticedto.nseq }</td>
 					<td><a href="noticeView?nseq=${noticedto.nseq }">${noticedto.ntitle }</a>
@@ -39,43 +35,61 @@
 			</c:forEach>
 		</table>
 
-		
-		<!-- 페이징 -->
-		<div class="pageList">
-			<a href="noticeList?page={}">&lang;&lang;</a>
-			<a href="#">&lang;</a>
-			<c:forEach begin="${page.pageStart }" end="${page.pageEnd }" var="i">
-				<c:choose>
-					<c:when test="${i eq page.page }">
-						<span style="color: red; font-weight: bold;">${i }&nbsp;</span>	
-					</c:when>
-					<c:otherwise>
-						<a href="noticeList?page=${i }">${i }</a>&nbsp;
-					</c:otherwise>
-				</c:choose>
-			</c:forEach>
-			<a href="#">&rang;</a>
-			<a href="#">&rang;&rang;</a>
-		</div>
+<!-- 페이징 -->	
+	<form id="form1" name="form1" action="noticeList" method="post">
+	<c:if test="${searchVO.totPage>1 }">
+		<c:if test="${searchVO.page>1 }">
+			<a href="noticeList?page=1">[처음]</a>
+			<a href="noticeList?page=${searchVO.page-1 }">[이전]</a>
+		</c:if>
+		<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }" var="i">
+			<c:choose>
+				<c:when test="${i eq searchVO.page }">
+					<span style="color:red; font-weight: bold;">${i } &nbsp;</span> 
+				</c:when>
+				<c:otherwise>
+					<a href="noticeList?page=${i }" style="text-decoration: none">${i } </a>&nbsp;
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+		<c:if test="${searchVO.totPage>searchVO.page }">
+			<a href="noticeList?page=${searchVO.page+1 }">[다음]</a>
+			<a href="noticeList?page=${searchVO.totPage }">[마지막]</a>
+		</c:if>
+	</c:if>
+	
+	<div>
+		<c:choose>
+			<c:when test="${ntitle }">
+				<input type="checkbox" name="searchType" value="ntitle" checked />
+			</c:when>
+			<c:otherwise>
+				<input type="checkbox" name="searchType" value="ntitle" checked />
+			</c:otherwise>
+		</c:choose>
+		<label>제목</label>
+		<c:choose>
+			<c:when test="${ncontent }">
+				<input type="checkbox" name="searchType" value="ncontent"  checked />
+			</c:when>
+			<c:otherwise>
+				<input type="checkbox" name="searchType" value="ncontent"  />
+			</c:otherwise>
+		</c:choose>		
+		<label>내용</label>
+		<input type="text" name="sk" style="width: 150px;" maxlength="50" value="" />
+		<input type="submit" name="btn_search" value="검색" />
+	</div>
+</form>
 
+<!-- 총게시물 개수 -->
+	<table id="totcnt">
+		<tr>
+			<td id="a.totcnt">총 게시물 : ${totRowCnt }</td>
+		</tr>
+	</table>
 
-
-
-
-
-
-		<!-- 검색 패널  -->
-		<div id="searchPanel">
-			<br />
-			<br /> 
-			<input type="checkbox" name="btitle" checked /> <label>제목</label>
-			<input type="checkbox" name="bcontent" /> <label>내용</label> 
-			<input type="text" id="searchKeyword" style="width: 150px;" maxlength="50" value="" /> 
-			<input type="submit" id="btn_search" value="검색" />
-		</div>
-	</form>
-
-	<!-- 관리자 글작성 패널 -->
+<!-- 관리자 글작성 패널 -->
 	<table id="writebtn">
 		<tr>
 			<td colspan="5"> <a href="noticeWriteView">글작성</a> </td>
@@ -86,8 +100,6 @@
 	<br />
 	<br />
 	<br />
-	
-</div>
 
 
 <!-- 페이지 고유 js include -->
