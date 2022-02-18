@@ -4,31 +4,26 @@
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
 <link rel="stylesheet" type="text/css" href="resources/css/notice_page/notice_board.css">
-	<div id="notice_board">
-		<h1 class="h1_notice">공지사항</h1>
+
+		<h1 class="h1_notice">공지사항 상세</h1>
 		<table border="1">
-		<form action="noticeModify" method="get">
-		<input type="hidden" name="nseq" value="${noticeView.nseq }" />
 			<tr>
-				<th class="left">제목</th>
-					<th>${noticeView.ntitle }</th>
-				<th class="left">번호</th>
-					<th>${noticeView.nseq }</th>
+				<th class="left" colspan="2" width="120px" height="50px">제목</th>
+					<td colspan="2">${noticeView.ntitle }</td>
+				<th class="left" colspan="2">번호</th>
+					<td>${noticeView.nseq }</td>
 			</tr>
 			<tr>
-				<th class="left">날 짜</th>
-					<th><fmt:formatDate value="${noticeView.ndate }" pattern="yyy-MM-dd"/></th>
-				<th class="left">조회수</th>
-					<th>${noticeView.nhit }</th>
+				<th class="left" colspan="2" width="120px" height="50px">날 짜</th>
+					<td colspan="2"><fmt:formatDate value="${noticeView.ndate }" pattern="yyy-MM-dd"/></td>
+				<th class="left" colspan="2">조회수</th>
+					<td colspan="2">${noticeView.nhit }</td>
 			</tr>
 			<tr>
-				<th class="left" >내용</th>
-					<th>${noticeView.ncontent }</th>
+				<th class="left" colspan="2" width="120px" height="50px">내용</th>
+					<td colspan="5">${noticeView.ncontent }</td>
 			</tr>
-			
-		</form>
 		</table>
 	
 		
@@ -48,7 +43,7 @@
 		<div id="mngPanel">
 			<a href="noticeDelete?nseq=${noticeView.nseq }">			
 				<input type="submit" id="deletebtn_noticeList" value="삭제" /></a>&nbsp;&nbsp;
-			<a href="noticeModify">			
+			<a href="noticeUpdate?nseq=${noticeView.nseq }">			
 				<input type="submit" id="modifybtn_noticeList" value="수정" /></a>&nbsp;&nbsp;
 		</div>
 	</div>

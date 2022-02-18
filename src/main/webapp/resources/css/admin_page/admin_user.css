@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+* {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: "맑은 고딕", sans-serif;
+	font-weight: normal;
+	border: 0;
+	border-collapse: collapse;
+}
+
+th {
+	text-align: center;
+}
+
+.container a {
+	color: #000;
+}
+
+.container {
+	width: 1000px;
+	margin: 0 auto;
+	height: 1000px;
+}
+
+.top_area {
+	width: 1000px;
+	margin: 0 auto;
+	height: 120px;
+	background-color: #aaa;
+}
+
+.contents_area {
+	width: 1000px;
+	height: 500px;
+	margin: 0 auto;
+
+}
+
+
+/* top_area */
+.top_area > .top_table {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.top_area > .top_table th {
+	padding: 15px;
+	font-size: 30px;
+}
+
+.top_area > .top_table td {
+	padding: 15px;
+	text-align: center;
+}
+
+
+/* contents_area */
+
+.content_area {
+	border: solid 1px #000;
+	margin-top: 10px;
+
+}
+.content_title {
+	height: 50px;
+	border-bottom: 1px solid #000;
+}
+
+.content_title strong {
+	float: left;
+	margin-left: 20px;
+	font-size: 19px;
+	top: 12px;
+	position: relative;
+}
+
+.content_title form {
+	float: right;
+	margin-right: 15px;
+	top: 10px;
+	position: relative;
+}
+
+.content_title form > input {
+	width: 250px;
+	height: 30px;
+	border-radius: 15px;
+	padding-left: 15px;
+	border: 1px solid black;
+}
+.content_title form > button {
+	width: 50px;
+	height: 30px;
+}
+
+.content_detail > table {
+	width: 1000px;
+	text-align: center;
+}
+
+.content_detail > table td,
+.content_detail > table th {
+	padding: 10px;
+	width: 200px;
+	white-space: nowrap;
+	overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content_detail > table th {
+	font-weight: bold;
+}

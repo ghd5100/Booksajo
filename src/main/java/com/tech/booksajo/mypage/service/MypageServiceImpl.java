@@ -6,11 +6,10 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tech.booksajo.main.mapper.mainMapper;
 import com.tech.booksajo.mypage.mapper.mypageMapper;
 
 
-@Service(value="MypageService")
+@Service(value="mypageService")
 public class MypageServiceImpl implements MypageService {
 	
 	@Autowired

@@ -3,11 +3,12 @@ package com.tech.booksajo.main.service;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Service;
+import com.tech.booksajo.main.vo.MainDto;
 
 
-public interface mainService  {
+public interface MainService {
 	
 	List<Map<String,Object>> getList();
-	
+	List<MainDto> getBestData();
+	List<MainDto> getBestAll(int rowStart, int rowEnd);
 }

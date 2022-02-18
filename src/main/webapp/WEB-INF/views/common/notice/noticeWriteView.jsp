@@ -4,7 +4,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" type="text/css" href="resources/css/notice_page/noticeWrite_board.css">
+<link rel="stylesheet" type="text/css" href="resources/css/notice_page/notice_board.css">
 <div id="notice_board">
 
 	<!-- 페이지 타이틀 -->
@@ -23,7 +23,7 @@
 			<thead>
 				<tr>
 					<th scope="col" class="left">제목</th>
-					<th><input type="text" name="nTitle" placeholder="제목을 입력하세요." size="119px"/></th>
+					<td><input type="text" name="nTitle" placeholder="제목을 입력하세요." size="119px"/></td>
 				</tr>
 				
 <!-- 				<tr>
@@ -33,7 +33,7 @@
 				
 				<tr>
 					<th scope="col" class="left">내용</th>
-					<th><textarea name="nContent" cols="120" rows="30" placeholder="내용을 입력하세요"></textarea></th>
+					<td><textarea name="nContent" cols="120" rows="30" placeholder="내용을 입력하세요"></textarea></td>
 				</tr>
 			</thead>
 		</table>

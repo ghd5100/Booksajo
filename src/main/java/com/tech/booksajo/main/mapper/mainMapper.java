@@ -11,13 +11,11 @@ import com.tech.booksajo.main.vo.MainDto;
 
 
 @MapperScan
-public interface mainMapper {
+public interface MainMapper {
 
 	List<Map<String, Object>> getList();
 	List<MainDto> getData();
-	List<MainDto> getAllData(int rowStart, int rowEnd);
-	public void dataInput(String isbn, String bookImage, String authors, String publisher, String bookName, String pub_year, String rank);
-	
+	List<MainDto> getAllData(int rowStart, int rowEnd);	
 //	int selectTotCount();
 	List<Map<String, Object>> getData2();
 //	List<MainDto> getList();

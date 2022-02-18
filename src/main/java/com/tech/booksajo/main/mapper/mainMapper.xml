@@ -4,10 +4,10 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- //변경섭씨 담당 메인전용 xml -->
-<mapper namespace="com.tech.booksajo.main.mapper.mainMapper">
-<!-- 	<select id="getList" resultType="map">
+<mapper namespace="com.tech.booksajo.main.mapper.MainMapper">
+	<select id="getList" resultType="map">
 	 select * from book
-	</select> -->
+	</select>
  	<!-- 
  	<select id="getList" resultType="HashMap">
 	 SELECT * FROM (SELECT a.* FROM bsjbook a, sales b WHERE a.isbn = b.isbn ORDER BY b.tot_sales DESC) <![CDATA[WHERE ROWNUM <= 10]]>
@@ -16,15 +16,38 @@
 	<!-- <select id="getList" resultType="map">
 		SELECT * FROM (SELECT a.* FROM bsjbook a, sales b WHERE a.isbn = b.isbn ORDER BY b.tot_sales DESC) <![CDATA[WHERE ROWNUM <= 10]]>
 	</select> -->
-	<select id="getData2" resultType="map">
+<!-- 	<select id="getData2" resultType="map"> -->
+<!-- 		SELECT * FROM (SELECT A.* FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN ORDER BY B.TOT_SALES DESC) <![CDATA[WHERE ROWNUM <= 8]]> -->
+<!-- 	</select> -->
+	<!-- <select id="getData" resultType="com.tech.booksajo.main.vo.MainDto">
 		SELECT * FROM (SELECT A.* FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN ORDER BY B.TOT_SALES DESC) <![CDATA[WHERE ROWNUM <= 8]]>
-	</select>
+	</select> -->
+	
 	<select id="getData" resultType="com.tech.booksajo.main.vo.MainDto">
-		SELECT * FROM (SELECT A.* FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN ORDER BY B.TOT_SALES DESC) <![CDATA[WHERE ROWNUM <= 20]]>
+		SELECT aa.*
+		FROM
+			bsjbook aa,
+			(SELECT SUM(b.order_count) order_count, a.isbn
+				FROM bsjbook a, bsjorder_detail b
+				WHERE a.isbn = b.isbn
+				GROUP BY a.isbn) bb
+		WHERE aa.isbn = bb.isbn AND <![CDATA[ROWNUM <= 8]]>
+		ORDER BY bb.order_count DESC
 	</select>
+	
 	<select id="getAllData" resultType="com.tech.booksajo.main.vo.MainDto">
 <!-- 		SELECT * FROM (SELECT A.*, b.TOT_SALES tot_sales FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN ORDER BY B.TOT_SALES DESC) WHERE ROWNUM BETWEEN #{param1} AND #{param2} -->
-		SELECT * FROM (SELECT A.*, ROW_NUMBER() OVER(ORDER BY TOT_SALES DESC) SAL FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN) WHERE SAL BETWEEN #{param1} AND #{param2}
+<!-- 		SELECT * FROM (SELECT A.*, ROW_NUMBER() OVER(ORDER BY TOT_SALES DESC) SAL FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN) WHERE SAL BETWEEN #{param1} AND #{param2} -->
+		SELECT row_no, aa.*
+		FROM
+		    bsjbook aa,
+		    (SELECT bb.*, ROW_NUMBER() OVER(ORDER BY bb.order_count DESC) AS row_no
+		        FROM
+		            (SELECT SUM(b.order_count) order_count, a.isbn
+		            FROM bsjbook a, bsjorder_detail b
+		            WHERE a.isbn = b.isbn
+		            GROUP BY a.isbn) bb) cc
+		WHERE aa.isbn = cc.isbn AND row_no BETWEEN #{param1} AND #{param2}
 	</select>
 
 </mapper>

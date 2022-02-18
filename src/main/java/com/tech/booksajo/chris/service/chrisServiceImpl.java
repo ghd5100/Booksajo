@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tech.booksajo.chris.mapper.chrisMapper;
-import com.tech.booksajo.main.mapper.mainMapper;
 
 
 @Service(value="chrisService")

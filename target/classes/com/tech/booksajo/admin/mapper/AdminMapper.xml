@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- //변경섭씨 담당 메인전용 xml -->
+<mapper namespace="com.tech.booksajo.admin.mapper.AdminMapper">
+	
+	<select id="getUserData" resultType="com.tech.booksajo.admin.vo.AdminDto">
+		SELECT
+			user_id,
+			user_name,
+			REGEXP_REPLACE(user_phone, '(02|.{3})(.+)(.{4})', '\1-\2-\3') user_phone,
+			TO_CHAR(user_date, 'YYYY-MM-DD HH24:MM:SS') user_date
+		FROM bsjusers
+		<![CDATA[WHERE ROWNUM <= 5]]>
+		ORDER BY user_date DESC
+	</select>
+	<select id="userSearch" resultType="com.tech.booksajo.admin.vo.AdminDto">
+		SELECT user_id, user_name, user_phone, user_date
+		FROM bsjusers
+		WHERE
+			user_id LIKE '%'||#{param1}||'%'
+			OR user_name LIKE '%'||#{param1}||'%'
+		ORDER BY user_date DESC
+	</select>
+	
+	<delete id="delete_user">
+		DELETE FROM bsjusers WHERE user_id = #{param1}
+	</delete>
+	
+	<select id="orderList" resultType="com.tech.booksajo.admin.vo.OrderDto">
+		SELECT
+		    b.user_name,
+		    REGEXP_REPLACE(b.user_phone, '(02|.{3})(.+)(.{4})', '\1-\2-\3') user_phone,
+		    order_no,
+		    a.user_id,
+		    order_status,
+		    order_total_price,
+		    TO_CHAR(order_date, 'yyyy-mm-dd hh24:mi:ss') order_date
+		FROM bsjorder a, bsjusers b
+		WHERE a.user_id = b.user_id
+		ORDER BY order_no DESC
+	</select>
+	
+	<select id="orderSearch" resultType="com.tech.booksajo.admin.vo.OrderDto">
+		SELECT
+		    b.user_name,
+		    REGEXP_REPLACE(b.user_phone, '(02|.{3})(.+)(.{4})', '\1-\2-\3') user_phone,
+		    order_no,
+		    a.user_id,
+		    order_status,
+		    order_total_price,
+		    TO_CHAR(order_date, 'yyyy-mm-dd hh24:mi:ss') order_date
+		FROM bsjorder a, bsjusers b
+		WHERE a.user_id = b.user_id AND (b.user_id LIKE '%'||#{param1}||'%' OR b.user_name LIKE '%'||#{param1}||'%')
+		ORDER BY order_no DESC
+	</select>
+	
+	
+	<select id="productAllData" resultType="com.tech.booksajo.admin.vo.ProductDto">
+		SELECT *
+		FROM bsjbook
+		<![CDATA[WHERE ROWNUM <= 50]]>
+		ORDER BY pub_year DESC
+	</select>
+	
+	<select id="productSearchData" resultType="com.tech.booksajo.admin.vo.ProductDto">
+		SELECT *
+		FROM
+			(SELECT * FROM bsjbook
+			WHERE
+				title LIKE '%'||#{param1}||'%'
+				OR isbn LIKE '%'||#{param1}||'%')
+		<![CDATA[WHERE ROWNUM <= 50]]>
+		ORDER BY pub_year DESC
+	</select>
+	
+	<select id="productView" resultType="com.tech.booksajo.admin.vo.ProductDto">
+		SELECT *
+		FROM bsjbook
+		WHERE isbn = #{param1}
+	</select>
+	
+	
+	<update id="productUpdate">
+		UPDATE bsjbook
+		SET
+			authors = #{param2},
+			publisher = #{param3},
+			pub_year = #{param4},
+			price = #{param5},
+			title = #{param6},
+			contents = #{param7}
+		WHERE isbn = #{param1}
+	</update>
+	
+	<select id="monthly_sales" resultType="com.tech.booksajo.admin.vo.MonthlySalesDto">
+		SELECT SUM(price * order_count) monthly_sales, TO_NUMBER(TO_CHAR(aa.order_date, 'mm')) order_date
+		FROM
+		    bsjorder aa,
+		    (SELECT a.price, b.*
+		        FROM
+		        bsjbook a,
+		        bsjorder_detail b
+		        WHERE a.isbn = b.isbn) bb
+		WHERE aa.order_no = bb.order_no
+		    AND TO_CHAR(order_date, 'YYYY') = TO_CHAR(sysdate, 'YYYY')
+		GROUP BY TO_NUMBER(TO_CHAR(aa.order_date, 'mm'))
+	</select>
+	
+</mapper>

@@ -1,45 +1,39 @@
 package com.tech.booksajo.main.api;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.tech.booksajo.main.mapper.mainMapper;
+import com.tech.booksajo.main.mapper.MainMapper;
+import com.tech.booksajo.main.service.MainService;
 import com.tech.booksajo.main.vo.MainDto;
 import com.tech.booksajo.main.vo.PageVO;
 
-@Controller
-public class mainController {
-	
-//	mainService service;
+import lombok.RequiredArgsConstructor;
 
-	@Autowired
-	private SqlSession sqlSession;
+@Controller
+public class MainController {
 	
+	@Autowired
+	MainService service;
+
+
+//	private SqlSession sqlSession;
+
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(Model model) {
 		System.out.println("~~Index Controller~~");
-		mainMapper dao = sqlSession.getMapper(mainMapper.class);
-//		List<Map<String, Object>> list = dao.getData();
 		
-		List<MainDto> list = dao.getData();
+		List<MainDto> list = service.getBestData();
 		
-		System.out.println(list);
 		model.addAttribute("list", list);
 		
 		return "main";
@@ -48,7 +42,7 @@ public class mainController {
 	@RequestMapping(value = "/bestList", method = RequestMethod.GET)
 	public String best(HttpServletRequest request, PageVO pageVO, Model model) throws Exception {
 		System.out.println("~~Best Controller~~");
-		mainMapper dao = sqlSession.getMapper(mainMapper.class);;
+//		MainMapper dao = sqlSession.getMapper(MainMapper.class);;
 		
 		String strPage = request.getParameter("page");
 		
@@ -63,16 +57,11 @@ public class mainController {
 		int rowStart = pageVO.getRowStart();
 		int rowEnd = pageVO.getRowEnd();
 		
-//		System.out.println(rowStart);
-//		System.out.println(rowEnd);
-		List<MainDto> list = dao.getAllData(rowStart, rowEnd);
-		
-//		ArrayList<HashMap<String, String>> dataList = getBestIsbn(page);
+		List<MainDto> list = service.getBestAll(rowStart, rowEnd);
 		
 		model.addAttribute("list", list);
 		model.addAttribute("page", pageVO);
 		model.addAttribute("totRowCnt", total);
-//		model.addAttribute("dataList", dataList);
 		
 		return "bestList";
 	}

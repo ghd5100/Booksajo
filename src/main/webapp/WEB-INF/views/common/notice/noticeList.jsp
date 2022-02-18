@@ -39,22 +39,23 @@
 	<form id="form1" name="form1" action="noticeList" method="post">
 	<c:if test="${searchVO.totPage>1 }">
 		<c:if test="${searchVO.page>1 }">
-			<a href="noticeList?page=1">[처음]</a>
-			<a href="noticeList?page=${searchVO.page-1 }">[이전]</a>
+			<a href="noticeList?page=1"><img src="resources/img/btn_prev.gif" alt="" /></a>
+			<a href="noticeList?page=${searchVO.page-1 }"><img src="resources/img/btn_prev_on.gif" alt="" /></a>
 		</c:if>
 		<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }" var="i">
 			<c:choose>
 				<c:when test="${i eq searchVO.page }">
-					<span style="color:red; font-weight: bold;">${i } &nbsp;</span> 
+					<span style="color:red; font-weight: bold;">${i } </span>&nbsp;&nbsp;|&nbsp;&nbsp; 
 				</c:when>
 				<c:otherwise>
-					<a href="noticeList?page=${i }" style="text-decoration: none">${i } </a>&nbsp;
+					<a href="noticeList?page=${i }" style="text-decoration: none">${i } </a>&nbsp;&nbsp;|&nbsp;&nbsp;
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>
 		<c:if test="${searchVO.totPage>searchVO.page }">
-			<a href="noticeList?page=${searchVO.page+1 }">[다음]</a>
-			<a href="noticeList?page=${searchVO.totPage }">[마지막]</a>
+			
+			<a href="noticeList?page=${searchVO.page+1 }"><img src="resources/img/btn_next.gif" alt="" /></a>
+			<a href="noticeList?page=${searchVO.totPage }"><img src="resources/img/btn_next_on.gif" alt="" /></a>
 		</c:if>
 	</c:if>
 	

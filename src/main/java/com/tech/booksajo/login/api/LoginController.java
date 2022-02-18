@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tech.booksajo.bdboard.service.BdboardService;
 import com.tech.booksajo.login.service.LoginService;
 
 import lombok.RequiredArgsConstructor;

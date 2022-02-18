@@ -17,7 +17,7 @@
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
 	
-		<definition name="baseLayout2" template="/WEB-INF/views/common/search/search_detail_layout.jsp">
+	<definition name="baseLayout2" template="/WEB-INF/views/common/search/search_detail_layout.jsp">
 		<put-attribute name="title" value="/WEB-INF/views/common/search/search_detail_title.jsp" />
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="" />
@@ -53,26 +53,72 @@
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
 	
+	
+
 
 <!-- ============================================================================================================================================================ -->
 
 	
-		<!--헤더푸터를 제외한 중앙화면구현 부분 -->
 	<definition name="main" extends="baseLayout">
 		<put-attribute name="title" value="메인페이지" />
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/index.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
-
-
-
 	
 	<definition name="bestList" extends="baseLayout">
 		<put-attribute name="title" value="베스트셀러" />
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/common/best_list/best_list.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+	</definition>
+<!-- 	admin -->
+	<definition name="admin_layout" template="/WEB-INF/views/common/admin_page/admin_layout.jsp">
+		<put-attribute name="title" value="/WEB-INF/views/common/title.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/common/admin_page/admin_header.jsp" />
+		<put-attribute name="body" value="" />
+	</definition>
+	
+	<definition name="admin_home" extends="admin_layout">
+		<put-attribute name="title" value="관리자 페이지" />
+		<put-attribute name="header" value="/WEB-INF/views/common/admin_page/admin_header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/admin_page/admin_home.jsp" />
+	</definition>
+	
+	<definition name="admin_user" extends="admin_layout">
+		<put-attribute name="title" value="관리자 페이지" />
+		<put-attribute name="header" value="/WEB-INF/views/common/admin_page/admin_header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/admin_page/admin_user.jsp" />
+	</definition>
+	
+	<definition name="admin_order" extends="admin_layout">
+		<put-attribute name="title" value="관리자 페이지" />
+		<put-attribute name="header" value="/WEB-INF/views/common/admin_page/admin_header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/admin_page/admin_order.jsp" />
+	</definition>
+	
+	<definition name="admin_product" extends="admin_layout">
+		<put-attribute name="title" value="관리자 페이지" />
+		<put-attribute name="header" value="/WEB-INF/views/common/admin_page/admin_header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/admin_page/admin_product.jsp" />
+	</definition>
+	
+	<definition name="admin_product_detail" extends="admin_layout">
+		<put-attribute name="title" value="관리자 페이지" />
+		<put-attribute name="header" value="/WEB-INF/views/common/admin_page/admin_header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/admin_page/admin_product_detail.jsp" />
+	</definition>
+	
+	<definition name="admin_sales" extends="admin_layout">
+		<put-attribute name="title" value="관리자 페이지" />
+		<put-attribute name="header" value="/WEB-INF/views/common/admin_page/admin_header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/admin_page/admin_sales.jsp" />
+	</definition>
+	
+	<definition name="product_modify" extends="admin_layout">
+		<put-attribute name="title" value="관리자 페이지" />
+		<put-attribute name="header" value="/WEB-INF/views/common/admin_page/admin_header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/admin_page/product_modify.jsp" />
 	</definition>
 	
 	
@@ -166,20 +212,12 @@
 		<put-attribute name="body" value="/WEB-INF/views/common/notice/noticeWriteView.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
-	
-<!-- 	<definition name="noticeDelete" extends="secondLayout">
-		<put-attribute name="title" value="공지사항 삭제 ｜ 고객센터 - 책사조" />
-		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
-		<put-attribute name="side" value="/WEB-INF/views/common/notice/noticeSide.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/common/notice/noticeList.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
-	</definition> -->
-	
-	<definition name="noticeModify" extends="secondLayout">
+		
+	<definition name="noticeUpdate" extends="secondLayout">
 		<put-attribute name="title" value="공지사항 수정 ｜ 고객센터 - 책사조" />
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="side" value="/WEB-INF/views/common/notice/noticeSide.jsp" />
-		<put-attribute name="body" value="/WEB-INF/views/common/notice/noticeModify.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/notice/noticeUpdate.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
 	

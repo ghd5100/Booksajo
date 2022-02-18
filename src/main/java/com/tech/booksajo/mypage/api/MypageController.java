@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tech.booksajo.main.service.mainService;
+import com.tech.booksajo.mypage.service.MypageService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class MypageController {
 	
 	@Autowired
-	mainService service;
+	MypageService service;
 	
 	@RequestMapping(value = "/mypage/api/getList", method = RequestMethod.GET  )
 	@ResponseBody

@@ -1,6 +1,9 @@
 package com.tech.booksajo.notice.api;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +17,8 @@ import com.tech.booksajo.notice.service.NoticeService;
 import com.tech.booksajo.notice.vo.NoticeDto;
 import com.tech.booksajo.notice.vo.SearchVO;
 
-import lombok.RequiredArgsConstructor;
-
 
 @Controller
-@RequiredArgsConstructor
 public class NoticeController {
 	NoticeService noticeService;
 	
@@ -159,10 +159,26 @@ public class NoticeController {
 		return "redirect:noticeList";
 	}
 
-	@RequestMapping(method=RequestMethod.GET,value="/noticeModify")  
-	public String noticeModify(HttpServletRequest request, Model model) {
+	@RequestMapping("/noticeUpdate")
+	public String noticeUpdate(HttpServletRequest request, Model model) {
+		System.out.println("pass by noticeUpdate");
+		
+		String nseq=request.getParameter("nseq");
+		System.out.println(nseq);
+		NoticeMapper noticemapper=sqlSession.getMapper(NoticeMapper.class);
+		
+		NoticeDto noticedto=noticemapper.noticeView(nseq);
+		System.out.println("nseq : " + noticedto.getNseq());
+		model.addAttribute("noticeView",noticedto);
+		
+		return "noticeUpdate";
+	}
+	
+	@RequestMapping(method=RequestMethod.POST,value="/noticeModify")  
+	public void noticeModify(HttpServletRequest request, Model model, HttpServletResponse response) throws IOException {
 		System.out.println("pass by noticeModify");
 		
+	
 //		int nseq=(Integer.parseInt(request.getParameter("nseq")));
 		String nseq=request.getParameter("nseq");
 		String nTitle=request.getParameter("nTitle");
@@ -170,8 +186,8 @@ public class NoticeController {
 		
 		NoticeMapper noticemapper=sqlSession.getMapper(NoticeMapper.class);
 		noticemapper.noticeModify(nseq,nTitle,nContent);
-		
-		return "redirect:noticeView";
+		response.sendRedirect("noticeView?nseq=" + nseq);
+//		return "noticeView";
 		
 	}
 	
@@ -181,10 +197,22 @@ public class NoticeController {
 		System.out.println("pass by noticeDelete");
 		
 		String nseq=request.getParameter("nseq");
+
 		NoticeMapper noticemapper=sqlSession.getMapper(NoticeMapper.class);
 		noticemapper.noticeDelete(nseq);
 		
 		return "redirect:noticeList";
+	}
+	
+	@RequestMapping("/noticeCancel")
+	public String noticeCancle(HttpServletRequest request, Model model) {
+		System.out.println("pass by noticeCancel");
+		
+		String nseq=request.getParameter("nseq");
+		NoticeMapper noticemapper=sqlSession.getMapper(NoticeMapper.class);
+		noticemapper.noticeCancel(nseq);
+		
+		return "redirect:noticeView";
 	}
 	
 }

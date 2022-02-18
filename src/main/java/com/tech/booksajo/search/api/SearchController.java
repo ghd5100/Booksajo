@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tech.booksajo.main.service.mainService;
 import com.tech.booksajo.search.mapper.SearchMapper;
 import com.tech.booksajo.search.service.SearchService;
 /*import com.tech.booksajo.search.service.bookService;*/

@@ -124,7 +124,7 @@
 	</div>
 
 	<div id="booksen">
-		<form action="#" method="get">
+		<form action="#" method="get" >
 		주문수량 : <input type="number" max="10" min="1" value="num" /><br /><br />
 		<input type="button" value="장바구니"/>
 		<input type="button" value="바로구매"/>
@@ -133,16 +133,18 @@
 
 	
 	<div id="bookinfo">
+		<a name="bookinfoTag">
 		<img src="resources/img/doit.jpeg" id="bookimg" style="width: 910px;" />
+		</a>
+
 	</div>
 
 	<div id="infotab" style="width: 920px;">
 
 		<ul class="nav nav-tabs">
-			<li class="nav-item"><a class="nav-link active"
-				aria-current="page" href="#">상품정보</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">회원리뷰</a></li>
-			<li class="nav-item"><a class="nav-link" href="#">교환/반품/품절</a></li>
+			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#bookinfoTag">상품정보</a></li>
+			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">회원리뷰</a></li>
+			<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">교환/반품/품절</a></li>
 		</ul>
 
 	</div>
