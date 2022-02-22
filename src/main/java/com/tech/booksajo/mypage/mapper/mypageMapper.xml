@@ -9,4 +9,12 @@
 	<select id="getList" resultType="map">
 	 select * from book
 	</select>
+	
+	<select id="userinfo" resultType="com.tech.booksajo.mypage.vo.Myinfomation">
+	 select user_id, user_nickname, user_gender, user_age, user_name, user_phone, user_addr, user_email, user_date, user_mailcheck,
+			user_verification, user_check, user_point, user_coupon, user_birthday,
+			user_sms_agree, user_email_agree, user_private_agree from bsjusers
+	</select>
+	
+	
 </mapper>

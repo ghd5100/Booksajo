@@ -12,10 +12,10 @@
 <div id="cuponcheck">
 <table style="width: 100%" height="90px">
 <tr>
-<td id="usertab" style="text-align: left; padding-left: 20px; width: 30%;">USERID님</td>
-<td>쿠폰</td>
-<td>통합포인트</td>
-<td>예치금</td>
+<td id="usertab" style="text-align: left; padding-left: 20px; width: 30%;">${myinfo.user_nickname}&nbsp;&nbsp;님</td>
+<td>쿠폰</br>${myinfo.user_coupon}</td>
+<td>통합포인트</br>${myinfo.user_point}</td>
+<td>예치금</br></td>
 </tr>
 </table>
 </div>

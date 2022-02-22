@@ -11,10 +11,10 @@
 
 <table style="width: 100%" height="90px">
 <tr>
-<td id="usertab" style="text-align: left; padding-left: 20px; width: 30%;">USERID님</td>
-<td>쿠폰</td>
-<td>통합포인트</td>
-<td>예치금</td>
+<td id="usertab" style="text-align: left; padding-left: 20px; width: 30%;">${myinfo.user_nickname}&nbsp;&nbsp;님</td>
+<td>쿠폰</br>${myinfo.user_coupon}</td>
+<td>통합포인트</br>${myinfo.user_point}</td>
+<td>예치금</br></td>
 </tr>
 </table>
 </div>
@@ -29,12 +29,12 @@
 	<caption id="tablecap">필수입력사항</caption>
 	<tr>
 		<td style="width: 10%;" id="selname">아이디</td>
-		<td colspan="3">2</td>
+		<td colspan="3">${myinfo.user_id}</td>
 
 	</tr>
 	<tr>
 		<td id="selname">이름</td>
-		<td colspan="3">6</td>
+		<td colspan="3">${myinfo.user_name}</td>
 
 	</tr>
 	<tr>
@@ -61,8 +61,9 @@
 	</tr>
 	<tr>
 		<td id="selname">E-mail</td>
-		<td>3</td>
+		<td>${myinfo.user_email}</td>
 		<td id="selname">전화번호</td>
+		<td>${myinfo.user_phone}</td>
 	</tr>
 	<tr>
 		<td id="selname" colspan="1">마케팅(광고)</br>수신동의 여부</td>
