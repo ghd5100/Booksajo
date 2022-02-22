@@ -28,12 +28,30 @@ public class MypageController {
 	}
 	
 	@RequestMapping("/mypage")
-	public String search() {
+	public String mypage() {
 		
 		return "mypage";
 	}
 	
 
+	
+	
+	@RequestMapping("/mycontents")
+	public String mycontents() {
+		
+		System.out.println("mycontents 맵핑 들어옴");
+		
+		return "mycontents";
+	}
+	
+
+	@RequestMapping("/myinfo")
+	public String myInfo() {
+	
+		System.out.println("mypage인포 맵핑들어옴");
+		
+		return "myinfo";
+	}
 	
 	
 	@RequestMapping("/mypage_center2")

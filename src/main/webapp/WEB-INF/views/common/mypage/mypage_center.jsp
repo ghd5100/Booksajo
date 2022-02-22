@@ -41,4 +41,4 @@
 </div>
 
 
-<script src='/js/mypage_center.js'></script>
+<!-- <script src='/js/mypage_center.js'></script> -->

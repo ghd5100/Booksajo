@@ -163,6 +163,23 @@
 		<put-attribute name="body" value="/WEB-INF/views/common/mypage/mypage_center.jsp" />
 	</definition>
 	
+	
+		<!-- 임현주 회원정보관리 레이아웃 -->
+	<definition name="myinfo" extends="ThirdLayout">
+		<put-attribute name="title" value="/WEB-INF/views/common/title.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/mypage/mypage_side.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/mypage/myinfo.jsp" />
+	</definition>
+	
+	
+		<!-- 임현주 mycontents 레이아웃 -->
+	<definition name="mycontents" extends="ThirdLayout">
+		<put-attribute name="title" value="/WEB-INF/views/common/title.jsp" />
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
+		<put-attribute name="side" value="/WEB-INF/views/common/mypage/mypage_side_contents.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/mypage/mycontents.jsp" />
+	</definition>
 
 	<!-- 주문 배송조회 메뉴-->
 		<definition name="mypage_center2" extends="ThirdLayout">

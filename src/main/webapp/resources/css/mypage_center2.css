@@ -4,14 +4,6 @@ z-index: -2;
 
 
 
-#cuponcheck{
-	
-	margin-top:20px;
-	width:100%;
-	height:60px;
-	border: 1px solid;
-}
-
 
 #tt{
 	
@@ -31,3 +23,25 @@ z-index: -2;
 		border-collapse: collapse;
 	
 }
+
+#cuponcheck table{
+	margin-top:20px;
+	border: 1px solid #bbb;
+	border-collapse: collapse;
+	border-bottom-color: #1770b5;
+	border-top-color: #1770b5;
+	border-left: none;
+	border-right: none;
+	margin-bottom: 15px;
+}
+
+#cuponcheck table td{
+	text-align: center;
+	font-weight: bold;
+	font-size: medium;
+}
+
+#usertab{
+	background: #dde5ff;
+	
+} 

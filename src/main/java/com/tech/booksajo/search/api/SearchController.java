@@ -57,14 +57,6 @@ public class SearchController {
 	
 	
 
-	@RequestMapping("/myInfo")
-	public String myInfo() {
-	
-		System.out.println("mypage인포 맵핑들어옴");
-		
-		return "common/mypage/myinfo";
-	}
-	
 
 	@RequestMapping("/shoplist")
 	public String shoplist(HttpServletRequest request, Model model ) {

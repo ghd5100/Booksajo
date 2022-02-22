@@ -18,18 +18,13 @@
   </li>
 <hr />  
   <li class="nav-item">
-    <a class="nav-link" href="myinfo">회원정보관리</a>
+    <a class="nav-link" href="#">문장수집</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="mypage_center2">주문/배송조회</a>
+    <a class="nav-link" href="#">나의 독서기록</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">취소/교환/반품조회</a>
+    <a class="nav-link" href="#">문장수집 글쓰기 ＞</a>
   </li>
-<!--    <li class="nav-item">
-    <a class="nav-link" href="#">나의통장</a>
-  </li> -->
-  <li class="nav-item">
-    <a class="nav-link" href="mycontents">나만의 콘텐츠</a>
-  </li>
+
 </ul>

@@ -13,6 +13,7 @@ tr,td{
 	border: 1px solid #bbb;
 	border-collapse: collapse;
 	border-style: ridge;
+	font-size: 13px;
 	
 }
 
@@ -52,6 +53,7 @@ font-weight: bold;
 }
 
 #cuponcheck table{
+	margin-top:20px;
 	border: 1px solid #bbb;
 	border-collapse: collapse;
 	border-bottom-color: #1770b5;
