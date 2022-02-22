@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+/* 공지사항  */
+.h1_notice {
+  height: 50px;
+  text-align: left;
+  margin-bottom: 15px;
+  padding: 10px 0 10px;
+  border-bottom: 2px solid #565656;
+  font-size: 25px;
+  overflow: hidden;
+  color: #333333;
+  font-weight: bold;
+}

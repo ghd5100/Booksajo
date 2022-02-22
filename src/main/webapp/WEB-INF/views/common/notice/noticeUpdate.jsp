@@ -4,7 +4,7 @@
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="resources/css/notice_page/notice_board.css">
+<link rel="stylesheet" type="text/css" href="resources/css/notice_page/noticeUpdate_board.css">
 
 
 <h1 class="h1_notice">공지사항 상세 수정</h1>

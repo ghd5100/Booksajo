@@ -1,7 +1,7 @@
 package com.tech.booksajo.notice.vo;
 
 public class PageVO {
-    private Integer displayRowCount = 20;            // 출력할 데이터 개수
+    private Integer displayRowCount = 10;            // 출력할 데이터 개수
     private Integer grpPageCnt=10;                   // 페이지그룹에서 페이지개수 수정
     private Integer rowStart;                       // 시작행번호
     private Integer rowEnd;                         // 종료행 번호

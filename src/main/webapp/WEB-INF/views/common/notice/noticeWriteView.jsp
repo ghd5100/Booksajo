@@ -4,7 +4,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" type="text/css" href="resources/css/notice_page/notice_board.css">
+<link rel="stylesheet" type="text/css" href="resources/css/notice_page/noticeWrite_board.css">
 <div id="notice_board">
 
 	<!-- 페이지 타이틀 -->

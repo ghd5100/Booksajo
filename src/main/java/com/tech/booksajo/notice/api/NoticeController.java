@@ -38,6 +38,7 @@ public class NoticeController {
 		String ntitle="";
 		String ncontent="";
 		String[] brdtitle=request.getParameterValues("searchType");
+		
 		if(brdtitle!=null) {
 			for(int i=0;i<brdtitle.length;i++) {
 				System.out.println("========================");
@@ -45,17 +46,30 @@ public class NoticeController {
 			}
 		}
 		
+		
 //		ch 값 변수에 저장
 		if(brdtitle!=null) {
-			for (String val : brdtitle) {
-				if(val.equals("ntitle")) {
-					model.addAttribute("ntitle","true"); //검색유지
-					ntitle="ntitle";
-				}else if(val.equals("ncontent")) {
-					model.addAttribute("ncontent","true"); //검색유지
-					ncontent="ncontent";
+			if (brdtitle[0].indexOf(",") != -1) {
+				for (int i = 0; i < brdtitle[0].indexOf(","); i++) {
+					ntitle += brdtitle[0].charAt(i);
+				}
+				for (int i = brdtitle[0].indexOf(",") + 1; i < brdtitle[0].length(); i++) {
+					ncontent += brdtitle[0].charAt(i);
+				}
+				model.addAttribute("ntitle","true");
+				model.addAttribute("ncontent","true");
+			} else {
+				for (String val : brdtitle) {
+					if(val.equals("ntitle")) {
+						model.addAttribute("ntitle","true"); //검색유지
+						ntitle="ntitle";
+					}else if(val.equals("ncontent")) {
+						model.addAttribute("ncontent","true"); //검색유지
+						ncontent="ncontent";
+					}
 				}
 			}
+			
 		}
 		
 		
@@ -75,8 +89,8 @@ public class NoticeController {
 		
 		int page=Integer.parseInt(strPage);
 		searchVO.setPage(page);
-		
-		
+		searchVO.setSearchKeyword(searchKeyword);
+		System.out.println("searchVO.getSearchKeywrod : " + searchVO.getSearchKeyword());
 		NoticeMapper noticemapper=sqlSession.getMapper(NoticeMapper.class);
 		
 //		totcnt
@@ -90,10 +104,10 @@ public class NoticeController {
 		}else if(ntitle.equals("") && ncontent.equals("")) {
 			total=noticemapper.selectBoardTotCount0(searchKeyword);
 		}
-			
 		
 		
 		searchVO.pageCalculate(total);
+		searchVO.setSearchKeyword(searchKeyword);
 		
 		System.out.println("Totrowcnt : "+total);
 		System.out.println("clickPage : "+strPage);
@@ -120,7 +134,9 @@ public class NoticeController {
 		model.addAttribute("totRowCnt",total);
 		model.addAttribute("searchVO",searchVO);
 		
+//		System.out.println("searchVO : " + searchVO.getSearchKeyword());
 		return "noticeList";
+		
 	}
 	
 	

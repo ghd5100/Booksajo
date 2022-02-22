@@ -6,7 +6,7 @@ import java.util.Map;
 import com.tech.booksajo.main.vo.MainDto;
 
 
-public interface MainService {
+public interface mainService {
 	
 	List<Map<String,Object>> getList();
 	List<MainDto> getBestData();
