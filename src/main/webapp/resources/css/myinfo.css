@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+table {
+	border: 1px solid;
+	border-collapse: collapse;
+	border-bottom-color: #1770b5;
+	border-top-color: #1770b5;
+	border-left: none;
+	border-right: none;
+}
+
+tr,td{
+	border: 1px solid #bbb;
+	border-collapse: collapse;
+	border-style: ridge;
+	
+}
+
+#tablecap{
+text-align: left;
+margin: 10px 0px;
+
+	}
+
+
+
+#myinfo{
+/* border: 1px solid; */
+font-size: x-large;
+font-weight: bold;
+	}
+	
+#selname{
+	text-align:left;
+	padding-left:1%;
+	font-weight: bold;
+	background: #f8f8f8;
+	color: #1770b5;
+	
+}
+
+#selphone{
+	background: #fdfceb;
+	text-align:center;
+	font-weight: bold;
+	color: #908e8e;
+}
+
+#innertable{
+	
+	margin: 10px 10px; 
+}
+
+#cuponcheck table{
+	border: 1px solid #bbb;
+	border-collapse: collapse;
+	border-bottom-color: #1770b5;
+	border-top-color: #1770b5;
+	border-left: none;
+	border-right: none;
+	margin-bottom: 15px;
+}
+
+#cuponcheck table td{
+	text-align: center;
+	font-weight: bold;
+}
+
+#usertab{
+	background: #dde5ff;
+	
+}

@@ -4,7 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- //변경섭씨 담당 메인전용 xml -->
-<mapper namespace="com.tech.booksajo.main.mapper.mainMapper">
+<mapper namespace="com.tech.booksajo.main.mapper.MainMapper">
 	<select id="getList" resultType="map">
 	 select * from book
 	</select>

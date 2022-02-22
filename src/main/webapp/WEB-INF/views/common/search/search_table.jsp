@@ -18,6 +18,15 @@ $( document ).ready(function() {
 	var keyword = '${search}';
 	searchData(keyword);  //searchData의 함수의 매개변수로 keyword를 넣어줌
 
+	function categoryget() {
+		//특정카테고리 클릭시 자바내부에서 카테고리 가지고가서 isbn검색으로 바꿔여서 여기 카카오 API에 넣어서 뿌리기. 
+		
+	}
+	
+	function movepayment(){
+	 	$('<form action="payment" method="post">').appendTo('body').submit();
+	}
+
 	
 	//검색 함수
 	function searchData(keyword){
@@ -30,12 +39,15 @@ $( document ).ready(function() {
 	        dataType: 'json',
 	        contentType: 'application/json; charset=utf-8',
 	    }).done(function (data) {
-		    	var html ='';
-				
+
+	    	var html ='';
+		    	console.log(data.documents);
 		    	for(k in data.documents){
 		    		var isbn = data.documents[k].isbn; 
 		    		var cnt='';
-			    		html += '<tr height="180px">';
+			    		html +='<form action="shoplist" method="post">';
+		    			html +='<table>';
+		    			html += '<tr height="180px">';
 			    		//html += '<td><input type="image" value="' + JSON.stringify(data.documents[k]) + '" name="searchDetail" src=' + data.documents[k].thumbnail + 'onclick="" id="hj" /></td>';
 			    		//html += '<td> <img src=' + data.documents[k].thumbnail +' name="searchDetail"  value="' + JSON.stringify(data.documents[k]) + '"/></td>';
  			    		//html += "<input type='hidden' name='inputDetail' value='" + JSON.stringify(data.documents[k]) + "' ]>";
@@ -48,20 +60,22 @@ $( document ).ready(function() {
 			    		html += '</td>';
 			    		html += '<td></br></br>평점</td>';
 			    		html += '<td></br></br></br>'+ data.documents[k].price + '원</br>'+ data.documents[k].sale_price +'원[10%↓]</td>';
-			    		html += '<td><form action="payment" method="get">' + '수량 : ' + '<input type="number" max="9" min="1" maxlength="7px" /></br></br>'
-			    		+'<input type="button" value="장바구니담기" name="shoplist" /></br></br><input type="submit" value="바로구매" name="payment"  /></form></td>';
-			    		/* 써브밋을 안하고 버튼을 했네 와따시 바보 */
+			    		html += '<td><input type="submit" value="장바구니 담기"   /></br></br><input type="button" value="바로구매" onclick="'+movepayment();+'"></td>';
+			    		html += '<td><input type="hidden" value="'+isbn+'" name="isbn"  /></td>';
+			    	//	html += '<td>' + '수량 : ' + '<input type="number" max="9" min="1" maxlength="7px" /></br></br><input type="submit" value="장바구니담기" name="'+data.documents[k].isbn+'" /><input type="hidden" name="'+isbn+'" value="'+isbn+'" /></br></br><input type="submit" value="바로구매" name="payment"  /></td>';
 			    		html += '</tr>';
+			    		html +='</table>';
+			    		html +='</form>';
 		    			cnt += data.meta.total_count +'건';
-		    	console.log(data.documents);
 		    	/* console.log(data.meta.total_count); */
 		    } 
 		    	
 		    	//.html을 동적구조를 동적 html을 만들수있게해줌. 
 		    	//변수는 아무거나 선언해서 저렇게 
-		    	//동적과 적적의차이... 포문 돌려서 만들어주는것 동적이라고 볼수있다.
+		    	//동적과 정적의차이... 포문 돌려서 만들어주는것 동적이라고 볼수있다.
 		    $('#cnt').html(cnt);
 	    	$('#getList').html(html);      
+		  /*  	$('<input type="button" value="바로구매">').appendTo('body').submit(); */
 	    }).fail(function (error) {
 	    });
 		
@@ -83,7 +97,6 @@ $( document ).ready(function() {
 
 
 </script> 
-
 
 
 
@@ -133,6 +146,8 @@ $( document ).ready(function() {
 
 <a href=""></a>
 	<!-- 도서결과 뿌려줄곳 -->
+	
+	<form action="shoplist" method="post">
 	<table class="table">
 		<thead>
 			<tr>
@@ -162,6 +177,7 @@ $( document ).ready(function() {
 		</tbody>
 
 	</table>
+	</form>
 
 </div>
 

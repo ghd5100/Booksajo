@@ -11,7 +11,7 @@ import com.tech.booksajo.main.vo.MainDto;
 
 
 @MapperScan
-public interface mainMapper {
+public interface MainMapper {
 
 	List<Map<String, Object>> getList();
 	List<MainDto> getData();

@@ -10,15 +10,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.tech.booksajo.main.service.mainService;
+import com.tech.booksajo.main.service.MainService;
 import com.tech.booksajo.main.vo.MainDto;
 import com.tech.booksajo.main.vo.PageVO;
 
 @Controller
-public class mainController {
+public class MainController {
 	
 	@Autowired
-	mainService service;
+	MainService service;
 
 
 //	private SqlSession sqlSession;

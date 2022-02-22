@@ -6,15 +6,15 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tech.booksajo.main.mapper.mainMapper;
+import com.tech.booksajo.main.mapper.MainMapper;
 import com.tech.booksajo.main.vo.MainDto;
 
 
 @Service(value="mainService")
-public class mainServiceImpl implements mainService {
+public class MainServiceImpl implements MainService {
 
 	@Autowired
-	private mainMapper mapper;
+	private MainMapper mapper;
 
 	@Override
 	public List<Map<String, Object>> getList() {
