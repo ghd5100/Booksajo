@@ -8,8 +8,21 @@
 
 <%-- isbn: ${isbn13} --%>
 
+
+<c:forEach items="${shoplist}" var="shoplist">
+
+<table>
+<tr>
+<td><img src="${shoplist.bsjselectbook_url}" alt="" /></td>
+<td>${shoplist.bsjselectbook_title}</td>
+<td>${shoplist.bsjselectbook_price}</td>
+<td>${shoplist.bsjselectbook_status}</td>
+</tr>
+</table>
 ${shoplist.bsjselectbook_isbn}
-${shoplist.bsjselectbook_price}
-${shoplist.bsjselectbook_title}
+
+
+</c:forEach>
+
 
 </html>

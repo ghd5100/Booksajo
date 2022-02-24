@@ -28,17 +28,20 @@ $( document ).ready(function() {
 		window.location.href = 'payment.jsp'
 	 });
  */
+ 
 	$(document.body).delegate('#payment', 'click', function() {
 		 //console.log("ddddd"); 
 		 //val는 안돼넹.. id는 받아오는뎅
-		 var id_by_name = document.getElementsByName('isbn')[0].id;
+		 var id_by_name = document.getElementsByName('isbn')[k].id;
 		 console.log(id_by_name);
 		 window.location.href = 'payment?isbn='+id_by_name;
+		
 		 //보내주기 다음페이지로
 		 
 		});
 	
 
+ 
 	//검색 함수
 	function searchData(keyword){
 		$.ajax({
@@ -56,6 +59,13 @@ $( document ).ready(function() {
 		    	for(k in data.documents){
 		    		var isbn = data.documents[k].isbn; 
 		    		var cnt='';
+					var date = data.documents[0].datetime;
+					console.log(date.toString());
+					var datestr = date.toString();
+					
+					console.log(datestr.split("T")[0]);
+					var datestr2=datestr.split("T")[0];
+					
 			    		html +='<form action="shoplist" method="post">';
 		    			html +='<table>';
 		    			html += '<tr height="180px">';
@@ -67,7 +77,7 @@ $( document ).ready(function() {
 			    		html += '<b><a href="search_detail?isbn='+isbn.substr(11,23)+'">' + data.documents[k].title + '</a></b></br></br>';
 			    		html += '<p>' + data.documents[k].authors + '&nbsp;&nbsp;지음</p>';
 			    		html += '<p>' + data.documents[k].publisher + '</p>';
-			    		html += '<p>' + data.documents[k].datetime + '</p>';
+			    		html += '<p>' + datestr2 + '</p>';
 			    		html += '</td>';
 			    		html += '<td></br></br>평점</td>';
 			    		html += '<td></br></br></br>'+ data.documents[k].price + '원</br>'+ data.documents[k].sale_price +'원[10%↓]</td>';
@@ -86,8 +96,8 @@ $( document ).ready(function() {
 		    	//동적과 정적의차이... 포문 돌려서 만들어주는것 동적이라고 볼수있다.
 		    $('#cnt').html(cnt);
 	    	$('#getList').html(html);
-	    	
-		  /*  	$('<input type="button" value="바로구매">').appendTo('body').submit(); */
+
+	    	/*  	$('<input type="button" value="바로구매">').appendTo('body').submit(); */
 	    }).fail(function (error) {
 	    });
 		

@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tech.booksajo.search.service.SearchService;
 import com.tech.booksajo.search.vo.SearchView;
+import com.tech.booksajo.search.vo.ShopView;
+
 
 import lombok.RequiredArgsConstructor;
 
@@ -56,12 +58,20 @@ public class SearchController {
 	}
 	
 	
-
-
 	@RequestMapping("/shoplist")
 	public String shoplist(HttpServletRequest request, Model model ) {
 		
+		//버튼으로 받아오기
+		String count=request.getParameter("count");
+		String isbnscr=request.getParameter("isbnscr");
+		//String count=request.getParameter("count");
 		
+		
+		System.out.println("수량:"+count);
+		System.out.println("isbn스크립트:"+isbnscr);
+		
+		
+		//어디서 클릭을하냐에 따라. 리스트에서 가져오냐. 아니면 상세 페이지에서 가져오냐 경로가 달라서 안들어오네	
 		String isbn=request.getParameter("isbn");
 
 		
@@ -78,10 +88,66 @@ public class SearchController {
 	}
 
 	
-	
+	@RequestMapping("/shoplist2")
+	public String shoplist2(HttpServletRequest request, Model model ) {
+		
+		//버튼으로 받아오기
+		int count=Integer.parseInt(request.getParameter("count")); 
+		String isbnscr=request.getParameter("isbnscr");
+		//String count=request.getParameter("count");
+		
+		
+		System.out.println("수량:"+count);
+		System.out.println("isbn스크립트:"+isbnscr);
+		//model.addAttribute("isbn13", isbn13);
+		
+		
+		//책 여러개 담을수있으니까 isbn 여러개 넣어줄수있는 리스트로 멩글기
+		//했지만 1개밖에 못받아오네 그냥 쿼리로 인서트해주자
+/*		ArrayList<String> shopbooklist=new ArrayList<String>();
+		shopbooklist.add(isbnscr);
 
+		ArrayList<String> shopcount=new ArrayList<String>();
+		shopcount.add(count);
+		
+		
+		System.out.println(shopbooklist.size());	
+		System.out.println(shopcount.size());
+		*/
+		
+		
+		//즉시 인서트 해주기 테이블안에 하나씩 받으면  테이블 셀렉트문으로 가져옴 최종적으로 리턴은
+		
+		//1. isbn으로 모든 책 정보 가져와야하는 매소드 호출
+		//2. 대비에 넣어주는 작업
+		
+		
+		//1. 디테일 페이지 참고
+		
 	
-
+//		//생성자주입
+//		BoardDto dto=new BoardDto(bid, bname, btitle, bcontent,
+//				bdate, bhit, bgroup, bstep, bindent);
+//		//리스트에 추가
+//		dtos.add(dto);	
+		
+		//틀린이유 생성자 주입안해줌..
+			ShopView shv=new ShopView();
+					
+			
+			ArrayList<ShopView> shlist=searchService.shoplist(isbnscr, count);
+					
+		
+			//model.addAttribute("selectbook", shv);
+			model.addAttribute("shoplist", shlist);
+		
+		
+		return "common/shoplist/shoplist2";
+	}	
+		
+		
+		
+	
 	/*리스폰스 바디를 맵핑 위에다가 붙이면 에러남 못불러옴 함수 바루위에다가 붙여줘야함*/
 	
 	@RequestMapping("/search_detail")
@@ -124,10 +190,13 @@ public class SearchController {
 		return "search_detail";
 	}
 	
-	@RequestMapping(value = "/test/search_keyword", method = RequestMethod.POST  )
+	@RequestMapping(value = "/test/search_keyword/", method = RequestMethod.POST  )
 	@ResponseBody
 	public JSONArray search_keyword(@RequestBody Map<String,Object> map) {
+		
+		
 		System.out.println("==================================");
+		
 		
 
 		String isbn13= map.get("isbn").toString();

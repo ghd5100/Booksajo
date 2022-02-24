@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.stereotype.Repository;
 
+import com.tech.booksajo.mypage.vo.Myinfomation;
+import com.tech.booksajo.payment.vo.PayInfomation;
 import com.tech.booksajo.search.vo.SearchDto;
 
 @MapperScan
@@ -37,8 +39,11 @@ public interface PaymentMapper {
 	public int selectBoardTotCount3(String searchKeyword);
 	public int selectBoardTotCount0(String searchKeyword);
 
-
+	public PayInfomation getusers();
 	//public List<Map<String,Object>> test();
+
+
+	Myinfomation getuserinfo();
 	
 
 }

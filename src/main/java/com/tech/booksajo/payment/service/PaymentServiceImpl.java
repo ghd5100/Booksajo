@@ -1,5 +1,6 @@
 package com.tech.booksajo.payment.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,12 +8,14 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.tech.booksajo.mypage.vo.Myinfomation;
 import com.tech.booksajo.payment.mapper.PaymentMapper;
+import com.tech.booksajo.payment.vo.PayInfomation;
 import com.tech.booksajo.search.mapper.SearchMapper;
 import com.tech.booksajo.search.vo.SearchVO;
 
 
-@Service(value="PaymentService")
+@Service(value="paymentService")
 public class PaymentServiceImpl implements PaymentService {
 	
 	@Autowired
@@ -130,6 +133,22 @@ public List<Map<String,Object>> plist(Map<String,Object> requestDto) {
 	public List<Map<String, Object>> pList() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+	@Override
+	public Myinfomation getuser() {
+		
+		//서비스 못들어온이유.. 서비스 대소문자...젠장 
+		//오류내용:  Request processing failed; nested exception is org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.tech.booksajo.payment.service.PaymentService.getuser
+		System.out.println("getuser매소드 들어왔나여");
+		//Myinfomation meme=new Myinfomation();
+		
+		//왜 이렇게 리턴해주면안될까?
+		//meme=paymentmapper.getusers();
+		
+		return paymentmapper.getuserinfo();
 	}
 
 

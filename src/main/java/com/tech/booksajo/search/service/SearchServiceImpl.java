@@ -19,6 +19,22 @@ import org.springframework.stereotype.Service;
 import com.tech.booksajo.search.mapper.SearchMapper;
 import com.tech.booksajo.search.vo.SearchVO;
 import com.tech.booksajo.search.vo.SearchView;
+import com.tech.booksajo.search.vo.ShopView;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.math.BigInteger;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 
 @Service(value = "searchService")
 public class SearchServiceImpl implements SearchService {
@@ -784,6 +800,310 @@ public class SearchServiceImpl implements SearchService {
 	 * @Override public List<Map<String, Object>> slist(Map<String, Object>
 	 * requestDto) { // TODO Auto-generated method stub return null; }
 	 */
+
+
+
+
+
+	@Override
+	public ShopView bookinfo(String isbnscr,int count) {
+//		
+//		//isbn으로 모든 정보 다 받아오기
+//		
+//		//1.썸네일 url있어야하고 2.판매가 3.세일가격 3.수량필요
+//
+//		//가격때문에 카카오나 네이버에서 가져와야할덧. ->이클립스에서 가져올수있는거 확인함
+//		String apikey ="2ecf5febe1e05d5d376370e2b4d6c779";
+//		
+//		try {
+//			
+//			/*�닿��� ��諛���. 9788968481475(8968481474)*/
+//			
+//			String postParams="target=isbn&query="+isbnscr;
+//			String apiURL="https://dapi.kakao.com/v3/search/book?"+postParams;
+//			URL url=new URL(apiURL);
+//			
+//			HttpURLConnection con = (HttpURLConnection) url.openConnection();
+//			String userCredentials=apikey;
+//			String basicAuth="KakaoAK "+userCredentials;
+//			con.setRequestProperty("Authorization", basicAuth);
+//			con.setRequestMethod("GET");
+//			con.setRequestProperty("Content-Type", "application/json;");
+//			con.setRequestProperty("charset", "utf-8");
+//			con.setUseCaches(false);
+//			con.setDoInput(true);
+//			con.setDoOutput(true);
+//			
+//			int responseCode=con.getResponseCode();
+//			System.out.println("responseCode >> "+responseCode);
+//			BufferedReader br;
+//			if (responseCode==200) { //�����몄���
+//				br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+//			}
+//			else { //���� 諛���
+//				br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+//			}
+//			
+//			String inputLine;
+//			StringBuffer res= new StringBuffer();
+//			while ((inputLine=br.readLine()) != null) {
+//				res.append(inputLine);
+//			}
+//			br.close();
+//			System.out.println("응답 결과 >> "+res.toString());
+//			
+//			//이제 이결과를 제이슨 타입으로 파싱해준다.
+//			JSONParser json = new JSONParser();
+//			JSONObject jsonobj=(JSONObject) json.parse(res.toString());
+//			
+//			JSONArray jsonarr=(JSONArray) jsonobj.get("documents");
+//			
+//			Object isbnobj=new Object();
+//			Object priceobj=new Object();
+//			Object saleobj=new Object();
+//			Object urlobj=new Object();
+//			Object titleobj=new Object();
+//			
+//			isbnobj="";
+//			priceobj="";
+//			saleobj="";
+//			urlobj="";
+//			titleobj="";
+//			
+//			for (Object object : jsonarr) {
+//				System.out.println(object);
+//				JSONObject jobj=(JSONObject) object; //제이슨오브제로 바꿔줘야 키와벨류로 가져온다.
+//				isbnobj=jobj.get("isbn");
+//				priceobj=jobj.get("price");
+//				saleobj=jobj.get("sale_price");
+//				urlobj=jobj.get("thumbnail");
+//				titleobj=jobj.get("title");
+//			}
+//			System.out.println("isbn오브제나와라:"+isbnobj);
+//			
+//			
+//			/*			
+//			뽑아올 목록
+//			bsjselectbook_isbn varchar2(30),
+//			bsjselectbook_id number,
+//			bsjselectbook_price number,
+//			bsjselectbook_sale number,
+//			bsjselectbook_count number,
+//			bsjselectbook_url varchar2(1000),
+//			bsjselectbook_title varchar2(200),
+//			bsjselectbook_status varchar2(50));
+//			
+//			*/
+//			
+//			//다뽑았고 
+//			//뽑은내용을 디비에 넣어주는 작업
+//			//디비에 바로안넣고 변수저장을 해줘야하는 이유가있나??
+//			
+//			//일단 디비에 넣는것부터
+//			//업데이트할꺼니까 리턴안받아두 될것같은데..
+//			
+//			searchmapper.shoplist();
+//			
+//
+//		} catch (Exception e) {
+//			System.out.println("--���몄�� ");
+//			System.out.println(e);
+//		}
+//		
+//		
+		
+		
+		return null;
+	}
+
+	@Override
+	public ArrayList<ShopView> shoplist(String isbnscr,int count) {
+		
+		ArrayList<ShopView> shopvlist=new ArrayList<ShopView>();
+		//isbn으로 모든 정보 다 받아오기
+		
+		//1.썸네일 url있어야하고 2.판매가 3.세일가격 3.수량필요
+
+		//가격때문에 카카오나 네이버에서 가져와야할덧. ->이클립스에서 가져올수있는거 확인함
+		String apikey ="2ecf5febe1e05d5d376370e2b4d6c779";
+		
+		try {
+			
+			/*�닿��� ��諛���. 9788968481475(8968481474)*/
+			
+			String postParams="target=isbn&query="+isbnscr;
+			String apiURL="https://dapi.kakao.com/v3/search/book?"+postParams;
+			URL url=new URL(apiURL);
+			
+			HttpURLConnection con = (HttpURLConnection) url.openConnection();
+			String userCredentials=apikey;
+			String basicAuth="KakaoAK "+userCredentials;
+			con.setRequestProperty("Authorization", basicAuth);
+			con.setRequestMethod("GET");
+			con.setRequestProperty("Content-Type", "application/json;");
+			con.setRequestProperty("charset", "utf-8");
+			con.setUseCaches(false);
+			con.setDoInput(true);
+			con.setDoOutput(true);
+			
+			int responseCode=con.getResponseCode();
+			System.out.println("responseCode >> "+responseCode);
+			BufferedReader br;
+			if (responseCode==200) { //�����몄���
+				br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+			}
+			else { //���� 諛���
+				br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+			}
+			
+			String inputLine;
+			StringBuffer res= new StringBuffer();
+			while ((inputLine=br.readLine()) != null) {
+				res.append(inputLine);
+			}
+			
+			br.close();
+			
+			System.out.println("응답 결과 >> "+res.toString());
+			
+			//이제 이결과를 제이슨 타입으로 파싱해준다.
+			JSONParser json = new JSONParser();
+			JSONObject jsonobj=(JSONObject) json.parse(res.toString());
+			
+			JSONArray jsonarr=(JSONArray) jsonobj.get("documents");
+			
+			Object isbnobj=new Object();
+			Object priceobj=new Object();
+			Object saleobj=new Object();
+			Object urlobj=new Object();
+			Object titleobj=new Object();
+			Object isbn13obj=new Object();
+			
+			//오브젝트가 최상위 단계이기떄문에 이거를 인트형으로 아랫단계로 변환하면 문제생김
+			/*java.lang.ClassCastException: java.lang.Long cannot be cast to java.lang.Integer*/
+			
+
+			
+			isbnobj="";
+			isbn13obj="";
+			urlobj="";
+			titleobj="";
+			//얘네는 인트로 바꿔줘야함.
+			priceobj="";
+			saleobj="";
+			
+			Map<String, Integer> m=new HashMap<>();
+			
+			for (Object object : jsonarr) {
+				//System.out.println(object);
+				JSONObject jobj=(JSONObject) object; //제이슨오브제로 바꿔줘야 키와벨류로 가져온다.
+				isbnobj=jobj.get("isbn");
+				priceobj=jobj.get("price");
+				saleobj=jobj.get("sale_price");
+				urlobj=jobj.get("thumbnail");
+				titleobj=jobj.get("title");
+				
+				//인덱스번호로 구분하기
+				
+				
+			}
+			//System.out.println("isbn오브제나와라:"+isbnobj);
+			int price = ((Number)priceobj).intValue();
+			int sale = ((Number)saleobj).intValue();
+			
+			System.out.println("x:"+price);
+			System.out.println("y:"+sale);
+			
+			String isbn13=(String)isbnobj.toString().substring(11, 24);
+			String url2=(String)urlobj.toString();
+			String title=(String)titleobj.toString();
+			
+			System.out.println("isbn나와:"+isbn13);
+			
+			
+			//1.업데이트해주면서 2. 테이블불러와야한다.
+
+			
+			//다뽑았고 
+			//뽑은내용을 디비에 넣어주는 작업
+			//디비에 바로안넣고 변수저장을 해줘야하는 이유가있나??
+			
+			//일단 디비에 넣는것부터
+			//업데이트할꺼니까 리턴안받아두 될것같은데..
+			
+			//위에서 변수에 넣어준걸가지고 디비에 가져가서 업데이트해줘야지 파람 인서트해줘야지
+			
+			//1.업데이트작업//확인완료.
+			 searchmapper.upshoplist(isbn13,price,sale,url2,title,count);
+			
+			
+			//2.테이블 불러오는작업  .. 각각의 테이블을 다 불러와야함.. 
+			//ShopView에다가 넣어줘야함. -> 그다음에 리턴해준다.
+			/*그래야 테이블 불러온다.*/
+			
+			
+			/*public ShopView(String bsjselectbook_isbn, int bsjselectbook_id, int bsjselectbook_price, int bsjselectbook_sale,
+					int bsjselectbook_count, String bsjselectbook_url, String bsjselectbook_title,
+					String bsjselectbook_status)*/
+
+			ShopView shopv= new ShopView();
+			
+			
+			
+			shopv.setBsjselectbook_isbn(isbn13);
+			//shopv.setBsjselectbook_id(1);
+			shopv.setBsjselectbook_price(price);
+			shopv.setBsjselectbook_sale(sale);
+			shopv.setBsjselectbook_count(count);
+			shopv.setBsjselectbook_url(url2);
+			shopv.setBsjselectbook_title(title);
+			//shopv.setBsjselectbook_status("2일이내");
+			
+			//2.
+			//맵퍼에서 장바구니리스트 불러는 작업. 디비에서 bsjselectbook 테이블 불러오는 작업 
+			
+			shopvlist=searchmapper.getshoplist();
+			
+			
+			
+			//형변환시 각 타입에 맞게 나오는지 확인하기
+			/*int i = (int)Object. 객체앞에 (int)를 써서 강제형변환*/
+			//String title=(String)titleobj;
+			//String thumbnail=(String)urlobj;
+			//JSONObject price=(JSONObject)priceobj;
+
+			/*오브젝트가 가장 상위단계라서 강제형변환 안돼네.. 안뽑아지네...어떻게 뽑아야하지?* 스트링리스트에 넣으면.. 되긴하는것같긴한데/
+			
+			
+			
+			/*			
+			뽑아올 목록
+			bsjselectbook_isbn varchar2(30),
+			bsjselectbook_id number,
+			bsjselectbook_price number,
+			bsjselectbook_sale number,
+			bsjselectbook_count number,
+			bsjselectbook_url varchar2(1000),
+			bsjselectbook_title varchar2(200),
+			bsjselectbook_status varchar2(50));
+			
+			*/
+			
+			
+
+		} catch (Exception e) {
+			System.out.println("--���몄�� ");
+			System.out.println(e);
+		}
+		
+		return shopvlist;
+		
+		
+		
+		
+	
+	}
+	
 	
 
 }

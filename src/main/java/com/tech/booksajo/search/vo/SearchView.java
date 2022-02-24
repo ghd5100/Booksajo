@@ -15,8 +15,7 @@ public class SearchView {
 	private Object jarrlist;
 	private ArrayList<Object> catelist;
 	private int maxnum;
-	
-	
+
 	public SearchView() {
 
 	}
