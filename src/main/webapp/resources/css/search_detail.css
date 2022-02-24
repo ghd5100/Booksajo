@@ -120,14 +120,7 @@ border-bottom: 2px solid #aaa;
 
 
 
-
-
-
-
-
-
-
-
+/* ********************************************************************************* */
 
 
 
@@ -135,19 +128,6 @@ border-bottom: 2px solid #aaa;
 #box_detail_content {
     padding: 30px 40px 60px 20px;
     word-wrap: break-word;
-}
-
-.margin_top20 {
-    margin-top: 10px !important;
-    font-size: 12px;
-    text-align: left;
-}
-
-#tab_detail_content {
-    width: 750px;
-    height: 36px;
-    background-color: #fff;
-    border-left-width: 0;
 }
 
 #title_detail_basic {
@@ -158,6 +138,24 @@ border-bottom: 2px solid #aaa;
     color: #000;
     font-family: 'Malgun Gothic','Apple SD Gothic Neo','Dotum','Sans-Serif';
 }
+
+.margin_top20 {
+    margin-top: 10px !important;
+    font-size: 12px;
+    text-align: left;
+}
+
+
+
+
+
+#tab_detail_content {
+    width: 750px;
+    height: 36px;
+    background-color: #fff;
+    border-left-width: 0;
+}
+
 
 table {
     display: table;
@@ -224,6 +222,27 @@ body {
 
 
 /* 리뷰 작성게시판  */
+body {
+    font-size: 12px;
+    font-family: dotum, sans-serif;
+    color: #666;
+    line-height: 1.2em;
+}
+
+.board_list {
+    margin: 9px 0 0 0;
+    border-top: 1px solid #000;
+    zoom: 1;
+}
+
+dl {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
 .comment_wrap {
     position: relative;
     border-bottom: 1px dotted #d4d4d4;
@@ -248,4 +267,11 @@ dl {
     color: #303030;
     font-size: 12px;
     word-wrap: break-word;
+}
+
+.reply_wrap {
+    position: relative;
+    border-bottom: 1px dotted #d4d4d4;
+    padding: 14px 0 10px 18px;
+    background: url(http://image.kyobobook.co.kr/ink/images/common/bg_reply.gif) 0 15px no-repeat;
 }

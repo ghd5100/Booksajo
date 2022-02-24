@@ -8,7 +8,6 @@
 <script src="resources/lib/jquery/jquery-3.6.0.min.js"></script>
     <script src="resources/lib/bootstrap/js/bootstrap.js"></script>
 <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="resources/css/notice/notice_board.css">
 
 
 	<!-- ★필요시 내용변경가능 有 ★ -->

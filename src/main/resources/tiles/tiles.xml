@@ -43,7 +43,6 @@
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
 	
-	
 	<!-- 타이틀을 사용하는 레이아웃임 -->
 	<definition name="ThirdLayout" template="/WEB-INF/views/common/mypage/mypage_layout.jsp">
 		<put-attribute name="title" value="/WEB-INF/views/common/title.jsp" />
@@ -204,7 +203,7 @@
 	
 	
 	<!--이선아 '공지사항게시판'page-->
-	<definition name="noticeList" extends="secondLayout">
+	<definition name="noticeList" extends="ThirdLayout">
 		<put-attribute name="title" value="공지사항 리스트 ｜ 고객센터 - 책사조" />
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="side" value="/WEB-INF/views/common/notice/noticeSide.jsp" />
@@ -212,7 +211,7 @@
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
 	
-	<definition name="noticeView" extends="secondLayout">
+	<definition name="noticeView" extends="ThirdLayout">
 		<put-attribute name="title" value="공지사항 상세 ｜ 고객센터 - 책사조" />
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
 		<put-attribute name="side" value="/WEB-INF/views/common/notice/noticeSide.jsp" />
@@ -222,18 +221,16 @@
 	
 	
 	<!--관리자 영역-->
-	<definition name="noticeWriteView" extends="secondLayout">
+	<definition name="noticeWriteView" extends="baseLayout">
 		<put-attribute name="title" value="공지사항 글작성 ｜ 고객센터 - 책사조" />
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
-		<put-attribute name="side" value="/WEB-INF/views/common/notice/noticeSide.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/common/notice/noticeWriteView.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
 		
-	<definition name="noticeUpdate" extends="secondLayout">
+	<definition name="noticeUpdate" extends="baseLayout">
 		<put-attribute name="title" value="공지사항 수정 ｜ 고객센터 - 책사조" />
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
-		<put-attribute name="side" value="/WEB-INF/views/common/notice/noticeSide.jsp" />
 		<put-attribute name="body" value="/WEB-INF/views/common/notice/noticeUpdate.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>

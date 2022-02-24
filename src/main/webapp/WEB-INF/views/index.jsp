@@ -20,7 +20,7 @@
 </head>
 <body>
 
-	<h1><b>MAIN</b></h1>
+<!-- 	<h1><b>MAIN</b></h1> -->
 	<div id="adv_area">
 		<div class="adv_slide">                
 			<ul class="adv_list">

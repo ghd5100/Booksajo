@@ -4,8 +4,8 @@
 .h1_notice {
   height: 50px;
   text-align: left;
-  margin-bottom: 15px;
-  padding: 10px 0 10px;
+  margin-bottom: 10px;
+  padding: 28px 0 40px;
   border-bottom: 2px solid #565656;
   font-size: 25px;
   overflow: hidden;
@@ -15,15 +15,11 @@
 
 
 /* 공지사항 List 게시판 */
-.margin_top20 {
-    margin-top: 20px;
-}
-
 .noticeListTable {
     width: 100%;
     height: 5px;
-    border-top: 1px solid #a8afe5;
-    border-bottom: 1px solid #a8afe5;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
     font-size: 13px;
 	
 }
@@ -46,30 +42,60 @@ th, td {
 	text-align: center;
 }
 
+a:hover {
+    color: #666;
+    text-decoration: none;
+}
 
+.td_line_none_left {
+    text-align: left !important;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.td_line_none_left {
+    text-align: left;
+    line-height: 18px;
+}
 
 /* 페이징 */
+.paging_num {
+    text-align: center;
+    font-size: 13px;
+}
+
 .page_area {
 	clear: both;
 	margin-bottom: 30px;
 }
 
-.page_area > a {
+.a {
 	position: relative;
 	margin: 3px 5px 1px 5px;
-	border: solid 1px #000;
+	border: solid 1px #666;
 }
+
+/* 서치 */
+
+.form{
+	margin: 100px;
+}
+
+.searchArea {
+	font-size: 13px;
+}
+
+/* 총 게시물 */
+.totcnt {
+	position: relative;
+	text-align: right;
+	font-size: 12px;
+}
+
+/* 글쓰기 버튼 */
+.btn {
+	text-align: right;
+	margin-bottom: 30px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+

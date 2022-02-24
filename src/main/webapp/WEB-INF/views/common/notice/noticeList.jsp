@@ -19,8 +19,8 @@
 
 			<tbody>
 				<tr>
-					<th scope="col" class="nseq"><p class="th_line">번호</p></th>
-					<th scope="col" class="ntitle"><p class="th_line">제목</p></th>
+					<th scope="col" class="nseq">번호</th>
+					<th scope="col" class="ntitle">제목</th>
 					<th scope="col" class="th_line_none">날 짜</th>
 				</tr>
 			</tbody>
@@ -28,14 +28,16 @@
 		<c:forEach items="${noticeList }" var="noticedto">
 				<tr>
 					<td>${noticedto.nseq }</td>
-					<td class="td_line_none align_left"><a href="noticeView?nseq=${noticedto.nseq }">${noticedto.ntitle }</a>
+					<td class="td_line_none_left"><a href="noticeView?nseq=${noticedto.nseq }">${noticedto.ntitle }</a>
 					</td>
 					<td class="td_line_none"><fmt:formatDate value="${noticedto.ndate }" pattern="yyy-MM-dd"/></td>
 				</tr>
 			</c:forEach>
 		</table>
 
-<!-- 페이징 -->	
+<!-- 페이징 -->
+<br /><br />
+<div class="paging_num">
 	<c:if test="${searchVO.totPage>1 }">
 		<c:if test="${searchVO.page>1 }">
 			<a href="noticeList?page=1&sk=${searchVO.searchKeyword}&searchType=${searchVO.searchType}"><img src="resources/img/btn_prev_on.gif" alt="" /></a>
@@ -44,10 +46,10 @@
 		<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }" var="i">
 			<c:choose>
 				<c:when test="${i eq searchVO.page }">
-					<span style="color:red; font-weight: bold;">${i } </span>&nbsp;&nbsp;|&nbsp;&nbsp; 
+					<span style="color:#0172c9; font-weight: bold;">${i } </span>&nbsp;&nbsp;|&nbsp;&nbsp; 
 				</c:when>
 				<c:otherwise>
-					<a href="noticeList?page=${i }&sk=${searchVO.searchKeyword}&searchType=${searchVO.searchType}" style="text-decoration: none">${i } </a>&nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="noticeList?page=${i }&sk=${searchVO.searchKeyword}&searchType=${searchVO.searchType}" style="color:#666;">${i } </a>&nbsp;&nbsp;|&nbsp;&nbsp;
 				</c:otherwise>
 			</c:choose>
 		</c:forEach>
@@ -57,8 +59,10 @@
 			<a href="noticeList?page=${searchVO.totPage }&sk=${searchVO.searchKeyword}&searchType=${searchVO.searchType}"><img src="resources/img/btn_next_on.gif" alt="" /></a>
 		</c:if>
 	</c:if>
-	
-	<div>
+</div>
+<br /><br />
+<!-- 서치 -->	
+	<div class="searchArea">
 		<form id="form1" name="form1" action="noticeList" method="post">
 			<c:choose>
 				<c:when test="${ntitle }">
@@ -84,27 +88,17 @@
 	</div>
 
 <!-- 총게시물 개수 -->
-<%-- 	<table id="totcnt">
-		<tr>
-			<td id="a.totcnt">총 게시물 : ${totRowCnt }</td>
-		</tr>
-	</table> --%>
-
-			<td id="totcnt">총 게시물 : ${totRowCnt }</td>
+	<div class="totcnt">
+		<td id="totcnt">총 게시물 : ${totRowCnt }</td>
+	</div>
 
 <!-- 관리자 글작성 패널 -->
-	<!--<table id="writebtn">
-			<tr>
-				<td colspan="5"> <a href="noticeWriteView">글작성</a> </td>
-			</tr>
-		</table> -->
-		<br /><br />
-	<button type="button" id="writeBtn"><a href="noticeWriteView">글쓰기</a></button>
+	<div class="btn">
+		<button type="button">
+			<a href="noticeWriteView" style="color: black;">글쓰기</a>
+		</button>
+	</div>
 
-
-	<br />
-	<br />
-	<br />
 
 
 <!-- 페이지 고유 js include-->

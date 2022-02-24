@@ -90,7 +90,7 @@ public class NoticeController {
 		int page=Integer.parseInt(strPage);
 		searchVO.setPage(page);
 		searchVO.setSearchKeyword(searchKeyword);
-		System.out.println("searchVO.getSearchKeywrod : " + searchVO.getSearchKeyword());
+//		System.out.println("searchVO.getSearchKeywrod : " + searchVO.getSearchKeyword());
 		NoticeMapper noticemapper=sqlSession.getMapper(NoticeMapper.class);
 		
 //		totcnt
