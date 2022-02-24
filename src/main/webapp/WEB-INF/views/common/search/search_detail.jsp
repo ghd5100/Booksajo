@@ -223,7 +223,7 @@
 
 	<div id="bookReview">
 		<a name="bookinfoTag" style="position: absolute; top: 500px"></a> 
-		<img src="resources/img/doit.jpeg" id="bookimg" role="tab" style="width: 910px;" />
+		<img src="resources/img/doit.jpg" id="bookimg" role="tab" style="width: 733px;" />
 	</div>
 	
 	
@@ -263,6 +263,7 @@ const drawStar = (target) => {
 </style> -->
 
 
+		<div class="table2">
 	<div class="tab_detail_content" id="infotab"
 		style="width: 920px; margin-top: 0px;">
 
@@ -335,8 +336,7 @@ const drawStar = (target) => {
 		</table>
 
 
-		<!-- 이선아 교환/반품/품절 테이블 -->
-
+<!-- 이선아 교환/반품/품절 테이블 -->
 		<ul class="nav nav-tabs">
 			<li class="nav-item"><a class="nav-link active"
 				aria-current="page" href="#bookinfoTag">상품정보</a></li>
@@ -428,6 +428,7 @@ const drawStar = (target) => {
 	</div>
 
 </div>
+		</div>
 
 
 

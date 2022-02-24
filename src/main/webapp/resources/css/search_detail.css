@@ -125,6 +125,15 @@ border-bottom: 2px solid #aaa;
 
 
 /* 이선아 리뷰 교환,반품,품절게시판*/
+.table2 {
+	position: relative;
+	margin-bottom: 900px;
+	
+}
+
+.nav.nav-tabs{
+	font-size: 13px;
+}
 #box_detail_content {
     padding: 30px 40px 60px 20px;
     word-wrap: break-word;
@@ -145,10 +154,6 @@ border-bottom: 2px solid #aaa;
     text-align: left;
 }
 
-
-
-
-
 #tab_detail_content {
     width: 750px;
     height: 36px;
@@ -164,7 +169,6 @@ table {
     text-indent: initial;
     border-spacing: 2px;
     border-color: grey;
-    margin-bottom: 50px;
 }
 
 .title_detail_basic {
@@ -247,6 +251,7 @@ dl {
     position: relative;
     border-bottom: 1px dotted #d4d4d4;
     padding: 14px 0 10px 0;
+    margin-bottom: 50px;
 }
 dl {
     display: block;
@@ -272,6 +277,7 @@ dl {
 .reply_wrap {
     position: relative;
     border-bottom: 1px dotted #d4d4d4;
+    margin-bottom: 10px;
     padding: 14px 0 10px 18px;
     background: url(http://image.kyobobook.co.kr/ink/images/common/bg_reply.gif) 0 15px no-repeat;
 }

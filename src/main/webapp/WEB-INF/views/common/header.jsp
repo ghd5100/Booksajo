@@ -40,7 +40,7 @@
 				<li id="g"><a href="#">회원가입</a></li>
 				<li id="g"><a href="#">출석체크</a></li>
 				<li id="g"><a href="mypage">MYPAGE</a></li>
-				<li id="g"><a href="#">고객센터</a></li>
+<!-- 				<li id="g"><a href="#">고객센터</a></li> -->
 				<li id="g"><a href="#">주문배송</a></li>
 				<li id="g"><a href="shoplist">장바구니</a></li>
 			</ul>
@@ -48,7 +48,7 @@
 	</nav>
 
 <div id="a">
-<a href="index"><img src="resources/img/logo.png" width="195px" height="84px" alt="" width="30" height="24" id="img"></a>
+<a href="index"><img src="resources/img/logo2.png" width="170px" height="69px" alt="" width="30" height="24" id="img"></a>
 </div>
 <div id="b">
 <form class="d-flex" action="search_table" method="post">

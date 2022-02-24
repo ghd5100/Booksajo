@@ -28,7 +28,7 @@
 </ul>
   <!-- Copyright -->
   <div>
-<img src="resources/img/logo.png" width="110px" height="50px" style="float: left; margin-left: 5%;">
+<img src="resources/img/logo3.png" width="110px" height="45px" style="float: left; margin-left: 5%;">
 	</div>
 
   <p><span class="glyphicon glyphicon-envelope">&nbsp;E-mail&nbsp;booksajo@gmail.com</span></p>
