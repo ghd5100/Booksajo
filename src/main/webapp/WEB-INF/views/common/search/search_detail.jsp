@@ -22,14 +22,10 @@
 						var isbn = '${isbn}';
 						console.log(isbn);
 						DetailData(isbn);
-<<<<<<< HEAD
 
-=======
 						testData(isbn);
 						
 
-						
->>>>>>> 임현주_brh
 						function DetailData(isbn) {
 							$
 									.ajax(
@@ -102,9 +98,7 @@
 
 						}
 					});
-<<<<<<< HEAD
-=======
-					
+	
 					 
 						function testData(isbn) {
 						
@@ -171,7 +165,7 @@
 						 
 						}
 			
->>>>>>> 임현주_brh
+
 </script>
 
 
