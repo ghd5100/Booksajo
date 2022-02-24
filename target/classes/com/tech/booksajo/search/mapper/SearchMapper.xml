@@ -82,4 +82,53 @@
 	</update>
 	
 	
+
+	<insert id="upshoplist" parameterType="map" >
+	INSERT INTO  BSJSELECTBOOK (
+		BSJSELECTBOOK_ISBN
+		,BSJSELECTBOOK_ID
+		,BSJSELECTBOOK_PRICE
+		,BSJSELECTBOOK_SALE
+		,BSJSELECTBOOK_URL
+		,BSJSELECTBOOK_TITLE
+		,BSJSELECTBOOK_COUNT
+		,BSJSELECTBOOK_STATUS) 
+	VALUES(
+		#{param1}
+		,BSJSELECTBOOK_SEQ.NEXTVAL
+		,#{param2}
+		,#{param3}
+		,#{param4}
+		,#{param5}
+		,#{param6}
+		,'이틀이내'
+	)
+	</insert>
+								
+	<select id="getshoplist" resultType="com.tech.booksajo.search.vo.ShopView">
+	select
+		bsjselectbook_isbn
+        , bsjselectbook_id
+        , bsjselectbook_price
+        , bsjselectbook_sale
+        , bsjselectbook_count
+        , bsjselectbook_url
+        , bsjselectbook_title
+        , bsjselectbook_status
+	 FROM bsjselectbook
+     
+     <!-- 오류난이유 * 잘 쓰지마라. 컬럼을 직접 넣어주기 -->
+	</select>
+
+
+<!-- 	
+	쇼핑리스트 장바구니 담기눌렀을떄 넣어줄것
+	<update id="upShoplist">
+		UPDATE REPLYBOARD
+		SET BHIT = BHIT + 1 
+		WHERE BID = #{param1}
+	</update>
+	
+ -->	
+	
 </mapper>

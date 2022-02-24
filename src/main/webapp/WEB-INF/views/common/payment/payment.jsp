@@ -5,18 +5,106 @@
 
 <link rel="stylesheet" type="text/css" href="resources/css/payment.css">
 
+<!-- 여기역시도 isbn 가져오니까 그걸로 책정보 뿌려주면되겠구나 -->
 
+<%String isbn=request.getParameter("isbn"); %>
 
+<script>
+	$(document)
+			.ready(
+					function() {
+						var isbn = <%=isbn%>;
+						console.log(isbn);
+						DetailData(isbn);
+						testData(isbn);
+						
+
+						
+						function DetailData(isbn) {
+							$
+									.ajax(
+											{
+												type : 'POST',
+												url : 'https://dapi.kakao.com/v3/search/book?target=isbn&query='
+														+ isbn,
+												headers : {
+													Authorization : 'KakaoAK 2ecf5febe1e05d5d376370e2b4d6c779'
+												},
+												dataType : 'json',
+												contentType : 'application/json; charset=utf-8',
+											})
+									.done(
+											function(data) { //들어올때도 어쨋든 제이슨타입으로 1개 들어오는거니까 인덱스 써줘야함 틀린이유.
+									
+												var html = '';
+												var thumbnail = '';
+												var contents = data.documents[0].contents;
+												var contentcut = contents
+														.split('.');
+
+												
+											/* 
+												<div id="selectprod">
+												<table style="width: 100%; height: 100px;">
+													<tr>
+														<td>상품정보</td>
+														<td>판매가</td>
+														<td>배송/판매자</td>
+													</tr>
+													<tr>
+														<td>1</td>
+														<td>2</td>
+														<td>3</td>
+													</tr>
+												</table>
+											</div>
+												
+											*/
+												
+												//사이드에 보내줄거
+												html += '<table style="width: 100%; height: 100px;">';
+												html += '<tr style="height: 40px;">';
+												html += '<td>상품정보</td>';
+												html += '<td>판매가</td>'
+												html += '<td>배송/판매자</td>'
+												html += '<td>수량</td>'
+												html += '</tr>';
+												html += '<tr>';
+												html += '<td><img src='+data.documents[0].thumbnail+' style="height: 110px;"/></td>';
+												html += '<td>'+data.documents[0].price+'</td>'
+												html += '<td>교보문고/판매자</td>'
+												html += '<td>파라미터받아오기</td>'
+												html += '</tr>';
+												html += '</table>';
+
+												console.log(data.documents[0]);
+
+												//thumbnail += '<img src='+data.documents[0].thumbnail+'class="img-fluid" alt="..." style="width: 248px; height: 330px;" / >';
+												
+												//$('#img2').html(thumbnail);
+												$('#selectprod').html(html);
+											}).fail(function(error) {
+
+									});
+
+						}
+					});
+
+	
+
+</script>
+
+<img src="" style="width: 70px;" alt="" />
 
 <div id="conte">
 
 	<div id="custominfo">
 		<table style="width: 100%; margin-bottom: 70px; text-align: left;">
 			<tr>
-				<td height="50px">주문자</td>
-				<td width="50px">이름</td>
-				<td width="80px">전화번호</td>
-				<td width="600px">이메일주소</td>
+				<td height="50px">주문자 ${payinfo.user_id }</td>
+				<td width="50px">이름 ${payinfo.user_name }</td>
+				<td width="80px">전화번호 ${payinfo.user_phone }</td>
+				<td width="600px">이메일주소  ${payinfo.user_email}</td>
 			</tr>
 		</table>
 	</div>

@@ -54,7 +54,7 @@
 		</select>일
 		</td>
 		<td id="selname">성별</td>
-		<td style="width:40%;"><input type="radio" />여성 <input type="radio" />남성</td>
+		<td style="width:40%;"><input type="radio" name="gender"/>여성 <input type="radio" name="gender"/>남성</td>
 	</tr>
 	<tr>
 		<td colspan="4" id="selphone">연락처(전화번호, 휴대폰번호) 중 하나는 반드시 입력하셔야 합니다.</td>
@@ -117,7 +117,7 @@
 	</tr>
 	<tr>
 		<td id="selname">개인정보</br>유효기간제</td>
-		<td><input type="radio" />1년<input type="radio" />3년<input type="radio" />5년<input type="radio" />탈퇴시까지</td>
+		<td><input type="radio" name="agree"/>1년<input type="radio" name="agree" />3년<input type="radio" name="agree"/>5년<input type="radio" name="agree"/>탈퇴시까지</td>
 	</tr>
 	<tr>
 		<td id="selname">제3자 정보제공 동의</td>

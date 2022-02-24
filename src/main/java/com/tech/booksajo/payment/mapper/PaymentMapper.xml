@@ -82,4 +82,12 @@
 	</update>
 	
 	
+	<!-- 변수지정 패키지가 다르면 안들어오네... -->
+	<select id="getuserinfo" resultType="com.tech.booksajo.mypage.vo.Myinfomation">
+ 		SELECT USER_ID,USER_NICKNAME,USER_NAME,USER_PHONE,
+		USER_ADDR,USER_EMAIL,USER_CHECK,USER_POINT,USER_COUPON FROM BSJUSERS		
+
+	</select>
+	
+	
 </mapper>

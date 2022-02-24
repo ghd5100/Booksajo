@@ -34,7 +34,7 @@ function divheight2() {
 var search = {
 	init : function() {// 이 함수는 도큐먼트 레디 같은거라 보면됨. 매개변수 넣을수없음.
 		var keywords = '${search}';
-		console.log(keyword);
+		console.log(keywords);
 	},
 	makeRow : function(keyword2) {
 

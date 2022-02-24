@@ -3,7 +3,8 @@ package com.tech.booksajo.payment.service;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Service;
+import com.tech.booksajo.mypage.vo.Myinfomation;
+import com.tech.booksajo.payment.vo.PayInfomation;
 
 
 public interface PaymentService  {
@@ -14,4 +15,7 @@ public interface PaymentService  {
 	
 	void write(String bName, String bTitle, String bContent);
 	Map<String,Object> content_view(String bid);
+	
+	Myinfomation getuser();
+	//public 써주지않는다. 서비스에선
 }
