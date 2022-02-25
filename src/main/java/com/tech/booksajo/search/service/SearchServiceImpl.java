@@ -17,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tech.booksajo.search.mapper.SearchMapper;
+import com.tech.booksajo.search.vo.ReviewDto;
+import com.tech.booksajo.search.vo.ReviewPageVO;
 import com.tech.booksajo.search.vo.SearchVO;
 import com.tech.booksajo.search.vo.SearchView;
 import com.tech.booksajo.search.vo.ShopView;
@@ -1103,7 +1105,18 @@ public class SearchServiceImpl implements SearchService {
 		
 	
 	}
+
+	@Override
+	public List<ReviewDto> reviewList() {
+		List<ReviewDto> reviewList = searchmapper.reviewList();
+		return reviewList;
+	}
+
+/*	@Override
+	public List<ReviewPageVO> reviewPage() {
+			List<ReviewPageVO> reviewPage = searchmapper.reviewPage();
+		return reviewPage;*/
+	}
 	
 	
 
-}

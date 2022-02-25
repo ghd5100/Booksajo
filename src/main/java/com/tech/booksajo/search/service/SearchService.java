@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.tech.booksajo.search.vo.ReviewDto;
+import com.tech.booksajo.search.vo.ReviewPageVO;
 import com.tech.booksajo.search.vo.SearchView;
 import com.tech.booksajo.search.vo.ShopView;
 
@@ -29,4 +31,8 @@ public interface SearchService  {
 	
 //	ArrayList<ShopView> getshoplist();
 
+	
+//  이선아 : 리뷰게시판
+	List<ReviewDto> reviewList();
+//	List<ReviewPageVO> reviewPage();
 }

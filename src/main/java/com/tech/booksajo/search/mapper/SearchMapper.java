@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.stereotype.Repository;
 
 import com.tech.booksajo.mypage.vo.Myinfomation;
+import com.tech.booksajo.search.vo.ReviewDto;
+import com.tech.booksajo.search.vo.ReviewPageVO;
 import com.tech.booksajo.search.vo.SearchDto;
-import com.tech.booksajo.search.vo.SearchView;
 import com.tech.booksajo.search.vo.ShopView;
 
 @MapperScan
@@ -51,4 +50,8 @@ public interface SearchMapper {
 
 	//장바구니 리스트 불러오는 동작
 	public ArrayList<ShopView> getshoplist();
+	
+	//이선아 : 리뷰테이블 리스트 불러오는 동작
+	public List<ReviewDto> reviewList();
+	public List<ReviewPageVO> reviewPage();
 }

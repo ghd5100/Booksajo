@@ -17,11 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
+import com.tech.booksajo.notice.mapper.NoticeMapper;
+import com.tech.booksajo.search.mapper.SearchMapper;
 import com.tech.booksajo.search.service.SearchService;
-import com.tech.booksajo.search.vo.SearchView;
+import com.tech.booksajo.search.vo.ReviewDto;
+import com.tech.booksajo.search.vo.ReviewPageVO;
+import com.tech.booksajo.search.vo.ReviewSearchVO;
 import com.tech.booksajo.search.vo.ShopView;
-
 
 import lombok.RequiredArgsConstructor;
 
@@ -89,7 +91,7 @@ public class SearchController {
 
 	
 	@RequestMapping("/shoplist2")
-	public String shoplist2(HttpServletRequest request, Model model ) {
+	public String shoplist2(HttpServletRequest request, Model model) {
 		
 		//버튼으로 받아오기
 		int count=Integer.parseInt(request.getParameter("count")); 
@@ -151,7 +153,7 @@ public class SearchController {
 	/*리스폰스 바디를 맵핑 위에다가 붙이면 에러남 못불러옴 함수 바루위에다가 붙여줘야함*/
 	
 	@RequestMapping("/search_detail")
-	public String search_detail(HttpServletRequest request, Model model) {
+	public String search_detail(HttpServletRequest request, Model model, ReviewSearchVO ReviewSearchVo) {
 	
 		String isbn13=request.getParameter("isbn");
 		System.out.println("isbn13:"+isbn13);
@@ -182,9 +184,22 @@ public class SearchController {
 					
 					e.printStackTrace();
 				}*/
-				
-				model.addAttribute("isbn", isbn13);
-				
+		model.addAttribute("isbn", isbn13);
+		
+		
+		
+		
+//		이선아 리뷰테이블 리스트
+		List<ReviewDto> reviewList = searchService.reviewList();
+		System.out.println(reviewList.get(0).getRe_content());
+		model.addAttribute("reviewList", reviewList);
+		
+		
+		
+////		이선아 리뷰테이블 페이징
+//		List<ReviewPageVO> reviewPage = searchService.reviewPage();
+//		System.out.println(reviewPage.get(0).getPage());
+//		model.addAttribute("reviewPage", reviewPage);
 		
 		
 		return "search_detail";
@@ -274,8 +289,25 @@ public class SearchController {
 			return searchService.content_view(bid);
 	}
 
-	
-	
-	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

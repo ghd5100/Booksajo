@@ -130,5 +130,50 @@
 	</update>
 	
  -->	
+
+
+<!-- 이선아 리뷰테이블 mapper.xml -->
+	<select id="reviewList" resultType="com.tech.booksajo.search.vo.ReviewDto">
+		SELECT ISBN,RE_DATE,RE_SCORE,RE_CONTENT,RE_GROUP,RE_STEP,RE_FILESRC,USER_ID
+		FROM BSJREVIEW ORDER BY RE_DATE DESC
+	</select>
+
+<!-- 	<sql id="reviewPage">
+		<choose>
+			<when test="param4==1">
+				WHERE NTITLE LIKE '%'||#{param3}||'%'
+			</when>
+			<when test="param4==2">
+				WHERE NCONTENT LIKE '%'||#{param3}||'%'
+			</when>
+			<when test="param4==3">
+				WHERE NTITLE LIKE '%'||#{param3}||'%' or NCONTENT
+				LIKE '%'||#{param3}||'%'
+			</when>
+			<otherwise>
+		 	3이상의 경우는 없어서 빈란임
+		 	
+			</otherwise>
+		</choose>
+	</sql> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 </mapper>

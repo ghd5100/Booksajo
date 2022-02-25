@@ -34,12 +34,13 @@
 	background-color: #eee;
 	font-size: 13px;
 	text-align: center;
+	height: 50px;
 }
 
 .td_content{
 	font-size: 13px;
 	width: 100%;
-	height: 366px;
+	height: 700px;
 	
 }
 
@@ -62,7 +63,7 @@ tr:hover {
 
 /* 입력,목록 버튼 */
 .btn {
-	font-size: 14px;
+	font-size: 15px;
 	text-align: right;
 }
 

@@ -6,6 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="resources/css/notice_page/noticeUpdate_board.css">
 
+<!-- 글쓰기에디터 js -->
+<script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
+
 <div class="noticeUpdate_board">
 	<h1 class="h1_notice">공지사항 수정</h1>
 	<form action="noticeModify" method="post">
@@ -28,7 +31,7 @@
 				</tr>
 				<tr>
 					<th class="th_content">내용</th>
-					<td colspan="5"><textarea class="td_content" name="nContent"
+					<td colspan="5"><textarea class="td_content" name="nContent" id="textarea"
 							style="resize: none">${noticeView.ncontent }</textarea></td>
 				</tr>
 			</thead>
@@ -44,3 +47,6 @@
 
 <!-- 페이지 고유 js include -->
 <script src="resources/js/board.js"></script>
+
+<!-- 글쓰기에디터 js -->
+<script src="${pageContext.request.contextPath}/resources/js/ckeditor.js"></script>
