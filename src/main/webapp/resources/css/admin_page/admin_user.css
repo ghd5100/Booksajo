@@ -114,3 +114,10 @@ th {
 .content_detail > table th {
 	font-weight: bold;
 }
+
+tr.user_list:hover,
+tr.user_list:hover > td {
+	background-color: #ddd;
+	font-weight: bold;
+	cursor: pointer;
+}

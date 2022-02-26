@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-public class PageVO {
+public class MainPageVO {
 	
 
 	private Integer displayRowCount = 20;           // 출력할 데이터 개수

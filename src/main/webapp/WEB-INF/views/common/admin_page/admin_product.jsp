@@ -11,6 +11,12 @@
 <script src="resources/js/main.js"></script>
 <title>관리자 페이지</title>
 
+<script>
+	function select(isbn) {
+		location.href = "admin_product_detail?isbn=" + isbn;
+	}
+
+</script>
 
 </head>
 <body>
@@ -38,19 +44,48 @@
 					</tr>
 					
 					<c:forEach items="${list }" var="list">
-						<tr>
-							<td>
-								<a href="admin_product_detail?isbn=${list.isbn }">${list.isbn }</a>
-							</td>
-							<td style="text-align: left;">
-								<a href="admin_product_detail?isbn=${list.isbn }">${list.title }</a>
-							</td>
+						<tr class="product_list" onclick="select(${list.isbn})">
+							<td>${list.isbn }</td>
+							<td style="text-align: left;">${list.title }</td>
 							<td>재고 넣어야함</td>
 							<td>${list.price }</td>
 							<td>도서 상태 넣어야함</td>
 						</tr>
 					</c:forEach>
 				</table>
+			</div>
+			<div class="paging">
+				<a href="admin_product?page=1&product_search_keyword=${searchVO.searchKeyword }"><img src="resources/img/btn_prev_on.gif" alt="" /></a>
+				<c:choose>
+					<c:when test="${searchVO.page eq 1}">
+						<a href="admin_product?page=${searchVO.page }&product_search_keyword=${searchVO.searchKeyword }"><img src="resources/img/btn_prev.gif" alt="" /></a>
+					</c:when>
+					<c:otherwise>
+						<a href="admin_product?page=${searchVO.page - 1 }&product_search_keyword=${searchVO.searchKeyword }"><img src="resources/img/btn_prev.gif" alt="" /></a>
+					</c:otherwise>
+				</c:choose>
+				&nbsp;&nbsp;
+				
+				<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }" var="i">
+					<c:choose>
+						<c:when test="${i eq searchVO.page }">
+							<span style="color:red; font-weight: bold;">${i }</span>&nbsp;&nbsp;&nbsp;&nbsp; 
+						</c:when>
+						<c:otherwise>
+							<a href="admin_product?page=${i }&product_search_keyword=${searchVO.searchKeyword }" style="text-decoration: none">${i } </a>&nbsp;&nbsp;
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+
+				<c:choose>
+					<c:when test="${searchVO.totPage eq searchVO.page }">
+						<a href="admin_product?page=${searchVO.page }&product_search_keyword=${searchVO.searchKeyword }"><img src="resources/img/btn_next.gif" alt="" /></a>
+					</c:when>
+					<c:otherwise>
+						<a href="admin_product?page=${searchVO.page + 1 }&product_search_keyword=${searchVO.searchKeyword }"><img src="resources/img/btn_next.gif" alt="" /></a>
+					</c:otherwise>
+				</c:choose>
+				<a href="admin_product?page=${searchVO.totPage }&product_search_keyword=${searchVO.searchKeyword }"><img src="resources/img/btn_next_on.gif" alt="" /></a>
 			</div>
 		</div>
 		

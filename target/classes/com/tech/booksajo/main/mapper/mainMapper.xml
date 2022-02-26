@@ -35,6 +35,21 @@
 		ORDER BY bb.order_count DESC
 	</select>
 	
+	<select id="bestCount" resultType="int">
+<!-- 		SELECT * FROM (SELECT A.*, b.TOT_SALES tot_sales FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN ORDER BY B.TOT_SALES DESC) WHERE ROWNUM BETWEEN #{param1} AND #{param2} -->
+<!-- 		SELECT * FROM (SELECT A.*, ROW_NUMBER() OVER(ORDER BY TOT_SALES DESC) SAL FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN) WHERE SAL BETWEEN #{param1} AND #{param2} -->
+		SELECT count(*)
+		FROM
+		    bsjbook aa,
+		    (SELECT bb.*, ROW_NUMBER() OVER(ORDER BY bb.order_count DESC) AS row_no
+		        FROM
+		            (SELECT SUM(b.order_count) order_count, a.isbn
+		            FROM bsjbook a, bsjorder_detail b
+		            WHERE a.isbn = b.isbn
+		            GROUP BY a.isbn) bb) cc
+		WHERE aa.isbn = cc.isbn
+	</select>
+	
 	<select id="getAllData" resultType="com.tech.booksajo.main.vo.MainDto">
 <!-- 		SELECT * FROM (SELECT A.*, b.TOT_SALES tot_sales FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN ORDER BY B.TOT_SALES DESC) WHERE ROWNUM BETWEEN #{param1} AND #{param2} -->
 <!-- 		SELECT * FROM (SELECT A.*, ROW_NUMBER() OVER(ORDER BY TOT_SALES DESC) SAL FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN) WHERE SAL BETWEEN #{param1} AND #{param2} -->

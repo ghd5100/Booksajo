@@ -13,11 +13,14 @@
 
 
 <script>
-var monthlySales = ${list};
+var monthlySales = [];
 var quarterSales = [];
 var month = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
 var quarter = ['1분기', '2분기', '3분기', '4분기'];
 $(function(){
+	
+	$("#selectYear").val(${selectYear}).prop("selected", true);
+	monthlySales = ${list}
 	for (var i = 0; i < 4; i++) {
 		var sumSales = 0;
 		for (var j = 3 * i; j < 3 * i + 3; j++) {
@@ -25,30 +28,41 @@ $(function(){
 		}
 		quarterSales.push(sumSales);
 	}
-	var selectGraph = document.getElementById("selected").selectedIndex;
-	console.log(selectGraph);
-	graph(monthlySales, month);
-
+	console.log("list : " + ${list});
+	createGraph("salesChart1", quarterSales, quarter);
+	createGraph("salesChart2", monthlySales, month);
+	changeGraph();
+	
 });
 
-function changeGraph(selectData, selectLabel) {
-	var selectGraph = document.getElementById("selected").selectedIndex;
+function changeGraph() {
+	var selectGraph = document.getElementById("selectGraph").selectedIndex;
+	
+	
 	console.log(selectGraph);
 	if (selectGraph == 1) {
-		graph(quarterSales, quarter);
+		$("#salesChart1").show();
+		$("#salesChart2").hide();
 	} else {
-		graph(monthlySales, month);
+		$("#salesChart2").show();
+		$("#salesChart1").hide();
 	}
 }
 
-function graph(selectData, selectLabel) {
-	const ctx = document.getElementById('salesChart').getContext('2d');
-	const myChart = new Chart(ctx, {
+function getSalesData() {
+	var selectYear = document.getElementById("selectYear").options[document.getElementById("selectYear").selectedIndex].value;
+	location.replace("admin_sales?selectYear=" + selectYear);
+	
+}
+
+function createGraph(targetId, selectData, selectLabel) {
+	const ctx = document.getElementById(targetId).getContext('2d');
+	var config = {
 	    type: 'bar',
 	    data: {
 	        labels: selectLabel,
 	        datasets: [{
-	            label: '# of Votes',
+	            label: '판매액',
 	            data: selectData,
 	            backgroundColor: [
 	                'rgba(255, 99, 132, 0.2)',
@@ -92,7 +106,8 @@ function graph(selectData, selectLabel) {
 	            }
 	        }
 	    }
-	});
+	};
+	const myChart = new Chart(ctx, config);
 }
 
 </script>
@@ -110,15 +125,21 @@ function graph(selectData, selectLabel) {
 		<div class="content_area">
 			<div class="content_title">
 				<strong>매출 통계</strong>
-				<select name="select" id="selected" onchange="changeGraph()">
-					<option value="1" selected>월별 매출</option>
+				
+				<select name="select" id="selectGraph" class="selectbox" onchange="changeGraph()">
+					<option value="1">월별 매출</option>
 					<option value="2">분기별매출</option>
+				</select>
+				<select name="select" id="selectYear" class="selectbox" onchange="getSalesData()">
+					<option value="2022">2022년</option>
+					<option value="2021">2021년</option>
 				</select>
 			</div>
 			<div class="content_detail">
 
-			   <div>
-			      <canvas id="salesChart" width="800px"></canvas>
+			   <div id="chart">
+			      <canvas id="salesChart1" width="900px"></canvas>
+			      <canvas id="salesChart2" width="900px"></canvas>
 			   </div>
 
 			</div>

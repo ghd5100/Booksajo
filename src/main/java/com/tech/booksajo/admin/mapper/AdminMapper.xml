@@ -7,74 +7,151 @@
 <mapper namespace="com.tech.booksajo.admin.mapper.AdminMapper">
 	
 	<select id="getUserData" resultType="com.tech.booksajo.admin.vo.AdminDto">
-		SELECT
-			user_id,
-			user_name,
-			REGEXP_REPLACE(user_phone, '(02|.{3})(.+)(.{4})', '\1-\2-\3') user_phone,
-			TO_CHAR(user_date, 'YYYY-MM-DD HH24:MM:SS') user_date
-		FROM bsjusers
-		<![CDATA[WHERE ROWNUM <= 5]]>
-		ORDER BY user_date DESC
-	</select>
-	<select id="userSearch" resultType="com.tech.booksajo.admin.vo.AdminDto">
-		SELECT user_id, user_name, user_phone, user_date
-		FROM bsjusers
-		WHERE
-			user_id LIKE '%'||#{param1}||'%'
-			OR user_name LIKE '%'||#{param1}||'%'
-		ORDER BY user_date DESC
+		SELECT *
+		FROM
+		    (SELECT user_id, user_name, REGEXP_REPLACE(user_phone, '(02|.{3})(.+)(.{4})', '\1-\2-\3') user_phone, TO_CHAR(user_date, 'yyyy-mm-dd hh24:mi:ss') user_date, user_addr, ROW_NUMBER() OVER(ORDER BY user_date DESC) AS row_no
+		    FROM bsjusers)
+		WHERE row_no BETWEEN #{param1} AND #{param2}
 	</select>
 	
+	<select id="userSearch" resultType="com.tech.booksajo.admin.vo.AdminDto">
+		SELECT *
+		FROM
+		    (SELECT user_id, user_name, REGEXP_REPLACE(user_phone, '(02|.{3})(.+)(.{4})', '\1-\2-\3') user_phone, TO_CHAR(user_date, 'yyyy-mm-dd hh24:mi:ss') user_date, user_addr, ROW_NUMBER() OVER(ORDER BY user_date DESC) AS row_no
+		    FROM bsjusers
+		    WHERE
+		        user_id LIKE '%'||#{param1}||'%'
+				OR user_name LIKE '%'||#{param1}||'%')
+		WHERE row_no BETWEEN #{param2} AND #{param3}
+	</select>
+
 	<delete id="delete_user">
 		DELETE FROM bsjusers WHERE user_id = #{param1}
 	</delete>
 	
+	<select id="userCount" resultType="int">
+		SELECT count(user_id) FROM bsjusers
+	</select>
+	
+	<select id="userSearchCount" resultType="int">
+		SELECT count(user_id)
+		FROM bsjusers
+		WHERE
+			user_id LIKE '%'||#{param1}||'%'
+			OR user_name LIKE '%'||#{param1}||'%'
+	</select>
+	
+	
+	
 	<select id="orderList" resultType="com.tech.booksajo.admin.vo.OrderDto">
-		SELECT
-		    b.user_name,
-		    REGEXP_REPLACE(b.user_phone, '(02|.{3})(.+)(.{4})', '\1-\2-\3') user_phone,
-		    order_no,
-		    a.user_id,
-		    order_status,
-		    order_total_price,
-		    TO_CHAR(order_date, 'yyyy-mm-dd hh24:mi:ss') order_date
-		FROM bsjorder a, bsjusers b
-		WHERE a.user_id = b.user_id
-		ORDER BY order_no DESC
+		SELECT *
+			FROM
+			    (SELECT
+			        b.user_name,
+			        REGEXP_REPLACE(b.user_phone, '(02|.{3})(.+)(.{4})', '\1-\2-\3') user_phone,
+			        order_no,
+			        a.user_id,
+			        order_total_price,
+			        TO_CHAR(order_date, 'yyyy-mm-dd hh24:mi:ss') order_date,
+			        ROW_NUMBER() OVER(ORDER BY order_no DESC) AS row_no
+			    FROM
+			        bsjorder a,
+			        bsjusers b
+			    WHERE a.user_id = b.user_id)
+			WHERE row_no BETWEEN #{param1} AND #{param2}
 	</select>
 	
 	<select id="orderSearch" resultType="com.tech.booksajo.admin.vo.OrderDto">
+		SELECT *
+		FROM
+		    (SELECT
+		        b.user_name,
+		        REGEXP_REPLACE(b.user_phone, '(02|.{3})(.+)(.{4})', '\1-\2-\3') user_phone,
+		        order_no,
+		        a.user_id,
+		        order_total_price,
+		        TO_CHAR(order_date, 'yyyy-mm-dd hh24:mi:ss') order_date,
+		        ROW_NUMBER() OVER(ORDER BY order_no DESC) AS row_no
+		    FROM
+		        bsjorder a,
+		        bsjusers b
+		    WHERE a.user_id = b.user_id AND (b.user_id LIKE '%'||#{param1}||'%' OR b.user_name LIKE '%'||#{param1}||'%'))
+		WHERE row_no BETWEEN #{param2} AND #{param3}
+	</select>
+	
+	<select id="orderView" resultType="com.tech.booksajo.admin.vo.OrderDto">
+		SELECT aa.order_no, aa.order_date, aa.user_id, aa.user_name, REGEXP_REPLACE(aa.user_phone, '(02|.{3})(.+)(.{4})', '\1-\2-\3') user_phone, aa.user_email, aa.user_addr, bb.title, bb.price, bb.order_count, aisbn isbn, bb.order_status, bb.order_product_no
+		FROM 
+		    (SELECT c.order_no, c.order_date, c.user_id, d.user_name, d.user_phone, d.user_email, d.user_addr
+		    FROM bsjorder c, bsjusers d
+		    WHERE c.user_id = d.user_id) aa,
+		    (SELECT a.isbn aisbn, a.title, a.price, b.*
+		    FROM bsjbook a, bsjorder_detail b
+		    WHERE a.isbn = b.isbn) bb
+		WHERE aa.order_no = bb.order_no
+		    AND aa.order_no = #{param1}
+	</select>
+	
+	<update id="orderUpdate">
+		UPDATE BSJORDER_DETAIL
+		SET
+		order_status = #{param2},
+		order_count = #{param3}
+		WHERE order_product_no = #{param1}
+	</update>
+	
+	
+	<select id="orderCount" resultType="int">
+		SELECT count(b.user_name)
+			FROM bsjorder a, bsjusers b
+			WHERE a.user_id = b.user_id
+			ORDER BY order_no DESC
+	</select>
+	
+	
+	<select id="orderSearchCount" resultType="int">
 		SELECT
-		    b.user_name,
-		    REGEXP_REPLACE(b.user_phone, '(02|.{3})(.+)(.{4})', '\1-\2-\3') user_phone,
-		    order_no,
-		    a.user_id,
-		    order_status,
-		    order_total_price,
-		    TO_CHAR(order_date, 'yyyy-mm-dd hh24:mi:ss') order_date
+		    count(b.user_name)
 		FROM bsjorder a, bsjusers b
 		WHERE a.user_id = b.user_id AND (b.user_id LIKE '%'||#{param1}||'%' OR b.user_name LIKE '%'||#{param1}||'%')
 		ORDER BY order_no DESC
 	</select>
 	
 	
+	
 	<select id="productAllData" resultType="com.tech.booksajo.admin.vo.ProductDto">
 		SELECT *
-		FROM bsjbook
-		<![CDATA[WHERE ROWNUM <= 50]]>
-		ORDER BY pub_year DESC
+		FROM
+		    (SELECT bsjbook.*, ROW_NUMBER() OVER(ORDER BY isbn DESC) AS row_no
+		        FROM bsjbook)
+		WHERE row_no BETWEEN #{param1} AND #{param2}
 	</select>
 	
 	<select id="productSearchData" resultType="com.tech.booksajo.admin.vo.ProductDto">
 		SELECT *
 		FROM
+		    (SELECT bsjbook.*, ROW_NUMBER() OVER(ORDER BY isbn DESC) AS row_no
+		        FROM bsjbook
+		        WHERE
+		        title LIKE '%'||#{param1}||'%'
+		        OR isbn LIKE '%'||#{param1}||'%')
+		WHERE row_no BETWEEN #{param2} AND #{param3}
+	</select>
+	
+	<select id="productCount" resultType="int">
+		SELECT count(isbn)
+		FROM bsjbook
+	</select>
+	
+	<select id="productSearchCount" resultType="int">
+		SELECT count(isbn)
+		FROM
 			(SELECT * FROM bsjbook
 			WHERE
 				title LIKE '%'||#{param1}||'%'
 				OR isbn LIKE '%'||#{param1}||'%')
-		<![CDATA[WHERE ROWNUM <= 50]]>
-		ORDER BY pub_year DESC
 	</select>
+	
 	
 	<select id="productView" resultType="com.tech.booksajo.admin.vo.ProductDto">
 		SELECT *
@@ -105,7 +182,7 @@
 		        bsjorder_detail b
 		        WHERE a.isbn = b.isbn) bb
 		WHERE aa.order_no = bb.order_no
-		    AND TO_CHAR(order_date, 'YYYY') = TO_CHAR(sysdate, 'YYYY')
+		    AND TO_CHAR(order_date, 'YYYY') = #{param1}
 		GROUP BY TO_NUMBER(TO_CHAR(aa.order_date, 'mm'))
 	</select>
 	

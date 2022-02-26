@@ -10,28 +10,11 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="resources/js/main.js"></script>
 <title>관리자 페이지</title>
+
 <script>
-$(function() {
-	$(".user_delete").click(function(){
-		
-		if (confirm("진짜할꺼야?")) {
-			$.ajax({
-				type: "post",
-				url: "admin_user",
-				data: {target:this.id},
-				success: function (data){
-					alert("삭제되었습니다.");
-					location.reload()
-				}
-			});
-		} else {
-			return;
-		}
-		
-	});
-});
-
-
+	function select(user_id) {
+		location.href = "admin_user_detail?user_id=" + user_id;
+	}
 
 </script>
 
@@ -55,26 +38,56 @@ $(function() {
 						<th>아이디</th>
 						<th>이름</th>
 						<th>휴대전화</th>
+						<th>주소</th>
 						<th>가입일</th>
-						<th>수정 | 삭제</th>
 					</tr>
 					
 					<c:forEach items="${list }" var="list">
-						<tr>
+						<tr class="user_list" onclick="select(${list.user_id})">
 							<td>${list.user_id }</td>
 							<td>${list.user_name }</td>
 							<td>${list.user_phone }</td>
+							<td>${list.user_addr }</td>
 							<td>${list.user_date }</td>
-							<td>
-								<a href="">수정</a>
-								|
-								<button type="button" id="${list.user_id }" class="user_delete">삭제</button>
-							</td>
 						</tr>
 					</c:forEach>
 					
 				</table>
 			</div>
+			<div class="paging">
+				<a href="admin_user?page=1&user_search_keyword=${searchVO.searchKeyword }"><img src="resources/img/btn_prev_on.gif" alt="" /></a>
+				<c:choose>
+					<c:when test="${searchVO.page eq 1}">
+						<a href="admin_user?page=${searchVO.page }&user_search_keyword=${searchVO.searchKeyword }"><img src="resources/img/btn_prev.gif" alt="" /></a>
+					</c:when>
+					<c:otherwise>
+						<a href="admin_user?page=${searchVO.page - 1 }&user_search_keyword=${searchVO.searchKeyword }"><img src="resources/img/btn_prev.gif" alt="" /></a>
+					</c:otherwise>
+				</c:choose>
+				&nbsp;&nbsp;
+				
+				<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }" var="i">
+					<c:choose>
+						<c:when test="${i eq searchVO.page }">
+							<span style="color:red; font-weight: bold;">${i }</span>&nbsp;&nbsp;&nbsp;&nbsp; 
+						</c:when>
+						<c:otherwise>
+							<a href="admin_user?page=${i }&user_search_keyword=${searchVO.searchKeyword }" style="text-decoration: none">${i } </a>&nbsp;&nbsp;
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+
+				<c:choose>
+					<c:when test="${searchVO.totPage eq searchVO.page }">
+						<a href="admin_user?page=${searchVO.page }&user_search_keyword=${searchVO.searchKeyword }"><img src="resources/img/btn_next.gif" alt="" /></a>
+					</c:when>
+					<c:otherwise>
+						<a href="admin_user?page=${searchVO.page + 1 }&user_search_keyword=${searchVO.searchKeyword }"><img src="resources/img/btn_next.gif" alt="" /></a>
+					</c:otherwise>
+				</c:choose>
+				<a href="admin_user?page=${searchVO.totPage }&user_search_keyword=${searchVO.searchKeyword }"><img src="resources/img/btn_next_on.gif" alt="" /></a>
+			</div>
+			
 		</div>
 		
 	</div>
