@@ -64,7 +64,6 @@ p1{
 #infotab{
 	
 	/* 높이 조정가능 임시 설정 */
-	height: 300px;
 	width: 100%;
 }
 
@@ -122,111 +121,18 @@ border-bottom: 2px solid #aaa;
 
 /* ********************************************************************************* */
 
-
-
-/* 이선아 리뷰 교환,반품,품절게시판*/
-.table2 {
+/* 리뷰작성 버튼 */
+.reviewWriteBtn {
 	position: relative;
-	margin-bottom: 900px;
-	
-}
-
-.nav.nav-tabs{
-	font-size: 13px;
-}
-#box_detail_content {
-    padding: 30px 40px 60px 20px;
-    word-wrap: break-word;
-}
-
-#title_detail_basic {
-    font-size: 16px;
-    line-height: 18px;
-    height: 26px;
-    padding-top: 4px;
-    color: #000;
-    font-family: 'Malgun Gothic','Apple SD Gothic Neo','Dotum','Sans-Serif';
-}
-
-.margin_top20 {
-    margin-top: 10px !important;
-    font-size: 12px;
-    text-align: left;
-}
-
-#tab_detail_content {
-    width: 750px;
-    height: 36px;
-    background-color: #fff;
-    border-left-width: 0;
+	margin-left: 90%;
 }
 
 
-table {
-    display: table;
-    border-collapse: separate;
-    box-sizing: border-box;
-    text-indent: initial;
-    border-spacing: 2px;
-    border-color: grey;
-}
-
-.title_detail_basic {
-    display: block;
-    font-size: 20px;
-    text-align: left;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-        margin-inline-end: 0px;
-    margin-inline-end: 100px;
-    font-weight: bold;
-}
-
-h2 {
-    display: block;
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    margin-bottom: 100px;
-    font-weight: bold;
-}
-
-body {
-    font-size: 12px;
-    font-family: dotum, sans-serif;
-    color: #666;
-    line-height: 1.2em;
-}
-
-.table_detail_guide th {
-    background-color: #eee;
-}
-.table_simple2 th {
-    color: #444;
-    text-align: left;
-}
-.table_simple2 th, .table_simple2 td {
-    border: 1px solid #ddd;
-    padding: 10px 10px 6px;
-    line-height: 20px;
-    color: #000000;
-}
-
-.box_detail_content .table_simple2 {
-    font-size: 11px;
-}
-.table_simple2 {
-    border-collapse: collapse;
-    width: 100%;
-    background-color: #fff;
-}
 
 
 /* 리뷰 작성게시판  */
-body {
+
+.body {
     font-size: 12px;
     font-family: dotum, sans-serif;
     color: #666;
@@ -274,10 +180,181 @@ dl {
     word-wrap: break-word;
 }
 
+
+
+/* 리뷰 작성 게시판 답댓글 */
+.table22 {
+	position: relative;
+	margin-bottom: 0px;
+}
+.table3{
+    margin: 9px 0 0 0;
+    border-top: 1px solid #000;
+    zoom: 1;
+}
 .reply_wrap {
     position: relative;
     border-bottom: 1px dotted #d4d4d4;
-    margin-bottom: 10px;
     padding: 14px 0 10px 18px;
     background: url(http://image.kyobobook.co.kr/ink/images/common/bg_reply.gif) 0 15px no-repeat;
+}
+
+.re_write_wrap .notice_reply {
+    display: block;
+    margin: 12px 0 0 0;
+    font-size: 11px;
+    color: #7f7f7f;
+}
+
+.re_write_wrap textarea {
+    border: 1px solid #dadada;
+    background-color: #fff;
+    height: 65px;
+    padding: 12px 8px 12px 8px;
+    font-size: 12px;
+    color: #a9a9a9;
+    resize: none;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.re_write_wrap.book_review textarea {
+    width: 80%;
+    position: 
+}
+
+.re_write_wrap.book_review .btn_submit {
+    right: 26px;
+    top: 36px;
+    position: absolute;
+    font-size: 13px;
+}
+.btn_submit {
+    position: absolute;
+    width: 120px;
+    height: 60px;
+    border: 1px solid #bdbdbd;
+    background-color: #f8f8f8;
+    color: #000;
+    font-weight: bold;
+    font-family: dotum;
+    cursor: pointer;
+}
+
+
+
+/* 이선아 리뷰 교환,반품,품절게시판*/
+
+.nav.nav-tabs{
+	font-size: 13px;
+}
+#box_detail_content {
+    padding: 30px 40px 60px 20px;
+    word-wrap: break-word;
+}
+
+#title_detail_basic {
+    font-size: 16px;
+    line-height: 18px;
+    height: 26px;
+    padding-top: 4px;
+    color: #000;
+    font-family: 'Malgun Gothic','Apple SD Gothic Neo','Dotum','Sans-Serif';
+}
+
+.margin_top20 {
+    margin-top: 10px !important;
+    font-size: 12px;
+    text-align: left;
+}
+
+#tab_detail_content {
+    width: 750px;
+    height: 36px;
+    background-color: #fff;
+    border-left-width: 0;
+}
+
+
+/* table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+} */
+
+
+.title_detail_basic {
+    display: block;
+    font-size: 20px;
+    text-align: left;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-inline-end: 100px;
+    font-weight: bold;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-bottom: 100px;
+    font-weight: bold;
+}
+
+body {
+    font-size: 12px;
+    font-family: dotum, sans-serif;
+    color: #666;
+    line-height: 1.2em;
+}
+
+.table_detail_guide th {
+    background-color: #eee;
+}
+.table_simple2 th {
+    color: #444;
+    text-align: left;
+}
+.table_simple2 th, .table_simple2 td {
+    border: 1px solid #ddd;
+    padding: 10px 10px 6px;
+    line-height: 20px;
+    color: #000000;
+}
+
+.box_detail_content .table_simple2 {
+    font-size: 11px;
+}
+.table_simple2 {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #fff;
+}
+
+
+
+/* 리뷰작성 게시판 페이징 */
+.paging_num {
+    text-align: center;
+    font-size: 13px;
+    margin-top: 0px;
+}
+
+.page_area {
+	clear: both;
+	margin-bottom: 30px;
+}
+
+.a {
+	position: relative;
+	margin: 3px 5px 1px 5px;
+	border: solid 1px #666;
 }

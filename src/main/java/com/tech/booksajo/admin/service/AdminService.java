@@ -12,20 +12,33 @@ import com.tech.booksajo.admin.vo.ProductDto;
 public interface AdminService {
 	
 	List<Map<String,Object>> getList();
-	List<AdminDto> getUserData();
-	List<AdminDto> getUserSearch(String keyword);
+	List<AdminDto> getUserData(int rowStart, int rowEnd);
+	List<AdminDto> getUserSearch(String keyword, int rowStart, int rowEnd);
 	
-	List<OrderDto> orderList();
-	List<OrderDto> orderSearch(String keyword);
+	int userCount();
+	int userSearchCount(String keyword);
 	
-	List<ProductDto> productSearchData(String keyword);
-	List<ProductDto> productAllData();
+	List<OrderDto> orderList(int rowStart, int rowEnd);
+	List<OrderDto> orderSearch(String keyword, int rowStart, int rowEnd);
+	List<OrderDto> orderView(String order_no);
+	
+	void orderUpdate(String orderProductNo, String orderStatus, String orderCount);
+	
+	int orderCount();
+	int orderSearchCount(String keyword);
+	
+	List<ProductDto> productAllData(int rowStart, int rowEnd);
+	List<ProductDto> productSearchData(String keyword, int rowStart, int rowEnd);
+	
+	int productCount();
+	int productSearchCount(String keyword);
+	
 	
 	ProductDto productView(String isbn);
 	void productUpdate(String isbn, String authors, String publisher, String pub_year, String price, String title, String contents);
 	
 	
-	List<MonthlySalesDto> getSales();
+	List<MonthlySalesDto> getSales(String selectYear);
 	
 	void userDelete(String user_id);
 	

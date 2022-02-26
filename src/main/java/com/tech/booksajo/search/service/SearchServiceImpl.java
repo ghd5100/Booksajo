@@ -3,6 +3,7 @@ package com.tech.booksajo.search.service;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -17,23 +18,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tech.booksajo.search.mapper.SearchMapper;
+import com.tech.booksajo.search.vo.ReviewDto;
 import com.tech.booksajo.search.vo.SearchVO;
 import com.tech.booksajo.search.vo.SearchView;
 import com.tech.booksajo.search.vo.ShopView;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.math.BigInteger;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLEncoder;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 
 @Service(value = "searchService")
@@ -206,8 +194,7 @@ public class SearchServiceImpl implements SearchService {
 			    System.out.println(jarr.get(i));
 			    keywordlist.add(jarr.get(i));
 			    sv.setWordlist(keywordlist);
-			   
-			    
+			 
 			}
 			
 			
@@ -1103,7 +1090,23 @@ public class SearchServiceImpl implements SearchService {
 		
 	
 	}
+
+	
+	
+//이선아 : 리뷰게시판	
+	@Override
+	public List<ReviewDto> reviewList(int rowStart, int rowEnd) {
+		List<ReviewDto> reviewList = searchmapper.reviewList(rowStart, rowEnd);
+		return reviewList;
+	}
+
+	@Override
+	public int reviewCount() {
+
+		return searchmapper.reviewCount();
+	}
+
+}
 	
 	
 
-}

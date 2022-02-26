@@ -112,7 +112,7 @@ th {
 	font-weight: bold;
 }
 
-#selected {
+.selectbox {
 	top: 14px;
     position: relative;
     float: right;
@@ -121,7 +121,10 @@ th {
     padding: 2px;
     width: 120px;
 }
-#salesChart {
+
+#chart,
+#salesChart1,
+#salesChart2 {
 	margin: 0 auto;
 	margin-top: 50px;
 }

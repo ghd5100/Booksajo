@@ -1,10 +1,6 @@
 package com.tech.booksajo.search.vo;
 
-import java.util.Date;
-
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
@@ -22,6 +18,56 @@ public class ShopView {
 	private String bsjselectbook_url;
 	private String bsjselectbook_title;
 	private String bsjselectbook_status;
+	public String getBsjselectbook_isbn() {
+		return bsjselectbook_isbn;
+	}
+	public void setBsjselectbook_isbn(String bsjselectbook_isbn) {
+		this.bsjselectbook_isbn = bsjselectbook_isbn;
+	}
+	public int getBsjselectbook_id() {
+		return bsjselectbook_id;
+	}
+	public void setBsjselectbook_id(int bsjselectbook_id) {
+		this.bsjselectbook_id = bsjselectbook_id;
+	}
+	public int getBsjselectbook_price() {
+		return bsjselectbook_price;
+	}
+	public void setBsjselectbook_price(int bsjselectbook_price) {
+		this.bsjselectbook_price = bsjselectbook_price;
+	}
+	public int getBsjselectbook_sale() {
+		return bsjselectbook_sale;
+	}
+	public void setBsjselectbook_sale(int bsjselectbook_sale) {
+		this.bsjselectbook_sale = bsjselectbook_sale;
+	}
+	public int getBsjselectbook_count() {
+		return bsjselectbook_count;
+	}
+	public void setBsjselectbook_count(int bsjselectbook_count) {
+		this.bsjselectbook_count = bsjselectbook_count;
+	}
+	public String getBsjselectbook_url() {
+		return bsjselectbook_url;
+	}
+	public void setBsjselectbook_url(String bsjselectbook_url) {
+		this.bsjselectbook_url = bsjselectbook_url;
+	}
+	public String getBsjselectbook_title() {
+		return bsjselectbook_title;
+	}
+	public void setBsjselectbook_title(String bsjselectbook_title) {
+		this.bsjselectbook_title = bsjselectbook_title;
+	}
+	public String getBsjselectbook_status() {
+		return bsjselectbook_status;
+	}
+	public void setBsjselectbook_status(String bsjselectbook_status) {
+		this.bsjselectbook_status = bsjselectbook_status;
+	}
+	
+	
 	
 
 
