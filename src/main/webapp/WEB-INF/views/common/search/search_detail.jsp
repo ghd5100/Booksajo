@@ -196,9 +196,6 @@
 
 
 <div id="title2">
-
-
-
 	<div id="detail" style="height: 350px;"></div>
 
 	<div id="booksen">
@@ -267,8 +264,13 @@ const drawStar = (target) => {
 
 
 
+
+<div class="reviewWriteBtn">
+<a href="#"><img src="resources/img/btn_write_review.gif"/></a>
+</div>
 <!-- 리뷰작성 게시판 -->
-	<div class="table2">
+<!-- <a name="fixTag" style="position: absolute; top: 500px"/> -->
+	<div class="table22">
 		<div class="tab_detail_content" id="infotab"
 			style="width: 920px; margin-top: 10px;">
 
@@ -295,66 +297,37 @@ const drawStar = (target) => {
 		</table>
 		</div>
 		</div>
-	
-	
-<%-- 	<!-- 				<tr>
-					<th class="id">kd**91017</th>
-					<th class="date">2022-02-22</th>
-					<td class="kloverRating">
-				</tr> -->
-				
-				<dd class="btns">
-					<span> <img
-						src="http://image.kyobobook.co.kr/ink/images/common/ico_bought2.gif"
-						alt="구매"> <!-- 16-08-08 아이콘 변경 --> <img
-						src="http://image.kyobobook.co.kr/ink/images/common/ico_commt_02.gif"
-						alt="잘읽혀요">
-
-					</span>
-			</dl>
-			
-					<!-- //16-07-28 아이콘 추가 -->
-				</dd>
-				<dd class="comment">
-					<div class="txt">알기 쉽게 잘 쓰여진 책입니다.</div>
-				</dd>
-
-			<div class="cmt_rt">
-				<ul class="list_share">
-					<li id="btnSubReview0" class="cmt_del reply_retract"><a
-						href="javascript:toggleSubReview('0');">댓글취소</a></li>
-
-					<li class="cmt_like"><a
-						href="javascript:likeReview('6193100');">좋아요</a><span
-						class="empathy6193100">0</span></li>
-				</ul>
-			</div>
-		</div>
-	</table> --%>
+			<table>
+			<tr>
+			<td>
+					<div class="reply_wrap" id="subReviewWrap0" style="display: block;">
+						<div class="re_write_wrap book_review">
+							<textarea name="" cols="" rows=""
+								onkeyup="javascript:fc_chk_byte(this,1000,'id_TextBytes0');" placeholder="내용을 입력하세요."></textarea>
+							<button type="button" class="btn_submit"
+								onclick=" javascript:regSubReview('klover', '0', '6193100'); ">
+								<span>등록</span>
+							</button> 
+							<span class="notice_reply" id="id_TextBytes0">내용을 입력해주세요.
+								주제와 무관한 댓글, 악플, 배송문의 등의 글은 임의 삭제될 수 있습니다. 0/1000자</span>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
 
 
 <!-- 답댓글 작성panel -->
-			<table>
-				<div class="reply_wrap" id="subReviewWrap0" style="display: block;">
-					<div class="re_write_wrap book_review">
-						<textarea name="" cols="" rows=""
-							onkeyup="javascript:fc_chk_byte(this,1000,'id_TextBytes0');" placeholder="내용을 입력하세요."></textarea>
-						<button type="button" class="btn_submit"
-							onclick=" javascript:regSubReview('klover', '0', '6193100'); ">
-							<span>등록</span>
-						</button> 
-						<span class="notice_reply" id="id_TextBytes0">내용을 입력해주세요.
-							주제와 무관한 댓글, 악플, 배송문의 등의 글은 임의 삭제될 수 있습니다. 0/1000자</span>
-					</div>
-				</div>
 			
 <!-- 페이징 -->
+	<td>
 	<br /><br />
+	
 	<div class="paging_num">
 		<c:if test="${ReviewSearchVO.totPage>1 }">
 			<c:if test="${ReviewSearchVO.page>1 }">
-				<a href="reviewList?page=1&sk=${ReviewSearchVO.searchKeyword}&searchType=${ReviewSearchVO.searchType}"><img src="resources/img/btn_prev_on.gif" alt="" /></a>
-				<a href="riviewList?page=${ReviewSearchVO.page-1 }&sk=${ReviewSearchVO.searchKeyword}&searchType=${ReviewSearchVO.searchType}"><img src="resources/img/btn_prev.gif" alt="" /></a>
+				<a href="search_detail?page=1&isbn=${isbn}"><img src="resources/img/btn_prev_on.gif" alt="" /></a>
+				<a href="search_detail?page=${ReviewSearchVO.page-1 }&isbn=${isbn}"><img src="resources/img/btn_prev.gif" alt="" /></a>
 			</c:if>
 			<c:forEach begin="${ReviewSearchVO.pageStart }" end="${ReviewSearchVO.pageEnd }" var="i">
 				<c:choose>
@@ -362,22 +335,23 @@ const drawStar = (target) => {
 						<span style="color:#0172c9; font-weight: bold;">${i } </span>&nbsp;&nbsp;|&nbsp;&nbsp; 
 					</c:when>
 					<c:otherwise>
-						<a href="reviewList?page=${i }&sk=${ReviewSearchVO.searchKeyword}&searchType=${ReviewSearchVO.searchType}" style="color:#666;">${i } </a>&nbsp;&nbsp;|&nbsp;&nbsp;
+						<a href="search_detail?page=${i }&isbn=${isbn}" style="color:#666;">${i } </a>&nbsp;&nbsp;|&nbsp;&nbsp;
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
 			<c:if test="${ReviewSearchVO.totPage>ReviewSearchVO.page }">
 				
-				<a href="riviewList?page=${ReviewSearchVO.page+1  }&sk=${ReviewSearchVO.searchKeyword}&searchType=${ReviewSearchVO.searchType}"><img src="resources/img/btn_next.gif" alt="" /></a>
-				<a href="riviewList?page=${ReviewSearchVO.totPage }&sk=${ReviewSearchVO.searchKeyword}&searchType=${ReviewSearchVO.searchType}"><img src="resources/img/btn_next_on.gif" alt="" /></a>
+				<a href="search_detail?page=${ReviewSearchVO.page+1  }&isbn=${isbn}"><img src="resources/img/btn_next.gif" alt="" /></a>
+				<a href="search_detail?page=${ReviewSearchVO.totPage }&isbn=${isbn}"><img src="resources/img/btn_next_on.gif" alt="" /></a>
 			</c:if>
 		</c:if>
-	</div>
-	<br /><br />
+	</div>                                 
+			</td>
+			</tr>
 			</table>
 
 
-			<!-- 이선아 교환/반품/품절 테이블 -->
+<!-- 이선아 교환/반품/품절 테이블 -->
 			<ul class="nav nav-tabs">
 				<li class="nav-item"><a class="nav-link active"
 					aria-current="page" href="#bookinfoTag">상품정보</a></li>

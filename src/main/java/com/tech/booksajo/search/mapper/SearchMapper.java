@@ -8,7 +8,6 @@ import org.mybatis.spring.annotation.MapperScan;
 
 import com.tech.booksajo.mypage.vo.Myinfomation;
 import com.tech.booksajo.search.vo.ReviewDto;
-import com.tech.booksajo.search.vo.ReviewPageVO;
 import com.tech.booksajo.search.vo.SearchDto;
 import com.tech.booksajo.search.vo.ShopView;
 
@@ -52,6 +51,6 @@ public interface SearchMapper {
 	public ArrayList<ShopView> getshoplist();
 	
 	//이선아 : 리뷰테이블 리스트 불러오는 동작
-	public List<ReviewDto> reviewList();
-	public List<ReviewPageVO> reviewPage();
+	public List<ReviewDto> reviewList(int rowStart, int rowEnd);
+	public int reviewCount();
 }

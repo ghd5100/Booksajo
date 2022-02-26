@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.tech.booksajo.search.vo.ReviewDto;
-import com.tech.booksajo.search.vo.ReviewPageVO;
-import com.tech.booksajo.search.vo.SearchView;
 import com.tech.booksajo.search.vo.ShopView;
 
 
@@ -33,6 +31,6 @@ public interface SearchService  {
 
 	
 //  이선아 : 리뷰게시판
-	List<ReviewDto> reviewList();
-//	List<ReviewPageVO> reviewPage();
+	List<ReviewDto> reviewList(int rowStart, int rowEnd);
+	int reviewCount();
 }

@@ -194,8 +194,7 @@ public class SearchServiceImpl implements SearchService {
 			    System.out.println(jarr.get(i));
 			    keywordlist.add(jarr.get(i));
 			    sv.setWordlist(keywordlist);
-			   
-			    
+			 
 			}
 			
 			
@@ -1092,17 +1091,22 @@ public class SearchServiceImpl implements SearchService {
 	
 	}
 
+	
+	
+//이선아 : 리뷰게시판	
 	@Override
-	public List<ReviewDto> reviewList() {
-		List<ReviewDto> reviewList = searchmapper.reviewList();
+	public List<ReviewDto> reviewList(int rowStart, int rowEnd) {
+		List<ReviewDto> reviewList = searchmapper.reviewList(rowStart, rowEnd);
 		return reviewList;
 	}
 
-/*	@Override
-	public List<ReviewPageVO> reviewPage() {
-			List<ReviewPageVO> reviewPage = searchmapper.reviewPage();
-		return reviewPage;*/
+	@Override
+	public int reviewCount() {
+
+		return searchmapper.reviewCount();
 	}
+
+}
 	
 	
 

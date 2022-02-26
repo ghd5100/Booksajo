@@ -64,7 +64,6 @@ p1{
 #infotab{
 	
 	/* 높이 조정가능 임시 설정 */
-	height: 300px;
 	width: 100%;
 }
 
@@ -122,6 +121,14 @@ border-bottom: 2px solid #aaa;
 
 /* ********************************************************************************* */
 
+/* 리뷰작성 버튼 */
+.reviewWriteBtn {
+	position: relative;
+	margin-left: 90%;
+}
+
+
+
 
 /* 리뷰 작성게시판  */
 
@@ -176,9 +183,9 @@ dl {
 
 
 /* 리뷰 작성 게시판 답댓글 */
-.table2 {
+.table22 {
 	position: relative;
-	margin-bottom: 350px;
+	margin-bottom: 0px;
 }
 .table3{
     margin: 9px 0 0 0;
@@ -338,6 +345,7 @@ body {
 .paging_num {
     text-align: center;
     font-size: 13px;
+    margin-top: 0px;
 }
 
 .page_area {
