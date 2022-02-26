@@ -5,7 +5,25 @@
 
 
 <mapper namespace="com.tech.booksajo.login.mapper.LoginMapper">
-	<select id="getList" resultType="map">
-	 select * from book
+	<insert id="signInProc">
+		INSERT INTO BSJUSERS(USER_ID,USER_NICKNAME,USER_GENDER,USER_AGE,USER_NAME,USER_PHONE,USER_ADDR,USER_EMAIL,USER_SHAPW,USER_BCPW) 
+		VALUES(#{param1},#{param2},#{param3},#{param4},#{param5},
+		#{param6},#{param8},#{param9},#{param10},#{param11})
+	</insert>
+	
+	<select id="loginProc" resultType="com.tech.booksajo.login.vo.SignInVO">
+		SELECT * FROM BSJUSERS WHERE USER_ID=#{param1}
+		
+	</select>	
+	<select id="idCheck" resultType="com.tech.booksajo.login.vo.SignInVO">
+		SELECT * FROM BSJUSERS WHERE USER_ID=#{param1}	
 	</select>
+	<select id="nickCheck" resultType="com.tech.booksajo.login.vo.SignInVO">
+		SELECT * FROM BSJUSERS WHERE USER_NICKNAME=#{param1}	
+	</select>
+	<update id="updateMemberEmailChecked">
+		UPDATE BSJUSERS SET  USER_MAILCHECK = 1 WHERE USER_ID = #{param1}
+	</update>
+	
 </mapper>
+
