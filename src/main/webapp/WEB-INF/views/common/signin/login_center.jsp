@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/signIn.css" />
+<link rel="stylesheet" href="resources/css/login_page/signIn.css" />
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 <script
@@ -129,7 +129,7 @@ td {
 
 
 			<legend>
-				<img id="img1" src="resources/img/logo.png" /><br /> <span
+				<img id="img1" src="resources/img/logo3.png" /><br /> <span
 					style="font-size: 20px; font-family: impact; color: #555;">Member
 					Login</span>
 
@@ -151,11 +151,11 @@ td {
 				<tr>
 					<td class="title">비밀번호</td>
 					<td class="right" colspan="2"><input id="pwd" name="pwd"
-						type="text" required></td>
+						type="password" required></td>
 				</tr>
 				<tr>
 					<td class="right" colspan="3">
-						<div id="span2">비번찾기 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ID찾기</div>
+						<div id="span2">비번찾기 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ID찾기  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="signIn">회원가입</a></div>
 					</td>
 				</tr>
 

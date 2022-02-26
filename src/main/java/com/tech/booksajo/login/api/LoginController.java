@@ -273,14 +273,16 @@ public class LoginController {
 	}
 
 	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public String goLogin() {
-		
+	public String goLogin(HttpServletRequest request) {
+		String isbn = request.getParameter("isbn");
+		request.getSession().setAttribute("isbn", isbn);
+		System.out.println("isbn : " + isbn);
 		
 		return "login_center";
 	}
 	
 	@RequestMapping(value="/loginProc", method=RequestMethod.POST)
-	public String loginProc(HttpServletRequest request, Model model) throws Exception {
+	public String loginProc(HttpServletRequest request, Model model, HttpSession session) throws Exception {
 		System.out.println("===========loginProc=========");
 		model.addAttribute("request",request);
 		
@@ -327,14 +329,25 @@ public class LoginController {
 		
 		
 		if(x==1) {//로그인 성공하면
-			request.getSession().removeAttribute("error");
-			request.getSession().setAttribute("userid", id);
-			return "redirect:/";
+			String isbn = (String) session.getAttribute("isbn");
+			System.out.println("isbn : " + isbn);
+			if (isbn != null) {
+				request.getSession().setAttribute("userid", id);
+				session.removeAttribute("isbn");
+				return "redirect:search_detail?isbn="+isbn;
+			} else {
+				request.getSession().removeAttribute("error");
+				request.getSession().setAttribute("userid", id);
+				return "redirect:/";
+				
+			}
 		}else {
 			request.getSession().setAttribute("error", "Login Retry");
 			return "redirect:login";
 		}	
 	}
+	
+	
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public String logout(HttpServletRequest request, HttpSession session) {
 		System.out.println("===========loginout=========");

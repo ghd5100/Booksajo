@@ -14,8 +14,6 @@
 %> --%>
 
 <script>
-
-
 	$(document)
 			.ready(
 					function() {
@@ -263,11 +261,41 @@ const drawStar = (target) => {
 </style> -->
 
 
+<!-- jsp_work에 jspwebm15 hit login -->
+<c:if test="${empty userid }">
+	<div class="reviewWriteBtn">
+		<a href="http://localhost:9007/booksajo/login?isbn=${isbn }" onclick="alert('로그인 후 작성 가능합니다.')"><img src="resources/img/btn_write_review.gif"/></a>
+	</div>
+</c:if>
 
+<c:if test="${not empty userid }">
+		<script type="text/javascript">
+			function showPopUp() { 
+				
+				//창 크기 지정 
+					var width = 500; 
+					var height = 1000; 
+				
+				//pc화면기준 가운데 정렬  
+					var left = (window.screen.width / 2) - (width/2); 
+					var top = (window.screen.height / 4); 
+				//윈도우 속성 지정 
+					var windowStatus = 'width='+width+', height='+height+', left='+left+', top='+top+', scrollbars=yes, status=yes, resizable=yes, titlebar=yes'; 
+				
+				//연결하고싶은url 
+					const url = "http://www.kyobobook.co.kr/product/popupProductSimpleReview.laf?regType=kloverReview&mallGb=KOR&ejkGb=KOR&barcode=9791188331796&orderClick=JLx"; 
+				
+				//등록된 url 및 window 속성 기준으로 팝업창을 연다. 
+					window.open(url, "hello popup", windowStatus); } 
+		</script>
+		<div class="reviewWriteBtn">
+			<a href="javascript:showPopUp()"><img src="resources/img/btn_write_review.gif"/></a>
+		</div>
+</c:if>
 
-<div class="reviewWriteBtn">
-<a href="#"><img src="resources/img/btn_write_review.gif"/></a>
-</div>
+	<div>
+	<h1>${userid }</h1>
+	</div>
 <!-- 리뷰작성 게시판 -->
 <!-- <a name="fixTag" style="position: absolute; top: 500px"/> -->
 	<div class="table22">
@@ -314,7 +342,7 @@ const drawStar = (target) => {
 					</div>
 				</td>
 			</tr>
-			<tr>
+		<tr>
 
 
 <!-- 답댓글 작성panel -->

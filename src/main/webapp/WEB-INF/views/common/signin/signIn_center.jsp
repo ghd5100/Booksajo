@@ -183,7 +183,7 @@ td {
 
 
 			<legend>
-				<img id="img1" src="resources/img/logo.png" /><br /> <span
+				<img id="img1" src="resources/img/logo3.png" /><br /> <span
 					style="font-size: 20px; font-family: impact; color: #555">Member
 					Join</span>
 			</legend>
@@ -196,7 +196,7 @@ td {
 				<tr>
 					<td class="title">비밀번호</td>
 					<td class="right" colspan="2"><input id="pwd" name="pwd"
-						type="text" required></td>
+						type="password" required></td>
 				</tr>
 				<tr>
 					<td class="title">닉네임</td>
