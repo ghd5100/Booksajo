@@ -118,7 +118,6 @@ $( document ).ready(function() {
 </script> 
 
 
-<input type="button" value="바로구매" onclick=""/>
 
 <div id="d1">
 	<!-- 총검색결과  -->

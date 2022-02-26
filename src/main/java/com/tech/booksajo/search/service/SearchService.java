@@ -27,6 +27,9 @@ public interface SearchService  {
 	
 	ShopView bookinfo(String isbnscr,int count);
 	
+	
+	ArrayList<Object> categoryName(String isbn13) throws Exception;
+	
 //	ArrayList<ShopView> getshoplist();
 
 }

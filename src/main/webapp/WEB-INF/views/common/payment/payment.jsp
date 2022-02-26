@@ -7,18 +7,25 @@
 
 <!-- 여기역시도 isbn 가져오니까 그걸로 책정보 뿌려주면되겠구나 -->
 
-<%String isbn=request.getParameter("isbn"); %>
+<%
+String isbn=request.getParameter("isbn"); 
+ 
+/* String tid=request.getParameter("tid");
+System.out.println("jsp에서 받은 tid:"+tid); */
+%>
 
 <script>
-	$(document)
+
+
+
+$(document)
 			.ready(
 					function() {
 						var isbn = <%=isbn%>;
 						console.log(isbn);
 						DetailData(isbn);
 						testData(isbn);
-						
-
+						/* var tid = '${tid}'; */
 						
 						function DetailData(isbn) {
 							$
@@ -41,8 +48,9 @@
 												var contents = data.documents[0].contents;
 												var contentcut = contents
 														.split('.');
-
-												
+												var price = data.documents[0].price;
+												var count = 3;
+												var product_name =data.documents[0].title;
 											/* 
 												<div id="selectprod">
 												<table style="width: 100%; height: 100px;">
@@ -78,11 +86,33 @@
 												html += '</table>';
 
 												console.log(data.documents[0]);
-
+												
+												
 												//thumbnail += '<img src='+data.documents[0].thumbnail+'class="img-fluid" alt="..." style="width: 248px; height: 330px;" / >';
 												
 												//$('#img2').html(thumbnail);
 												$('#selectprod').html(html);
+
+												//컨트롤러로 책 타이틀. 수량. 가격 보내주는 펑션 만들기
+												var param = {"price":price, "count": count, "product_name":product_name}
+												
+												
+												$.ajax({
+													anyne:true,
+													type:'POST',
+													data: JSON.stringify(param),
+													url:"/productInfo",
+													dataType: "text",
+													success : function(data) {
+													
+														console.log("데이타전달성공");
+													},
+													error: function() {
+													alert("ERROR");
+													}
+													});
+
+												
 											}).fail(function(error) {
 
 									});
@@ -90,6 +120,32 @@
 						}
 					});
 
+	
+//카카오페이 요청 결제
+function kakaopay(){
+	
+	$.ajax({
+		url:"kakaopay",
+		dataType:"json"
+	}).done(function(resp){
+		if(resp.status === 500){
+			alert("카카오페이결제를 실패하였습니다.")
+		} else{
+			//alert(resp.tid); //결제 고유 번호
+			//var tid=resp.tid;
+			var box = resp.next_redirect_pc_url;
+			//window.open(box); // 새창 열기
+ 			//location.href = box;
+			console.log('${tid}');
+			//location.href = box+"?tid="+'${tid}';
+			location.href = box+"?tid="+resp.tid;
+			
+		}
+	}).fail(function(error){
+		alert(JSON.stringify(error));
+	}); 
+
+};
 	
 
 </script>
@@ -165,7 +221,13 @@
 		</table>
 	</div>
 
-	<div id="creditinfo">결제정보</div>
+	<div id="creditinfo" style="display: block;" >
+	<br />
+
+	<button id="btn-kakaopay" class="btn btn-primary" onclick="kakaopay();">카카오페이</button>
+	
+
+	</div>
 
 
 </div>
@@ -196,9 +258,8 @@
 			</tr>
 		</table>
 
-		<input type="button" value="결제하기" /> <input type="button"
+		<input type="button" id="but" value="결제하기" /> <input type="button"
 			value="장바구니가기" />
-
 	</div>
 
 </div>

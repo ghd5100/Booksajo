@@ -4,30 +4,49 @@
 
 <link rel="stylesheet" href="resources/css/search_center.css" />
 
-<!-- 여기다가 검색테이블 구현하면 되겠다요 -->
+<!-- 여기다가 검색테이블 구현하면.. -->
+
+<script>
+
+<script>
+function reloadmodal(){  
+      $("#modal").load(window.location.href + "#modal");
+}
 
 
-<div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="resources/img/a1.png" class="d-block w-100" alt="...">
+function 함수이름(){  //10초마다 리로드해줘라.
+    setTimeout('location.reload()',10000); 
+}
+
+</script>
+
+
+
+
+
+</script>
+
+
+
+
+    <div id="modal" class="modal-overlay">
+        <div class="modal-window">
+            <div class="title">
+                <h2>모달</h2>
+            </div>
+            <div class="close-area">X</div>
+            <div class="content">
+                <p>가나다라마바사 아자차카타파하</p>
+                <p>가나다라마바사 아자차카타파하</p>
+                <p>가나다라마바사 아자차카타파하</p>
+                <p>가나다라마바사 아자차카타파하</p>
+                
+            </div>
+        </div>
     </div>
-    <div class="carousel-item">
-      <img src="resources/img/a2.png" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="resources/img/a3.png" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
+    
+    
+    
 
 
 <div id="today">

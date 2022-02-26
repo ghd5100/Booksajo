@@ -22,9 +22,8 @@
 						var isbn = '${isbn}';
 						console.log(isbn);
 						DetailData(isbn);
-
 						testData(isbn);
-						
+						sort(isbn);
 
 						function DetailData(isbn) {
 							$
@@ -129,6 +128,51 @@
 							});
 						} 
 
+						
+						
+						function sort(isbn) {
+							
+							var cate = "";
+							console.log("카테고리 함수들어왔음" + isbn);
+							$.ajax({ 
+								type : "POST",
+								url : "/booksajo/test/search_category/",
+								data :JSON.stringify({ 
+									isbn : isbn
+								}),
+								datatype : 'json',
+								contentType : 'application/json; charset=utf-8',
+								success : function(result) {
+									
+									var str=JSON.stringify(result);
+									console.log(str);
+									console.log(result[0]);
+									/* 
+
+									    <li class="breadcrumb-item active" aria-current="page">대카테고리</li>
+									    <li class="breadcrumb-item active" aria-current="page">소카테고리</li>
+									  
+									</nav>
+									 */
+										//cate +='<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns=''http://www.w3.org/2000/svg' width='8' height='8' %3E%3Cpath d= "M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb" >'; 
+										//cate +='<ol class="breadcrumb">';
+										//cate +='<li class="breadcrumb-item">'+result+'</li>';
+										//cate +='</ol>';
+										
+										for ( var ele in result) {
+										cate += result[ele].class_nm;
+										
+									}
+										
+										/* cate += result[0]; */
+
+									console.log(cate);
+									$("#detailtitle").html(cate); //카테고리 부분쪽으로..title쪽으로
+								}
+							});
+						} 
+						
+						
 						
 						function moveconfirm() {
 							console.log("무브컴핌에 들어옴");
