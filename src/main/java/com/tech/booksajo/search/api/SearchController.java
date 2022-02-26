@@ -17,11 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
 import com.tech.booksajo.search.service.SearchService;
-import com.tech.booksajo.search.vo.SearchView;
+import com.tech.booksajo.search.vo.ReviewDto;
+import com.tech.booksajo.search.vo.ReviewSearchVO;
 import com.tech.booksajo.search.vo.ShopView;
-
 
 import lombok.RequiredArgsConstructor;
 
@@ -89,7 +88,7 @@ public class SearchController {
 
 	
 	@RequestMapping("/shoplist2")
-	public String shoplist2(HttpServletRequest request, Model model ) {
+	public String shoplist2(HttpServletRequest request, Model model) {
 		
 		//버튼으로 받아오기
 		int count=Integer.parseInt(request.getParameter("count")); 
@@ -149,9 +148,9 @@ public class SearchController {
 		
 	
 	/*리스폰스 바디를 맵핑 위에다가 붙이면 에러남 못불러옴 함수 바루위에다가 붙여줘야함*/
-	
+
 	@RequestMapping("/search_detail")
-	public String search_detail(HttpServletRequest request, Model model) {
+	public String search_detail(HttpServletRequest request, Model model, ReviewSearchVO reviewSearchVo) {
 	
 		String isbn13=request.getParameter("isbn");
 		System.out.println("isbn13:"+isbn13);
@@ -182,9 +181,33 @@ public class SearchController {
 					
 					e.printStackTrace();
 				}*/
-				
-				model.addAttribute("isbn", isbn13);
-				
+		model.addAttribute("isbn", isbn13);
+		
+		
+		String isbn=request.getParameter("isbn");
+		model.addAttribute("isbn", isbn);
+		
+		String strPage=request.getParameter("page");
+		System.out.println("strPage1 : "+strPage);
+		if(strPage==null)
+			strPage="1";
+		
+		int total=0;
+		int page=Integer.parseInt(strPage);
+		reviewSearchVo.setPage(page);
+		
+		total=searchService.reviewCount();
+		reviewSearchVo.pageCalculate(total);
+		
+		int rowStart=reviewSearchVo.getRowStart();
+		int rowEnd=reviewSearchVo.getRowEnd();
+		
+//		이선아 리뷰테이블 리스트
+		List<ReviewDto> reviewList = searchService.reviewList(rowStart, rowEnd);
+		System.out.println(reviewList.get(0).getRe_content());
+		model.addAttribute("reviewList", reviewList);
+		model.addAttribute("ReviewSearchVO",reviewSearchVo);
+
 		
 		
 		return "search_detail";
@@ -329,8 +352,25 @@ public class SearchController {
 			return searchService.content_view(bid);
 	}
 
-	
-	
-	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

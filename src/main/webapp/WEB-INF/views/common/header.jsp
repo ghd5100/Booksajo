@@ -36,8 +36,8 @@
 				<li id="f"><a href="#">매장안내</a></li>
 				<li id="f"><a href="#">회원혜택</a></li>
 				<li id="f"><a href="#">Prestige Lounge</a></li>
-				<li id="g"><a href="#">로그인</a></li>
-				<li id="g"><a href="#">회원가입</a></li>
+				<li id="g"><a href="login">로그인</a></li>
+				<li id="g"><a href="signIn">회원가입</a></li>
 				<li id="g"><a href="#">출석체크</a></li>
 				<li id="g"><a href="mypage">MYPAGE</a></li>
 <!-- 				<li id="g"><a href="#">고객센터</a></li> -->

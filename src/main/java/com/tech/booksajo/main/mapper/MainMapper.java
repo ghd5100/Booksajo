@@ -15,7 +15,8 @@ public interface MainMapper {
 
 	List<Map<String, Object>> getList();
 	List<MainDto> getData();
-	List<MainDto> getAllData(int rowStart, int rowEnd);	
+	int bestCount();
+	List<MainDto> getAllData(int rowStart, int rowEnd);
 //	int selectTotCount();
 	List<Map<String, Object>> getData2();
 //	List<MainDto> getList();

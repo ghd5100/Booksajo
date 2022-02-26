@@ -23,7 +23,7 @@
   </li>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
   <li class="nav-item">
-    <a class="nav-link disabled">회사위치</a>
+    <a class="nav-link" href="#">회사위치</a>
   </li>
 </ul>
   <!-- Copyright -->

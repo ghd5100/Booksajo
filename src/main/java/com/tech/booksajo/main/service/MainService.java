@@ -11,4 +11,5 @@ public interface MainService {
 	List<Map<String,Object>> getList();
 	List<MainDto> getBestData();
 	List<MainDto> getBestAll(int rowStart, int rowEnd);
+	int bestCount();
 }

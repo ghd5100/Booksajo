@@ -10,6 +10,19 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="resources/js/main.js"></script>
 <title>관리자 페이지</title>
+
+<script>
+$(function(){
+	var bb = "${list.title}";
+	console.log(bb);
+	var aaa = '${list.contents}';
+	console.log(aaa);
+	$("#detail_contents").append(aaa);
+	
+});
+
+</script>
+
 </head>
 <body>
 	<h1>상품디테일</h1>
@@ -46,11 +59,15 @@
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td colspan="3">
-						${list.contents }
+					<td colspan="3" >
+					<div id="detail_contents">
+					</div>
 					</td>
 				</tr>
+				
+				
 			</table>
+			
 			<button type="button" name="isbn" onclick = "location.href = 'product_modify?isbn=${list.isbn}'">수정</button>
 			<button type="button" onclick = "location.href = 'admin_product'">목록</button>
 		</div>

@@ -1,7 +1,6 @@
 package com.tech.booksajo.search.vo;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,12 +14,11 @@ public class SearchView {
 	private Object jarrlist;
 	private ArrayList<Object> catelist;
 	private int maxnum;
+	
 
 	public SearchView() {
-
+		// TODO Auto-generated constructor stub
 	}
-
-
 	
 	
 }
