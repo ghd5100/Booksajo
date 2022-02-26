@@ -187,20 +187,39 @@
 			</ul>
 		</div>
 		<div class="page_area">
-			<a href="bestList?page={}">&lang;&lang;</a>
-			<a href="#">&lang;</a>
-			<c:forEach begin="${page.pageStart }" end="${page.pageEnd }" var="i">
+			<div class="paging">
+				<a href="bestList?page=1"><img src="resources/img/btn_prev_on.gif" alt="" /></a>
 				<c:choose>
-					<c:when test="${i eq page.page }">
-						<span style="color:red; font-weight:bold">${i }&nbsp;</span>
+					<c:when test="${searchVO.page eq 1}">
+						<a href="bestList?page=${searchVO.page }"><img src="resources/img/btn_prev.gif" alt="" /></a>
 					</c:when>
 					<c:otherwise>
-						<a href="bestList?page=${i }">${i }</a>&nbsp;		
+						<a href="bestList?page=${searchVO.page - 1 }"><img src="resources/img/btn_prev.gif" alt="" /></a>
 					</c:otherwise>
 				</c:choose>
-			</c:forEach>
-			<a href="#">&rang;</a>
-			<a href="#">&rang;&rang;</a>
+				&nbsp;&nbsp;
+				
+				<c:forEach begin="${searchVO.pageStart }" end="${searchVO.pageEnd }" var="i">
+					<c:choose>
+						<c:when test="${i eq searchVO.page }">
+							<span style="color:red; font-weight: bold;">${i }</span>&nbsp;&nbsp;&nbsp;&nbsp; 
+						</c:when>
+						<c:otherwise>
+							<a href="bestList?page=${i }" style="text-decoration: none">${i } </a>&nbsp;&nbsp;
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+
+				<c:choose>
+					<c:when test="${searchVO.totPage eq searchVO.page }">
+						<a href="bestList?page=${searchVO.page }"><img src="resources/img/btn_next.gif" alt="" /></a>
+					</c:when>
+					<c:otherwise>
+						<a href="bestList?page=${searchVO.page + 1 }"><img src="resources/img/btn_next.gif" alt="" /></a>
+					</c:otherwise>
+				</c:choose>
+				<a href="bestList?page=${searchVO.totPage }"><img src="resources/img/btn_next_on.gif" alt="" /></a>
+			</div>
 			
 		</div>
 	</div>

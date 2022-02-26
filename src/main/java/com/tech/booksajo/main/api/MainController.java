@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.tech.booksajo.main.service.MainService;
 import com.tech.booksajo.main.vo.MainDto;
-import com.tech.booksajo.main.vo.PageVO;
+import com.tech.booksajo.main.vo.MainPageVO;
+import com.tech.booksajo.main.vo.MainSearchVO;
 
 @Controller
 public class MainController {
@@ -35,28 +36,33 @@ public class MainController {
 	}
 	
 	@RequestMapping(value = "/bestList", method = RequestMethod.GET)
-	public String best(HttpServletRequest request, PageVO pageVO, Model model) throws Exception {
+	public String best(HttpServletRequest request, MainSearchVO searchVO, Model model) throws Exception {
 		System.out.println("~~Best Controller~~");
 //		MainMapper dao = sqlSession.getMapper(MainMapper.class);;
 		
-		String strPage = request.getParameter("page");
-		
-		if(strPage == null) strPage = "1";
+		String strPage=request.getParameter("page");
+		System.out.println("strPage1 : " + strPage);
+		if(strPage == null)
+			strPage = "1";
+		System.out.println("strPage2 : " + strPage);
 		
 		int page = Integer.parseInt(strPage);
+		searchVO.setPage(page);
 		
-		pageVO.setPage(page);
-		int total = 200;
-		pageVO.pageCalculate(total);
 		
-		int rowStart = pageVO.getRowStart();
-		int rowEnd = pageVO.getRowEnd();
+		int total = 0;
+		
+		total = service.bestCount();
+		System.out.println("bestCount : " + total);
+		
+		searchVO.pageCalculate(total);
+		int rowStart = searchVO.getRowStart();
+		int rowEnd = searchVO.getRowEnd();
 		
 		List<MainDto> list = service.getBestAll(rowStart, rowEnd);
 		
 		model.addAttribute("list", list);
-		model.addAttribute("page", pageVO);
-		model.addAttribute("totRowCnt", total);
+		model.addAttribute("searchVO", searchVO);
 		
 		return "bestList";
 	}
