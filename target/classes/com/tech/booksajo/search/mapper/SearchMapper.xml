@@ -132,13 +132,27 @@
  -->	
 
 
+
+
+
+
+
 <!-- 이선아 리뷰테이블 mapper.xml -->
 	<select id="reviewList" resultType="com.tech.booksajo.search.vo.ReviewDto">
-		SELECT ISBN,RE_DATE,RE_SCORE,RE_CONTENT,RE_GROUP,RE_STEP,RE_FILESRC,USER_ID
-		FROM BSJREVIEW ORDER BY RE_DATE DESC
+		SELECT RE_DATE,RE_SCORE,RE_CONTENT,RE_GROUP,RE_STEP,RE_FILESRC,USER_ID
+		FROM 
+		(SELECT USER_ID,RE_DATE,RE_SCORE,RE_CONTENT,RE_GROUP,RE_STEP,RE_FILESRC,
+		ROW_NUMBER() OVER(ORDER BY RE_DATE DESC) BSJREVIEW_SEQ FROM	BSJREVIEW
+		)
+		WHERE BSJREVIEW_SEQ BETWEEN #{param1} AND #{param2}
 	</select>
 
-<!-- 	<sql id="reviewPage">
+	<select id="reviewCount" resultType="Integer">
+		SELECT COUNT(*) FROM BSJREVIEW
+	</select>
+
+
+	<sql id="reviewPage">
 		<choose>
 			<when test="param4==1">
 				WHERE NTITLE LIKE '%'||#{param3}||'%'
@@ -155,7 +169,8 @@
 		 	
 			</otherwise>
 		</choose>
-	</sql> -->
+		
+	</sql>
 
 
 
