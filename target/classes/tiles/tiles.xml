@@ -238,7 +238,21 @@
 
 <!-- ============================================================================================================================================================ -->
 
-
+	
+	<!-- 이현빈signIn 페이지 -->
+	<definition name="signIn_center" extends="baseLayout">
+		<put-attribute name="title" value="회원가입"/>		
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>		
+		<put-attribute name="body" value="/WEB-INF/views/common/signin/signIn_center.jsp"/>		
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+	</definition>
+	
+	<definition name="login_center" extends="baseLayout">
+		<put-attribute name="title" value="로그인"/>		
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>		
+		<put-attribute name="body" value="/WEB-INF/views/common/signin/login_center.jsp"/>		
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp"/>
+	</definition>
 
 	
 <!-- 해더 푸터 안 넣어주면 : 404에러남 요청된 리소스 [/booksajo/]은(는) 가용하지 않습니다.-->
