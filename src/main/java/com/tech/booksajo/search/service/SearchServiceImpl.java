@@ -3,6 +3,7 @@ package com.tech.booksajo.search.service;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -18,24 +19,9 @@ import org.springframework.stereotype.Service;
 
 import com.tech.booksajo.search.mapper.SearchMapper;
 import com.tech.booksajo.search.vo.ReviewDto;
-import com.tech.booksajo.search.vo.ReviewPageVO;
 import com.tech.booksajo.search.vo.SearchVO;
 import com.tech.booksajo.search.vo.SearchView;
 import com.tech.booksajo.search.vo.ShopView;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.math.BigInteger;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLEncoder;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 
 @Service(value = "searchService")
