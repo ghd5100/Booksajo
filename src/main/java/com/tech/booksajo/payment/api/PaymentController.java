@@ -22,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -317,15 +318,15 @@ try {
 	}
 
 	
-	@RequestMapping(value="/productInfo", method=RequestMethod.POST)
-	public void productInfo(@RequestBody KakaoPayApproval info) throws Exception {
+	@PostMapping(value="/productInfo")
+	@ResponseBody
+	public Map<String,Object> productInfo(@RequestBody Map<String,Object> map) throws Exception {
 	
-		System.out.println("==============productInfo들어옴");
+		Map<String,Object> result = map;
+
 		
-		productInfo(info);
 		
-	
-	//return "memberModify";
+		return result;
 	}
 
 

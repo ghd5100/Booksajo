@@ -29,14 +29,16 @@ $( document ).ready(function() {
 	 });
  */
  
-	$(document.body).delegate('#payment', 'click', function() {
+	$(document.body).delegate('#payment', 'click', function(e) {
+		
 		 //console.log("ddddd"); 
 		 //val는 안돼넹.. id는 받아오는뎅
-		 var id_by_name = document.getElementsByName('isbn')[k].id;
-		 console.log(id_by_name);
-		 window.location.href = 'payment?isbn='+id_by_name;
+		 
+
+		// var id_by_name = document.getElementsByName('isbn');
+		 window.location.href = 'payment?isbn='+this.name; //클릭한 것의 네임을 가져와라...this=클릭한것 
 		
-		 //보내주기 다음페이지로
+		 //보내주기 다음페이지로 */
 		 
 		});
 	
@@ -81,7 +83,7 @@ $( document ).ready(function() {
 			    		html += '</td>';
 			    		html += '<td></br></br>평점</td>';
 			    		html += '<td></br></br></br>'+ data.documents[k].price + '원</br>'+ data.documents[k].sale_price +'원[10%↓]</td>';
-			    		html += '<td><input type="submit" value="장바구니 담기" id="shopget" /><input type="button" value="바로구매" id="payment" /></td>';
+			    		html += '<td><input type="submit" value="장바구니 담기" id="shopget" /><input type="button" value="바로구매" id="payment" name="'+isbn+'"  /></td>';
 			    		html += '<td><input type="hidden" value="'+isbn+'" name="isbn" id="'+isbn+'" /></td>';
 			    	//	html += '<td>' + '수량 : ' + '<input type="number" max="9" min="1" maxlength="7px" /></br></br><input type="submit" value="장바구니담기" name="'+data.documents[k].isbn+'" /><input type="hidden" name="'+isbn+'" value="'+isbn+'" /></br></br><input type="submit" value="바로구매" name="payment"  /></td>';
 			    		html += '</tr>';

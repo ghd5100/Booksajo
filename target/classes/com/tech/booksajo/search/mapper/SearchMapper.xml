@@ -92,7 +92,9 @@
 		,BSJSELECTBOOK_URL
 		,BSJSELECTBOOK_TITLE
 		,BSJSELECTBOOK_COUNT
-		,BSJSELECTBOOK_STATUS) 
+		,BSJSELECTBOOK_STATUS
+		,bsjselectbook_user_id
+		) 
 	VALUES(
 		#{param1}
 		,BSJSELECTBOOK_SEQ.NEXTVAL
@@ -102,10 +104,11 @@
 		,#{param5}
 		,#{param6}
 		,'이틀이내'
+		,#{param7}
 	)
 	</insert>
 								
-	<select id="getshoplist" resultType="com.tech.booksajo.search.vo.ShopView">
+	<select id="getshoplist" parameterType="map" resultType="com.tech.booksajo.search.vo.ShopView">
 	select
 		bsjselectbook_isbn
         , bsjselectbook_id
@@ -116,6 +119,7 @@
         , bsjselectbook_title
         , bsjselectbook_status
 	 FROM bsjselectbook
+	 where bsjselectbook_user_id = #{param} 
      
      <!-- 오류난이유 * 잘 쓰지마라. 컬럼을 직접 넣어주기 -->
 	</select>
@@ -173,19 +177,23 @@
 	</sql>
 
 
+	<select id="cartCount" parameterType="map" resultType="Integer">
+     SELECT 
+     COUNT(bsjselectbook_id) 
+     FROM bsjselectbook 
+     where bsjselectbook_isbn = #{param1}
+     and bsjselectbook_user_id = #{param2}
+     <!-- 키값매칭 들어오는 파람값과 디비의 필드값을 매칭해봐서 카운드한다. =키값 찾아보는법   디비로부터 키값을 가져와서 리턴값으로 비굑해서 조건을 이어나가는....-->
+	</select>
 
 
-
-
-
-
-
-
-
-
-
-
-
+	<update id="cartUpdate" parameterType="map">
+     update bsjselectbook
+     set 
+     bsjselectbook_count = bsjselectbook_count + #{param2}
+     where bsjselectbook_isbn = #{param1}
+     and bsjselectbook_user_id = #{param3}
+	</update>
 
 
 

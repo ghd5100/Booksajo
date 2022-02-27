@@ -45,12 +45,16 @@ public interface SearchMapper {
 	public Myinfomation userinfo();
 	
 	//장바구니에 추가해주는 동작
-	public void upshoplist(String isbn13, int price, int sale, String thumbnail, String title, int count);
+	public void upshoplist(String isbn13, int price, int sale, String thumbnail, String title, int count,String userId);
 
 	//장바구니 리스트 불러오는 동작
-	public ArrayList<ShopView> getshoplist();
+	public ArrayList<ShopView> getshoplist(String userId);
 	
 	//이선아 : 리뷰테이블 리스트 불러오는 동작
 	public List<ReviewDto> reviewList(int rowStart, int rowEnd);
 	public int reviewCount();
+	
+	public int cartCount(String isbn,String userId);
+	
+	public void cartUpdate(String isbn,int count,String userId);
 }

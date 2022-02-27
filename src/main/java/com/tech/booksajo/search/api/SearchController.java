@@ -21,6 +21,7 @@ import com.tech.booksajo.search.service.SearchService;
 import com.tech.booksajo.search.vo.ReviewDto;
 import com.tech.booksajo.search.vo.ReviewSearchVO;
 import com.tech.booksajo.search.vo.ShopView;
+import com.tech.booksajo.search.vo.Shoplist2;
 
 import lombok.RequiredArgsConstructor;
 
@@ -93,56 +94,50 @@ public class SearchController {
 		//버튼으로 받아오기
 		int count=Integer.parseInt(request.getParameter("count")); 
 		String isbnscr=request.getParameter("isbnscr");
+		String userId =request.getParameter("userId");
 		//String count=request.getParameter("count");
 		
 		
 		System.out.println("수량:"+count);
 		System.out.println("isbn스크립트:"+isbnscr);
+		System.out.println("유저아이디" + userId);
 		//model.addAttribute("isbn13", isbn13);
 		
-		
-		//책 여러개 담을수있으니까 isbn 여러개 넣어줄수있는 리스트로 멩글기
-		//했지만 1개밖에 못받아오네 그냥 쿼리로 인서트해주자
-/*		ArrayList<String> shopbooklist=new ArrayList<String>();
-		shopbooklist.add(isbnscr);
-
-		ArrayList<String> shopcount=new ArrayList<String>();
-		shopcount.add(count);
-		
-		
-		System.out.println(shopbooklist.size());	
-		System.out.println(shopcount.size());
-		*/
-		
-		
-		//즉시 인서트 해주기 테이블안에 하나씩 받으면  테이블 셀렉트문으로 가져옴 최종적으로 리턴은
-		
-		//1. isbn으로 모든 책 정보 가져와야하는 매소드 호출
-		//2. 대비에 넣어주는 작업
-		
-		
-		//1. 디테일 페이지 참고
+		System.out.println("확인용================");
+		//유저 아이디를 추가해야한다... 사람마다 장바구니 다 다를테니까.. 유저아이디도 들어가줘야함.
+		if(searchService.cartCount(isbnscr,userId) > 0) {
+			searchService.cartUpdate(isbnscr, count,userId);
+		}else {
+			ShopView shv=new ShopView();
+			ArrayList<ShopView> shlist=searchService.shoplist(isbnscr, count,userId);
+			model.addAttribute("shoplist", shlist);
+		}
 		
 	
-//		//생성자주입
-//		BoardDto dto=new BoardDto(bid, bname, btitle, bcontent,
-//				bdate, bhit, bgroup, bstep, bindent);
-//		//리스트에 추가
-//		dtos.add(dto);	
-		
 		//틀린이유 생성자 주입안해줌..
-			ShopView shv=new ShopView();
-					
-			
-			ArrayList<ShopView> shlist=searchService.shoplist(isbnscr, count);
-					
-		
-			//model.addAttribute("selectbook", shv);
-			model.addAttribute("shoplist", shlist);
-		
+	
 		
 		return "common/shoplist/shoplist2";
 	}	
+	
+	
+	
+	@RequestMapping("/shoplist3")
+	public void shoplist3(@RequestBody Map<String,Object> map) {
+		
+		System.out.println("받아오냐========================");
+		System.out.println(map.get("isbnscr"));
+		System.out.println(map.get("count"));
+		//버튼으로 받아오기
+		int count= Integer.parseInt(map.get("count").toString()); 
+		String isbnscr= map.get("isbnscr").toString();
+		String userId= map.get("userId").toString();
+		ShopView shv=new ShopView();		
+		searchService.shoplist(isbnscr, count,userId);
+
+	}	
+	
+	
 		
 		
 		
