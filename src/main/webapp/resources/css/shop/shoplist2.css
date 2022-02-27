@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+#shoptable{
+	text-align: center;
+	border: 1px solid;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+
+#totaltable{
+	border: 1px solid;
+	border-collapse: collapse;
+	width: 100%;
+	height: 200px;
+}
+
+
+tr,td{
+	border-bottom: 1px solid #eee;
+}
+
+#number{
+	width: 50px;
+}

@@ -7,13 +7,14 @@
 <link rel="stylesheet" type="text/css" href="resources/css/search_detail.css">
 <!-- 여기다가 검색테이블 구현하면 되겠다요 -->
 
+<% 
+ String userId = (String) session.getAttribute("userid");  //로그인 됬는지 안했는지는 이걸로 판단함... 로그인이 안됐으면 이게 널값으로 들어오는거임... 시스아웃 해보면됌.
+%> 
 
-<%-- <%
-	String isbn13 = request.getParameter("${isbn}");
-	System.out.println("isbn13:" + isbn13); //여까진 들어옴
-%> --%>
-
+ㄴ
 <script>
+var sessionId = '<%=userId%>';
+
 	$(document)
 			.ready(
 					function() {
@@ -173,37 +174,33 @@
 						
 						
 						function moveconfirm() {
-							console.log("무브컴핌에 들어옴");
+							if(sessionId != 'null'){
+									var isbn = ${isbn};
+									var count = $('#count').val();
+									var userId = sessionId; //위에선 sessionId에 담고 여기서  userId에 또 담아줘... 스크립트끼리 변수 전달하는거...
+									
+									if (confirm("장바구니에 담았습니다. 장바구니페이지로 이동하시겠습니까?")){   
+									 	location.href="shoplist2?isbnscr="+${isbn}+"&count="+ $('#count').val()+"&userId="+ userId + "";
+									}else{
+									
+										$.ajax({ 
+											type : "POST",
+											url : "/booksajo/shoplist3",
+											data :JSON.stringify({ 
+												isbnscr : isbn
+												,count : count
+												,userId : userId
+											}),
+											datatype : 'json',
+											contentType : 'application/json; charset=utf-8',
+											success : function(result) {
 							
-							 	var count=document.getElementById("count").value;
-							 	/* 틀린이유 vlaue안쓰고 val씀 */
-							 	console.log(count);
-
-							if (confirm("장바구니에 담았습니다. 장바구니페이지로 이동하시겠습니까?") == true){    //확인
-
-								//document.form.submit(count);
-							 	
-							 	location.href="shoplist2?isbnscr="+${isbn}+"&count="+count+"";
-								
-							 	
-							}else{   //취소
-
-
-								//취소해도 담긴담았으니 넘겨줘야함.. 
-								//$("#formorder").attr({action})
-								
-								//document.form().submit();
-								
-							
-								//넘어감.. 페이지는 그대로여야하는데
-								document.getElementById('formorder').submit();
-								
-								//헤더창의 장바구니 쪽에 값을 넘겨야하나.. 자식부모창으로 넘겨주는것도 생각해봄.
-								
-								
-								
-							    return;
-							} 
+											}
+										});
+								} 
+							}else{
+								alert('먼저 로그인 해주세요');
+							}
 						 
 						}
 			
@@ -336,7 +333,7 @@ const drawStar = (target) => {
 					var height = 10; 
 				
 				//pc화면기준 가운데 정렬  
-					var left = (window.screen.width / 2) - (width/2); 
+					var left = (window.screen.width / 2) - (width / 2); 
 					var top = (window.screen.height / 4); 
 				//윈도우 속성 지정 
 			

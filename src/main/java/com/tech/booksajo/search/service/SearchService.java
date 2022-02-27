@@ -23,7 +23,7 @@ public interface SearchService  {
 	
 	ArrayList<String> categoryget(String search) throws IOException,Exception;
 	
-	ArrayList<ShopView> shoplist(String isbnscr,int count);
+	ArrayList<ShopView> shoplist(String isbnscr,int count,String userId);
 	
 	ShopView bookinfo(String isbnscr,int count);
 	
@@ -36,4 +36,6 @@ public interface SearchService  {
 //  이선아 : 리뷰게시판
 	List<ReviewDto> reviewList(int rowStart, int rowEnd);
 	int reviewCount();
+	int cartCount(String isbn,String userId);
+	void cartUpdate(String isbn,int count,String userId);
 }
