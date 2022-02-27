@@ -1091,6 +1091,66 @@ public class SearchServiceImpl implements SearchService {
 	
 	}
 
+<<<<<<< HEAD
+	@Override
+	public ArrayList<Object> categoryName(String isbn13) throws Exception {
+		
+		//각각의 책에 맞는 카테고리 정보 보내주기
+		
+		ArrayList<Object> catenamelist=new ArrayList<Object>();
+		
+		String serviceKey3 =
+				 "http://data4library.kr/api/usageAnalysisList?authKey=bd1ca3ab552dd10a147c1e0594dd11525c60dcdb8f5f22d0cd940b3faa2f3c69";
+				 String urlStr2 = serviceKey3 + "&isbn13="+isbn13+"&format=json";
+				  
+				 
+				 //1권밖에 안나온이유. +와 ";"사이 띄어쓰기해서 System.out.println("urlStr2:"+urlStr2);
+				 
+				 URL url2 = new URL(urlStr2);
+				  
+				 BufferedReader bf3 = new BufferedReader(new
+				 InputStreamReader(url2.openStream()));
+				 
+				 
+				 String jstr3 = bf3.readLine();
+				 
+				 //String strJson2 = jstr3;
+				 
+				 // 2. Parser JSONParser 
+				 JSONParser strJson3= new JSONParser();
+				 
+				 // 3. To Object
+				 Object obj3 = strJson3.parse(jstr3);
+				 
+				 // 4. To JsonObject 
+				 JSONObject jsonObj3 = (JSONObject) obj3;
+				 
+				 // print System.out.println(jsonObj2.get("response")); // 리스폰안에들어간 리퀘스트가 출력됨
+				 
+				 Object responseObj3 = jsonObj3.get("response"); 
+				 
+				 JSONObject json123 = (JSONObject) responseObj3;
+				 
+				 System.out.println();
+				 
+				 System.out.println("json12.get의 Book:"+json123.get("book")); // sim
+				 
+				 
+				 
+				 // 이 jason어레이 구조를 출력하고싶으면 객체를 어레이로 강제 형변환을 하고. // 이걸 포문을 돌려주면 꺼내서 보면 다 꺼내쥠!
+				 JSONObject recbooks2=(JSONObject) json123.get("book");
+				 System.out.println("class_nm뽑음:"+recbooks2.get("class_nm")); 
+				 //Object classNm=recbooks2.get("class_nm"); 
+				 catenamelist.add(recbooks2);
+				 
+					
+
+				
+		
+		
+		return catenamelist;
+	}
+=======
 	
 	
 //이선아 : 리뷰게시판	
@@ -1107,6 +1167,7 @@ public class SearchServiceImpl implements SearchService {
 	}
 
 }
+>>>>>>> master
 	
 	
 

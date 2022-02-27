@@ -215,6 +215,11 @@ public class SearchController {
 		
 		return "search_detail";
 	}
+
+	
+	
+	
+	
 	
 	@RequestMapping(value = "/test/search_keyword/", method = RequestMethod.POST  )
 	@ResponseBody
@@ -255,6 +260,56 @@ public class SearchController {
 		
 		
 		return jsonlist;
+	}
+
+	
+	@RequestMapping(value = "/test/search_category/", method = RequestMethod.POST  )
+	@ResponseBody
+	public ArrayList<Object> search_category(@RequestBody Map<String,Object> map) {
+		
+		
+		System.out.println("=========================search_category들어오나=========");
+		
+		
+
+		String isbn13= map.get("isbn").toString();
+		
+		ArrayList<Object> list=new ArrayList<Object>();
+		
+		JSONArray jsonlist=new JSONArray();
+		
+		
+		
+				try {
+					list= searchService.categoryName(isbn13);
+					
+					
+					//System.out.println("제이슨객체로변환완료:"+(JSONObject)list.get(0));
+					
+					//제이슨타입으로 형변환해줍시더 언디파인으로 안뜨게 받을때
+					
+					System.out.println("리턴완료:"+list.get(0));
+					
+						
+					//jsonlist.add(list);
+					
+/*					
+					for (int i=0; i < 5; i++) {//리스트에서 선두에 있는 가중치 높은 것 4개만 가져오기 너무 많으니까.
+					    JSONObject jsonObj=(JSONObject)list.get(i);
+					    System.out.println("선별키워드:"+(JSONObject)list.get(i));
+					    //제이슨타입으로 변형해서 보내기 위는 그냥 오브젝트임.
+					    jsonlist.add(jsonObj);
+					}
+*/
+				
+				} catch (Exception e) {
+					
+					e.printStackTrace();
+				}
+								
+		
+		
+		return list;
 	}
 	
 	
