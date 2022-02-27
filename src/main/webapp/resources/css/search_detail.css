@@ -14,14 +14,6 @@
 
 }
 
-#storelo{
-	border: 2px solid;
-	border-collapse: collapse;
-	width: 250px;
-	height: 80px;
-	margin-left: 30%;
-}
-
 
 #keywordpick{
 	margin-top:30px;
@@ -40,7 +32,7 @@
 
 #detail{
 
-	width: 920px;
+	width: 926px;
 
 }
 
@@ -69,7 +61,7 @@ p1{
 }
 
 table{
-	border: 1px solid #eee;
+/* 	border: 1px solid #eee; */
 	border-collapse: collapse;
 	width: 100%;
 	text-align: left;
@@ -86,24 +78,25 @@ tr,td{
 }
 
 #x{
-	font-size: 15px;
+	font-size: 14px;
 	font-weight: bold;
-	color: black;
+	color: #555555;
 	padding-left: 20px;
 }
 
 #au{
-	padding-left: 20px;
-	font-size: medium;
-	color: #bbb;
+	font-size:12px;
+    margin-top: 10px;
+    color: #666666;
+    line-height: 18px;
+    padding-left: 20px;
 }
 
 #n{
-padding-left: 20px;
-font-size: medium;
-padding-top: 15px;
-
-border-bottom: 2px solid #aaa;
+	padding-left: 20px;
+	font-size: medium;
+	padding-top: 15px;
+	border-bottom: 1px solid #ddd;
 }
 
 #m{
@@ -115,8 +108,24 @@ border-bottom: 2px solid #aaa;
 	padding-left: 20px;
 /* 	font-size: x-large;
 	color: red; */
-	border-bottom: 2px solid #aaa;
+	border-bottom: 1px solid #ddd;
 }
+
+/* 책이름 위에 작은 ICON */
+.icon{
+    font-size: 6px;
+    margin-bottom: 5px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+/* 출판사 작가 출판일 */
+.box_detail_point .author {
+    margin-top: 10px;
+    color: #777;
+    line-height: 18px;
+}
+
 
 /* 장바구니,구매 버튼  */
 .btn_blue {
@@ -142,6 +151,76 @@ border-bottom: 2px solid #aaa;
     font-size: 18px;
     font-weight: bold;
 }
+
+.btn_blue:hover {
+	border: 2px solid #38405f
+}
+.btn_blue2:hover {
+	border: 2px solid #38405f
+}
+
+
+/* 왼쪽 사이드 미리보기,매장재고위치 */
+#storelo{
+	border-collapse: collapse;
+	width: 250px;
+	height: 80px;
+	margin-left: 30%;
+}
+
+.btnPreview{
+    font-family: "Malgun Gothic", "Malgun Gothic", tahoma !important;
+    word-spacing: -1px;
+    padding: 0;
+    vertical-align: baseline;
+    line-height: 18px;
+    color: #a8afe5;
+    width: 200px;
+    font-size: 13px;
+    text-align: center;
+    margin: 12px auto 12px;
+    
+}
+
+a.priview{
+	color: #666666;
+}
+
+.btnLocation{
+	display: inline-block;
+    padding: 0;
+    width: 180px;
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid #dcdcdc;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.btnLocation a {
+/*     color: #666; */
+    display: inline-block;
+/*     border: 1px solid #dcdcdc; */
+    box-sizing: border-box;
+    padding: 0;
+    width: 180px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.btnLocation a:hover {
+    color: #a8afe5;
+    border: 1px solid #a8afe5;
+    text-decoration: none;
+    zoom: 1;
+}
+
+#ndStock {
+	width: 180px;
+}
+
 
 /* ********************************************************************************* */
 
@@ -436,4 +515,6 @@ body {
 
 #quick_menu2 .btn_quick_down a:hover {
     border-color: #999;
+}
+
 }

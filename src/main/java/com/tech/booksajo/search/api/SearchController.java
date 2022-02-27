@@ -350,11 +350,20 @@ public class SearchController {
 			return searchService.content_view(bid);
 	}
 	
+	
+// 이선아 구현중
 	@RequestMapping("/reviewWrite")
 	public String reviewWrite() {
 		System.out.println("reviewWrite Controller");
 		
 		return "reviewWrite";
+	}
+	
+	@RequestMapping("/preview")
+	public String preview() {
+		System.out.println("preview Controller");
+		
+		return "preview";
 	}
 
 

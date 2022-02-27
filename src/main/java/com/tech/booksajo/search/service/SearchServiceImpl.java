@@ -1021,10 +1021,7 @@ public class SearchServiceImpl implements SearchService {
 
 	}
 
-<<<<<<< HEAD
 
-=======
->>>>>>> c2a426ed2409273ee3a20d92672a8976f754c47a
 	@Override
 	public ArrayList<Object> categoryName(String isbn13) throws Exception {
 
@@ -1073,13 +1070,8 @@ public class SearchServiceImpl implements SearchService {
 		return catenamelist;
 	}
 
-<<<<<<< HEAD
-	
-	
-//이선아 : 리뷰게시판	
-=======
-	// 이선아 : 리뷰게시판
->>>>>>> c2a426ed2409273ee3a20d92672a8976f754c47a
+
+// 이선아 : 리뷰게시판
 	@Override
 	public List<ReviewDto> reviewList(int rowStart, int rowEnd) {
 		List<ReviewDto> reviewList = searchmapper.reviewList(rowStart, rowEnd);
@@ -1092,18 +1084,11 @@ public class SearchServiceImpl implements SearchService {
 		return searchmapper.reviewCount();
 	}
 
-<<<<<<< HEAD
-}
-
-	
-	
-=======
 	@Override
 	public int cartCount(String isbn, String userId) {
 		// TODO Auto-generated method stub
 		return searchmapper.cartCount(isbn, userId);
 	}
->>>>>>> c2a426ed2409273ee3a20d92672a8976f754c47a
 
 	@Override
 	public void cartUpdate(String isbn, int count, String userId) {

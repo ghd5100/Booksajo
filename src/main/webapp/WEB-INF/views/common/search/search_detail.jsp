@@ -11,7 +11,6 @@
  String userId = (String) session.getAttribute("userid");  //로그인 됬는지 안했는지는 이걸로 판단함... 로그인이 안됐으면 이게 널값으로 들어오는거임... 시스아웃 해보면됌.
 %> 
 
-ㄴ
 <script>
 var sessionId = '<%=userId%>';
 
@@ -53,6 +52,12 @@ var sessionId = '<%=userId%>';
 												
 												//사이드에 보내줄거
 												html += '<table>';
+												html += '<div class="icon">';
+												html += '<img src="resources/img/icon_m_choice.gif" alt="MD의선택">';
+												html += '<img src="resources/img/icon_m_freedel.gif" alt="무료배송">';
+												html += '<img src="resources/img/icon_m_event.gif" alt="이벤트">';
+												html += '<img src="resources/img/icon_m_deduction.gif" alt="소득공제">';
+												html += '</div>'
 												html += '<tr>';
 												html += '<td colspan="2" style="width: 60%; height:70px;" id="z">'
 														+ data.documents[0].title
@@ -64,7 +69,7 @@ var sessionId = '<%=userId%>';
 												+'</td>';
 												html += '</tr>';
 												html += '<tr>';
-												html += '<td colspan="3" id="au" style="width: 10px; height:40px;">'
+												html += '<td colspan="3" id="au" >'
 														+ data.documents[0].authors
 														+ '&nbsp;&nbsp;지음&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
 														+ data.documents[0].publisher
@@ -212,17 +217,19 @@ var sessionId = '<%=userId%>';
 	<div id="img2">
 	<!-- <img src="" alt=""  style="width: 100px; height: 170px;"/> -->
 	<br />
-	
 	</div>
 	 
 	<div id="storelo">
-	 
-		<p1>크게보기 | 미리보기</p1>
-		<br />
-		<br />
-		
-		<input type="button" value="매장재고 .위치"/>
-	 
+	 	<div class="btnPreview">					
+						<a href="#" class="priview" style="cursor:pointer;">미리보기</a>
+							|
+						<a href="#" class="priview" style="cursor:pointer;">크게보기</a>
+		</div>
+
+
+		<div class="btnLocation">
+			<a id="ndStock" style="cursor:pointer;">매장 재고 · 위치</a>
+		</div>
 	</div>
 	 
 	<div id="keywordpick">
@@ -232,32 +239,21 @@ var sessionId = '<%=userId%>';
 
 
 <div id="title2">
-	<div id="detail" style="height: 350px;"></div>
-
-
+	<div id="detail" style="height: 400px;"></div>
 
 
 	<!-- 장바구니/바로구매 -->
 
-<!-- 	<span class="btn_count">
-
-
+	<span class="btn_count">
 		<button type="button"
 			onclick="javascript:formQtyChangeSplit(document.proForm.qty,'1', document.getElementById('split_select').selectedIndex);">
-			<img
-				src="resources/common/img/btn_plus.gif"
-				alt="수량 더하기">
+			<img src="resources/img/btn_plus.gif" alt="수량 더하기">
 		</button>
 		<button type="button"
 			onclick="javascript:formQtyChangeSplit(document.proForm.qty,'-1', document.getElementById('split_select').selectedIndex);">
-			<img
-				src="resources/common/img/btn_minus.gif"
-				alt="수량 빼기">
+			<img src="resources/img/btn_minus.gif" alt="수량 빼기">
 		</button>
-
-
-
-	</span> -->
+	</span>
 
 
 
@@ -346,10 +342,10 @@ var sessionId = '<%=userId%>';
 		</div>
 	</c:if>
 
-	<div>
-		<h1>${userid }</h1>
-		<h1>${admin }</h1>
-	</div>
+<%-- 	<div>
+		<h5>${userid }</h5>
+		<h5>${admin }</h5>
+	</div> --%>
 
 
 	<!-- 리뷰작성 게시판 -->
