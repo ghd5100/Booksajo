@@ -34,6 +34,13 @@ public class NoticeController {
 //		System.out.println("noticelist : "+noticelist);
 //		model.addAttribute("noticeList",noticelist);
 		
+		//주소창으로 강제접속 막는 조건식
+//		String id = "";
+//		
+//		if (id != "admin") {
+//			return "redirect:noticeList";
+//		}
+		
 //		search
 		String ntitle="";
 		String ncontent="";

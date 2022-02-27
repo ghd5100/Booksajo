@@ -71,8 +71,13 @@
 
 
 
-/* 삭제,수정,목록 버튼 */
+/* 목록 버튼 */
 .btn {
+	margin-bottom: 25px;
+	font-size: 13px;
+}
+/* 삭제,수정 버튼 */
+.admin_btn {
 	margin-bottom: 25px;
 	font-size: 13px;
 }

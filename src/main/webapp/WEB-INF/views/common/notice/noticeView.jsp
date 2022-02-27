@@ -34,20 +34,27 @@
 		
 		<!-- 페이징 및 목록 영역  --> 
 
-		<div class="btn">
+	<c:if test="${userid eq 'admin' }">
 		<!-- 관리자 영역 BTN -->
-			<a href="noticeDelete?nseq=${noticeView.nseq }" style="color: black;">			
-				<input type="submit" id="deletebtn_noticeList" value="삭제" /></a>&nbsp;&nbsp;
-			<a href="noticeUpdate?nseq=${noticeView.nseq }" style="color: black;">			
-				<input type="submit" id="modifybtn_noticeList" value="수정" /></a>&nbsp;&nbsp;
-			<a href="noticeList" style="color: black;">
-				<input type="submit" class="listbtn_noticeView" value="목록" /></a> &nbsp;&nbsp;
+			<div class="admin_btn">
+				<a href="noticeDelete?nseq=${noticeView.nseq }" style="color: black;">			
+					<input type="submit" id="deletebtn_noticeList" value="삭제" /></a>&nbsp;&nbsp;
+				<a href="noticeUpdate?nseq=${noticeView.nseq }" style="color: black;">			
+					<input type="submit" id="modifybtn_noticeList" value="수정" /></a>&nbsp;&nbsp;
+			</div>
+	</c:if>
+		<div class="btn">
+				<a href="noticeList" style="color: black;">
+					<input type="submit" class="listbtn_noticeView" value="목록" /></a> &nbsp;&nbsp;
 		</div>
 	
 	
 	
 	
-	
+	<div>
+	<h1>${userid }</h1>
+	<h1>${admin }</h1>
+	</div>
 	
 	
 	

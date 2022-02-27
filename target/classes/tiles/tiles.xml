@@ -241,6 +241,18 @@
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
 	
+		<!-- 리뷰작성 팝업 페이지 -->
+		<definition name="reviewLayout" template="/WEB-INF/views/common/review/review_layout.jsp">
+			<put-attribute name="title" value="/WEB-INF/views/common/title.jsp" />
+			<put-attribute name="body" value="/WEB-INF/views/common/review/reviewWrite.jsp" />
+		</definition>
+	
+	
+		<definition name="reviewWrite" extends="reviewLayout">
+			<put-attribute name="title" value="북사조" />
+			<put-attribute name="body" value="/WEB-INF/views/common/review/reviewWrite.jsp" />
+		</definition>
+	
 
 <!-- ============================================================================================================================================================ -->
 

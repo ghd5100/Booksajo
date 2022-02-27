@@ -87,13 +87,13 @@
 
 												console.log(data.documents[0]);
 
-												thumbnail +='<img src='+data.documents[0].thumbnail+'class="img-fluid" alt="..." style="width: 248px; height: 330px;" / >';
-												$('#img2').html(thumbnail);
+												thumbnail +='<img src='+data.documents[0].thumbnail+'class="img-fluid" alt="..." style="width: 180px; height: 250px;" / >';
+												$('#img2').html(thumbnail);														//width: 248px; height: 330px;
 												$('#detail').html(html);
 											}).fail(function(error) {
 
 									});
-
+																			
 						}
 					});
 	
@@ -166,61 +166,76 @@
 
 </script>
 
-
-
 <div id="inlineside">
 
-<div id="img2">
-<!-- <img src="" alt=""  style="width: 100px; height: 170px;"/> -->
-<br />
+	<div id="img2">
+	<!-- <img src="" alt=""  style="width: 100px; height: 170px;"/> -->
+	<br />
+	
+	</div>
+	 
+	<div id="storelo">
+	 
+		<p1>크게보기 | 미리보기</p1>
+		<br />
+		<br />
+		
+		<input type="button" value="매장재고 .위치"/>
+	 
+	</div>
+	 
+	<div id="keywordpick">
+	키워드 Pick
+	</div>
 
- </div>
- 
- <div id="storelo">
- 
-<p1>크게보기 | 미리보기</p1>
-<br />
-<br />
 
-<input type="button" value="매장재고 .위치"/>
- 
- </div>
- 
-<div id="keywordpick">
-키워드 Pick
 </div>
 
-</div>
+
 
 
 <div id="title2">
 	<div id="detail" style="height: 350px;"></div>
 
+<!-- 장바구니/바로구매 -->
 	<div id="booksen">
 		<form action="shoplist2" id="formorder" method="post">
-			주문수량 : <input type="number" max="10" min="1" value="num" id="count"
-				name="count" /><br /> <br /> <input type="button" value="장바구니"
-				id="shoplist" onclick="moveconfirm()" ; /><input type="button"
-				value="바로구매" id="payment"
-				onclick="location.href='payment?isbn=${isbn}'" /> <input
-				type="hidden" name="isbnsrc" value="'${isbn }'" />
-
+			주문수량 : <input type="number" max="10" min="1" value="num" id="count" name="count" /><br /> <br /> 
+					<input type="button" value="장바구니" id="shoplist" onclick="moveconfirm()" ; />
+					<input type="button" value="바로구매" id="payment" onclick="location.href='payment?isbn=${isbn}'" /> 
+					<input type="hidden" name="isbnsrc" value="'${isbn }'" />
 			<%-- onclick="location.href='shoplist?${isbn}'"  --%>
 			<!-- 자바스크립트는 줄바꿈되면 에러난다..연결해서 써주기 -->
 		</form>
 	</div>
+	
 
 
 	<div id="bookReview">
-		<a name="bookinfoTag" style="position: absolute; top: 500px"></a> <img
+
+		<ul class="nav nav-tabs" >
+			<li class="nav-item"><a class="nav-link active"
+				aria-current="page" href="#bookinfoTag">상품정보</a></li>
+			<li class="nav-item"><a class="nav-link active"
+				aria-current="page" href="#bookReviewTag">회원리뷰</a></li>
+			<li class="nav-item"><a class="nav-link active"
+				aria-current="page" href="#boxDetailTag">교환/반품/품절</a></li>
+		</ul>
+
+
+		<a name="bookinfoTag" style="position: absolute; top: 498px"></a> <img
 			src="resources/img/doit.jpg" id="bookimg" role="tab"
 			style="width: 733px;" />
 	</div>
+	
+<%-- 	<c:forEach items="${reviewList }" var="list">
+		${list.isbn }
+	</c:forEach> --%>
 
 
 
 
-<!-------------------------------------------------------------------------------------------------------------------------------------------------------->
+	<!-------------------------------------------------------------------------------------------------------------------------------------------------------->
 
 
 
@@ -273,17 +288,18 @@ const drawStar = (target) => {
 			function showPopUp() { 
 				
 				//창 크기 지정 
-					var width = 500; 
-					var height = 1000; 
+					var width = 250; 
+					var height = 10; 
 				
 				//pc화면기준 가운데 정렬  
 					var left = (window.screen.width / 2) - (width/2); 
 					var top = (window.screen.height / 4); 
 				//윈도우 속성 지정 
+			
 					var windowStatus = 'width='+width+', height='+height+', left='+left+', top='+top+', scrollbars=yes, status=yes, resizable=yes, titlebar=yes'; 
 				
 				//연결하고싶은url 
-					const url = "http://www.kyobobook.co.kr/product/popupProductSimpleReview.laf?regType=kloverReview&mallGb=KOR&ejkGb=KOR&barcode=9791188331796&orderClick=JLx"; 
+					const url = "http://localhost:9007/booksajo/reviewWrite"; 
 				
 				//등록된 url 및 window 속성 기준으로 팝업창을 연다. 
 					window.open(url, "hello popup", windowStatus); } 
@@ -295,7 +311,10 @@ const drawStar = (target) => {
 
 	<div>
 	<h1>${userid }</h1>
+	<h1>${admin }</h1>
 	</div>
+	
+	
 <!-- 리뷰작성 게시판 -->
 <!-- <a name="fixTag" style="position: absolute; top: 500px"/> -->
 	<div class="table22">
@@ -310,7 +329,9 @@ const drawStar = (target) => {
 				<li class="nav-item"><a class="nav-link active"
 					aria-current="page" href="#boxDetailTag">교환/반품/품절</a></li>
 			</ul>
-			
+		
+		<div>
+		<a name="bookReviewTag" style="position: absolute; top: -250px"></a>
 		<table class="table3">
 			<c:forEach items="${reviewList }" var="reviewdto">
 				<tr>
@@ -324,8 +345,13 @@ const drawStar = (target) => {
 			</c:forEach>
 		</table>
 		</div>
+		
 		</div>
-			<table>
+		</div>
+		
+		
+<!-- 답댓글 작성panel -->
+<!-- 			<table>
 			<tr>
 			<td>
 					<div class="reply_wrap" id="subReviewWrap0" style="display: block;">
@@ -342,12 +368,11 @@ const drawStar = (target) => {
 					</div>
 				</td>
 			</tr>
-		<tr>
+		<tr> -->
 
 
-<!-- 답댓글 작성panel -->
 			
-<!-- 페이징 -->
+<!-- 리뷰게시판 페이징 -->
 	<td>
 	<br /><br />
 	
@@ -468,8 +493,51 @@ const drawStar = (target) => {
 				</table>
 			</div>
 		</div>
+
+			<div class="sideTag">
+				<div class="sticky">
+					<ul class="nav nav-tabs " id="side_nav-tabs">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="#bookinfoTag">상품정보</a></li>
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="#bookReviewTag">회원리뷰</a></li>
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" href="#boxDetailTag">교환/반품/품절</a></li>
+					</ul>
+			
+			<script>
+// 				$(function(){
+// 				})
+				
+// 				function asdf() {
+// 					$("#reviewWrite").append("<div id='ffff'>ahsdjfkhjsadf</div>")
+// 				}
+// 				function 등록() {
+// 					데이터 인서트하도록 만들기
+// 					$("#ffff").지우는펑션;
+// 				}
+// 				function 취소() {
+// 					$("#ffff").지우는펑션;
+// 				}
+				
+			</script>
+			
+			<!-- quick메뉴 버튼 -->
+			<div id="quick_menu2" class="quickSticky" style="width: 60px;">
+				<div id="reviewWrite">
+					
+				</div>
+				<div class="btn_quick_top" onclick="asdf()">
+					<a href="#">Top</a>
+				</div>
+				<div class="btn_quick_down">
+					<a href="#Down">Down</a>
+				</div>
+				
+			</div>
+			</div>
+		</div>
 		
-
-
-
+		
+	
 <!-- 	<script src='/js/search_detail.js'></script> -->

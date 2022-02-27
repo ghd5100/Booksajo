@@ -93,11 +93,13 @@
 	</div>
 
 <!-- 관리자 글작성 패널 -->
-	<div class="btn">
-		<button type="button">
-			<a href="noticeWriteView" style="color: black;">글쓰기</a>
-		</button>
-	</div>
+	<c:if test="${userid eq 'admin' }">
+		<div class="btn">
+			<button type="button">
+				<a href="noticeWriteView" style="color: black;">글쓰기</a>
+			</button>
+		</div>
+	</c:if>
 
 
 

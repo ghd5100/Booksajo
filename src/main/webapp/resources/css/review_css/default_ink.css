@@ -1,0 +1,526 @@
+@charset "UTF-8";
+/*
+Cloud9 Web publishing Team (http://cloud9.co.kr/)
+Version : 1.0
+*/
+@import url('layout.css'); /* 사이트 레이아웃설정 */
+@import url('gnb.css'); /* GNB */
+@import url('style.css'); /* 기본스타일 */
+@import url('style2.css'); /* 기본스타일 */
+@import url('style3.css'); /* 기본스타일 */
+@import url('popup.css'); /* 팝업스타일 */
+/* 2011-05-19 iedebug 조정우 */
+@import url('iedebug.css'); /* iedebug */
+
+/*
+@import url('http://www.kyobobook.co.kr/css/mall.css');
+@import url('http://www.kyobobook.co.kr/css/welcome.css');
+@import url('http://www.kyobobook.co.kr/css/common.css');
+@import url('http://www.kyobobook.co.kr/css/KyoboBook.css');
+@import url('http://www.kyobobook.co.kr/css/common.css');
+@import url('http://www.kyobobook.co.kr/css/bestseller.css');
+@import url('http://www.kyobobook.co.kr/css/event.css');
+@import url('http://www.kyobobook.co.kr/css/purchase.css');
+@import url('http://www.kyobobook.co.kr/css/cscenter.css');
+@import url('http://www.kyobobook.co.kr/css/coupon.css');
+@import url('http://www.kyobobook.co.kr/css/blog.css');
+@import url('http://www.kyobobook.co.kr/css/search.css');
+*/
+body {
+	font-size: 12px;
+	font-family: dotum, sans-serif;
+	color: #666;
+	line-height: 1.2em;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form,
+	fieldset, input, textarea, blockquote, th, td, p {
+	margin: 0px;
+	padding: 0px;
+}
+
+fieldset, img, abbr, acronym {
+	border: none;
+}
+
+address, caption, cite, code, dfn, var {
+	font-style: normal;
+	font-weight: normal;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+caption { /*visibility:hidden;*/
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -9999px;
+}
+
+legend {
+	visibility: hidden;
+	position: absolute;
+	top: -9999em;
+	left: -9999em;
+	width: 0;
+	height: 0;
+	line-height: 0;
+	overflow: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: #666;
+}
+
+a:hover {
+	color: #666;
+	text-decoration: none;
+}
+
+hr {
+	display: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+label, input, select {
+	vertical-align: middle;
+}
+
+select, input {
+	font-size: 12px;
+	font-family: dotum, sans-serif;
+	color: #666;
+}
+
+textarea {
+	font-size: 12px;
+	font-family: dotum, sans-serif;
+	color: #666;
+}
+
+select {
+	margin: 0;
+}
+
+form {
+	line-height: 1.2em !important;
+}
+
+/* 공통값 */
+/* .png24 {tmp:expression(setPng24(this))} 20140616 IE6 대응함수 지원 중단 */
+.clear {
+	*zoom: 1;
+}
+
+.clear:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.checkbox {
+	vertical-align: -3px;
+}
+
+* html .checkbox {
+	margin: -4px -4px 0 -4px;
+}
+
+*+html .checkbox {
+	margin: -4px -4px 0 -4px;
+}
+
+.checkbox02 {
+	margin-top: 3px;
+}
+
+.list_book03 .book_list li .checkbox03 {
+	position: absolute;
+	left: -25px;
+	bottom: 10px;
+}
+
+* html .checkbox02 {
+	margin-top: -2px;
+}
+
+*+html .checkbox02 {
+	margin-top: -1px;
+}
+
+.radio {
+	vertical-align: -2px;
+}
+
+* html .radio {
+	margin: -4px -4px 0 -4px;
+}
+
+*+html .radio {
+	margin: -4px -4px 0 -4px;
+}
+
+.linenone {
+	text-decoration: none !important;
+}
+
+.posr {
+	position: relative !important;
+}
+
+.ver_top {
+	vertical-align: top !important;
+}
+
+.ver_middle {
+	vertical-align: middle !important;
+}
+
+.ver_bottom {
+	vertical-align: bottom !important;
+}
+
+.align_right {
+	text-align: right !important;
+}
+
+.align_center {
+	text-align: center !important;
+}
+
+.align_left {
+	text-align: left !important;
+}
+
+.float_left {
+	float: left !important;
+}
+
+.float_right {
+	float: right !important;
+}
+
+.margin_bot0 {
+	margin-bottom: 0 !important;
+}
+
+.margin_bot5 {
+	margin-bottom: 5px !important;
+}
+
+.margin_bot10 {
+	margin-bottom: 10px !important;
+}
+
+.margin_bot15 {
+	margin-bottom: 15px !important;
+}
+
+.margin_bot20 {
+	margin-bottom: 20px !important;
+} /* 20110824 추가 */
+.margin_bot28 {
+	margin-bottom: 28px !important;
+} /* 20110824 추가 */
+.margin_top0 {
+	margin-top: 0 !important;
+}
+
+.margin_top3 {
+	margin-top: 3px !important;
+}
+
+.margin_top4 {
+	margin-top: 4px !important;
+} /* 20110824 추가 */
+.margin_top5 {
+	margin-top: 5px !important;
+}
+
+.margin_top06 {
+	margin-top: 6px !important
+}
+
+.margin_top07 {
+	margin-top: 7px !important
+}
+
+.margin_top08 {
+	margin-top: 8px !important
+} /* 20110824 추가 */
+.margin_top10 {
+	margin-top: 10px !important;
+}
+
+.margin_top15 {
+	margin-top: 15px !important;
+}
+
+.margin_top16 {
+	margin-top: 16px !important;
+}
+
+.margin_top20 {
+	margin-top: 20px !important;
+}
+
+.margin_top25 {
+	margin-top: 25px !important;
+}
+
+.margin_top26 {
+	margin-top: 26px !important;
+} /* 20110824 추가 */
+.margin_top30 {
+	margin-top: 30px !important;
+}
+
+.margin_top30_ {
+	margin-top: 30px !important;
+}
+
+.margin_top40 {
+	margin-top: 40px !important;
+}
+
+.margin_top50 {
+	margin-top: 50px !important;
+}
+
+.margin_top57 {
+	margin-top: 57px !important;
+}
+
+.margin_top70 {
+	margin-top: 70px !important;
+}
+
+.margin_top80 {
+	margin-top: 80px !important;
+}
+
+.margin_left5 {
+	margin-left: 5px !important;
+}
+
+.margin_left10 {
+	margin-left: 10px !important;
+}
+
+.margin_left15 {
+	margin-left: 15px !important;
+}
+
+.margin_left20 {
+	margin-left: 20px !important;
+}
+
+.margin_left30 {
+	margin-left: 30px !important;
+}
+
+.padding_top0 {
+	padding-top: 0 !important;
+}
+
+.padding_top10 {
+	padding-top: 10px !important;
+}
+
+.padding_top15 {
+	padding-top: 15px !important;
+}
+
+.padding_top16 {
+	padding-top: 16px !important;
+}
+
+.padding_top20 {
+	padding-top: 20px !important;
+}
+
+.padding_top16 {
+	padding-top: 16px !important;
+}
+
+.padding_left4 {
+	padding-left: 4px !important;
+}
+
+.padding_left12 {
+	padding-left: 12px !important;
+}
+
+.padding_left15 {
+	padding-left: 15px !important;
+}
+
+.padding_none {
+	padding: 0px !important;
+}
+
+.backNone {
+	background: none !important;
+}
+
+.border_none {
+	border: none !important;
+}
+
+.border_Rnone {
+	border-right: none !important;
+}
+
+.border_Lnone {
+	border-left: none !important;
+}
+
+.border_Bnone {
+	border-bottom: none !important;
+}
+
+.font_normal {
+	font-weight: normal !important;
+}
+
+.input_style {
+	height: 19px;
+	border: 1px solid #c6c6c6;
+	line-height: 19px;
+}
+
+.input_style01 {
+	height: 19px;
+	border: 1px solid #c6c6c6;
+	width: 16px;
+	line-height: 19px;
+}
+
+.input_style02 {
+	height: 19px;
+	border: 1px solid #c6c6c6;
+	width: 28px;
+	line-height: 19px;
+}
+
+.input_style02h14 {
+	height: 14px;
+	border: 1px solid #c6c6c6;
+	width: 28px;
+	line-height: 15px;
+	vertical-align: 0;
+}
+
+.input_style03 {
+	height: 19px;
+	border: 1px solid #c6c6c6;
+	width: 40px;
+	line-height: 19px;
+}
+
+.input_style04 {
+	height: 19px;
+	border: 1px solid #c6c6c6;
+	width: 52px;
+	line-height: 19px;
+}
+
+.input_style05 {
+	height: 19px;
+	border: 1px solid #c6c6c6;
+	width: 64px;
+	line-height: 19px;
+}
+
+.input_style06 {
+	height: 19px;
+	border: 1px solid #c6c6c6;
+	width: 76px;
+	line-height: 19px;
+}
+
+.input_style07 {
+	height: 19px;
+	border: 1px solid #c6c6c6;
+	width: 88px;
+	line-height: 19px;
+}
+
+.input_style08 {
+	height: 19px;
+	border: 1px solid #c6c6c6;
+	width: 100px;
+	line-height: 19px;
+}
+
+.input_style09 {
+	height: 19px;
+	border: 1px solid #c6c6c6;
+	width: 112px;
+	line-height: 19px;
+}
+
+.input_style10 {
+	height: 19px;
+	border: 1px solid #c6c6c6;
+	width: 124px;
+	line-height: 19px;
+}
+
+.select_style01 {
+	font-size: 12px;
+	color: #666;
+}
+
+.select_style_event {
+	font-size: 12px;
+	color: #666;
+	vertical-align: top;
+}
+
+.textarea_style {
+	width: 570px;
+	height: 107px;
+	border: 1px solid #c6c6c6;
+	color: #666;
+}
+
+.box_loading {
+	text-align: center;
+	padding: 30px 0;
+}
+
+.myroom_newPopupL {
+	float: left;
+	width: 310px;
+}
+
+.myroom_newPopupR {
+	float: right;
+	width: 310px;
+}
+
+.myroom_newPopupBox {
+	border: 1px solid #dadada;
+	background: #f9f9f9;
+	padding: 15px 10px 15px;
+	margin-top: 30px;
+}
+
+.table_style_my .align_right01 {
+	text-align: right;
+	padding-right: 5px;
+}
+
+.table_style_my strong.new {
+	font-size: 14px;
+	color: #ff0000;
+}

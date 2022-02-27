@@ -207,6 +207,9 @@ public class SearchController {
 		System.out.println(reviewList.get(0).getRe_content());
 		model.addAttribute("reviewList", reviewList);
 		model.addAttribute("ReviewSearchVO",reviewSearchVo);
+		
+		
+//		reviewList.get(0).getRe_filesrc();
 
 		
 		
@@ -295,6 +298,13 @@ public class SearchController {
 	@RequestMapping("/content_view/load/{bid}")
 	public Map<String,Object> content_view(@PathVariable String bid) {
 			return searchService.content_view(bid);
+	}
+	
+	@RequestMapping("/reviewWrite")
+	public String reviewWrite() {
+		System.out.println("reviewWrite Controller");
+		
+		return "reviewWrite";
 	}
 
 
