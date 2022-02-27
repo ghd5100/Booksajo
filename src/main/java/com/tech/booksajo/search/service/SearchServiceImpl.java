@@ -1091,7 +1091,7 @@ public class SearchServiceImpl implements SearchService {
 	
 	}
 
-<<<<<<< HEAD
+
 	@Override
 	public ArrayList<Object> categoryName(String isbn13) throws Exception {
 		
@@ -1150,7 +1150,7 @@ public class SearchServiceImpl implements SearchService {
 		
 		return catenamelist;
 	}
-=======
+
 	
 	
 //이선아 : 리뷰게시판	
@@ -1167,7 +1167,7 @@ public class SearchServiceImpl implements SearchService {
 	}
 
 }
->>>>>>> master
+
 	
 	
 

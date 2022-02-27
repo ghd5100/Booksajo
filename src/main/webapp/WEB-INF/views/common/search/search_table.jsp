@@ -74,7 +74,7 @@ $( document ).ready(function() {
  			    		//html += "<input type='hidden' name='inputDetail' value='" + JSON.stringify(data.documents[k]) + "' ]>";
 			    		html += '<td><a href="search_detail?isbn='+isbn.substr(11,23)+'"><img src=' + data.documents[k].thumbnail +'/></a></td>';
  			    		html += '<td>';
-			    		html += '<b><a href="search_detail?isbn='+isbn.substr(11,23)+'">' + data.documents[k].title + '</a></b></br></br>';
+			    		html += '<b><a href="search_detail?isbn='+isbn.substr(11,23)+'" style="color: #3A60DF;">' + data.documents[k].title + '</a></b></br></br>';
 			    		html += '<p>' + data.documents[k].authors + '&nbsp;&nbsp;지음</p>';
 			    		html += '<p>' + data.documents[k].publisher + '</p>';
 			    		html += '<p>' + datestr2 + '</p>';
@@ -108,17 +108,19 @@ $( document ).ready(function() {
 
 
 
-
 //총 검색 건수 가져오기.meta 에서 얻을수있었음.
 /* 가져와서 코드블럭으로 넣어주기.  */
-
-
-
-
 </script> 
 
 
+<style>
 
+</style>
+
+<td style="">
+<b style="color: #3A60DF;"><a href="#" style=""></a></b>
+</b>
+</td>
 <div id="d1">
 	<!-- 총검색결과  -->
 	${search } 검색결과 총 <h3 id="cnt" style="display: inline;"></h3>

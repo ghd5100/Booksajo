@@ -35,6 +35,7 @@
 
 #title2{
 	margin-left: 100px;
+	margin-bottom: 70px;
 }
 
 #detail{
@@ -80,7 +81,7 @@ tr,td{
 #z{
 	font-size: x-large;
 	font-weight: bold;
-	color: blue;
+	color: #3A60DF;
 	padding-left: 20px;
 }
 
@@ -117,7 +118,30 @@ border-bottom: 2px solid #aaa;
 	border-bottom: 2px solid #aaa;
 }
 
+/* 장바구니,구매 버튼  */
+.btn_blue {
+    background-image: none;
+    background-color: #5e6b9f !important;
+    border: 1px solid #5e6b9f;
+    color: #fff !important;
+    box-shadow: none;
+    width: 170px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+}
 
+.btn_blue2 {
+    background-image: none;
+    background-color: #7b8ed1 !important;
+    border: 1px solid #7b8ed1;
+    color: #fff !important;
+    box-shadow: none;
+    width: 170px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+}
 
 /* ********************************************************************************* */
 
@@ -127,11 +151,7 @@ border-bottom: 2px solid #aaa;
 	margin-left: 90%;
 }
 
-
-
-
 /* 리뷰 작성게시판  */
-
 .body {
     font-size: 12px;
     font-family: dotum, sans-serif;
@@ -179,10 +199,6 @@ dl {
     color: #303030;
     font-size: 12px;
     word-wrap: break-word;
-}
-
-.id{
-	
 }
 
 
@@ -251,6 +267,9 @@ dl {
 }
 
 
+#bookReview {
+	margin-top: 60px;
+}
 
 /* 이선아 리뷰 교환,반품,품절게시판*/
 
@@ -340,7 +359,7 @@ body {
 }
 
 .box_detail_content .table_simple2 {
-    font-size: 11px;
+    font-size: 12px;
 }
 .table_simple2 {
     border-collapse: collapse;
@@ -354,7 +373,7 @@ body {
 .paging_num {
     text-align: center;
     font-size: 12px;
-    margin-top: -20px;
+    margin-top: 20px;
     margin-bottom: 60px;
 }
 
@@ -396,7 +415,6 @@ body {
 }
 
 /* quick메뉴 버튼  */
-
 #quick_menu2 .btn_quick_top a {
     display: block;
     height: 34px;
