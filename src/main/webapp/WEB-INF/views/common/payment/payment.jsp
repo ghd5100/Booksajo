@@ -24,7 +24,6 @@ $(document)
 						var isbn = <%=isbn%>;
 						console.log(isbn);
 						DetailData(isbn);
-						testData(isbn);
 						/* var tid = '${tid}'; */
 						
 						function DetailData(isbn) {
@@ -94,22 +93,25 @@ $(document)
 												$('#selectprod').html(html);
 
 												//컨트롤러로 책 타이틀. 수량. 가격 보내주는 펑션 만들기
-												var param = {"price":price, "count": count, "product_name":product_name}
-												
-												
 												$.ajax({
-													anyne:true,
-													type:'POST',
-													data: JSON.stringify(param),
-													url:"/productInfo",
-													dataType: "text",
-													success : function(data) {
-													
-														console.log("데이타전달성공");
-													},
-													error: function() {
-													alert("ERROR");
-													}
+														type:'POST',
+												 		data: JSON.stringify(
+																{
+																 price:price, 
+																 count: count, 
+																 product_name: product_name	
+																}
+														), 
+														url:"/booksajo/productInfo",
+													    contentType: 'application/json; charset=utf-8',
+														dataType: "JSON",
+														success : function(data) {
+															console.log(data);
+															//뽑은데이터를 수량각각 키로 뽑아서 보내준다.
+														},
+														error: function(e) {
+															console.log('error' + e);
+														}
 													});
 
 												
