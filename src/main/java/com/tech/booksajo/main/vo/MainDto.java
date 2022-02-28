@@ -17,7 +17,17 @@ public class MainDto {
 	private String mod_id;
 	private String use_yn;
 	private String pub_year;
+	private String class_major;
 	
+	
+	public String getClass_major() {
+		return class_major;
+	}
+
+	public void setClass_major(String class_major) {
+		this.class_major = class_major;
+	}
+
 	public MainDto() {
 		// TODO Auto-generated constructor stub
 	}

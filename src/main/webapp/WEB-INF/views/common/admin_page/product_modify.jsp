@@ -12,24 +12,45 @@
 <title>관리자 페이지</title>
 
 <style>
-
-#text {
-	padding-left: 15px;
-	padding-right: 15px;
-}
-#get_data:first-child {
-	padding-top: 15px;
-}
-#get_data:last-child {
-	padding-bottom: 15px;
-}
-#img_area {
-	padding: 15px;
-}
+	#thumbnail {
+		width: 180px;
+		height: 220px;
+		margin: 0 auto;
+	}
+	#image {
+		max-width: 100%;
+		max-height: 100%;
+	}
+	#text {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	#get_data:first-child {
+		padding-top: 15px;
+	}
+	#get_data:last-child {
+		padding-bottom: 15px;
+	}
+	#img_area {
+		padding: 15px;
+	}
 
 </style>
 
 <script>
+
+function setThumbnail(event) {
+	var reader = new FileReader();
+	$("#thumbnail").remove("#image");
+	reader.onload = function(event) {
+// 		var img = document.createElement("img");
+		$("#thumbnail").append("<img src='' id='image' />");
+		$("#image").attr("src", event.target.result);
+// 		document.querySelector("div#thumbnail").appendChild(img);
+	};
+	reader.readAsDataURL(event.target.files[0]);
+}
+
 
 var fileList = []; //파일 정보를 담아 둘 배열
 var fileNames = [];
@@ -39,6 +60,9 @@ var fileNames = [];
 // }
 $(function() {
 	var i = 1;
+	
+	$("#class").val("${list.class_major}").prop("selected", true);
+	
 	$('#get_data').on("dragover", dragOver).on("dragleave", dragOver).on(
 		"drop", uploadFiles);
 
@@ -185,51 +209,117 @@ $(function() {
 	<div class="contents_area">
 		<div class="content_area">
 			<form id="fileForm" name="fileForm" action="admin_product_update" method="post" enctype="multipart/form-data">
-				<input type="hidden" name="isbn" value="${list.isbn }" />
 				<table>
 					<tr>
-						<th>도서번호</th>
+						<th rowspan="4" class="left">
+							<div id="thumbnail" >
+								<img src="${list.thumbnail }" id="image" alt="" />
+							</div>
+							<div>
+								<input type="file" name="thumbnail" onchange="setThumbnail(event)" value="등록" />
+							</div>
+							
+						</th>
+						<th class="left">
+							도서번호
+						</th>
 						<td>
-							<span>${list.isbn }</span>
+							<input type="number" name="isbn" value="${list.isbn }" required/>
 						</td>
-						<th>저자</th>
-						<td><input type="text" name="authors" value="${list.authors }" /></td>
+						<th class="left">
+							재고
+						</th>
+						<td>
+							<input type="number" name="stock" value="${list.stock }" />
+						</td>
+					</tr>
+					<tr>
+						<th class="left">
+							제목
+						</th>
+						<td colspan="3">
+							<input type="text" name="title" value="${list.title }" />
+						</td>
 						
 					</tr>
 					<tr>
-						<th>출판사</th>
-						<td><input type="text" name="publisher" value="${list.publisher }" /></td>
-						<th>출판연도</th>
-						<td><input type="text" name="pub_year" value="${list.pub_year }" /></td>
-	<!-- 					출판연도는 카카오꺼 가져올지 지금 db에 있는거 쓸지 골라야함 카카오꺼 쓰면 DB에 넣기전엔 수정불가-->
-					</tr>
-					<tr>
-						<th>가격?</th>
-						<td><input type="text" name="price" value="${list.price }" /></td>
-						<th>재고</th>
-						<td><input type="text" name="재고 어디서 가져오냐" value="재고 어디서 가져오나"/></td>
-					</tr>
-					<tr>
-						<th>도서명</th>
-						<td colspan="3"><input style="width:100%" type="text" name="title" value="${list.title }" /></td>
-					</tr>
-					<tr>
-						<th>내용</th>
+						<th class="left">
+							가격
+						</th>
 						<td colspan="3">
-							<div id="get_data" contentEditable="true" name="contents" >
-								${list.contents }
-								
-							</div>
+							<input type="number" name="price" value="${list.price }" />
 						</td>
 					</tr>
-	<!-- 				참고자료 -->
-	<!-- 				<tr> -->
-	<!-- 					<td>첨부</td> -->
-	<!-- 					<td colspan="3"><input type="file" name="file" /></td> -->
-	<!-- 				</tr> -->
+					<tr>
+						<th class="left">
+							키워드
+						</th>
+						<td colspan="3">
+							<input type="text" name="keyword" value="${list.keyword }" />
+						</td>
+						
+					</tr>
+					<tr>
+					
+						<th class="left">
+							카테고리
+						</th>
+						<td>
+							<select name="class_major" id="class">
+								<option value="0">총류</option>
+								<option value="1">철학</option>
+								<option value="2">종교</option>
+								<option value="3">사회과학</option>
+								<option value="4">자연과학</option>
+								<option value="5">기술과학</option>
+								<option value="6">예술</option>
+								<option value="7">언어</option>
+								<option value="8">문학</option>
+								<option value="9">역사</option>
+							</select>
+						</td>
+						
+						<th class="left">
+							저자
+						</th>
+						<td colspan="2">
+							<input type="text" name="authors" value="${list.authors }" />
+						</td>
+					</tr>
+					<tr>
+
+						<th class="left">
+							출판연도
+						</th>
+						<td>
+							<input type="number" name="pub_year" value="${list.pub_year }" />
+						</td>
+						
+						<th class="left">
+							출판사
+						</th>
+						<td colspan="2">
+							<input type="text" name="publisher" value="${list.publisher }" />
+						</td>
+					</tr>
+					<tr>
+						<th colspan="5">
+							내용
+						</th>
+					</tr>
+					<tr>
+						<td colspan="5">
+							<div id="get_data" style="min-height: 300px;" contentEditable="true" name="contents" >
+								${list.contents }
+							</div>
+						</td>
+					</tr>				
+					
 				</table>
-				<button id="btn1" type="button" >버튼</button>
-				<button type="button" name="isbn" onclick = "location.href = 'admin_product_detail?isbn=${list.isbn}'">취소</button>
+				<div id="buttons">
+					<button id="btn1" type="button" >확인</button>
+					<button type="button" name="isbn" onclick = "location.href = 'admin_product_detail?isbn=${list.isbn}'">취소</button>
+				</div>
 			</form>
 
 		</div>

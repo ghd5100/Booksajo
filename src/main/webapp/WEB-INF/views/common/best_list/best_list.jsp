@@ -20,13 +20,16 @@
 		<div class="category">
 			<table>
 				<tr>
-					<td><span>베스트 셀러</span></td>
+					<td><span>메뉴</span></td>
 				</tr>
 				<tr>
-					<td><a href="best_list?page=1&category=m">월간 베스트</a></td>
+					<td><a href="bestList?page=1&category=all">전체 베스트 셀러</a></td>
 				</tr>
 				<tr>
-					<td><a href="best_list?page=1&category=y">연간 베스트</a></td>
+					<td><a href="bestList?page=1&category=m">월간 베스트 셀러</a></td>
+				</tr>
+				<tr>
+					<td><a href="bestList?page=1&category=y">연간 베스트 셀러</a></td>
 				</tr>
 			</table>
 		</div>
@@ -41,12 +44,12 @@
 <%-- 							<span>${list.rank }</span> --%>
 <!-- 						</div> -->
 	                    <div class="book_thumbnail">
-	                            <a href="#">
+	                            <a href="search_detail?isbn=${list.isbn }" >
 	                                <img src=${list.thumbnail } alt="">
 	                            </a>
 	                    </div>
 	                    <div class="title">
-	                        <a href="#">
+	                        <a href="search_detail?isbn=${list.isbn }" >
 	                            <strong>${list.title }</strong>
 							</a>
 							<span>저자: ${list.authors }</span>
