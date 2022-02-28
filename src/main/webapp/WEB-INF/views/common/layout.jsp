@@ -13,7 +13,7 @@
 	text-align: center;
 	border: 0px solid #bcbcbc;
 	background-color:white;
-	
+	margin-top: 300px;
 }
 
 

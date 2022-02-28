@@ -221,6 +221,33 @@ a.priview{
 	width: 180px;
 }
 
+/* 이 상품의 상세 정보 표 */
+.table_simple2{
+	font-size: 13px;
+	border-collapse: collapse;
+    width: 85%;
+    background-color: #fff;
+    margin-top: 50px;
+}
+.margin_top10{
+	margin-top: 10px !importamt;
+}
+
+h2{
+	text-align: left;
+}
+#thebook{
+	margin: 25px 0 7px;
+	text-align: left;
+	font-size: 12px;
+	color: #777;
+}
+
+.Tdeliver{
+	border-bottom: 1px #fff;
+	padding-left: 20px;
+	text-align: left;
+}
 
 /* ********************************************************************************* */
 
@@ -280,8 +307,26 @@ dl {
     word-wrap: break-word;
 }
 
+/* .reviewtable1{
+	border-top: 1px solid #777;
+}	 */
 
+.reviewtable2{
+/* 	border-bottom: 1px solid #666666; */
+}	
 
+.comment{
+	padding: 7px 0 6px 0;
+	font-size: 12px;
+}
+
+.reviewid{
+	width: 90px;
+}
+
+.reviewdate{
+	width: 88px;
+}
 /* 리뷰 작성 게시판 답댓글 */
 .table22 {
 	border:1px;
@@ -290,11 +335,9 @@ dl {
 }
 .table3{
     margin: 9px 0 0 0;
-    border-top: 1px solid #000;
-    border:1px;
-    border-bottom:1px;
     zoom: 1;
     font-size: 12px;
+    border-top: 1px dotted #777;
 }
 .reply_wrap {
     position: relative;
@@ -308,6 +351,10 @@ dl {
     margin: 12px 0 0 0;
     font-size: 11px;
     color: #7f7f7f;
+}
+
+.123{
+	border-bottom: 1px medium #777;
 }
 
 .re_write_wrap textarea {
@@ -515,6 +562,4 @@ body {
 
 #quick_menu2 .btn_quick_down a:hover {
     border-color: #999;
-}
-
 }
