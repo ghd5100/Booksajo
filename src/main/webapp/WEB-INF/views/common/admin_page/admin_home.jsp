@@ -9,7 +9,25 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="resources/js/main.js"></script>
 <title>관리자 페이지</title>
+<script>
 
+function selectOrder(orderNo) {
+	
+	location.href = "admin_order_detail?order_no=" + orderNo;
+	
+}
+function selectProduct(isbn) {
+	
+	location.href = "admin_product_detail?isbn=" + isbn;
+	
+}
+function selectUser(user_id) {
+	
+	location.href = "admin_user_detail?user_id=" + user_id;
+	
+}
+
+</script>
 </head>
 <body>
 	<h1>관리자 페이지</h1>
@@ -26,18 +44,19 @@
 						<th>아이디</th>
 						<th>이름</th>
 						<th>휴대전화</th>
+						<th>주소</th>
 						<th>가입일</th>
 					</tr>
 					
 					<c:forEach items="${user_list }" var="user_list">
-						<tr>
+						<tr class="list" onclick="selectUser('${user_list.user_id}')">
 							<td>${user_list.user_id }</td>
 							<td>${user_list.user_name }</td>
 							<td>${user_list.user_phone }</td>
+							<td>${user_list.user_addr }</td>
 							<td>${user_list.user_date }</td>
 						</tr>
 					</c:forEach>
-					
 					
 				</table>
 			</div>
@@ -51,22 +70,25 @@
 			<div class="content_detail">
 				<table>
 					<tr>
-						<th>아이디</th>
-						<th>이름</th>
-						<th>휴대전화</th>
-						<th>가입일</th>
+						<th style="width: 200px">주문 날짜</th>
+						<th style="width: 100px">주문 번호</th>
+						<th style="width: 150px">ID</th>
+						<th style="width: 150px">이름</th>
+						<th style="width: 150px">전화번호</th>
+						<th style="width: 150px">총 금액</th>
 					</tr>
+					<c:forEach items="${order_list }" var="order_list">
 					
-					<c:forEach items="${user_list }" var="user_list">
-						<tr>
-							<td>${user_list.user_id }</td>
-							<td>${user_list.user_name }</td>
-							<td>${user_list.user_phone }</td>
-							<td>${user_list.user_date }</td>
+						<tr class="list" onclick="selectOrder(${order_list.order_no })">
+							<td>${order_list.order_date }</td>
+							<td>${order_list.order_no }</td>
+							<td>${order_list.user_id }</td>
+							<td>${order_list.user_name }</td>
+							<td>${order_list.user_phone }</td>
+							<td>${order_list.order_total_price }</td>
 						</tr>
+
 					</c:forEach>
-					
-					
 				</table>
 			</div>
 		</div>
@@ -80,24 +102,24 @@
 			<div class="content_detail">
 				<table>
 					<tr>
-						<th>isbn</th>
-						<th>상품 이름</th>
-						<th>재고</th>
-						<th>가격</th>
-					</tr>
-					<tr>
-						<td>9788984373068</td>
-						<td>브루클린의 소녀 :기욤 뮈소 장편소설 </td>
-						<td>이거 할까 말까</td>
-						<td>14500</td>
+						<th width="200px">도서 번호</th>
+						<th width="450px">도서 제목</th>
+						<th width="100px">재고</th>
+						<th width="150px">가격</th>
+						<th width="100px">도서 상태</th>
+<!-- 						노출 비노출..? -->
+<!-- 						삭제는 안보이는쪽으로..? 삭제는 안쪽에서 설정하게..? 그러면 테이블에 flag 추가..? -->
 					</tr>
 					
-					<tr>
-						<td>id</td>
-						<td>김개똥</td>
-						<td>010-0000-0000</td>
-						<td>22-02-14</td>
-					</tr>
+					<c:forEach items="${product_list }" var="product_list">
+						<tr class="list" onclick="selectProduct(${product_list.isbn})">
+							<td>${product_list.isbn }</td>
+							<td style="text-align: left;">${product_list.title }</td>
+							<td>재고 넣어야함</td>
+							<td>${product_list.price }</td>
+							<td>도서 상태 넣어야함</td>
+						</tr>
+					</c:forEach>
 				</table>
 			</div>
 		</div>

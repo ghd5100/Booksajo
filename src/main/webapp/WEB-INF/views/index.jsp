@@ -62,71 +62,23 @@
         <div class="best_content">
         	
             <ul class="best_content_list">
-           		<c:forEach items="${list }" var="list">
+           		<c:forEach items="${bestList }" var="bestList">
 					<li>
 						<div class="book_thumbnail">
-							<a href="#">
-								<img src="${list.thumbnail }" alt="${list.thumbnail }" />
+							<a href="search_detail?isbn=${bestList.isbn }" >
+								<img src="${bestList.thumbnail }" alt="${bestList.thumbnail }" />
 							</a>
 						</div>
 						<div class="title">
                         <a href="#">
-                            <strong>${list.title }</strong>
-                            <span>글쓴이 : 누군가</span>
-	                        <span>출판사 : 어딘가</span>
-	                        <span>출판일 : 언젠가</span>
+                            <strong>${bestList.title }</strong>
+                            <span>글쓴이 : ${bestList.authors }</span>
+	                        <span>출판사 : ${bestList.publisher }</span>
+	                        <span>출판일 : ${bestList.pub_year }</span>
                         </a>
                     </div>
 					</li>
 				</c:forEach>
-                <!-- <li>
-                    <div class="book_thumbnail">
-                            <a href="#">
-                                <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
-                            </a>
-                    </div>
-                    <div class="title">
-                        <a href="#">
-                            <strong>제목</strong>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="book_thumbnail">
-                        <a href="#">
-                            <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
-                        </a>
-                    </div>
-                    <div class="title">
-                        <a href="#">
-                            <strong>제목</strong>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="book_thumbnail">
-                        <a href="#">
-                            <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
-                        </a>
-                    </div>
-                    <div class="title">
-                        <a href="#">
-                            <strong>제목</strong>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="book_thumbnail">
-                        <a href="#">
-                            <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
-                        </a>
-                    </div>
-                    <div class="title">
-                        <a href="#">
-                            <strong>제목</strong>
-                        </a>
-                    </div>
-                </li> -->
             </ul>
             <p class="best_controller">
 				<span class="best_prev">&lang;</span>
@@ -134,78 +86,42 @@
             </p>
         </div>
     </div>
-	<div id="today_area">
-        <div class="content_top">
-            <a href="#">오늘의 책</a>
-        </div>
-        <div class="today_content">
-            <ul class="today_content_list">
-                <li>
-                    <div class="book_thumbnail">
-                            <a href="#">
-                                <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
-                            </a>
-                    </div>
-                    <div class="title">
-                        <a href="#">
-                            <strong>제목</strong>
-                        </a>
-                        <span>글쓴이 : 누군가</span>
-                        <span>출판사 : 어딘가</span>
-                        <span>출판일 : 언젠가</span>
-                    </div>
-                </li>
-                <li>
-                    <div class="book_thumbnail">
-                        <a href="#">
-                            <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
-                        </a>
-                    </div>
-                    <div class="title">
-                        <a href="#">
-                            <strong>제목</strong>
-                            <span>글쓴이 : 누군가</span>
-	                        <span>출판사 : 어딘가</span>
-	                        <span>출판일 : 언젠가</span>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="book_thumbnail">
-                        <a href="#">
-                            <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
-                        </a>
-                    </div>
-                    <div class="title">
-                        <a href="#">
-                            <strong>제목</strong>
-                            <span>글쓴이 : 누군가</span>
-	                        <span>출판사 : 어딘가</span>
-	                        <span>출판일 : 언젠가</span>
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="book_thumbnail">
-                        <a href="#">
-                            <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
-                        </a>
-                    </div>
-                    <div class="title">
-                        <a href="#">
-                            <strong>제목</strong>
-                            <span>글쓴이 : 누군가</span>
-	                        <span>출판사 : 어딘가</span>
-	                        <span>출판일 : 언젠가</span>
-                        </a>
-                    </div>
-                </li>
-            </ul>
-            <p class="today_controller">
-				<span class="today_prev">&lang;</span>
-				<span class="today_next">&rang;</span>
-            </p>
-        </div>
-	</div>
+    
+    <c:if test="${userid ne null && userid ne 'admin' }">
+	
+		<div id="today_area">
+	        <div class="content_top">
+	            <a href="#">추천도서</a>
+	        </div>
+	        <div class="today_content">
+	            <ul class="today_content_list">
+	            	<c:forEach items="${rList }" var="rList">
+						<li>
+							<div class="book_thumbnail">
+								<a href="search_detail?isbn=${rList.isbn }" >
+									<img src="${rList.thumbnail }" alt="${rList.thumbnail }" />
+								</a>
+							</div>
+							<div class="title">
+	                        <a href="#">
+	                            <strong>${rList.title }</strong>
+	                            <span>글쓴이 : ${rList.authors }</span>
+		                        <span>출판사 : ${rList.publisher }</span>
+		                        <span>출판일 : ${rList.pub_year }</span>
+	                        </a>
+	                    </div>
+						</li>
+					</c:forEach>
+	            </ul>
+	            
+	            <p class="today_controller">
+					<span class="today_prev">&lang;</span>
+					<span class="today_next">&rang;</span>
+	            </p>
+	        </div>
+		</div>
+	</c:if>
+	
+	
 </body>
 </html>

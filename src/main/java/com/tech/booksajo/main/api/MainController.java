@@ -1,8 +1,10 @@
 package com.tech.booksajo.main.api;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,12 +27,25 @@ public class MainController {
 //	private SqlSession sqlSession;
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String index(Model model) {
+	public String index(Model model, HttpSession session) {
 		System.out.println("~~Index Controller~~");
 		
-		List<MainDto> list = service.getBestData();
+		String id = "";
+		if (session.getAttribute("userid") != null) {
+			id = (String)session.getAttribute("userid");
+		}
+		System.out.println("id : " + id);
 		
-		model.addAttribute("list", list);
+		if ("".equals(id) || "admin".equals(id)) {
+			System.out.println("어드민 혹은 로그인 안됨");
+		} else {
+			List<MainDto> rList = service.rList(id);
+			model.addAttribute("rList", rList);
+			
+		}
+		
+		List<MainDto> bestList = service.getBestData();
+		model.addAttribute("bestList", bestList);
 		
 		return "main";
 	}
@@ -58,8 +73,20 @@ public class MainController {
 		searchVO.pageCalculate(total);
 		int rowStart = searchVO.getRowStart();
 		int rowEnd = searchVO.getRowEnd();
+		String category = "";
+		category = request.getParameter("category");
 		
-		List<MainDto> list = service.getBestAll(rowStart, rowEnd);
+		int categoryCheck = 0;
+		
+		if ("m".equals(category)) {
+			categoryCheck = 1;
+		} else if ("y".equals(category)) {
+			categoryCheck = 2;
+		} else {
+			categoryCheck = 0;
+		}
+		
+		List<MainDto> list = service.getBestAll(rowStart, rowEnd, categoryCheck);
 		
 		model.addAttribute("list", list);
 		model.addAttribute("searchVO", searchVO);

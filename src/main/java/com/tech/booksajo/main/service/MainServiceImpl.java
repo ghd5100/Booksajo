@@ -29,15 +29,29 @@ public class MainServiceImpl implements MainService {
 	}
 
 	@Override
-	public List<MainDto> getBestAll(int rowStart, int rowEnd) {
+	public List<MainDto> getBestAll(int rowStart, int rowEnd, int categoryCheck) {
 		
-		return mapper.getAllData(rowStart, rowEnd);
+		return mapper.getAllData(rowStart, rowEnd, categoryCheck);
 	}
 
 	@Override
 	public int bestCount() {
 		
 		return mapper.bestCount();
+	}
+
+	@Override
+	public List<MainDto> rList(String id) {
+		List<String> class_major_list = mapper.classMajor(id);
+		
+		String class_major = class_major_list.get(0);
+		
+		System.out.println("class_major_list : " + class_major_list);
+		System.out.println("class_major : " + class_major_list.get(0));
+		
+		List<MainDto> rList = mapper.rList(class_major);
+		
+		return rList;
 	}
 
 }

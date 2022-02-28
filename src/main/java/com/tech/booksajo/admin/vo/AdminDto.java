@@ -3,9 +3,29 @@ package com.tech.booksajo.admin.vo;
 import java.util.Date;
 
 public class AdminDto {
-	private String user_id, user_pw, user_name, user_email, user_phone, user_addr, user_point, user_check, user_gender;
+	 
+	private String user_nickname, user_id, user_age, user_name, user_email, user_phone, user_addr, user_point, user_gender;
 	private String user_date;
 	
+	
+
+
+	public String getUser_nickname() {
+		return user_nickname;
+	}
+
+	public void setUser_nickname(String user_nickname) {
+		this.user_nickname = user_nickname;
+	}
+
+	public String getUser_age() {
+		return user_age;
+	}
+
+	public void setUser_age(String user_age) {
+		this.user_age = user_age;
+	}
+
 	public String getUser_date() {
 		return user_date;
 	}
@@ -22,16 +42,6 @@ public class AdminDto {
 
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
-	}
-
-
-	public String getUser_pw() {
-		return user_pw;
-	}
-
-
-	public void setUser_pw(String user_pw) {
-		this.user_pw = user_pw;
 	}
 
 
@@ -82,16 +92,6 @@ public class AdminDto {
 
 	public void setUser_point(String user_point) {
 		this.user_point = user_point;
-	}
-
-
-	public String getUser_check() {
-		return user_check;
-	}
-
-
-	public void setUser_check(String user_check) {
-		this.user_check = user_check;
 	}
 
 

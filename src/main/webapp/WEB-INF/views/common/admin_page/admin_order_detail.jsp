@@ -16,17 +16,36 @@
 $(function(){
 	var listSize = ${list.size()};
 	var idList = [];
+	var orderStatusList = [];
+	
 	idList = ${orderProductList};
+	orderStatusList = ${orderStatusList};
+	
+	
+	console.log("idList : " + idList);
+	console.log(listSize);
+	
+	
 	for (var i = 0; i < listSize; i++) {
-		
-		console.log($("#" + idList[i]).val(idList[i]).prop("selected", true));	
+		$("#" + i).val(orderStatusList[i]).prop("selected", true);
+// 		console.log($("#" + i).val(i).prop("selected", true));	
 	}
 	
 });
+
+// <select id="${s-1 }">
+// <option value="0">배송전</option>
+// <option value="1">배송중</option>
+// <option value="2">배송완</option>
+// <option value="3">반품중</option>
+// <option value="4">반품완</option>
+// <option value="5">취소</option>
+// </select>
+
 function modify() {
 	
 	
-	var orderStatusList = [];
+	var orderSelectList = [];
 	var listSize = ${list.size()};
 	var idList = [];
 	idList = ${orderProductList};
@@ -34,16 +53,16 @@ function modify() {
 	for (var i = 0; i < listSize + 1; i++) {
 		if (i < listSize) {
 			console.log("i : " + i);
-			id = idList[i];
-			console.log("order_product_no : " + id);
-			var selectValue = document.getElementById(id).options[document.getElementById(id).selectedIndex].value;
+// 			id = idList[i];
+// 			console.log("order_product_no : " + id);
+			var selectValue = document.getElementById(i).options[document.getElementById(i).selectedIndex].value;
 			console.log("selectValue : " + selectValue);
-			var orderCount = document.getElementById("count" + id).value;
+			var orderCount = document.getElementById("count" + i).value;
 			console.log("orderCount : " + orderCount)
 			orderCountList.push(orderCount);
-			orderStatusList.push(selectValue);
+			orderSelectList.push(selectValue);
 			var data = {
-					"orderStatusList" : orderStatusList,
+					"orderSelectList" : orderSelectList,
 					"orderProductNo" : idList,
 					"orderCountList" : orderCountList
 			}
@@ -93,21 +112,29 @@ function modify() {
 						<span>${list[0].user_id }</span>
 					</td>
 					<th>이름</th>
-					<td>${list[0].user_name }</td>
+					<td>
+						<span>${list[0].user_name }</span>
+					</td>
 					
 				</tr>
 				
 				<tr>
 					<th>전화번호</th>
-					<td colspan="3">${list[0].user_phone }</td>
+					<td colspan="3">
+						<span>${list[0].user_phone }</span>
+					</td>
 				</tr>
 				<tr>
 					<th>이메일</th>
-					<td colspan="3">${list[0].user_email }</td>
+					<td colspan="3">
+						<span>${list[0].user_email }</span>
+					</td>
 				</tr>
 				<tr>
 					<th>주소</th>
-					<td colspan="3">${list[0].user_addr }</td>
+					<td colspan="3">
+						<span>${list[0].user_addr }</span>
+					</td>
 				</tr>
 				
 			</table>
@@ -123,12 +150,17 @@ function modify() {
 					<th width="150">도서 가격</th>
 				</tr>
 				<c:forEach items="${list }" var="list">
+				<c:set var="s" value="${s+1 }" />
 					<tr>
-						<td>${list.isbn }</td>
-						<td style="padding-left:10px; text-align: left;">${list.title }</td>
-						<td><input type="number" id="count${list.order_product_no }" value="${list.order_count }" /></td>
 						<td>
-							<select id="${list.order_product_no }">
+							${list.isbn }
+						</td>
+						<td style="padding-left:10px; text-align: left;">
+							<span>${list.title }</span>
+						</td>
+						<td><input type="number" id="count${s-1 }" value="${list.order_count }" /></td>
+						<td>
+							<select id="${s-1 }">
 								<option value="0">배송전</option>
 								<option value="1">배송중</option>
 								<option value="2">배송완</option>
@@ -137,14 +169,16 @@ function modify() {
 								<option value="5">취소</option>
 							</select>
 						</td>
-						<td>${list.price }</td>
+						<td>
+							${list.price }
+						</td>
 					</tr>
 				</c:forEach>
 			</table>
-			
-			<button type="button" name="isbn" onclick="modify()">수정</button>
-<!-- 			<button type="button" name="isbn" onclick="location.href = 'admin_order_modify'">수정</button> -->
-			<button type="button" onclick="location.href='admin_order'">목록</button>
+			<div id="buttons">
+				<button type="button" name="isbn" onclick="modify()">수정</button>
+				<button type="button" onclick="location.href='admin_order'">목록</button>
+			</div>
 		</div>
 		
 	</div>

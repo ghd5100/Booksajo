@@ -17,13 +17,60 @@ public class ProductDto {
 	private String mod_id;
 	private String use_yn;
 	private String pub_year;
+	private String stock;
+	private String keyword;
+	private String class_major;
+	private String class_major_ko;
+	private String book_status;
 	
+	public String getBook_status() {
+		return book_status;
+	}
+
+
+	public String getClass_major_ko() {
+		return class_major_ko;
+	}
+
+
+	public String getClass_major() {
+		return class_major;
+	}
+
+	public void setClass_major(String class_major) {
+		this.class_major = class_major;
+		changeClass(class_major);
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+	public String getStock() {
+		return stock;
+	}
+
+	public void setStock(String stock) {
+		this.stock = stock;
+		if (stock == null) {
+			this.book_status = "품절";
+		} else {
+			this.book_status = "판매중";
+		}
+		
+	}
+
 	public String getThumbnail() {
 		return thumbnail;
 	}
 
 	public void setThumbnail(String thumbnail) {
 		this.thumbnail = thumbnail;
+		thumbnailCheck(thumbnail);
 	}
 
 	public String getIsbn() {
@@ -124,5 +171,56 @@ public class ProductDto {
 
 	public ProductDto() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	
+//	method
+	
+	public void changeClass(String class_major) {
+
+		switch (class_major) {
+		case "0":
+			class_major_ko = "총류";
+			break;
+		case "1":
+			class_major_ko = "철학";
+			break;
+		case "2":
+			class_major_ko = "종교";
+			break;
+		case "3":
+			class_major_ko = "사회과학";
+			break;
+		case "4":
+			class_major_ko = "자연과학";
+			break;
+		case "5":
+			class_major_ko = "기술과학";
+			break;
+		case "6":
+			class_major_ko = "예술";
+			break;
+		case "7":
+			class_major_ko = "언어";
+			break;
+		case "8":
+			class_major_ko = "문학";
+			break;
+		case "9":
+			class_major_ko = "역사";
+			break;
+
+		default:
+			break;
+		}
+		
+
+	}
+	
+	public void thumbnailCheck(String thumbnail) {
+		String path = "resources/upload_img/";
+		if (!(thumbnail.contains("http"))) {
+			this.thumbnail = path + thumbnail;
+		}
 	}
 }

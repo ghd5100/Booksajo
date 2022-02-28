@@ -6,10 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<link rel="stylesheet" href="resources/css/admin_page/admin_product_detail.css" />
+<link rel="stylesheet" href="resources/css/admin_page/admin_product_reg.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="resources/js/main.js"></script>
 <title>관리자 페이지</title>
+
 <style>
 	#thumbnail {
 		width: 180px;
@@ -21,43 +22,62 @@
 		max-height: 100%;
 	}
 </style>
+
 <script>
-$(function(){
-	var bb = "${list.title}";
-	console.log(bb);
-	var aaa = '${list.contents}';
-	console.log(aaa);
-	$("#detail_contents").append(aaa);
+// $(function(){
+// 	var bb = "${list.title}";
+// 	console.log(bb);
+// 	var aaa = '${list.contents}';
+// 	console.log(aaa);
+// 	$("#detail_contents").append(aaa);
 	
-});
+// });
+
+function setThumbnail(event) {
+	var reader = new FileReader();
+	$("#thumbnail").remove("#image");
+	reader.onload = function(event) {
+// 		var img = document.createElement("img");
+		$("#thumbnail").append("<img src='' id='image' />");
+		$("#image").attr("src", event.target.result);
+// 		document.querySelector("div#thumbnail").appendChild(img);
+	};
+	reader.readAsDataURL(event.target.files[0]);
+}
+
+
 
 </script>
 
 </head>
 <body>
-	<h1>상품디테일</h1>
+	<h1>상품등록</h1>
 	
 	<div class="contents_area">
 		<div class="content_area">
-
-			<table>
+			<form action="admin_product_reg" method="post" enctype="multipart/form-data">
+				<table>
 					<tr>
 						<th rowspan="4" class="left">
 							<div id="thumbnail" >
-								<img src="${list.thumbnail }" id="image" alt="" />
+								
 							</div>
+							<div>
+								<input type="file" name="thumbnail" onchange="setThumbnail(event)" value="등록" />
+							</div>
+							
 						</th>
 						<th class="left">
 							도서번호
 						</th>
 						<td>
-							<span>${list.isbn }</span>
+							<input type="number" name="isbn" required/>
 						</td>
 						<th class="left">
 							재고
 						</th>
 						<td>
-							<span>${list.stock }</span>
+							<input type="number" name="stock" />
 						</td>
 					</tr>
 					<tr>
@@ -65,7 +85,7 @@ $(function(){
 							제목
 						</th>
 						<td colspan="3">
-							<span>${list.title }</span>
+							<input type="text" name="title" />
 						</td>
 						
 					</tr>
@@ -74,7 +94,7 @@ $(function(){
 							가격
 						</th>
 						<td colspan="3">
-							<span>${list.price }</span>
+							<input type="number" name="price" />
 						</td>
 					</tr>
 					<tr>
@@ -82,7 +102,7 @@ $(function(){
 							키워드
 						</th>
 						<td colspan="3">
-							<span>${list.keyword }</span>
+							<input type="text" name="keyword" />
 						</td>
 						
 					</tr>
@@ -92,14 +112,25 @@ $(function(){
 							카테고리
 						</th>
 						<td>
-							<span>${list.class_major_ko }</span>
+							<select name="class_major" id="class">
+								<option value="0">총류</option>
+								<option value="1">철학</option>
+								<option value="2">종교</option>
+								<option value="3">사회과학</option>
+								<option value="4">자연과학</option>
+								<option value="5">기술과학</option>
+								<option value="6">예술</option>
+								<option value="7">언어</option>
+								<option value="8">문학</option>
+								<option value="9">역사</option>
+							</select>
 						</td>
 						
 						<th class="left">
 							저자
 						</th>
 						<td colspan="2">
-							<span>${list.authors }</span>
+							<input type="text" name="authors" />
 						</td>
 					</tr>
 					<tr>
@@ -108,14 +139,14 @@ $(function(){
 							출판연도
 						</th>
 						<td>
-							<span>${list.pub_year }</span>
+							<input type="number" name="pub_year" />
 						</td>
 						
 						<th class="left">
 							출판사
 						</th>
 						<td colspan="2">
-							<span>${list.publisher }</span>
+							<input type="text" name="publisher" />
 						</td>
 					</tr>
 					<tr>
@@ -125,18 +156,16 @@ $(function(){
 					</tr>
 					<tr>
 						<td colspan="5">
-							<div style="min-height: 300px; padding: 15px; ">
-								${list.contents }
-							</div>
+							<textarea name="contents"></textarea>
 						</td>
 					</tr>				
 					
 				</table>
-			<div id="buttons">
-				<button type="button" onclick = "location.href = 'product_modify?isbn=${list.isbn}'">수정</button>
-				<button type="button" onclick = "location.href = 'admin_product_delete?isbn=${list.isbn}'">삭제</button>
+				
+				<button type="submit">등록</button>
 				<button type="button" onclick = "location.href = 'admin_product'">목록</button>
-			</div>
+				
+			</form>
 		</div>
 		
 	</div>

@@ -14,22 +14,22 @@ $(function() {
 	function best_next() {
 		
 		if (best_count == 1) {
-			for (var i = 0; i < 4 * best_count; i++) {
+			for (var i = 0; i < 8 * best_count; i++) {
 				var a = i + 1;
 				$(".best_content_list li:" + "nth-child(" + a + ")").css("display", "none");				
 			}
-			for (var i = 4 * best_count; i < 8 * best_count; i++) {
+			for (var i = 8 * best_count; i < 16 * best_count; i++) {
 				var a = i + 1;
 				$(".best_content_list li:" + "nth-child(" + a + ")").css("display", "block");				
 			}
 			best_count++;
 		} else if (best_count == 2) {
 			best_count--;
-			for (var i = 4 * best_count; i < 8 * best_count; i++) {
+			for (var i = 8 * best_count; i < 16 * best_count; i++) {
 				var a = i + 1;
 				$(".best_content_list li:" + "nth-child(" + a + ")").css("display", "none");				
 			}
-			for (var i = 0; i < 4 * best_count; i++) {
+			for (var i = 0; i < 8 * best_count; i++) {
 				var a = i + 1;
 				$(".best_content_list li:" + "nth-child(" + a + ")").css("display", "block");				
 			}
@@ -39,22 +39,22 @@ $(function() {
 	function best_prev() {
 		
 		if (best_count == 1) {
-			for (var i = 0; i < 4 * best_count; i++) {
+			for (var i = 0; i < 8 * best_count; i++) {
 				var a = i + 1;
 				$(".best_content_list li:" + "nth-child(" + a + ")").css("display", "none");				
 			}
-			for (var i = 4 * best_count; i < 8 * best_count; i++) {
+			for (var i = 8 * best_count; i < 16 * best_count; i++) {
 				var a = i + 1;
 				$(".best_content_list li:" + "nth-child(" + a + ")").css("display", "block");				
 			}
 			best_count++;
 		} else if (best_count == 2) {
 			best_count--;
-			for (var i = 4 * best_count; i < 8 * best_count; i++) {
+			for (var i = 8 * best_count; i < 16 * best_count; i++) {
 				var a = i + 1;
 				$(".best_content_list li:" + "nth-child(" + a + ")").css("display", "none");				
 			}
-			for (var i = 0; i < 4 * best_count; i++) {
+			for (var i = 0; i < 8 * best_count; i++) {
 				var a = i + 1;
 				$(".best_content_list li:" + "nth-child(" + a + ")").css("display", "block");				
 			}

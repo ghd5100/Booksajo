@@ -121,3 +121,7 @@ tr.user_list:hover > td {
 	font-weight: bold;
 	cursor: pointer;
 }
+
+.paging {
+	margin: 20px;
+}

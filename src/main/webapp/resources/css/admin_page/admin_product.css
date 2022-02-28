@@ -67,6 +67,7 @@ th {
 .content_title {
 	height: 50px;
 	border-bottom: 1px solid #000;
+	position: relative;
 }
 .content_title strong {
 	float: left;
@@ -121,4 +122,15 @@ tr.product_list:hover > td {
 	background-color: #ddd;
 	font-weight: bold;
 	cursor: pointer;
+}
+
+button {
+    margin-left: 10px;
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.paging {
+	margin: 20px;
 }

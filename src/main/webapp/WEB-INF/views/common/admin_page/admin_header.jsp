@@ -18,7 +18,10 @@
 
 </head>
 <body>
-<div class="top_area">
+<div class="top_area" style="position: relative;">
+	<div id="index" style="position: absolute; right: 50px; top: 25px;">
+		<a href="index">Main</a>
+	</div>
 	<table class="top_table">
 		<tr>
 			<th colspan="6">관리자 페이지</th>

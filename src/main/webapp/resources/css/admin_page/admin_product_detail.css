@@ -36,7 +36,6 @@ th {
 
 .contents_area {
 	width: 1000px;
-	height: 500px;
 	margin: 0 auto;
 
 }
@@ -63,6 +62,7 @@ th {
 
 .content_area {
 	margin-top: 10px;
+	margin-bottom: 50px;
 }
 .content_title {
 	height: 50px;
@@ -102,10 +102,11 @@ th {
 .content_area table td,
 .content_area table th {
 	border: 1px solid black;
-	height: 50px;
+	height: 70px;
 }
 
-.content_area table span {
+.content_area table span,
+select {
 	padding-left: 20px;
 
 }
@@ -124,3 +125,28 @@ textarea {
 	resize: none;
 }
 
+.left {
+	width: 200px;
+}
+
+.right {
+	width: 300px;
+}
+
+#buttons {
+	margin-top: 20px;
+}
+button {
+    margin-left: 10px;
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+
+tr.order_list:hover,
+tr.order_list:hover > td {
+	background-color: #ddd;
+	font-weight: bold;
+	cursor: pointer;
+}

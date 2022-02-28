@@ -24,6 +24,23 @@
 				OR user_name LIKE '%'||#{param1}||'%')
 		WHERE row_no BETWEEN #{param2} AND #{param3}
 	</select>
+	
+	<select id="userDetail" resultType="com.tech.booksajo.admin.vo.AdminDto">
+		SELECT user_id, user_nickname, user_gender, user_age, user_name, user_phone, user_addr, user_email, user_date
+		FROM bsjusers
+		WHERE user_id = #{param1}
+	</select>
+	
+	<select id="userOrderList" resultType="com.tech.booksajo.admin.vo.OrderDto">
+		SELECT *
+		FROM
+		    bsjorder a,
+		    bsjusers b
+		WHERE
+		    a.user_id = b.user_id
+		    AND a.user_id = #{param1}
+	</select>
+	
 
 	<delete id="delete_user">
 		DELETE FROM bsjusers WHERE user_id = #{param1}
@@ -40,8 +57,6 @@
 			user_id LIKE '%'||#{param1}||'%'
 			OR user_name LIKE '%'||#{param1}||'%'
 	</select>
-	
-	
 	
 	<select id="orderList" resultType="com.tech.booksajo.admin.vo.OrderDto">
 		SELECT *
@@ -163,14 +178,25 @@
 	<update id="productUpdate">
 		UPDATE bsjbook
 		SET
-			authors = #{param2},
-			publisher = #{param3},
-			pub_year = #{param4},
-			price = #{param5},
-			title = #{param6},
-			contents = #{param7}
-		WHERE isbn = #{param1}
+			thumbnail = #{param1},
+			authors = #{param3},
+			publisher = #{param4},
+			pub_year = #{param5},
+			price = #{param6},
+			title = #{param7},
+			contents = #{param8}
+		WHERE isbn = #{param2}
 	</update>
+	
+	<insert id="productReg">
+		INSERT INTO bsjbook(thumbnail, isbn, title, contents, authors, publisher, pub_year, price, keyword, class_major, stock)
+		VALUES(#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}, #{param8}, #{param9}, #{param10}, #{param11})
+	
+	</insert>
+	<delete id="productDelete">
+		DELETE FROM bsjbook
+		WHERE isbn = #{param1}
+	</delete>
 	
 	<select id="monthly_sales" resultType="com.tech.booksajo.admin.vo.MonthlySalesDto">
 		SELECT SUM(price * order_count) monthly_sales, TO_NUMBER(TO_CHAR(aa.order_date, 'mm')) order_date
