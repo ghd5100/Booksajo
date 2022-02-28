@@ -11,18 +11,18 @@
 <!--     <script src="resources/lib/bootstrap/js/bootstrap.js"></script>
  <script src="resources/lib/jquery/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" type="text/css" href="resources/lib/bootstrap/css/bootstrap.min.css">
+
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-
 <!-- 제이쿼리 -->
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
 <!-- 부가적인 테마 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
 <link rel="stylesheet" type="text/css" href="resources/css/header.css">
 
 
@@ -33,7 +33,13 @@
 	<nav class="nav a1">
 		<div class="top1">
 			<ul class="nav justify-content-center">
-				<li id="f"><a href="#">매장안내</a></li>
+				<li id="f"><a class=""nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="search" aria-expanded="false" onmouseover="drop(1);">매장안내</a>
+					<ul class="dropdown-menu">
+						<li style="font-size: 12px;"><a href="mainStore1" data-ga-label="">광화문점</a></li>
+						<li style="font-size: 12px;"><a href="mainStore2" data-ga-label="">영등포점</a></li>					
+						<li style="font-size: 12px;"><a href="mainStore3" data-ga-label="">강남점</a></li>
+					</ul>
+				</li>
 				<li id="f"><a href="#">회원혜택</a></li>
 				<li id="f"><a href="#">Prestige Lounge</a></li>
 				<li id="g"><a href="login">로그인</a></li>

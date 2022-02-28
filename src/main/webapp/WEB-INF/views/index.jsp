@@ -123,5 +123,83 @@
 	</c:if>
 	
 	
+=======
+	<div id="today_area">
+        <div class="content_top">
+            <a href="#">오늘의 책</a>
+        </div>
+        <div class="today_content">
+            <ul class="today_content_list">
+                <li>
+                    <div class="book_thumbnail">
+                            <a href="#">
+                                <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
+                            </a>
+                    </div>
+                    <div class="title">
+                        <a href="#">
+                            <strong>제목</strong>
+                        </a>
+                        <span>글쓴이 : 누군가</span>
+                        <span>출판사 : 어딘가</span>
+                        <span>출판일 : 언젠가</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="book_thumbnail">
+                        <a href="#">
+                            <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
+                        </a>
+                    </div>
+                    <div class="title">
+                        <a href="#">
+                            <strong>제목</strong>
+                            <span>글쓴이 : 누군가</span>
+	                        <span>출판사 : 어딘가</span>
+	                        <span>출판일 : 언젠가</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="book_thumbnail">
+                        <a href="#">
+                            <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
+                        </a>
+                    </div>
+                    <div class="title">
+                        <a href="#">
+                            <strong>제목</strong>
+                            <span>글쓴이 : 누군가</span>
+	                        <span>출판사 : 어딘가</span>
+	                        <span>출판일 : 언젠가</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="book_thumbnail">
+                        <a href="#">
+                            <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
+                        </a>
+                    </div>
+                    <div class="title">
+                        <a href="#">
+                            <strong>제목</strong>
+                            <span>글쓴이 : 누군가</span>
+	                        <span>출판사 : 어딘가</span>
+	                        <span>출판일 : 언젠가</span>
+                        </a>
+                    </div>
+                </li>
+               
+            </ul>
+            
+            
+
+            <p class="today_controller">
+				<span class="today_prev">&lang;</span>
+				<span class="today_next">&rang;</span>
+            </p>
+        </div>
+	</div>
 </body>
 </html>
