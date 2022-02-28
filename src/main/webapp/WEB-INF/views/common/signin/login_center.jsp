@@ -160,7 +160,7 @@ td {
 				</tr>
 
 			</table>
-			<input id="submitbtn" type="submit" value="L o g i n"
+			<input id="submitbtn" type="submit" value="L o g i n" 
 				style="width: 380px; margin: 20px 0 0 45px; height: 35px; font-size: 15px; font-family: impact; color: #555" />
 		</form>
 	</div>

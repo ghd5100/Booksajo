@@ -6,9 +6,9 @@
 
 <mapper namespace="com.tech.booksajo.login.mapper.LoginMapper">
 	<insert id="signInProc">
-		INSERT INTO BSJUSERS(USER_ID,USER_NICKNAME,USER_GENDER,USER_AGE,USER_NAME,USER_PHONE,USER_ADDR,USER_EMAIL,USER_SHAPW,USER_BCPW) 
+		INSERT INTO BSJUSERS(USER_ID,USER_NICKNAME,USER_GENDER,USER_AGE,USER_NAME,USER_PHONE,USER_ADDR,USER_EMAIL,USER_SHAPW,USER_BCPW,USER_DATE) 
 		VALUES(#{param1},#{param2},#{param3},#{param4},#{param5},
-		#{param6},#{param8},#{param9},#{param10},#{param11})
+		#{param6},#{param8},#{param9},#{param10},#{param11},SYSDATE)
 	</insert>
 	
 	<select id="loginProc" resultType="com.tech.booksajo.login.vo.SignInVO">

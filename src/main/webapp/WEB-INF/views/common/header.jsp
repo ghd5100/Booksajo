@@ -29,6 +29,7 @@
 
 
 
+
 <header class="header">
 	<nav class="nav a1">
 		<div class="top1">
@@ -36,10 +37,19 @@
 				<li id="f"><a href="#">매장안내</a></li>
 				<li id="f"><a href="#">회원혜택</a></li>
 				<li id="f"><a href="#">Prestige Lounge</a></li>
+				<%
+				Object userid=session.getAttribute("userid");
+				
+				
+				if(userid == null ){
+				%>
 				<li id="g"><a href="login">로그인</a></li>
 				<li id="g"><a href="signIn">회원가입</a></li>
+				<%}else if(userid != null){ %>
+				<li id="g"><a href="logout">로그아웃</a></li>
 				<li id="g"><a href="#">출석체크</a></li>
 				<li id="g"><a href="mypage">MYPAGE</a></li>
+				<%} %>
 <!-- 				<li id="g"><a href="#">고객센터</a></li> -->
 				<li id="g"><a href="#">주문배송</a></li>
 				<li id="g"><a href="shoplist">장바구니</a></li>

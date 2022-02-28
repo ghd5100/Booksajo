@@ -249,6 +249,7 @@ td {
 					<td class="title">이메일</td>
 					<td class="right" colspan="2"><input id="email" name="email"
 						type="text" required></td>
+					
 				</tr>
 
 			</table>

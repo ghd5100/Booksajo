@@ -18,6 +18,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.AlternativeJdkIdGenerator;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -123,7 +124,7 @@ public class LoginController {
 //			System.out.println("hihihihih:"+insertResult);
 			if(insertResult==1) {//성공
 				emailSendAction(id);
-				return "redirect:/";
+				return "redirect:/login";
 			}else {
 				return "redirect:/signIn";
 			}
@@ -244,6 +245,7 @@ public class LoginController {
 
 //		join 처리
 		SignInVO signInVO=logMap.idCheck(id);
+		
 		if(signInVO==null) {
 			System.out.println("아이디 없음");
 			return 0;
@@ -312,9 +314,9 @@ public class LoginController {
 			if(!signInVO.equals(null) && signInVO.getUser_mailcheck()==1) {//메일확인이 끝난상태확인
 				idpwboolean =BCrypt.checkpw(shaPass, signInVO.getUser_bcpw());
 				if(idpwboolean)
-					x=1;
+					x=1; //회원정보가 데이터베이스에 있고 메일확인도 끝난상태
 				else
-					x=0;		
+					x=0; //회원정보가 데이터베이스에 있지만 메일확인은 안 끝난상태		
 			}else {
 				x=-1;
 					
@@ -332,6 +334,7 @@ public class LoginController {
 			return "redirect:/";
 		}else {
 			request.getSession().setAttribute("error", "Login Retry");
+			//model.addAttribute("loginStatus",x);
 			return "redirect:login";
 		}	
 	}
