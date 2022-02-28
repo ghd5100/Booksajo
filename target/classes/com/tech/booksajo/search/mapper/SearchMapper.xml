@@ -195,7 +195,15 @@
      and bsjselectbook_user_id = #{param3}
 	</update>
 
-
+	
+	<select id="totalcount" resultType="com.tech.booksajo.search.vo.UserSelect">
+	 SELECT 
+     COUNT(bsjselectbook_count) totalcount
+     ,bsjselectbook_isbn totalisbn
+     FROM bsjselectbook 
+     where bsjselectbook_user_id = #{param1}
+     group by bsjselectbook_isbn
+	</select>
 
 
 	

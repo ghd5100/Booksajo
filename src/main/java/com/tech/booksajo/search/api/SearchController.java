@@ -21,7 +21,8 @@ import com.tech.booksajo.search.service.SearchService;
 import com.tech.booksajo.search.vo.ReviewDto;
 import com.tech.booksajo.search.vo.ReviewSearchVO;
 import com.tech.booksajo.search.vo.ShopView;
-import com.tech.booksajo.search.vo.Shoplist2;
+import com.tech.booksajo.search.vo.getcount;
+import com.tech.booksajo.search.vo.UserSelect;
 
 import lombok.RequiredArgsConstructor;
 
@@ -113,11 +114,24 @@ public class SearchController {
 			model.addAttribute("shoplist", shlist);
 		}
 		
-	
 		//틀린이유 생성자 주입안해줌..
 	
+		//그냥 카운트드를 가져오는게 아니라 업데이트된 카운트를 가져와야한다. 업데이트된 디비로부터 가져오기 그룹함수로 인트로 가져온다
+		//문제: isbn이 다 달라... isbn이 다 다르기떄문.. 테이블에서 다 가져와야한다....때문이다.
+		//테이블에서 리저트 셋으로 다 가져와야겠네..테이블 자체내용을 가져와서 넣어줘야겠네.
 		
-		return "common/shoplist/shoplist2";
+		//리스트로 객체 따로 선언후에 넣어주려고하면 오버라이드 되니 아래 처럼 써준다.
+		
+		//<UserSelect> countlist=searchService.totalcount(userId);
+		
+		//가져왔으면 모델에 담아서 보내줘야함. 그래야 화면에 뿌림
+		
+		//model.addAttribute("getcount", countlist);
+		
+		
+		
+		
+		return "shoplist2";
 	}	
 	
 	

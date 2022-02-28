@@ -18,6 +18,7 @@ public class ShopView {
 	private String bsjselectbook_url;
 	private String bsjselectbook_title;
 	private String bsjselectbook_status;
+	
 	public String getBsjselectbook_isbn() {
 		return bsjselectbook_isbn;
 	}

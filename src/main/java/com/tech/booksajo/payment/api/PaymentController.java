@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +34,7 @@ import com.tech.booksajo.mypage.vo.Myinfomation;
 import com.tech.booksajo.payment.service.PaymentService;
 import com.tech.booksajo.payment.vo.KakaoPayApproval;
 import com.tech.booksajo.payment.vo.PayInfomation;
+import com.tech.booksajo.search.service.SearchService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -67,7 +69,10 @@ public class PaymentController {
 	//ajax 받을때 @RequestParam 을 쓴다 그런데 매개변수에대가 써줘야함
 
 	@RequestMapping("/payment")
-	public String payment(HttpServletRequest request, Model model, Myinfomation payme) {
+	public String payment(HttpServletRequest request, Model model, Myinfomation payme) { //바로구매로 들어올떄
+		
+
+		
 		
 		System.out.println("payment들어옴");
 		String isbn13=request.getParameter("isbn");
@@ -82,6 +87,64 @@ public class PaymentController {
 		model.addAttribute("payinfo", payme);
 		
 		return "payment";
+	}
+	
+	
+	@RequestMapping("/payment2")
+	public String payment2(HttpServletRequest request, Model model, Myinfomation payme) throws Exception { //장바구니 담아서 들어올떄
+	String[] a=request.getParameterValues("t1"); // 배송비를 제외한 총금액 들어오네 
+	String[] b=request.getParameterValues("t2"); // 배송비를 포함한 총금액 들어오네
+	String[] selectisbn=request.getParameterValues("selectisbn");		//네임으로 받아주네
+	String[] count=request.getParameterValues("qun");
+	
+	
+	//선택한 책도 isbn도 들어와야함... 포인트도 필요하므로  .. 포인트 필드 추가하기
+	
+	
+	System.out.println("a가뭐지:"+a[0]);
+	System.out.println("b가뭐지:"+b[0]);
+	
+	//총금액 테이블 업뎃하기 
+	
+	paymentService.insertpayinfo(a[0],b[0]);
+	
+	//위에서 업데이트한 테이블 불어오기
+	
+	ArrayList<Object> payarr=new ArrayList<Object>();
+	
+	payarr=paymentService.getpayinfo();
+	
+	
+	
+	//업뎃 작업
+	
+	ArrayList<String> selectisbnlist=new ArrayList<String>();
+	
+	for (int i = 0; i < selectisbn.length; i++) {
+		System.out.println("몇개가나옴:"+selectisbn[i]);
+		selectisbnlist.add(selectisbn[i]);
+	}
+	
+	ArrayList<Integer> countlist=new ArrayList<Integer>();
+	
+	for (int i = 0; i < count.length; i++) {
+		System.out.println("몇개가나옴:"+Integer.parseInt(count[i]));
+		countlist.add(Integer.parseInt(count[i]));
+	}
+	
+	//isbn이랑 count랑 인덱스 번호 맞추면되려나 =확인해보기 맞음..
+	//받은걸로 결제테이블에 인서트해주면댐... 그러면 결제테이블 완성.. 만들어진 테이블을 결제뷰로 뿌려준다....
+	//리스트야..
+	
+	ArrayList<Object> output=new ArrayList<Object>();
+	
+	output=paymentService.insertwork(selectisbnlist,countlist);
+	
+	
+	model.addAttribute("list", output);
+	model.addAttribute("payinfo", payarr);
+	
+	return "payment2";
 	}
 	
 

@@ -90,4 +90,18 @@
 	</select>
 	
 	
+	<select id="paymentlist" resultType="com.tech.booksajo.payment.vo.Paymentinfomation">
+	    SELECT PAYMENT_ISBN,PAYMENT_COUNT FROM BSJPAYMENT_BOOK
+	</select>
+	
+	
+	<insert id="insertpayinfo">
+		insert into BSJPAYMENT (payment_totalsum,payment_sum) values(#{param1},#{param2})
+	</insert>
+	
+	
+	<select id="getpayinfo" resultType="com.tech.booksajo.payment.vo.Paymentinfomation">
+		SELECT PAYMENT_TOTALSUM,PAYMENT_SUM,PAYMENT_METHOD,PAYMENT_TID,PAYMENT_DATETIME FROM BSJPAYMENT
+	</select>
+	
 </mapper>

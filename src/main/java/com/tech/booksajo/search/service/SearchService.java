@@ -7,6 +7,8 @@ import java.util.Map;
 
 import com.tech.booksajo.search.vo.ReviewDto;
 import com.tech.booksajo.search.vo.ShopView;
+import com.tech.booksajo.search.vo.UserSelect;
+import com.tech.booksajo.search.vo.getcount;
 
 
 public interface SearchService  {
@@ -32,10 +34,14 @@ public interface SearchService  {
 	
 //	ArrayList<ShopView> getshoplist();
 
+	List<UserSelect> totalcount(String userId);
+	
 	
 //  이선아 : 리뷰게시판
 	List<ReviewDto> reviewList(int rowStart, int rowEnd);
 	int reviewCount();
 	int cartCount(String isbn,String userId);
 	void cartUpdate(String isbn,int count,String userId);
+
+	
 }

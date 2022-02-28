@@ -1,5 +1,6 @@
 package com.tech.booksajo.payment.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -45,5 +46,10 @@ public interface PaymentMapper {
 
 	Myinfomation getuserinfo();
 	
+	public ArrayList<Object> paymentlist();
 
+
+	void insertpayinfo(String a, String b);
+
+	ArrayList<Object> getpayinfo();
 }

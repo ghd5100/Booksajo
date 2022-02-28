@@ -1,10 +1,17 @@
 package com.tech.booksajo.payment.service;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +22,16 @@ import com.tech.booksajo.search.mapper.SearchMapper;
 import com.tech.booksajo.search.vo.SearchVO;
 
 
+
 @Service(value="paymentService")
 public class PaymentServiceImpl implements PaymentService {
 	
 	@Autowired
 	PaymentMapper paymentmapper;
 
+	
+	SqlSession sqlsession;
+	
 /*	@Override
 	public List<Map<String, Object>> getList() {
 		return searchmapper.getList();
@@ -149,6 +160,76 @@ public List<Map<String,Object>> plist(Map<String,Object> requestDto) {
 		//meme=paymentmapper.getusers();
 		
 		return paymentmapper.getuserinfo();
+	}
+
+
+
+	@Override
+	public ArrayList<Object> insertwork(ArrayList<String> selectisbnlist, ArrayList<Integer> countlist) throws Exception {
+		
+		PreparedStatement pstmt;
+		ArrayList<Object> paymentbook=new ArrayList<Object>();
+		//디비에 한줄한줄 넣어주는 작업하기..
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			//접속
+			String url="jdbc:oracle:thin:@localhost:1521:xe";
+			String user="hr";
+			String pw="123456";
+			Connection con=DriverManager.getConnection(url, user, pw);
+			System.out.println("성공");
+			
+/*		
+			PAYMENT_ISBN	VARCHAR2(20 BYTE)
+			PAYMENT_COUNT	NUMBER
+	*/	
+			
+			for (int i = 0; i < selectisbnlist.size(); i++) {
+				
+			String sql="insert into BSJPAYMENT_BOOK values(?,?)";
+			
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, selectisbnlist.get(i));
+			pstmt.setInt(2, countlist.get(i));
+			
+			pstmt.executeUpdate();
+			
+			}
+		
+			
+			//디비에서 리스트로 가져오기
+			
+			paymentbook=paymentmapper.paymentlist();
+			
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+		
+		return paymentbook;
+	}
+
+
+
+	@Override
+	public void insertpayinfo(String a ,String b) {
+		paymentmapper.insertpayinfo(a,b);
+		
+	}
+
+
+
+	@Override
+	public ArrayList<Object> getpayinfo() {
+		
+		ArrayList<Object> payarr=new ArrayList<Object>();
+		payarr=paymentmapper.getpayinfo();
+		
+		return payarr;
 	}
 
 

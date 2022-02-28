@@ -324,7 +324,7 @@ var sessionId = '<%=userId%>';
 					var height = 10; 
 				
 				//pc화면기준 가운데 정렬  
-					var left = (window.screen.width / 2) - (width / 2); 
+					var left = (window.screen.width / 2) - (width /2); 
 					var top = (window.screen.height / 4); 
 				//윈도우 속성 지정 
 			
