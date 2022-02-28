@@ -12,6 +12,7 @@
 	border-collapse: collapse;
 }
 
+
 th {
 	text-align: center;
 }
@@ -61,18 +62,12 @@ th {
 /* contents_area */
 
 .content_area {
-	border: solid 1px #000;
 	margin-top: 10px;
 }
 .content_title {
 	height: 50px;
 	border-bottom: 1px solid #000;
 }
-
-.content_title input {
-	border: 1px solid black;
-}
-
 .content_title strong {
 	float: left;
 	margin-left: 20px;
@@ -93,38 +88,41 @@ th {
 	height: 30px;
 	border-radius: 15px;
 	padding-left: 15px;
-	border: 1px solid black;
 }
 .content_title form > button {
 	width: 50px;
 	height: 30px;
 }
 
-.content_detail > table {
+.content_area table {
 	width: 1000px;
-	text-align: center;
+	text-align: left;
+	border: 1px solid black;
+}
+.content_area table td,
+.content_area table th {
+	border: 1px solid black;
+	height: 70px;
 }
 
-.content_detail > table td,
-.content_detail > table th {
-	padding: 10px;
+.content_area table span {
+	padding-left: 20px;
+
+}
+
+.content_area table input {
+	width: 100%;
+	height: 100%;
+	padding-left: 20px;
+}
+
+textarea {
+	padding-left: 20px;
+	padding-top: 10px;
+	width: 100%;
+	height: 400px;
+	resize: none;
+}
+.left {
 	width: 200px;
-	white-space: nowrap;
-	overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.content_detail > table th {
-	font-weight: bold;
-}
-
-tr.order_list:hover,
-tr.order_list:hover > td {
-	background-color: #ddd;
-	font-weight: bold;
-	cursor: pointer;
-}
-
-.paging {
-	margin: 20px;
 }

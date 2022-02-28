@@ -10,6 +10,7 @@ public interface MainService {
 	
 	List<Map<String,Object>> getList();
 	List<MainDto> getBestData();
-	List<MainDto> getBestAll(int rowStart, int rowEnd);
+	List<MainDto> getBestAll(int rowStart, int rowEnd, int categoryCheck);
+	List<MainDto> rList(String id);
 	int bestCount();
 }

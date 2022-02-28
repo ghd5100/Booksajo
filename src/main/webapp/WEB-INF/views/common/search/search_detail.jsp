@@ -92,7 +92,7 @@ var sessionId = '<%=userId%>';
 
 												console.log(data.documents[0]);
 
-												thumbnail +='<img src='+data.documents[0].thumbnail+'class="img-fluid" alt="..." style="width: 180px; height: 250px;" / >';
+												thumbnail +='<img src='+data.documents[0].thumbnail+'class="img-fluid" alt="..." style="width: 120px; height: 174px;" / >';
 												$('#img2').html(thumbnail);														//width: 248px; height: 330px;
 												$('#detail').html(html);
 											}).fail(function(error) {
@@ -208,9 +208,8 @@ var sessionId = '<%=userId%>';
 							}
 						 
 						}
-			
-
 </script>
+
 
 <div id="inlineside">
 
@@ -257,9 +256,6 @@ var sessionId = '<%=userId%>';
 
 
 
-
-
-
 		<div id="booksen">
 		<form action="shoplist2" id="formorder" method="post">
 				<br /><br />
@@ -277,7 +273,6 @@ var sessionId = '<%=userId%>';
 	</div>
 
 
-
 	<div id="bookReview">
 		<ul class="nav nav-tabs">
 			<li class="nav-item"><a class="nav-link active"
@@ -288,10 +283,87 @@ var sessionId = '<%=userId%>';
 				aria-current="page" href="#boxDetailTag">교환/반품/품절</a></li>
 		</ul>
 
-		<a name="bookinfoTag" style="position: absolute; top: 530px"></a> <img
-			src="resources/img/doit.jpg" id="bookimg" role="tab"
-			style="width: 733px;" />
+		<a name="bookinfoTag" style="position: absolute; top: 530px"></a> 
 	</div>
+
+
+<!-- 이 상품의 isbn,쪽수,크기 정보 -->
+	<table class="table_simple2 table_opened margin_top10" summary="이 상품의 상세정보">
+		<colgroup>
+			<col width="18%">
+			<col width="*">
+		</colgroup>
+		<tbody>
+			<tr>
+				<th scope="row">ISBN</th>
+				<td><span title="ISBN-13">9791163031185</span>
+			</tr>
+
+			<tr>
+				<th scope="row">쪽수</th>
+				<td>276쪽</td>
+			</tr>
+
+			<tr>
+				<th scope="row">크기</th>
+				<td>172 * 226 * 20 mm /496g 
+			</tr>
+		</tbody>
+	</table>
+
+<!-- 상품상세정보 -->
+	<table class="table_simple2 margin_top10">
+		<colgroup>
+			<col width="22%">
+			<col width="*">
+			<col width="22%">
+			<col width="*">
+		</colgroup>
+		<tbody>
+			<tr>
+				<th><img
+					src="http://image.kyobobook.co.kr/ink/images/prom/2012/general/121108_info/quality_mark.jpg"
+					alt="품질인증마크" width="20" height="30" vspace="5" hspace="29"><br>
+					제품안전인증</th>
+				<td colspan="3">KC마크는 이 제품이 공통 안전기준에 적합하였음을 의미합니다.<br> <!-- //16-05-11 어린이제품안전특별법 상품정보 수정 -->
+				</td>
+			</tr>
+
+			<tr>
+				<th>크기,중량</th>
+				<td>172 * 226 * 20 mm / 496g</td>
+			</tr>
+
+			<tr>
+				<th>제조일자</th>
+				<td>2019/11/20</td>
+			</tr>
+
+			<tr>
+				<th>색상</th>
+				<td>이미지참고</td>
+			</tr>
+
+			<tr>
+				<th>제조자 (수입자)</th>
+				<td>이지스퍼블리싱</td>
+			</tr>
+
+
+			<tr>
+				<th>품질보증기준</th>
+				<td>관련 법 및 소비자 분쟁해결 규정에 따름</td>
+			</tr>
+
+		</tbody>
+	</table>
+		
+		<br /><br />
+		<h2><strong>책소개</strong></h2>
+		<h3 id="thebook">이 책이 속한 분야</h3>
+		
+
+	<img src="resources/img/doit.jpg" id="bookimg" role="tab" style="width: 733px;" />
 
 
 	<!-- 이선아 참고부분 -->
@@ -307,7 +379,9 @@ var sessionId = '<%=userId%>';
 
 <!-- 리뷰게시판 리뷰작성 -->
 <!-- jsp_work에 jspwebm15 hit login 참고-->
-	<c:if test="${empty userid }">
+	<c:if test="${empty userid }" >
+		
+		
 		<div class="reviewWriteBtn">
 			<a href="http://localhost:9007/booksajo/login?isbn=${isbn }"
 				onclick="alert('로그인 후 작성 가능합니다.')"><img
@@ -362,22 +436,39 @@ var sessionId = '<%=userId%>';
 				<li class="nav-item"><a class="nav-link active"
 					aria-current="page" href="#boxDetailTag">교환/반품/품절</a></li>
 			</ul>
-			<div>
 
+			<div class="rate" style="margin: 30px 0 100px 0;">
+			<h2 style="text-align: left;">Klover 리뷰</h2>
+			
+			
+			
+			
+<!-- 			★여기부터★ -->
+			
+			
+			
+			
+			</div>			
+			
+			
+			
+			
+			
+			<div>
 				<a name="bookReviewTag"  style="position: absolute; top: -330px"></a>
-				<table class="table3">
 					<c:forEach items="${reviewList }" var="reviewdto">
-						<tr>
-							<td class="id">${reviewdto.user_id }</td>
-							<td class="date"><fmt:formatDate
-									value="${reviewdto.re_date }" pattern="yyy-MM-dd" /></td>
-							<td class="kloverRating">${reviewdto.re_score }</td>
-						</tr>
-						<tr>
-							<td colspan="2" class="comment">${reviewdto.re_content }</td>
-						</tr>
+						<table class="table3">
+								<tr class="reviewtable1">
+									<td class="reviewid" style="font-size: 12px; font-weight: bolder;">${reviewdto.user_id }</td>
+									<td class="reviewdate" style="font-size: 11px; color: #ADADAD; text-align: left">
+									<fmt:formatDate value="${reviewdto.re_date }" pattern="yyy-MM-dd" /></td>
+									<td class="reviewrating">리뷰 점수 : ${reviewdto.re_score }</td>
+								</tr>
+								<tr class="reviewtable2">
+									<td colspan="2" class="comment">${reviewdto.re_content }</td>
+								</tr>
+						</table>
 					</c:forEach>
-				</table>
 			</div>
 		</div>
 	</div>

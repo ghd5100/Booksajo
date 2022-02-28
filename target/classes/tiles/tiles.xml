@@ -98,6 +98,12 @@
 		<put-attribute name="body" value="/WEB-INF/views/common/admin_page/admin_user.jsp" />
 	</definition>
 	
+	<definition name="admin_user_detail" extends="admin_layout">
+		<put-attribute name="title" value="관리자 페이지" />
+		<put-attribute name="header" value="/WEB-INF/views/common/admin_page/admin_header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/admin_page/admin_user_detail.jsp" />
+	</definition>
+	
 	<definition name="admin_order" extends="admin_layout">
 		<put-attribute name="title" value="관리자 페이지" />
 		<put-attribute name="header" value="/WEB-INF/views/common/admin_page/admin_header.jsp" />
@@ -134,6 +140,11 @@
 		<put-attribute name="body" value="/WEB-INF/views/common/admin_page/product_modify.jsp" />
 	</definition>
 	
+	<definition name="admin_product_regView" extends="admin_layout">
+		<put-attribute name="title" value="관리자 페이지" />
+		<put-attribute name="header" value="/WEB-INF/views/common/admin_page/admin_header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/common/admin_page/admin_product_regView.jsp" />
+	</definition>
 	
 	
 <!-- ============================================================================================================================================================ -->	

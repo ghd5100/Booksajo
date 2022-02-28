@@ -145,9 +145,10 @@ label {
     text-align: center;
     border-radius: 50%;
     padding: 10px 25px;
-    top: 100px;
+    top: 240px;
     font-size: 30px;
     cursor: pointer;
+    
 }
 .best_controller span:hover {
     background-color: rgba(128, 128, 128, 0.11);
@@ -190,11 +191,16 @@ label {
 }
 
 /* 베스트셀러, 오늘의 책 */
-#today_area,
-#best_area {
+#today_area {
 	margin: 0 auto;
 	width: 100%;
 	height: 335px;
+}
+
+#best_area {
+	margin: 0 auto;
+	width: 100%;
+	height: 600px;
     
 }
 #best_area {
@@ -208,7 +214,13 @@ label {
     margin-top: 10px;
 }
 
-.best_content,
+.best_content {
+	width: 1000px;
+	height: 550px;
+	position: absolute;
+}
+
+
 .today_content {
 	width: 1000px;
 	height: 300px;
@@ -246,13 +258,14 @@ label {
     vertical-align: middle;
     float: left;
     margin-left: 40px;
+    margin-top: 20px;
 }
 
-.best_content_list li:nth-child(-n+5),
+.best_content_list li:nth-child(-n+9),
 .today_content_list li:nth-child(-n+5) {
 	display: block;
 }
-.best_content_list li:nth-child(n+5),
+.best_content_list li:nth-child(n+9),
 .today_content_list li:nth-child(n+5) {
 	display: none;
 }

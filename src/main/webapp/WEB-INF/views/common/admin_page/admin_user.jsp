@@ -43,7 +43,7 @@
 					</tr>
 					
 					<c:forEach items="${list }" var="list">
-						<tr class="user_list" onclick="select(${list.user_id})">
+						<tr class="user_list" onclick="select('${list.user_id}')">
 							<td>${list.user_id }</td>
 							<td>${list.user_name }</td>
 							<td>${list.user_phone }</td>

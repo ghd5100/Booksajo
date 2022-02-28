@@ -26,6 +26,9 @@
 		<div class="content_area">
 			<div class="content_title">
 				<strong>상품정보</strong>
+				<div style="position: absolute; left: 120px; top: 10px">
+					<button type="button" onclick="location.href='admin_product_regView'">글쓰기</button>
+				</div>
 				<form action="admin_product">
 					<input type="text" name="product_search_keyword" />
 					<button type="submit">검색</button>
@@ -47,9 +50,9 @@
 						<tr class="product_list" onclick="select(${list.isbn})">
 							<td>${list.isbn }</td>
 							<td style="text-align: left;">${list.title }</td>
-							<td>재고 넣어야함</td>
+							<td>${list.stock }</td>
 							<td>${list.price }</td>
-							<td>도서 상태 넣어야함</td>
+							<td>${list.book_status }</td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -87,6 +90,7 @@
 				</c:choose>
 				<a href="admin_product?page=${searchVO.totPage }&product_search_keyword=${searchVO.searchKeyword }"><img src="resources/img/btn_next_on.gif" alt="" /></a>
 			</div>
+			
 		</div>
 		
 	</div>

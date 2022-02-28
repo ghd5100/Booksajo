@@ -19,6 +19,10 @@ public interface AdminMapper {
 	List<Map<String, Object>> getList();
 	List<AdminDto> getUserData(int rowStart, int rowEnd);
 	List<AdminDto> userSearch(String keyword, int rowStart, int rowEnd);
+	AdminDto userDetail(String user_id);
+	List<OrderDto> userOrderList(String user_id);
+	
+	
 	void delete_user(String user_id);
 	
 	int userCount();
@@ -40,9 +44,11 @@ public interface AdminMapper {
 	int productCount();
 	int productSearchCount(String keyword);
 	
+	void productReg(String thumbnail, String isbn, String title, String contents, String authors, String publisher, String pub_year, String price, String keyword, String class_major, String stock);
+	void productDelete(String isbn);
 	
 	ProductDto productView(String isbn);
-	void productUpdate(String isbn, String authors, String publisher, String pub_year, String price, String title, String contents);
+	void productUpdate(String thumbnail, String isbn, String authors, String publisher, String pub_year, String price, String title, String contents);
 	
 	List<MonthlySalesDto> monthly_sales(String selectYear);
 }

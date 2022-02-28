@@ -6,7 +6,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tech.booksajo.bdboard.mapper.BdboardMapper;
 import com.tech.booksajo.login.mapper.LoginMapper;
 import com.tech.booksajo.login.vo.SignInVO;
 

@@ -110,8 +110,8 @@ public class AdminServiceImpl implements AdminService {
 
 
 	@Override
-	public void productUpdate(String isbn, String authors, String publisher, String pub_year, String price, String title, String contents) {
-		mapper.productUpdate(isbn, authors, publisher, pub_year, price, title, contents);
+	public void productUpdate(String thumbnail, String isbn, String authors, String publisher, String pub_year, String price, String title, String contents) {
+		mapper.productUpdate(thumbnail, isbn, authors, publisher, pub_year, price, title, contents);
 		
 	}
 
@@ -169,6 +169,36 @@ public class AdminServiceImpl implements AdminService {
 	public void orderUpdate(String orderProductNo, String orderStatus, String orderCount) {
 		mapper.orderUpdate(orderProductNo, orderStatus, orderCount);
 		
+	}
+
+
+	@Override
+	public void productReg(String thumbnail, String isbn, String title, String contents, String authors,
+			String publisher, String pub_year, String price, String keyword, String class_major, String stock) {
+		
+		mapper.productReg(thumbnail, isbn, title, contents, authors, publisher, pub_year, price, keyword, class_major, stock);
+		
+	}
+
+
+	@Override
+	public void productDelete(String isbn) {
+		mapper.productDelete(isbn);
+		
+	}
+
+
+	@Override
+	public AdminDto userDetail(String user_id) {
+		
+		return mapper.userDetail(user_id);
+	}
+
+
+	@Override
+	public List<OrderDto> userOrderList(String user_id) {
+		
+		return mapper.userOrderList(user_id);
 	}
 
 }

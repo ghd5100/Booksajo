@@ -8,20 +8,6 @@
 	<select id="getList" resultType="map">
 	 select * from book
 	</select>
- 	<!-- 
- 	<select id="getList" resultType="HashMap">
-	 SELECT * FROM (SELECT a.* FROM bsjbook a, sales b WHERE a.isbn = b.isbn ORDER BY b.tot_sales DESC) <![CDATA[WHERE ROWNUM <= 10]]>
-	</select>
-	 -->
-	<!-- <select id="getList" resultType="map">
-		SELECT * FROM (SELECT a.* FROM bsjbook a, sales b WHERE a.isbn = b.isbn ORDER BY b.tot_sales DESC) <![CDATA[WHERE ROWNUM <= 10]]>
-	</select> -->
-<!-- 	<select id="getData2" resultType="map"> -->
-<!-- 		SELECT * FROM (SELECT A.* FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN ORDER BY B.TOT_SALES DESC) <![CDATA[WHERE ROWNUM <= 8]]> -->
-<!-- 	</select> -->
-	<!-- <select id="getData" resultType="com.tech.booksajo.main.vo.MainDto">
-		SELECT * FROM (SELECT A.* FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN ORDER BY B.TOT_SALES DESC) <![CDATA[WHERE ROWNUM <= 8]]>
-	</select> -->
 	
 	<select id="getData" resultType="com.tech.booksajo.main.vo.MainDto">
 		SELECT aa.*
@@ -31,13 +17,11 @@
 				FROM bsjbook a, bsjorder_detail b
 				WHERE a.isbn = b.isbn
 				GROUP BY a.isbn) bb
-		WHERE aa.isbn = bb.isbn AND <![CDATA[ROWNUM <= 8]]>
+		WHERE aa.isbn = bb.isbn AND <![CDATA[ROWNUM <= 16]]>
 		ORDER BY bb.order_count DESC
 	</select>
 	
 	<select id="bestCount" resultType="int">
-<!-- 		SELECT * FROM (SELECT A.*, b.TOT_SALES tot_sales FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN ORDER BY B.TOT_SALES DESC) WHERE ROWNUM BETWEEN #{param1} AND #{param2} -->
-<!-- 		SELECT * FROM (SELECT A.*, ROW_NUMBER() OVER(ORDER BY TOT_SALES DESC) SAL FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN) WHERE SAL BETWEEN #{param1} AND #{param2} -->
 		SELECT count(*)
 		FROM
 		    bsjbook aa,
@@ -51,18 +35,55 @@
 	</select>
 	
 	<select id="getAllData" resultType="com.tech.booksajo.main.vo.MainDto">
-<!-- 		SELECT * FROM (SELECT A.*, b.TOT_SALES tot_sales FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN ORDER BY B.TOT_SALES DESC) WHERE ROWNUM BETWEEN #{param1} AND #{param2} -->
-<!-- 		SELECT * FROM (SELECT A.*, ROW_NUMBER() OVER(ORDER BY TOT_SALES DESC) SAL FROM BSJBOOK A, SALES B WHERE A.ISBN = B.ISBN) WHERE SAL BETWEEN #{param1} AND #{param2} -->
 		SELECT row_no, aa.*
 		FROM
 		    bsjbook aa,
 		    (SELECT bb.*, ROW_NUMBER() OVER(ORDER BY bb.order_count DESC) AS row_no
 		        FROM
 		            (SELECT SUM(b.order_count) order_count, a.isbn
-		            FROM bsjbook a, bsjorder_detail b
-		            WHERE a.isbn = b.isbn
+		            FROM bsjbook a,
+		            	<include refid="includeList" />
+		            WHERE
+		            	a.isbn = b.isbn
 		            GROUP BY a.isbn) bb) cc
 		WHERE aa.isbn = cc.isbn AND row_no BETWEEN #{param1} AND #{param2}
+	</select>
+	
+	<sql id="includeList">
+		<choose>
+			<when test="param3 == 1">
+				(SELECT order_date, b1.* FROM bsjorder a1, bsjorder_detail b1 WHERE TO_NUMBER(TO_CHAR(order_date, 'YYYYMM')) >= TO_NUMBER(TO_CHAR(ADD_MONTHS(sysdate, -1), 'YYYYMM')) AND a1.order_no = b1.order_no) b
+			</when>
+			<when test="param3 == 2">
+				(SELECT order_date, b1.* FROM bsjorder a1, bsjorder_detail b1 WHERE TO_NUMBER(TO_CHAR(order_date, 'YYYYMM')) >= TO_NUMBER(TO_CHAR(ADD_MONTHS(sysdate, -12), 'YYYYMM')) AND a1.order_no = b1.order_no) b
+			</when>
+			<otherwise>
+		 		bsjorder_detail b
+			</otherwise>
+		</choose>
+	</sql>
+	
+	
+	
+	<select id="classMajor" resultType="String">
+		SELECT class_major
+		FROM 
+		    bsjbook aa,
+		    (SELECT sum(order_count) order_count, isbn FROM bsjorder a, bsjorder_detail b
+		    WHERE
+		        a.order_no = b.order_no
+		        AND a.user_id = #{param1}
+		    GROUP BY b.isbn) bb
+		WHERE aa.isbn = bb.isbn
+		ORDER BY bb.order_count DESC
+	</select>
+	
+	<select id="rList" resultType="com.tech.booksajo.main.vo.MainDto">
+	SELECT a.*
+	FROM BSJBOOK a,
+	    (SELECT isbn, sum(order_count) FROM bsjorder_detail GROUP BY isbn ORDER BY SUM(order_count) DESC) b    
+	WHERE class_major = #{param1} AND a.isbn = b.isbn AND <![CDATA[ROWNUM <= 8]]>
+	
 	</select>
 
 </mapper>
