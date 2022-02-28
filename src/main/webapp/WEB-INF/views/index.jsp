@@ -86,7 +86,6 @@
             </p>
         </div>
     </div>
-<<<<<<< HEAD
     
     <c:if test="${userid ne null && userid ne 'admin' }">
 	
@@ -124,7 +123,6 @@
 	</c:if>
 	
 	
-=======
 	<div id="today_area">
         <div class="content_top">
             <a href="#">오늘의 책</a>
@@ -198,6 +196,5 @@
             </p>
         </div>
 	</div>
->>>>>>> parent of 52a80c4 (220228_이선아 : 매장위치)
 </body>
 </html>
