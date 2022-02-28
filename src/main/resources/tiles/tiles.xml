@@ -32,6 +32,20 @@
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
 
+<!-- 	<definition name="baseLayout4" template="/WEB-INF/views/common/mainstore/mainStore_detail_layout.jsp"> -->
+<!-- 		<put-attribute name="title" value="/WEB-INF/views/common/mainstore/mainStore_detail_title.jsp" /> -->
+<!-- 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" /> -->
+<!-- 		<put-attribute name="body" value="" /> -->
+<!-- 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" /> -->
+<!-- 	</definition> -->
+	
+	<definition name="baseLayout4" template="/WEB-INF/views/common/mainstore/mainStore_detail_layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/views/common/mainstore/mainStore_header.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
+	</definition>
+	
 	<!-- 각 페이지 마다 레이아웃이 다 다를때: 여기서는 레이아웃2에는 사이드가 없도록 구현하고자 함 -->
 	<!-- layout2 정의를 하나더 선언해줌 -->
 	<!-- 타이틀 헤더 사이드 바디 풋터 레이아웃 다 쓸경우 선언문 -->
@@ -57,6 +71,8 @@
 
 <!-- ============================================================================================================================================================ -->
 
+	<!-- 변경섭 메인화면 및 관리자page -->
+	
 	
 	<definition name="main" extends="baseLayout">
 		<put-attribute name="title" value="메인페이지" />
@@ -226,7 +242,7 @@
 	</definition>
 	
 	
-	<!--관리자 영역-->
+	<!--공지사항 게시판 관리자 영역-->
 	<definition name="noticeWriteView" extends="baseLayout">
 		<put-attribute name="title" value="공지사항 글작성 ｜ 고객센터 - 책사조" />
 		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />
@@ -241,7 +257,7 @@
 		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />
 	</definition>
 	
-		<!-- 리뷰작성 팝업 페이지 -->
+	<!-- 리뷰작성 팝업 페이지 -->
 		<definition name="reviewLayout" template="/WEB-INF/views/common/review/review_layout.jsp">
 			<put-attribute name="title" value="/WEB-INF/views/common/title.jsp" />
 			<put-attribute name="body" value="/WEB-INF/views/common/review/reviewWrite.jsp" />
@@ -252,8 +268,27 @@
 			<put-attribute name="title" value="북사조" />
 			<put-attribute name="body" value="/WEB-INF/views/common/review/reviewWrite.jsp" />
 		</definition>
-	
+		
+	<!-- 메인페이지 헤더부분 '매장안내' -->
+		<definition name="mainStore1" extends="baseLayout4">
+			<put-attribute name="title" value="/WEB-INF/views/common/mainstore/mainStore_detail_title1.jsp" />
+<!-- 			<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" /> -->
+			<put-attribute name="body" value="/WEB-INF/views/common/mainstore/mainStore_deatil_body1.jsp" />
+		</definition>
 
+		<definition name="mainStore2" extends="baseLayout4">
+			<put-attribute name="title" value="/WEB-INF/views/common/mainstore/mainStore_detail_title2.jsp" />
+<!-- 			<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" /> -->
+			<put-attribute name="body" value="/WEB-INF/views/common/mainstore/mainStore_deatil_body2.jsp" />
+		</definition>
+		
+		<definition name="mainStore3" extends="baseLayout4">
+			<put-attribute name="title" value="/WEB-INF/views/common/mainstore/mainStore_detail_title3.jsp" />
+<!-- 			<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" /> -->
+			<put-attribute name="body" value="/WEB-INF/views/common/mainstore/mainStore_deatil_body3.jsp" />
+		</definition>
+
+		
 <!-- ============================================================================================================================================================ -->
 
 	

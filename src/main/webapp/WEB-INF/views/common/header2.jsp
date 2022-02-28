@@ -57,7 +57,7 @@
       </button>
     </form>
 </div>
-<span id="c">여백</span>
+<span id="c"></span>
 
 
 </header>

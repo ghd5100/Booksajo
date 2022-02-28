@@ -200,7 +200,11 @@
                         </a>
                     </div>
                 </li>
+               
             </ul>
+            
+            
+
             <p class="today_controller">
 				<span class="today_prev">&lang;</span>
 				<span class="today_next">&rang;</span>

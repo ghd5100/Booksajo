@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.store_visual .info_wrap {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 145px;
+    background: url(http://image.kyobobook.co.kr/ink/images/storeinfo/2020_renew/opacity60_bg.png) 0 0 repeat;
+}
