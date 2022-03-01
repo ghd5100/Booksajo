@@ -267,16 +267,6 @@ var sessionId = '<%=userId%>';
 				
 				<div style="font-size: 12px; font-weight: bolder;">
 						주문수량 : <input type="number" max="10" min="1" value="num" id="count" name="count" />
-					<span class="btn_count">
-						<button type="button"
-							onclick="javascript:formQtyChangeSplit(document.proForm.qty,'1', document.getElementById('split_select').selectedIndex);">
-							<img src="resources/img/btn_plus.gif" alt="수량 더하기">
-						</button>
-						<button type="button"
-							onclick="javascript:formQtyChangeSplit(document.proForm.qty,'-1', document.getElementById('split_select').selectedIndex);">
-							<img src="resources/img/btn_minus.gif" alt="수량 빼기">
-						</button>
-					</span>
 				</div>
 				<br /> <br /> 
 				<input type="button" value="장바구니 담기" id="shoplist" class="btn_blue" onclick="moveconfirm()" ; /> 

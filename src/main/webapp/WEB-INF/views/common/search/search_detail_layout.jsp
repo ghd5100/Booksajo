@@ -14,7 +14,7 @@ margin-left: 265px;
 }
 
 #container {
-	width: 100%;
+	width: 50%;
 	text-align: center;
 	border: 0px solid #bcbcbc;
 	background-color: white;
