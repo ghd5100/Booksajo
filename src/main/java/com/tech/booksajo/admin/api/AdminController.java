@@ -174,13 +174,9 @@ public class AdminController {
 			orderList = service.orderSearch(keyword, rowStart, rowEnd);
 		}
 		
-		int listSize = orderList.size();
 		
 		model.addAttribute("list", orderList);
 		model.addAttribute("searchVO", searchVO);
-		
-		
-		
 		
 		String id = (String) session.getAttribute("userid");
 		Boolean check = adminCheck(id);
@@ -355,7 +351,7 @@ public class AdminController {
 	public void admin_product_update(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("~~admin_product_update Controller~~");
 
-		String attachPath = "resources\\upload_img\\";
+		String attachPath = "resources\\upload\\";
 		
 		String uploadPath=request.getSession().getServletContext().getRealPath("/");
 		System.out.println("uploadPath : " + uploadPath);
@@ -364,8 +360,7 @@ public class AdminController {
 //		System.out.println("path : " + path);
 		
 //		String path = "C:\\webSpring\\springWork\\booksajo\\src\\main\\webapp\\resources\\upload_img";
-//		String path = "C:\\spring\\springWork\\booksajo\\src\\main\\webapp\\resources\\upload_img";
-		String path = uploadPath + attachPath;
+		String path = "C:\\spring\\springWork\\booksajo\\src\\main\\webapp\\resources\\upload_img";
 		
 		MultipartRequest req = new MultipartRequest(request, path, 1024*1024*20,"utf-8", new DefaultFileRenamePolicy());
 		
@@ -379,13 +374,29 @@ public class AdminController {
 		String title = req.getParameter("title");
 		String contents = req.getParameter("htmlData");
 		String thumbnail = req.getFilesystemName("thumbnail");
-		System.out.println("thumbnail : " + thumbnail);
-		if (thumbnail == null) {
-			String beforeThumbnail = req.getParameter("beforeThumbnail");
-			thumbnail = beforeThumbnail.replaceAll("resources/upload_img/", "");
+		
+		List<String> imgFiles = new ArrayList<>();
+		System.out.println(fName.hashCode());
+		
+		int count = 0;
 
+		System.out.println("%%%%%%%%%%%%%%%%%%%%");
+		while(fName.hasMoreElements()) {
+			
+			count++;
+			
+			String imgName = (String)fName.nextElement();
+			String imgfile = req.getFilesystemName(imgName);
+			imgFiles.add(imgfile);
+			
+			System.out.println(imgName);
+			
 		}
-		System.out.println("thumbnail2 : " + thumbnail);
+		
+		System.out.println("%%%%%%%%%%%%%%");
+		System.out.println(count);
+		
+		System.out.println("imgFiles : " + imgFiles.toString());
 		
 		System.out.println("isbn : " + isbn);
 		System.out.println("authors : " + authors);
@@ -421,7 +432,7 @@ public class AdminController {
 	@RequestMapping(value = "/admin_product_reg", method = {RequestMethod.GET, RequestMethod.POST})
 	public String admin_product_reg(Model model, HttpServletRequest request) throws IOException {
 		System.out.println("admin_product_reg Controller");
-		String attachPath = "resources\\upload_img\\";
+		String attachPath = "resources\\upload\\";
 		
 		String uploadPath=request.getSession().getServletContext().getRealPath("/");
 		System.out.println("uploadPath : " + uploadPath);
@@ -430,8 +441,7 @@ public class AdminController {
 //		System.out.println("path : " + path);
 		
 //		String path = "C:\\webSpring\\springWork\\booksajo\\src\\main\\webapp\\resources\\upload_img";
-//		String path = "C:\\spring\\springWork\\booksajo\\src\\main\\webapp\\resources\\upload_img";
-		String path = uploadPath + attachPath;
+		String path = "C:\\spring\\springWork\\booksajo\\src\\main\\webapp\\resources\\upload_img";
 		
 		MultipartRequest req = new MultipartRequest(request, path, 1024*1024*20,"utf-8", new DefaultFileRenamePolicy());
 		
@@ -479,18 +489,32 @@ public class AdminController {
 		List<MonthlySalesDto> li = service.getSales(selectYear);
 		
 		List<String> list = new ArrayList<>();
-		for(int i = 0; i < 12; i++) {
-			list.add("0");
+		
+		for (int i = 0; i < 12; i++) {
+			for (int j = 0; j < li.size(); j++) {
+				if (i == Integer.parseInt(li.get(j).getOrder_date()) - 1) {
+					list.add(i, li.get(j).getMonthly_sales());
+					break;
+				} else if (i == list.size() - 1) {
+					break;
+				} else {
+					list.add(i, "0");
+
+				}
+				
+			}
 		}
 		
-		int listSize = li.size();
-		
-		for(int i = 0; i < listSize; i++) {
-			int index = Integer.parseInt(li.get(i).getOrder_date()) - 1;
-			list.set(index, li.get(i).getMonthly_sales()) ;
-		}
+//		List<Map<String, String>> list = new ArrayList<>();
+//		Map<String, String> map = new HashMap<>();
+//		
+//		for (int i = 0; i < li.size(); i++) {
+//			map.put("monthly_sales", li.get(i).getMonthly_sales());
+//			map.put("order_date", li.get(i).getOrder_date());
+//			list.add(map);
+//		}
 		System.out.println("list : " + list.toString());
-		System.out.println("li.size() : " + li.size());
+		System.out.println("list.size() : " + list.size());
 		
 		model.addAttribute("list", list);
 		model.addAttribute("selectYear", selectYear);

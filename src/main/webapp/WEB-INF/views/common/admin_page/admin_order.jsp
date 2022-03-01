@@ -52,7 +52,7 @@ function select(orderNo) {
 							<td>${list.user_id }</td>
 							<td>${list.user_name }</td>
 							<td>${list.user_phone }</td>
-							<td>${list.total_price }원</td>
+							<td>${list.order_total_price }</td>
 						</tr>
 
 					</c:forEach>

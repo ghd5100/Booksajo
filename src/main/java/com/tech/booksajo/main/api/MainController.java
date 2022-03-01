@@ -66,8 +66,16 @@ public class MainController {
 		
 		
 		int total = 0;
+		
+		total = service.bestCount();
+		System.out.println("bestCount : " + total);
+		
+		searchVO.pageCalculate(total);
+		int rowStart = searchVO.getRowStart();
+		int rowEnd = searchVO.getRowEnd();
 		String category = "";
 		category = request.getParameter("category");
+		
 		int categoryCheck = 0;
 		
 		if ("m".equals(category)) {
@@ -78,19 +86,8 @@ public class MainController {
 			categoryCheck = 0;
 		}
 		
-		total = service.bestCount(categoryCheck);
-		System.out.println("bestCount : " + total);
-		
-		searchVO.pageCalculate(total);
-		int rowStart = searchVO.getRowStart();
-		int rowEnd = searchVO.getRowEnd();
-		
-
-		
 		List<MainDto> list = service.getBestAll(rowStart, rowEnd, categoryCheck);
 		
-		
-		model.addAttribute("category", category);
 		model.addAttribute("list", list);
 		model.addAttribute("searchVO", searchVO);
 		

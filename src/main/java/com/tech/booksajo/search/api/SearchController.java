@@ -213,7 +213,7 @@ public class SearchController {
 		
 //		이선아 리뷰테이블 리스트
 		List<ReviewDto> reviewList = searchService.reviewList(rowStart, rowEnd);
-//		System.out.println(reviewList.get(0).getRe_content());
+		System.out.println(reviewList.get(0).getRe_content());
 		model.addAttribute("reviewList", reviewList);
 		model.addAttribute("ReviewSearchVO",reviewSearchVo);
 		

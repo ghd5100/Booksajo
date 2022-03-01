@@ -21,20 +21,18 @@ $(function(){
 	
 	$("#selectYear").val(${selectYear}).prop("selected", true);
 	monthlySales = ${list}
-	var totalSales = 0;
 	for (var i = 0; i < 4; i++) {
 		var sumSales = 0;
 		for (var j = 3 * i; j < 3 * i + 3; j++) {
 			var sumSales = sumSales + monthlySales[j];
-			totalSales = totalSales + monthlySales[j];
 		}
 		quarterSales.push(sumSales);
 	}
 	console.log("list : " + ${list});
-	createGraph("salesChart1", quarterSales, quarter, totalSales);
-	createGraph("salesChart2", monthlySales, month, totalSales);
+	createGraph("salesChart1", quarterSales, quarter);
+	createGraph("salesChart2", monthlySales, month);
 	changeGraph();
-	$("#totalSales").append("<span style='font-size: 20px;'>총 매출 : " + totalSales + "원</span>");
+	
 });
 
 function changeGraph() {
@@ -57,8 +55,7 @@ function getSalesData() {
 	
 }
 
-function createGraph(targetId, selectData, selectLabel, totalSales) {
-	
+function createGraph(targetId, selectData, selectLabel) {
 	const ctx = document.getElementById(targetId).getContext('2d');
 	var config = {
 	    type: 'bar',
@@ -128,7 +125,7 @@ function createGraph(targetId, selectData, selectLabel, totalSales) {
 		<div class="content_area">
 			<div class="content_title">
 				<strong>매출 통계</strong>
-				<h3></h3>
+				
 				<select name="select" id="selectGraph" class="selectbox" onchange="changeGraph()">
 					<option value="1">월별 매출</option>
 					<option value="2">분기별매출</option>
@@ -139,9 +136,7 @@ function createGraph(targetId, selectData, selectLabel, totalSales) {
 				</select>
 			</div>
 			<div class="content_detail">
-				<div id="totalSales" style="margin-top: 20px;">
-					
-				</div>
+
 			   <div id="chart">
 			      <canvas id="salesChart1" width="900px"></canvas>
 			      <canvas id="salesChart2" width="900px"></canvas>
