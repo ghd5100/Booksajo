@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 #header_wrap{
-    height: 73px;
+    height: 85px;
     background: #fff;
     z-index: 99;
     overflow: hidden;
@@ -37,7 +37,7 @@
 
 .gnb {
     position: absolute;
-    top: 35px;
+    top: -20px;
     right: 5px;
 }
 

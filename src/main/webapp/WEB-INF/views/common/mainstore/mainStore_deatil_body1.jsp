@@ -5,22 +5,22 @@
 <link rel="stylesheet" type="text/css" href="resources/css/mainstore_page/mainStore_body.css">
 <head>
     <meta charset="utf-8">
-    <title>지도 생성하기</title>
+    <title>매장안내</title>
     
 </head>
 <body>	
-	<div class="nav_wrap" style="width:950px;">
+	<div class="nav_wrap" style="display: inline;">
 	<div class="nav">
 				<ul>
-					<li><a href="#">위치안내</a></li>
+					<li><a href="http://localhost:9007/booksajo/mainStore1">위치안내</a></li>
 					<li><a href="#">주차안내</a></li>
 					<li><a href="#">내부안내도</a></li>
 					<li><a href="#">매장소식&행사</a></li>
 					<li><a href="#">매장서비스</a></li>
-					<li class="btn_bookSearch"><a href="#" target="_blank">보유도서검색</a></li>
 				</ul>
 	</div>
 </div>
+<hr align="center" style="border: 4px; width: 90%; height: 100%;">
 
 
 <!-- 					<li><a href="/storen/MainStore.laf?SITE=01">위치안내</a></li> -->
@@ -32,19 +32,19 @@
 
 <!-- 지도를 표시할 div 입니다 -->
 <!-- <div id="map" style="width:952px;height:420px;margin: 50px 0 50px 0; "></div> -->
-<div id="map" style="width:950px;height:420px;left: 25%;"></div>
+<div id="map" style="width:950px;height:420px;left: 25%;">
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=92b17a1330650b99d134f417d561252d"></script>
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
+        center: new kakao.maps.LatLng(37.570942, 126.977763), // 지도의 중심좌표
+        level: 2 // 지도의 확대 레벨
     };
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
 var iwContent = '<div style="padding:5px; font-style: 14px !important;">교보문고 광화문점</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-    iwPosition = new kakao.maps.LatLng(33.450701, 126.570667), //인포윈도우 표시 위치입니다
+    iwPosition = new kakao.maps.LatLng(37.570942, 126.977763), //인포윈도우 표시 위치입니다
     iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
 // 인포윈도우를 생성하고 지도에 표시합니다
@@ -55,14 +55,16 @@ var infowindow = new kakao.maps.InfoWindow({
     removable : iwRemoveable
 });
       
-// 아래 코드는 인포윈도우를 지도에서 제거합니다
-// infowindow.close();        
 </script>
-
-<div class="a">
-	<h4>지하철로 오시려면
-
-	</h4>
+</div>
+	<div class="address" id="skip_map">
+		<p id="address">
+			<img src="http://image.kyobobook.co.kr/ink/images/storeinfo/2020_renew/icon_map.png" alt="주소">서울특별시 종로구 종로 1, 북사조생명빌딩 지하 1층
+		</p>
+	</div>
+</body>
+	<div class="locationinfo">
+	<b style="font-size: 18px;">지하철로 오시려면</b>
 	<br> 지하철 1,2호선 시청역 하차 시청 쪽 4번 출구로 나와 광화문 방향으로 500m
 	<br>
 
@@ -76,7 +78,7 @@ var infowindow = new kakao.maps.InfoWindow({
 	<br>
 	<br>
 	<br>
-	<h4>버스로 오시려면</h4>
+	<b style="font-size: 18px;">버스로 오시려면</b>
 	<br>
 	<b>교보빌딩 앞</b>
 	<br>
@@ -178,9 +180,8 @@ var infowindow = new kakao.maps.InfoWindow({
 	<br> 간선 : 150, 160, 161, 200, 260, 270, 271, 370, 471, 702, 705, 720
 	<br> 광역 : 9301(마방집), 9301(신장시장), 9301(하남시청), 9701, 9705
 	<br> 공항버스 : 601
-
 	</div>
-</body>
+
 </html>
 
 

@@ -22,7 +22,7 @@ margin-left: 265px;
 
 #content {
 	margin-top: 5px;
-	width: 50%;
+	width: 100%;
 	margin-left: 10%;
 	float: left;
 	/* 	border: 2px solid #bcbcbc; */

@@ -1,17 +1,111 @@
 @charset "UTF-8";
 
-
-.nav_wrap .nav ul {
+.nav_wrap1 .nav ul{
     position: inherit;
     top: 63px;
-    left: 0;
-    width: 950px;
+    left: 80px;
+	width: 950px;
     list-style: none;
+    margin-left: 30%;
 }
 
+li{
+	float: left;
+	margin-top:60px;
+	margin-left: 20px;
+/* 	margin-bottom: 2px; */
+}
+
+.infohr{
+	size: 100px;
+}
 .nav_wrap {
     position: relative;
     height: 133px;
     clear: both;
     overflow: hidden;
 }
+
+#map{
+    border: 1px solid #bbb;
+    position: relative;
+/*     margin-bottom: 50px; */
+}
+
+.nav_wrap .nav {
+    position: relative;
+    width: 950px;
+    height: 132px;
+    margin: 0 auto;
+    border-bottom: 1px solid #bbb;
+}
+
+.nav_wrap .nav ul {
+    position: inherit;
+    top: 10px;
+    left: 80px;
+    width: 950px;
+    list-style: none;
+    float: left;
+    margin left: 2;
+}
+
+.nav_wrap .nav ul li a {
+    display: block;
+    color: #000;
+    font-size: 24px;
+    line-height: 52px;
+    font-weight: bold;
+    letter-spacing: -2px;
+}
+
+.address {
+    position: relative;
+    width: 100%;
+}
+
+#address {
+    width: 950px;
+    height: 54px;
+    margin-bottom: 60px;
+    background: url(http://image.kyobobook.co.kr/ink/images/storeinfo/2020_renew/opacity80_bg.png) 0 0 repeat;
+    text-align: center;
+    line-height: 49px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 25%;
+    padding-left: 175px;
+}
+
+.locationinfo {
+    text-align: left;
+    margin-left: 25%;
+    margin-bottom: 4%;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
