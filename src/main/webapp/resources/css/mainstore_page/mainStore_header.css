@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+#header_wrap{
+    height: 73px;
+    background: #fff;
+    z-index: 99;
+    overflow: hidden;
+}
+
+.header_inner {
+    position: relative;
+    width: 950px;
+    margin: 0 auto;
+}
+
+.logo_00 {
+    position: absolute;
+    top: 24px;
+    left: 15px;
+}
+
+.store_info_00 {
+    position: absolute;
+    top: 24px;
+    left: 146px;
+}
+
+.tit {
+    float: left;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    color: #081d58;
+    letter-spacing: -1px;
+    font-weight: 400;
+    line-height: 59px;
+}
+
+.gnb {
+    position: absolute;
+    top: 35px;
+    right: 5px;
+}
+
+#header_wrap .gnb li a {
+    line-height: 6px;
+}
+.a {
+    color: #222;
+    text-decoration: none;
+}
+
+#header_wrap .gnb li {
+    float: left;
+    height: 19px;
+    padding: 10px 10px;
+    font-size: 11px;
+    line-height: 11px;
+    background: url(http://image.kyobobook.co.kr/ink/images/welcome/line_search.gif) 0 9px no-repeat;
+}
