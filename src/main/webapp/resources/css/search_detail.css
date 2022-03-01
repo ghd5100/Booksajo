@@ -37,8 +37,9 @@
 }
 
 #booksen{
-
-	
+	width: 100%;
+	float: left;
+	margin-top:30px;
 }
 
 #bookimg{
@@ -394,6 +395,7 @@ dl {
 
 
 #bookReview {
+	float:left;
 	margin-top: 60px;
 }
 
@@ -514,6 +516,13 @@ body {
 	border: solid 1px #666;
 }
 
+.a:hover {
+  
+}
+
+#imghidden{
+	
+}
 
 
 /* 사이드 sticky 태그 */
@@ -562,4 +571,8 @@ body {
 
 #quick_menu2 .btn_quick_down a:hover {
     border-color: #999;
+}
+
+input count{
+	padding-left: 0px;
 }

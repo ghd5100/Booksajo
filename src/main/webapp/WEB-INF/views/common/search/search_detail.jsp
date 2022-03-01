@@ -81,12 +81,14 @@ var sessionId = '<%=userId%>';
 												html += '<td colspan="3" id="n"><p>리뷰/평점</p></td>';
 												html += '</tr>';
 												html += '<tr>';
-												html += '<td colspan="2" id="m" style="width: 30px; height:70px;">정가&nbsp;:'
+												html += '<td colspan="2" id="m" style="width: 30px; height:70px;">정가&nbsp;&nbsp;:&nbsp;&nbsp;'
 														+ data.documents[0].price
 														+ '</td>';
 												html += '</tr>';
 												html += '<tr>';
-												html += '<td id="sale" style="height:50px; color: navy; font-size: large;" >판매가&nbsp;:'+data.documents[0].sale_price+'</td>';
+												html += '<td id="sale" style="height:50px; font-size: large;" >판매가&nbsp;&nbsp;:&nbsp;&nbsp;<b style="font-size: large; color: red;" >'
+														+data.documents[0].sale_price+'원&nbsp;&nbsp;[10%↓할인]&nbsp;</b></br></br>';
+												html +=	'<p style="font-size: small;">혜택 :[기본적립] 700원 적립 [5% 적립]</br>[추가적립] 5만원 이상 구매 시 2,000원 추가적립</br>[회원혜택] 회원 등급 별, 3만원 이상 구매 시 2~4% 추가적립</br>[리뷰적립] 리뷰 작성 시 e교환권 최대 300원 추가적립</p></td>';
 												html += '</tr>';
 												html += '</table>';
 
@@ -213,8 +215,9 @@ var sessionId = '<%=userId%>';
 
 <div id="inlineside">
 
+
 	<div id="img2">
-	<!-- <img src="" alt=""  style="width: 100px; height: 170px;"/> -->
+	<img src="resources/img/Imgbanner.png" alt="" style="width: 120px; height: 174px;" id="imghidden"/> 
 	<br />
 	</div>
 	 
@@ -241,8 +244,18 @@ var sessionId = '<%=userId%>';
 	<div id="detail" style="height: 400px;"></div>
 
 
+
+
+
+	<div id="booksen">
 	<!-- 장바구니/바로구매 -->
 
+
+		<form action="shoplist2" id="formorder" method="post">
+				<br /><br />
+				
+				<div style="font-size: 16px; font-weight: bolder; display: inline; ">
+			주문수량 : <input type="number" max="10" min="1" placeholder="1" value="num" id="count" name="count" />
 	<span class="btn_count">
 		<button type="button"
 			onclick="javascript:formQtyChangeSplit(document.proForm.qty,'1', document.getElementById('split_select').selectedIndex);">
@@ -253,15 +266,6 @@ var sessionId = '<%=userId%>';
 			<img src="resources/img/btn_minus.gif" alt="수량 빼기">
 		</button>
 	</span>
-
-
-
-		<div id="booksen">
-		<form action="shoplist2" id="formorder" method="post">
-				<br /><br />
-				
-				<div style="font-size: 12px; font-weight: bolder;">
-			주문수량 : <input type="number" max="10" min="1" value="num" id="count" name="count" />
 				</div>
 				<br /> <br /> 
 				<input type="button" value="장바구니 담기" id="shoplist" class="btn_blue" onclick="moveconfirm()" ; /> 
@@ -398,7 +402,7 @@ var sessionId = '<%=userId%>';
 					var height = 10; 
 				
 				//pc화면기준 가운데 정렬  
-					var left = (window.screen.width / 2) - (width /2); 
+					var left = (window.screen.width / 2) - (width/2); 
 					var top = (window.screen.height / 4); 
 				//윈도우 속성 지정 
 			

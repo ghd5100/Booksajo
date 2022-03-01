@@ -49,14 +49,15 @@ $('input[name="chkList"]:checked').each(function() {
 
 
 
-<table id="shoptable">
+<input type="checkbox" style="float: left; width: 30px; height: 30px;"/><span id="cap" ><b>교보문고배송</b></span>
+<table id="shoptable" style="background-color: white;">
 	<tr>
-		<td colspan="2">상품정보</td>
-		<td>수량</td>
-		<td>가격</td>
-		<td>수량</td>
-		<td>합계</td>
-		<td>배송일정</td>
+		<td id="shoptlisttitle">선택</td>
+		<td colspan="2" style="height: 50px;" id="shoptlisttitle">상품정보</td>
+		<td id="shoptlisttitle">가격</td>
+		<td id="shoptlisttitle">수량</td>
+		<td id="shoptlisttitle">합계</td>
+		<td id="shoptlisttitle">배송일정</td>
 	</tr>
 
 
@@ -120,11 +121,11 @@ $('input[name="chkList"]:checked').each(function() {
 		<c:forEach items="${shoplist}" var="shoplist">
 
 			<tr>
-				<td><input type="checkbox" size="3" name="chkList"
+				<td><input type="checkbox" size="3" name="chkList" style="height: 30px; width: 30px;"
 					value="${shoplist.bsjselectbook_price * shoplist.bsjselectbook_count }"
 					onchange="chekin();" /></td>
 				<td><img src="${shoplist.bsjselectbook_url}" alt="" /></td>
-				<td>${shoplist.bsjselectbook_title}</td>
+				<td id="shoptitle">${shoplist.bsjselectbook_title}</td>
 				<td>${shoplist.bsjselectbook_price}</td>
 				<td>수량:<input type="number" name="qun"
 					value="${shoplist.bsjselectbook_count}"
@@ -143,30 +144,37 @@ $('input[name="chkList"]:checked').each(function() {
 </table>
 <br />
 <br />
-<input type="checkbox" />
+<input type="checkbox" style="height: 30px; width: 30px;"/>
 전체선택
-<input type="submit" value="삭제" />
+<input type="submit" value="삭제" class="btn_blue" />
 
 
 <div id="total">
-	<table id="totaltable">
+	<table id="totaltable" style="margin-bottom: 20px;">
 		<tr>
-			<td rowspan="2">▽</td>
+			<td rowspan="2" id="coltitle" style="width: 60px; text-align: center;">▽</td>
 			<td id="coltitle" style="height: 50px;">상품금액</td>
 			<td id="coltitle">배송비</td>
 			<td id="coltitle">결제 예정금액</td>
 		</tr>
 
 		<tr>
-			<td><input type=text onfocus=blur() name=t1 value="" size=30></td>
-			<td><input type="text" placeholder="2500" /></td>
-			<td><input type=text onfocus=blur() name=t2 value="" size=30></td>
+			<td><input type=text onfocus=blur() name=t1 value="" size=30 style="height: 150px; width: 300px; padding: 0px 0px;" ></td>
+			<td><input type="text" placeholder="2500" style="height: 150px; width: 200px; padding: 0px 0px;"/></td>
+			<td><input type=text onfocus=blur() name=t2 value="" size="30" style="height: 150px; width: 300px; padding: 0px 0px;"></td>
 		</tr>
-		<tr>
-			<td colspan="4"><input type="submit" value="주문하기" /></td>
+		<tr style="height: 40px;">
+			<td colspan="4">배송일정: 서울시 구로구 구로디지털로기준</td>
 		</tr>
-
+		<tr style="height: 40px; background-color: #eee;">
+			<td colspan="4">도서 : (상품별 출고예정일이 다를시 가장 늦은 상품 기준으로 모두 함께 배송됩니다.)</td>
+		</tr>
+		</br>
+		</br>
 	</table>
+	<input type="button" value="주문하기" id="payment" class="btn_blue2" style="float: right; margin-bottom: 80px; margin-top: 10px;" onclick="location.href='payment?isbn=${isbn}'" /> 
+				<input type="hidden" name="isbnsrc" value="'${isbn }'" />
+	
 	</form>
 </div>
 
