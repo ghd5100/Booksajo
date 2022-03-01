@@ -23,3 +23,62 @@ tr,td{
 #number{
 	width: 50px;
 }
+
+span#cap{
+	font-size: xx-large;
+float: left;
+}
+/* 
+span #cap{ //이렇게 내부띄어쓰면 적용안됌
+	font-size: xx-large;
+} */
+
+table#shoptable{
+	clear: both;
+	background: white;
+}
+
+.btn_blue {
+    background-image: none;
+    background-color: #5e6b9f !important;
+    border: 1px solid #5e6b9f;
+    color: #fff !important;
+    box-shadow: none;
+    width: 170px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.btn_blue2 {
+    background-image: none;
+    background-color: #7b8ed1 !important;
+    border: 1px solid #7b8ed1;
+    color: #fff !important;
+    box-shadow: none;
+    width: 370px;
+    height: 60px;
+    font-size: 18px;
+    font-weight: bold;
+
+}
+
+
+
+#shoptitle{	
+	font-size: medium;
+}
+
+#shoptlisttitle{
+	font-size: medium;
+}
+
+table#totaltable{
+	text-align: left;
+	font-size: large;
+}
+
+#coltitle{
+	font-weight: bold;
+}

@@ -37,14 +37,14 @@ float: left;
 font-size:13px;
 float:left;
 height: 10px;
-padding-top:0px;
+padding-top:5px;
 margin-bottom: 70px;
 }
 
 #d3{
 	float: left;
 	font-size: medium;
-
+	color: #bbb;
 }
 
 #d6{
@@ -52,6 +52,7 @@ margin-bottom: 70px;
 	border:1px solid;
 	margin-bottom: 50px;
 	font-size: medium;
+	color: #bbb;
 
 }
 
@@ -59,10 +60,11 @@ margin-bottom: 70px;
 float:left;
 /* position:relative;
 top:500px; */
-border:1px solid;
+/* border:1px solid; */
 width: 95%;
 height: auto;
 font-size: medium;
+border-top: 3px solid #000;
 
 }
 
@@ -86,3 +88,78 @@ div button{
 	width: 85%;
 } */
 
+<<<<<<< HEAD
+
+
+/* 장바구니,구매 버튼  */
+.btn_blue {
+    background-image: none;
+    background-color: #5e6b9f !important;
+    border: 1px solid #5e6b9f;
+    color: #fff !important;
+    box-shadow: none;
+    width: 170px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.btn_blue2 {
+    background-image: none;
+    background-color: #7b8ed1 !important;
+    border: 1px solid #7b8ed1;
+    color: #fff !important;
+    box-shadow: none;
+    width: 170px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#price{
+	font-size: 14px;
+}
+
+#sale{
+	font-size: 16px;
+	color: red;
+}
+
+
+/* quick메뉴 버튼  */
+#quick_menu2 .btn_quick_top a {
+    display:inline-flex;
+    position:absolute;
+    left:90%;
+    width: 60px;
+    height: 34px;
+    font-size: 0;
+    color: transparent;
+    border: 1px solid #d2d2d2;
+    background: #f9f9f9 url(http://image.kyobobook.co.kr/ink/images/gnb/nav6_btn_sprite.png) no-repeat 21px -108px;
+    transition: all 0.2s;
+}
+#quick_menu2 .btn_quick_down a {
+    display:inline-flex;
+    position:absolute;
+    left:90%;
+    top:35%;
+    width: 60px;
+    height: 34px;
+    font-size: 0;
+    color: transparent;
+    border: 1px solid #d2d2d2;
+    background: #f9f9f9 url(http://image.kyobobook.co.kr/ink/images/gnb/nav6_btn_sprite.png) no-repeat -19px -108px;
+    transition: all 0.2s;
+}
+
+#quick_menu2 .btn_quick_down a:hover {
+    border-color: #999;
+}
+
+#d5{
+/* 이 영역 옆에서 계속 따라다니도록 설정하기 */	
+	
+}
+=======
+>>>>>>> master

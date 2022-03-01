@@ -27,8 +27,9 @@
 }
 
 #booksen{
-
-	
+	width: 100%;
+	float: left;
+	margin-top:30px;
 }
 
 #bookimg{
@@ -384,6 +385,7 @@ dl {
 
 
 #bookReview {
+	float:left;
 	margin-top: 60px;
 }
 
@@ -504,6 +506,13 @@ body {
 	border: solid 1px #666;
 }
 
+<<<<<<< HEAD
+.a:hover {
+  
+}
+
+#imghidden{
+=======
 /* 왼쪽 키워드 사이드 */
 .h2keyword {
     font-size: 12px;
@@ -523,6 +532,7 @@ body {
 
 #keywordpick a:hover{
 	border: 1px solid #a8afe5;
+>>>>>>> master
 	
 }
 
@@ -616,4 +626,8 @@ body {
 
 #quick_menu2 .btn_quick_down a:hover {
     border-color: #999;
+}
+
+input count{
+	padding-left: 0px;
 }

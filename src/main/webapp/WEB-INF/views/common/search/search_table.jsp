@@ -76,14 +76,12 @@ $( document ).ready(function() {
  			    		//html += "<input type='hidden' name='inputDetail' value='" + JSON.stringify(data.documents[k]) + "' ]>";
 			    		html += '<td><a href="search_detail?isbn='+isbn.substr(11,23)+'"><img src=' + data.documents[k].thumbnail +'/></a></td>';
  			    		html += '<td>';
-			    		html += '<b><a href="search_detail?isbn='+isbn.substr(11,23)+'" style="color: #3A60DF;">' + data.documents[k].title + '</a></b></br></br>';
-			    		html += '<p>' + data.documents[k].authors + '&nbsp;&nbsp;지음</p>';
-			    		html += '<p>' + data.documents[k].publisher + '</p>';
-			    		html += '<p>' + datestr2 + '</p>';
+			    		html += '</br><b><a href="search_detail?isbn='+isbn.substr(11,23)+'" style="color: #3A60DF;">' + data.documents[k].title + '</a></b></br></br>';
+			    		html += '<p>' + data.documents[k].authors + '&nbsp;&nbsp;지음&nbsp;&nbsp;|&nbsp;&nbsp;' + data.documents[k].publisher + '&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;'+ datestr2 +'&nbsp;&nbsp;</p>';
 			    		html += '</td>';
-			    		html += '<td></br></br>평점</td>';
-			    		html += '<td></br></br></br>'+ data.documents[k].price + '원</br>'+ data.documents[k].sale_price +'원[10%↓]</td>';
-			    		html += '<td><input type="submit" value="장바구니 담기" id="shopget" /><input type="button" value="바로구매" id="payment" name="'+isbn+'"  /></td>';
+			    		html += '<td><img src="resources/img/review/review'+[k]+'.png" style="width: 110px;" height="125px;"/></td>';
+			    		html += '<td><p id="price"></br></br>'+ data.documents[k].price + '원</br></p><p id="sale"><b>'+ data.documents[k].sale_price +'원[10%↓]</b></p>'+data.documents[k].status+'</td>';
+			    		html += '<td></br><input type="submit" value="장바구니 담기" id="shopget" class="btn_blue" /></br></br><input type="button" value="바로구매" id="payment" name="'+isbn+'" class="btn_blue2" /></td>';
 			    		html += '<td><input type="hidden" value="'+isbn+'" name="isbn" id="'+isbn+'" /></td>';
 			    	//	html += '<td>' + '수량 : ' + '<input type="number" max="9" min="1" maxlength="7px" /></br></br><input type="submit" value="장바구니담기" name="'+data.documents[k].isbn+'" /><input type="hidden" name="'+isbn+'" value="'+isbn+'" /></br></br><input type="submit" value="바로구매" name="payment"  /></td>';
 			    		html += '</tr>';
@@ -109,15 +107,11 @@ $( document ).ready(function() {
 });
 
 
-
 //총 검색 건수 가져오기.meta 에서 얻을수있었음.
 /* 가져와서 코드블럭으로 넣어주기.  */
 </script> 
 
-
-<style>
-
-</style>
+<img src="" style="width: 10px;" height="20px;" alt="" />
 
 <td style="">
 <b style="color: #3A60DF;"><a href="#" style=""></a></b>
@@ -130,8 +124,8 @@ $( document ).ready(function() {
 </div>
 
 <div id="d2">
-	<!-- 연관검색어 -->
-	<b>연관검색어</b> <span>웹퍼블리셔 css html 자바스크립트</span>
+	<!-- 연관검색어  구현못함-->
+	<!-- <b>연관검색어</b> <span>웹퍼블리셔 css html 자바스크립트</span> -->
 
 </div>
 
@@ -167,18 +161,18 @@ $( document ).ready(function() {
 
 <div id="d4">
 
-<a href=""></a>
+
 	<!-- 도서결과 뿌려줄곳 -->
 	
 	<form action="shoplist" method="post">
 	<table class="table">
 		<thead>
-			<tr>
-				<th scope="col" width="20%">국내도서/책이미지</th>
-				<th scope="col" rowspan="4" width="35%">제목 저자 출판사 키워드</th>
-				<th scope="col" width="15%">평점</th>
-				<th scope="col" width="15%">가격</th>
-				<th scope="col" width="15%">수량 및 장바구니</th>
+			<tr style="height: 50px; padding-bottom: 5px;">
+				<th scope="col" width="20%" id="tabletitle">국내도서ㆍ책이미지</th>
+				<th scope="col" rowspan="4" width="35%" id="tabletitle">제목ㆍ저자ㆍ 출판사ㆍ키워드</th>
+				<th scope="col" width="15%" id="tabletitle">평점</th>
+				<th scope="col" width="15%" id="tabletitle">가격</th>
+				<th scope="col" width="15%" id="tabletitle">수량 ㆍ 장바구니</th>
 				
 			</tr>
 		</thead>
@@ -207,7 +201,19 @@ $( document ).ready(function() {
 <div id="d5">
 <!-- 페이지 넘김 구현부분 -->
 
+<!-- 오른쪽 사이드 quick메뉴탭 -->
+			<div id="quick_menu2" class="quickSticky" style="width: 60px;">
+				<div id="reviewWrite"></div>
+				<div class="btn_quick_top" onclick="asdf()">
+					<a href="#">Top</a>			<!-- 페이지 가장 상단으로 보내주는것은 #Top하면 그냥 자동으로 됨 -->
+				</div>
+				<div class="btn_quick_down">
+					<a href="#Down">Down</a>	<!-- footer.jsp에 태그위치 설정해두었음 -->
+				</div>
+			</div>
+
 </div>
+
 
 
 <script src="resources/js/search_table.js"></script>
