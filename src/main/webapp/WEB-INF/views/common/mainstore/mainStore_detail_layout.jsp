@@ -8,27 +8,33 @@
 <style>
 
 #title{
-margin-top: 280px;
-width: 63%;
-margin-left: 265px;
-}
+width: 100%;
 
+}
 #container {
 	width: 100%;
+	height:100%;
 	text-align: center;
 	border: 0px solid #bcbcbc;
 	background-color: white;
 }
 
+#body {
+    font-size: 14px;
+    line-height: 1.4;
+    font-family: 'Malgun Gothic', Dotum, Arial, Sans-serif;
+    color: #222;
+}
+
 #content {
-	margin-top: 5px;
+/* 	margin-top: 5px; */
 	width: 100%;
-	margin-left: 10%;
+/* 	margin-left: 10%; */
 	float: left;
 	/* 	border: 2px solid #bcbcbc; */
 	height: 100%;
 	z-index: -1;
-	display: inline-flex;
+/* 	display: inline-flex; */
 	/* 사이드바 높이 없어지면서 메인부분이 높이가 너무 짧아짐 내용부분에 높이 추가하면댐 */
 }
 
@@ -53,16 +59,16 @@ margin-left: 265px;
 
 
 </head>
-<body style="height: 100%;">
-		<div id="title">
-			<tiles:insertAttribute name="title" />
-		</div>
-
-	<div id="container">
+<body >
 
 		<div id="header">
 			<tiles:insertAttribute name="header" />
 		</div>
+	<div id="container">
+		<div id="title">
+			<tiles:insertAttribute name="title" />
+		</div>
+
 		<div id="content">
 			<tiles:insertAttribute name="body" />
 		</div>

@@ -28,7 +28,8 @@ import com.tech.booksajo.search.vo.UserSelect;
 @Service(value = "searchService")
 public class SearchServiceImpl implements SearchService {
 
-	
+	//500번 이상 에러날때 키 바꾸기 (아래 바꿔야하는 key부분 4개있음)
+	//현주언니 kdy: bd1ca3ab552dd10a147c1e0594dd11525c60dcdb8f5f22d0cd940b3faa2f3c69
 	//경섭씨 key:72e70652c089ddede639f01b2e237eebaf6f5ec4bbd2b6ceee0bc852b0ee32b2
 	
 	ArrayList<Object> jarrlist = new ArrayList<Object>();
@@ -141,7 +142,7 @@ public class SearchServiceImpl implements SearchService {
 
 		System.out.println("keywordget매소드 들어옴");
 
-		String serviceKey = "http://data4library.kr/api/keywordList?authKey=72e70652c089ddede639f01b2e237eebaf6f5ec4bbd2b6ceee0bc852b0ee32b2";
+		String serviceKey = "http://data4library.kr/api/keywordList?authKey=bd1ca3ab552dd10a147c1e0594dd11525c60dcdb8f5f22d0cd940b3faa2f3c69";
 		String urlStr = serviceKey + "&isbn13=" + isbn13 + "&additionalYN=Y&format=json";
 
 		URL url = new URL(urlStr);
@@ -274,7 +275,7 @@ public class SearchServiceImpl implements SearchService {
 		// urlStr="http://data4library.kr/api/srchBooks?authKey=bd1ca3ab552dd10a147c1e0594dd11525c60dcdb8f5f22d0cd940b3faa2f3c69&keyword="
 		// + search +"&pageNo=1&pageSize=30&format=json";
 
-		String serviceKey = "http://data4library.kr/api/srchBooks?authKey=72e70652c089ddede639f01b2e237eebaf6f5ec4bbd2b6ceee0bc852b0ee32b2";
+		String serviceKey = "http://data4library.kr/api/srchBooks?authKey=bd1ca3ab552dd10a147c1e0594dd11525c60dcdb8f5f22d0cd940b3faa2f3c69";
 		String urlStr = serviceKey + "&keyword=" + search2 + "&pageNo=1&pageSize=10&format=json";
 		// &gender=0&from_age=6&to_age=10
 
@@ -393,7 +394,7 @@ public class SearchServiceImpl implements SearchService {
 			// System.out.println("isbnlist사이즈는:"+isbnlist.size());
 			// System.out.println("j번호:"+j);
 
-			String serviceKey2 = "http://data4library.kr/api/itemSrch?authKey=72e70652c089ddede639f01b2e237eebaf6f5ec4bbd2b6ceee0bc852b0ee32b2&type=ALL&libCode=111111";
+			String serviceKey2 = "http://data4library.kr/api/itemSrch?authKey=bd1ca3ab552dd10a147c1e0594dd11525c60dcdb8f5f22d0cd940b3faa2f3c69&type=ALL&libCode=111111";
 			// String urlStr2 = serviceKey2 + "&isbn13="
 			// +isbnlist.get(0)+";"+isbnlist.get(1)+";"+isbnlist.get(2)+";"+isbnlist.get(3)+";"+isbnlist.get(4)+
 			// "&pageNo=1&pageSize=15&format=json";
@@ -1035,7 +1036,7 @@ public class SearchServiceImpl implements SearchService {
 
 		ArrayList<Object> catenamelist = new ArrayList<Object>();
 
-		String serviceKey3 = "http://data4library.kr/api/usageAnalysisList?authKey=72e70652c089ddede639f01b2e237eebaf6f5ec4bbd2b6ceee0bc852b0ee32b2";
+		String serviceKey3 = "http://data4library.kr/api/usageAnalysisList?authKey=bd1ca3ab552dd10a147c1e0594dd11525c60dcdb8f5f22d0cd940b3faa2f3c69";
 		String urlStr2 = serviceKey3 + "&isbn13=" + isbn13 + "&format=json";
 
 		// 1권밖에 안나온이유. +와 ";"사이 띄어쓰기해서 System.out.println("urlStr2:"+urlStr2);
