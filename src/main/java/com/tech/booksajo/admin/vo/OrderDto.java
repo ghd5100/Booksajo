@@ -4,7 +4,17 @@ package com.tech.booksajo.admin.vo;
 public class OrderDto {
 	private String user_id, order_no, order_date, order_status, order_total_price;
 	private String user_name, user_phone, user_email, user_addr, title, price, order_count, isbn;
-	private String order_product_no;
+	private String order_product_no, total_price;
+
+	public String getTotal_price() {
+		return total_price;
+	}
+
+
+	public void setTotal_price(String total_price) {
+		this.total_price = total_price;
+	}
+
 
 	public String getOrder_product_no() {
 		return order_product_no;

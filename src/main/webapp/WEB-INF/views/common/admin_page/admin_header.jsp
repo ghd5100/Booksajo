@@ -19,7 +19,7 @@
 </head>
 <body>
 <div class="top_area" style="position: relative;">
-	<div id="index" style="position: absolute; right: 50px; top: 25px;">
+	<div id="index" style="position: absolute; right: 60px; top: 25px;">
 		<a href="index">Main</a>
 	</div>
 	<table class="top_table">
@@ -32,7 +32,7 @@
 			<td><a href="admin_order">주문관리</a></td>
 			<td><a href="admin_product">상품관리</a></td>
 			<td><a href="admin_sales">매출정보</a></td>
-			<td><a href="">logout</a></td>
+			<td><a href="logout">logout</a></td>
 		</tr>
 	</table>
 

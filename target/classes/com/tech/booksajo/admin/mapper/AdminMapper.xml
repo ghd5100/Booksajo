@@ -60,20 +60,25 @@
 	
 	<select id="orderList" resultType="com.tech.booksajo.admin.vo.OrderDto">
 		SELECT *
-			FROM
-			    (SELECT
-			        b.user_name,
-			        REGEXP_REPLACE(b.user_phone, '(02|.{3})(.+)(.{4})', '\1-\2-\3') user_phone,
-			        order_no,
-			        a.user_id,
-			        order_total_price,
-			        TO_CHAR(order_date, 'yyyy-mm-dd hh24:mi:ss') order_date,
-			        ROW_NUMBER() OVER(ORDER BY order_no DESC) AS row_no
-			    FROM
-			        bsjorder a,
-			        bsjusers b
-			    WHERE a.user_id = b.user_id)
-			WHERE row_no BETWEEN #{param1} AND #{param2}
+	    FROM
+	        (SELECT
+	            b.user_name,
+	            REGEXP_REPLACE(b.user_phone, '(02|.{3})(.+)(.{4})', '\1-\2-\3') user_phone,
+	            order_no,
+	            a.user_id,
+	            order_total_price,
+	            a.total_price,
+	            TO_CHAR(order_date, 'yyyy-mm-dd hh24:mi:ss') order_date,
+	            ROW_NUMBER() OVER(ORDER BY order_no DESC) AS row_no
+	        FROM
+	            (select aa.*, total_price
+	                from 
+	                    bsjorder aa,
+	                    (select order_no, sum(price * order_count) total_price from bsjbook aaa, bsjorder_detail bbb where aaa.isbn = bbb.isbn group by order_no) bb
+	                where aa.order_no = bb.order_no) a,
+	            bsjusers b
+	        WHERE a.user_id = b.user_id)
+		WHERE row_no BETWEEN #{param1} AND #{param2}
 	</select>
 	
 	<select id="orderSearch" resultType="com.tech.booksajo.admin.vo.OrderDto">
@@ -210,6 +215,7 @@
 		WHERE aa.order_no = bb.order_no
 		    AND TO_CHAR(order_date, 'YYYY') = #{param1}
 		GROUP BY TO_NUMBER(TO_CHAR(aa.order_date, 'mm'))
+		ORDER BY order_date ASC
 	</select>
 	
 </mapper>
