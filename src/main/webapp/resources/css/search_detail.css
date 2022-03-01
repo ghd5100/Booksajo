@@ -15,16 +15,6 @@
 }
 
 
-#keywordpick{
-	margin-top:30px;
-	height: 200px;
-	border: 2px solid;
-	border-collapse: collapse;
-	width: 250px;
-	margin-left: 30%;
-}
-
-
 #title2{
 	margin-left: 100px;
 	margin-bottom: 70px;
@@ -516,16 +506,55 @@ body {
 	border: solid 1px #666;
 }
 
+<<<<<<< HEAD
 .a:hover {
   
 }
 
 #imghidden{
+=======
+/* 왼쪽 키워드 사이드 */
+.h2keyword {
+    font-size: 12px;
+    color: #000;
+    padding: 15px 0 0 15px;
+    height: 27px;
+}
+
+#keywordpick{
+	border: 1px solid #dcdcdc;
+	margin-top:10px;
+	height: 134px;
+	border-collapse: collapse;
+	width: 210px;
+	margin-left: 38%;
+}
+
+#keywordpick a:hover{
+	border: 1px solid #a8afe5;
+>>>>>>> master
 	
 }
 
 
-/* 사이드 sticky 태그 */
+
+
+#pf {
+    display: inline-block;
+/*     *display: inline; */
+    padding: 4px 12px;
+    margin: 0 5px 6px 0;
+    color: #000;
+    border: 1px solid #d6d6d6;
+    border-radius: 20px;
+    background-color: #fff;
+    font-size: 12px;
+    line-height: 16px;
+/*     *line-height: 34px; */
+}
+
+
+/* 오른쪽 사이드 sticky 태그 */
 .sticky{
 	width:100px;
 	position:sticky;
@@ -548,6 +577,32 @@ body {
 	border-color: #eee;
 
 }
+
+/* 왼쪽 사이드 sticky 태그  */
+
+/* 오른쪽 사이드 sticky 태그 */
+/* .sticky{ */
+/* 	width:100px; */
+/* 	position:sticky; */
+/* 	top:300px; */
+/* 	left:500px; */
+/* 	z-index: 20; */
+/* } */
+
+/* #side_nav-tabs > li { */
+/* 	width: 150px; */
+/* } */
+/* #side_nav-tabs > li > a:hover{ */
+/* 	color: #666; */
+/* 	margin-right: -30px; */
+/* 	font-weight: bold; */
+/* 	font-size: 13px; */
+/* } */
+
+/* #side_nav-tabs > li > a{ */
+/* 	border-color: #eee; */
+
+/* } */
 
 /* quick메뉴 버튼  */
 #quick_menu2 .btn_quick_top a {

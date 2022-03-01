@@ -93,8 +93,10 @@ var sessionId = '<%=userId%>';
 												html += '</table>';
 
 												console.log(data.documents[0]);
-
-												thumbnail +='<img src='+data.documents[0].thumbnail+'class="img-fluid" alt="..." style="width: 120px; height: 174px;" / >';
+												
+												
+					/*왼쪽 사이드 sticky 시작지점 */
+												thumbnail +='<div class="rsticky">'+'<img src='+data.documents[0].thumbnail+'class="img-fluid" alt="..." style="width: 120px; height: 174px;" / >';
 												$('#img2').html(thumbnail);														//width: 248px; height: 330px;
 												$('#detail').html(html);
 											}).fail(function(error) {
@@ -122,10 +124,10 @@ var sessionId = '<%=userId%>';
 
  									//word += console.log("들어옴");
 
-										word += '키워드 Pick </br>';
+										word += '<h3 class="h2keyword">키워드 Pick</h3> </br>';
 									for ( var ele in result) {
 										word += '<h4 id="pf">'+result[ele].item.word+'</h4>' ;
-										word += '&nbsp;';
+										word += '&nbsp;'+'</div>';
 									}
 
 									console.log(word);
@@ -133,7 +135,7 @@ var sessionId = '<%=userId%>';
 								}
 							});
 						} 
-
+		/*왼쪽 사이드 sticky 끝지점 */
 						
 						
 						function sort(isbn) {
@@ -165,11 +167,26 @@ var sessionId = '<%=userId%>';
 										//cate +='<li class="breadcrumb-item">'+result+'</li>';
 										//cate +='</ol>';
 										
+										var nm="";
+										var nmspli = new Array();
 										for ( var ele in result) {
-										cate += result[ele].class_nm;
+									
+										    nm = result[ele].class_nm;
+											nmspli = nm.split(">");
+ 											cate += '<h3 style="display: inline; font-weight: 550; font-size: 12px;">' 
+ 														+ nmspli[0] + '</h3>' + '>' + 
+ 														'<h2 style="display: inline; font-weight: 600; font-size: 16px;">' 
+ 														+ nmspli[1] + '</h2>' + '>' +
+ 														'<h1 style="display: inline; font-weight: 800; font-size: 22px;">' 
+ 														+ nmspli[2] + '</h1>';
+																			
+										}
 										
-									}
-										
+										console.log(nmspli);
+										console.log(nmspli[0]);
+										console.log(nmspli[1]);
+										console.log(nmspli[2]);
+										console.log(nm);
 										/* cate += result[0]; */
 
 									console.log(cate);
@@ -212,6 +229,7 @@ var sessionId = '<%=userId%>';
 						}
 </script>
 
+<h2 style="display: inline;"></h2>
 
 <div id="inlineside">
 
@@ -233,9 +251,10 @@ var sessionId = '<%=userId%>';
 			<a id="ndStock" style="cursor:pointer;">매장 재고 · 위치</a>
 		</div>
 	</div>
+	
 	 
 	<div id="keywordpick">
-	키워드 Pick
+		<h2>키워드 Pick</h2>
 	</div>
 </div>
 
@@ -249,6 +268,7 @@ var sessionId = '<%=userId%>';
 
 	<div id="booksen">
 	<!-- 장바구니/바로구매 -->
+<<<<<<< HEAD
 
 
 		<form action="shoplist2" id="formorder" method="post">
@@ -266,6 +286,24 @@ var sessionId = '<%=userId%>';
 			<img src="resources/img/btn_minus.gif" alt="수량 빼기">
 		</button>
 	</span>
+=======
+		<div id="booksen">
+		<form action="shoplist2" id="formorder" method="post">
+				<br /><br />
+				
+				<div style="font-size: 12px; font-weight: bolder;">
+						주문수량 : <input type="number" max="10" min="1" value="num" id="count" name="count" />
+					<span class="btn_count">
+						<button type="button"
+							onclick="javascript:formQtyChangeSplit(document.proForm.qty,'1', document.getElementById('split_select').selectedIndex);">
+							<img src="resources/img/btn_plus.gif" alt="수량 더하기">
+						</button>
+						<button type="button"
+							onclick="javascript:formQtyChangeSplit(document.proForm.qty,'-1', document.getElementById('split_select').selectedIndex);">
+							<img src="resources/img/btn_minus.gif" alt="수량 빼기">
+						</button>
+					</span>
+>>>>>>> master
 				</div>
 				<br /> <br /> 
 				<input type="button" value="장바구니 담기" id="shoplist" class="btn_blue" onclick="moveconfirm()" ; /> 
@@ -287,7 +325,7 @@ var sessionId = '<%=userId%>';
 				aria-current="page" href="#boxDetailTag">교환/반품/품절</a></li>
 		</ul>
 
-		<a name="bookinfoTag" style="position: absolute; top: 530px"></a> 
+		<a name="bookinfoTag" style="position: absolute; top: 620px"></a> 
 	</div>
 
 
@@ -334,38 +372,37 @@ var sessionId = '<%=userId%>';
 			</tr>
 
 			<tr>
-				<th>크기,중량</th>
-				<td>172 * 226 * 20 mm / 496g</td>
+				<th width="10px;">크기,중량</th>
+				<td colspan="3">172 * 226 * 20 mm / 496g</td>
 			</tr>
 
 			<tr>
 				<th>제조일자</th>
-				<td>2019/11/20</td>
+				<td colspan="3">2019/11/20</td>
 			</tr>
 
 			<tr>
 				<th>색상</th>
-				<td>이미지참고</td>
+				<td colspan="3">이미지참고</td>
 			</tr>
 
 			<tr>
 				<th>제조자 (수입자)</th>
-				<td>이지스퍼블리싱</td>
+				<td colspan="3">이지스퍼블리싱</td>
 			</tr>
 
 
 			<tr>
 				<th>품질보증기준</th>
-				<td>관련 법 및 소비자 분쟁해결 규정에 따름</td>
+				<td colspan="3">관련 법 및 소비자 분쟁해결 규정에 따름</td>
 			</tr>
 
 		</tbody>
 	</table>
 		
 		<br /><br />
-		<h2><strong>책소개</strong></h2>
-		<h3 id="thebook">이 책이 속한 분야</h3>
-		
+		<h1 style="margin:5px 0 5px 0; text-align: left;"><strong>책소개</strong></h1>
+		<br /><br />
 
 	<img src="resources/img/doit.jpg" id="bookimg" role="tab" style="width: 733px;" />
 
@@ -402,7 +439,11 @@ var sessionId = '<%=userId%>';
 					var height = 10; 
 				
 				//pc화면기준 가운데 정렬  
+<<<<<<< HEAD
 					var left = (window.screen.width / 2) - (width/2); 
+=======
+					var left = (window.screen.width / 1) - (width /2); 
+>>>>>>> master
 					var top = (window.screen.height / 4); 
 				//윈도우 속성 지정 
 			

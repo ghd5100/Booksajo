@@ -10,3 +10,9 @@
 	font-weight: bold;
 }
 
+.hr123 {
+    height: 1px;
+    /* Set the hr color */
+    background-color: #000000; /* Modern Browsers */
+    border-bottom: 1px dotted;
+}
