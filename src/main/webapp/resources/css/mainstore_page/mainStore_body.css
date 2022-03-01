@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+
+.nav_wrap .nav ul {
+    position: inherit;
+    top: 63px;
+    left: 0;
+    width: 950px;
+    list-style: none;
+}
+
+.nav_wrap {
+    position: relative;
+    height: 133px;
+    clear: both;
+    overflow: hidden;
+}
