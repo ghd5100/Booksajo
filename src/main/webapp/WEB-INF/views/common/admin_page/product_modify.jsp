@@ -209,6 +209,7 @@ $(function() {
 	<div class="contents_area">
 		<div class="content_area">
 			<form id="fileForm" name="fileForm" action="admin_product_update" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="beforeThumbnail" value="${list.thumbnail }"/>
 				<table>
 					<tr>
 						<th rowspan="4" class="left">

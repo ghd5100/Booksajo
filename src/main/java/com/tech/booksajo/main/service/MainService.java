@@ -12,5 +12,5 @@ public interface MainService {
 	List<MainDto> getBestData();
 	List<MainDto> getBestAll(int rowStart, int rowEnd, int categoryCheck);
 	List<MainDto> rList(String id);
-	int bestCount();
+	int bestCount(int categoryCheck);
 }

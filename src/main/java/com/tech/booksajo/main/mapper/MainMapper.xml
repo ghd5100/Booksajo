@@ -28,8 +28,10 @@
 		    (SELECT bb.*, ROW_NUMBER() OVER(ORDER BY bb.order_count DESC) AS row_no
 		        FROM
 		            (SELECT SUM(b.order_count) order_count, a.isbn
-		            FROM bsjbook a, bsjorder_detail b
-		            WHERE a.isbn = b.isbn
+		            FROM bsjbook a,
+		            	<include refid="inc" />
+		            WHERE
+		            	a.isbn = b.isbn
 		            GROUP BY a.isbn) bb) cc
 		WHERE aa.isbn = cc.isbn
 	</select>
@@ -64,6 +66,19 @@
 	</sql>
 	
 	
+	<sql id="inc">
+		<choose>
+			<when test="cCheck == 1">
+				(SELECT order_date, b1.* FROM bsjorder a1, bsjorder_detail b1 WHERE TO_NUMBER(TO_CHAR(order_date, 'YYYYMM')) >= TO_NUMBER(TO_CHAR(ADD_MONTHS(sysdate, -1), 'YYYYMM')) AND a1.order_no = b1.order_no) b
+			</when>
+			<when test="cCheck == 2">
+				(SELECT order_date, b1.* FROM bsjorder a1, bsjorder_detail b1 WHERE TO_NUMBER(TO_CHAR(order_date, 'YYYYMM')) >= TO_NUMBER(TO_CHAR(ADD_MONTHS(sysdate, -12), 'YYYYMM')) AND a1.order_no = b1.order_no) b
+			</when>
+			<otherwise>
+		 		bsjorder_detail b
+			</otherwise>
+		</choose>
+	</sql>
 	
 	<select id="classMajor" resultType="String">
 		SELECT class_major

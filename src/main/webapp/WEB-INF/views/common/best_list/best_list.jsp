@@ -14,6 +14,16 @@
 	float: none;
 }
 </style>
+
+<script>
+$(function(){
+	var categoryList = document.location.href.split("&");
+	
+
+})
+
+</script>
+
 </head>
 <body>
 	<div class="contents">
@@ -59,145 +69,17 @@
 						</div>
 					</li>
 				</c:forEach>
-				
-                <!-- <li>
-                    <div class="book_thumbnail">
-                            <a href="#">
-                                <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
-                            </a>
-                    </div>
-                    <div class="title">
-                        <a href="#">
-                            <strong>제목</strong>
-						</a>
-						<span>글쓴이 : 누군가</span>
-                        <span>출판사 : 어딘가</span>
-                        <span>출판일 : 언젠가</span>
-					</div>
-				</li>
-				
-				<li>
-                    <div class="book_thumbnail">
-                            <a href="#">
-                                <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
-                            </a>
-                    </div>
-                    <div class="title">
-                        <a href="#">
-                            <strong>제목</strong>
-						</a>
-						<span>글쓴이 : 누군가</span>
-                        <span>출판사 : 어딘가</span>
-                        <span>출판일 : 언젠가</span>
-					</div>
-				</li>
-				
-				<li>
-                    <div class="book_thumbnail">
-                            <a href="#">
-                                <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
-                            </a>
-                    </div>
-                    <div class="title">
-                        <a href="#">
-                            <strong>제목</strong>
-						</a>
-						<span>글쓴이 : 누군가</span>
-                        <span>출판사 : 어딘가</span>
-                        <span>출판일 : 언젠가</span>
-					</div>
-				</li>
-				
-				<li>
-                    <div class="book_thumbnail">
-                            <a href="#">
-                                <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
-                            </a>
-                    </div>
-                    <div class="title">
-                        <a href="#">
-                            <strong>제목</strong>
-						</a>
-						<span>글쓴이 : 누군가</span>
-                        <span>출판사 : 어딘가</span>
-                        <span>출판일 : 언젠가</span>
-					</div>
-				</li>
-				
-				<li>
-                    <div class="book_thumbnail">
-                            <a href="#">
-                                <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
-                            </a>
-                    </div>
-                    <div class="title">
-                        <a href="#">
-                            <strong>제목</strong>
-						</a>
-						<span>글쓴이 : 누군가</span>
-                        <span>출판사 : 어딘가</span>
-                        <span>출판일 : 언젠가</span>
-					</div>
-				</li>
-				
-				<li>
-                    <div class="book_thumbnail">
-                            <a href="#">
-                                <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
-                            </a>
-                    </div>
-                    <div class="title">
-                        <a href="#">
-                            <strong>제목</strong>
-						</a>
-						<span>글쓴이 : 누군가</span>
-                        <span>출판사 : 어딘가</span>
-                        <span>출판일 : 언젠가</span>
-					</div>
-				</li>
-				
-				<li>
-                    <div class="book_thumbnail">
-                            <a href="#">
-                                <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
-                            </a>
-                    </div>
-                    <div class="title">
-                        <a href="#">
-                            <strong>제목</strong>
-						</a>
-						<span>글쓴이 : 누군가</span>
-                        <span>출판사 : 어딘가</span>
-                        <span>출판일 : 언젠가</span>
-					</div>
-				</li>
-				
-				<li>
-                    <div class="book_thumbnail">
-                            <a href="#">
-                                <img src="https://post-phinf.pstatic.net/MjAxOTA0MjZfMjc2/MDAxNTU2MjE2Njc1NjAz.5GjTVBEPY0kd2SExs3uiK2eeZ1K6pCae4MwViLxf8rcg.BN2Tr6BXUaFG_IJJOB4pSFLRdHqprgQxk-ugh-W0uZ4g.JPEG/KakaoTalk_20190426_032248653.jpg?type=w1200" alt="">
-                            </a>
-                    </div>
-                    <div class="title">
-                        <a href="#">
-                            <strong>제목</strong>
-						</a>
-						<span>글쓴이 : 누군가</span>
-                        <span>출판사 : 어딘가</span>
-                        <span>출판일 : 언젠가</span>
-					</div>
-				</li> -->
 			</ul>
 		</div>
 		<div class="page_area">
 			<div class="paging">
-				<a href="bestList?page=1"><img src="resources/img/btn_prev_on.gif" alt="" /></a>
+				<a href="bestList?page=1&category=${category }"><img src="resources/img/btn_prev_on.gif" alt="" /></a>
 				<c:choose>
 					<c:when test="${searchVO.page eq 1}">
-						<a href="bestList?page=${searchVO.page }"><img src="resources/img/btn_prev.gif" alt="" /></a>
+						<a href="bestList?page=${searchVO.page }&category=${category }"><img src="resources/img/btn_prev.gif" alt="" /></a>
 					</c:when>
 					<c:otherwise>
-						<a href="bestList?page=${searchVO.page - 1 }"><img src="resources/img/btn_prev.gif" alt="" /></a>
+						<a href="bestList?page=${searchVO.page - 1 }&category=${category }"><img src="resources/img/btn_prev.gif" alt="" /></a>
 					</c:otherwise>
 				</c:choose>
 				&nbsp;&nbsp;
@@ -208,20 +90,20 @@
 							<span style="color:red; font-weight: bold;">${i }</span>&nbsp;&nbsp;&nbsp;&nbsp; 
 						</c:when>
 						<c:otherwise>
-							<a href="bestList?page=${i }" style="text-decoration: none">${i } </a>&nbsp;&nbsp;
+							<a href="bestList?page=${i }&category=${category }" style="text-decoration: none">${i } </a>&nbsp;&nbsp;
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
 
 				<c:choose>
 					<c:when test="${searchVO.totPage eq searchVO.page }">
-						<a href="bestList?page=${searchVO.page }"><img src="resources/img/btn_next.gif" alt="" /></a>
+						<a href="bestList?page=${searchVO.page }&category=${category }"><img src="resources/img/btn_next.gif" alt="" /></a>
 					</c:when>
 					<c:otherwise>
-						<a href="bestList?page=${searchVO.page + 1 }"><img src="resources/img/btn_next.gif" alt="" /></a>
+						<a href="bestList?page=${searchVO.page + 1 }&category=${category }"><img src="resources/img/btn_next.gif" alt="" /></a>
 					</c:otherwise>
 				</c:choose>
-				<a href="bestList?page=${searchVO.totPage }"><img src="resources/img/btn_next_on.gif" alt="" /></a>
+				<a href="bestList?page=${searchVO.totPage }&category=${category }"><img src="resources/img/btn_next_on.gif" alt="" /></a>
 			</div>
 			
 		</div>
